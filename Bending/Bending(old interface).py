@@ -19,11 +19,11 @@ def constrain(val, lo, hi):
 blank = pygame.Surface((20, 20))
 blank.set_colorkey((255, 255, 255))
 
-logopath = "C:\\Users\\Charles Turvey\\PycharmProjects\\Stuff\\Simulator\\fakerobotapi\\Resources\\LogoSmall.png"
-srlogo = pygame.image.load_extended(logopath)
-srlogo = pygame.transform.scale(srlogo, (20, 20))
-srlogo.set_colorkey((0, 0, 0))
-srlogo.convert()
+#logopath = "C:\\Users\\Charles Turvey\\PycharmProjects\\Stuff\\Simulator\\fakerobotapi\\Resources\\LogoSmall.png"
+#srlogo = pygame.image.load_extended(logopath)
+#srlogo = pygame.transform.scale(srlogo, (20, 20))
+#srlogo.set_colorkey((0, 0, 0))
+#srlogo.convert()
 
 FIST = pygame.image.load_extended("D:\\Users\\Charles Turvey\\Documents\\Python\\FIST.png")
 FIST = pygame.transform.scale(FIST, (20, 20))

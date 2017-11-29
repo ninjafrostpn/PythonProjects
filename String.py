@@ -176,3 +176,4 @@ while True:
                 ROP1.maxlength += 10
             elif e.key == K_DOWN and ROP1.maxlength >= 10:
                 ROP1.maxlength -= 10
+                

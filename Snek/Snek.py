@@ -50,7 +50,7 @@ print("Available channels: " + str(chanmax))
 channels = [pygame.mixer.Channel(i) for i in range(chanmax)]
 
 # Type of bgm to play: -1 is nothing, 0 is procedural, 1 is fixed
-musicmode = -1
+musicmode = 1
 
 if musicmode == 0:
     # generates frequencies of sine wave so as to obtain a chromatic scale in either stereo channel

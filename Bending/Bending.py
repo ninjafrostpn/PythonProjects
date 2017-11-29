@@ -1,11 +1,11 @@
 import pygame
 from pygame.locals import *
-from random import randint as rand
+from random import randint, shuffle
 from math import sin
 
 pygame.init()
-screen = pygame.Surface((500, 100))
-window = pygame.display.set_mode((screen.get_width() * 2, screen.get_height() * 2))
+screen = pygame.Surface((500, 100))                                                  # The actual screen for playing
+window = pygame.display.set_mode((screen.get_width() * 2, screen.get_height() * 2))  # The scaled-up screen for viewing
 
 
 def constrain(val, lo, hi):
@@ -17,15 +17,18 @@ def constrain(val, lo, hi):
     else:
         return val
 
+# A filled-in block
 blank = pygame.Surface((20, 20))
 blank.set_colorkey((255, 255, 255))
 
-logopath = "C:\\Users\\Charles Turvey\\PycharmProjects\\Stuff\\Simulator\\fakerobotapi\\Resources\\LogoSmall.png"
-srlogo = pygame.image.load_extended(logopath)
-srlogo = pygame.transform.scale(srlogo, (20, 20))
-srlogo.set_colorkey((0, 0, 0))
-srlogo.convert()
+# The SR Logo
+#logopath = "C:\\Users\\Charles Turvey\\PycharmProjects\\Stuff\\Simulator\\fakerobotapi\\Resources\\LogoSmall.png"
+#srlogo = pygame.image.load_extended(logopath)
+#srlogo = pygame.transform.scale(srlogo, (20, 20))
+#srlogo.set_colorkey((0, 0, 0))
+#srlogo.convert()
 
+# A large fist in a number of orientations
 FIST = pygame.image.load_extended("D:\\Users\\Charles Turvey\\Documents\\Python\\FIST.png")
 FIST = pygame.transform.scale(FIST, (20, 20))
 FIST.set_colorkey((255, 255, 255))
@@ -33,30 +36,39 @@ FIST.convert()
 rightFIST = pygame.transform.rotate(FIST, -90)
 leftFIST = pygame.transform.flip(rightFIST, True, False)
 
+# A large dragon, facing left or right
 leftDRAGON = pygame.image.load_extended("D:\\Users\\Charles Turvey\\Documents\\Python\\DRAGON.png")
 leftDRAGON = pygame.transform.scale(leftDRAGON, (40*int(leftDRAGON.get_width()/leftDRAGON.get_height()), 40))
 leftDRAGON.set_colorkey((255, 255, 255))
 leftDRAGON.convert()
 rightDRAGON = pygame.transform.flip(leftDRAGON, True, False)
 
+# A list of all the grains
 pieces = []
+# The game grid with references to the grains and players at their relevant positions
 grid = [[0 for j in range(screen.get_height())] for i in range(screen.get_width())]
+# A dictionary of the players with their names as keys
 players = dict()
 
-
+# The class for the sand grains
 class Piece:
     def __init__(self, xin, yin, col=(100, 100, 100)):
+        # The x,y position of the grain
         self.x = xin
         self.y = yin
+        # The grain colour
         self.col = col
+        # The position to which the grain is trying to move; (-1, -1) represents staying put
         self.target = (-1, -1)
+        # A timer indicating for how long, in cycles, it will attempt to get to its target
         self.focus = 0
+        # Adds itself to the list of grains and the grid in the relevant position
         pieces.append(self)
         grid[xin][yin] = self
 
     def show(self):
-        if self.focus > 0:
-            self.focus -= 1
+        if self.focus > 0:  # If it's still striving to reach its target
+            self.focus -= 1 # ...decrement the focus counter, as it has used up one cycle of doing so
             if self.y != self.target[1]:
                 if self.y < self.target[1]:
                     if self.y + 1 < screen.get_height():
@@ -106,6 +118,7 @@ class Piece:
         elif self.y + 1 < screen.get_height():
             if grid[self.x][self.y + 1] == 0:
                 self.move(0, 1)
+        # Draws itself on the game screen
         screen.fill(self.col, (self.x, self.y, 1, 1))
 
     def move(self, xmuch, ymuch):
@@ -327,7 +340,7 @@ groundx = int(screen.get_width())
 groundy = int(screen.get_height()/3)
 for i in range(groundx):
     for j in range(2 * groundy - int((groundy/2) * sin(i/30) * sin(i/60)), 3 * groundy):
-        Piece(i, j, (0, 100, rand(0, 255)))
+        Piece(i, j, (0, 100, randint(0, 255)))
 #for i in range(100, 120):
 #    for j in range(0, 50):
 #        Piece(i, j, (255, 255, 0))
@@ -344,8 +357,10 @@ q = False
 
 while True:
     screen.fill((0, 0, 0))
-    for p in pieces:
-        p.show()
+    R = [r for r in range(len(pieces))]
+    shuffle(R)
+    for p in R:
+        pieces[p].show()
     P1.side(P1go)
     if abs(P1.x - P2.x) > 10:
         P2.side(P1.x - P2.x)

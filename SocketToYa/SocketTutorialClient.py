@@ -16,7 +16,7 @@ def receiving():
         with print_lock:
             print(data.decode("utf-8"))
 
-addr = ("127.0.0.1", 9001)
+addr = ("139.166.166.21", 8080)#("127.0.0.1", 9001)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 broken = True
