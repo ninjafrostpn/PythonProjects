@@ -16,13 +16,16 @@ def receiving():
         with print_lock:
             print(data.decode("utf-8"))
 
-addr = ("139.166.166.21", 8080)#("127.0.0.1", 9001)
+addr = ("139.166.166.21", 8080)
+homeaddr = ("127.0.0.1", 9001)
+piaddr = ("192.168.0.30", 9001)
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 broken = True
 while broken:
     try:
-        s.connect(addr)
+        s.connect(piaddr)
         broken = False
         print("Connected up :)")
     except:
