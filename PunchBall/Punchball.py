@@ -1,7 +1,10 @@
-import pygame, time
+import pygame
 from pygame.locals import *
 from math import atan2, degrees, copysign, pi, sin, cos
 from random import shuffle, randrange
+from time import sleep
+
+debugmode = False
 
 screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
@@ -9,26 +12,35 @@ h = screen.get_height()
 screenrect = screen.get_rect()
 
 wallthickness = 10
-obstacles = [Rect(0,-wallthickness,w,wallthickness), Rect(-wallthickness,0,wallthickness,h),
-             Rect(0,h - wallthickness*3,w,wallthickness*4), Rect(w,0,wallthickness,h),
+obstacles = [Rect(0, -wallthickness, w, wallthickness), Rect(-wallthickness, 0, wallthickness, h),
+             Rect(0, h - wallthickness*3, w, wallthickness*4), Rect(w, 0, wallthickness, h),
              Rect(w/2 - w/6, h/2 - 50, w/3, 50), Rect(w/2 - w/6, h/2 - 150, w/3, 50)]
 
 things = [0 for i in obstacles]
+
 
 # Handy constrain function
 def constrain(val, lo, hi):
     return min(max(val, lo), hi)
 
+
 # Handy pythagorean function
 def pythag(a, b):
     return ((a ** 2) + (b ** 2)) ** 0.5
+
+
+# Debug printing
+def qrint(*args):
+    if debugmode:
+        print(*args)
+
 
 # Generates a hitbox for the given sprite at given position, with scaled image offset
 def generatehitbox(x, y, sprite, scaledoffset=(0.5, 0.5)):
     sx = sprite.get_width()
     sy = sprite.get_height()
-    #print(x - (sx * scaledoffset), y - (sy * scaledoffset), sx, sy)
     return Rect(x - (sx * scaledoffset[0]), y - (sy * scaledoffset[1]), sx, sy)
+
 
 # Base Thing class. Can be moved, accelerated, etc. Collides with other Things.
 class Thing:
@@ -42,7 +54,6 @@ class Thing:
         self.spritelist = [sprite.convert_alpha() for sprite in sprites]
         self.set_sprite(0)
         self.id = len(things)
-        # print(self.id)
         obstacles.append(self.hitbox)
         things.append(self)
         
@@ -51,9 +62,6 @@ class Thing:
         self.sprite = self.spritelist[which]
         self.crossarea = pi * ((self.sprite.get_width() + self.sprite.get_height()) / 2) ** 2
         self.hitbox = generatehitbox(self.x, self.y, self.sprite)
-    
-    def __add__(self, other):
-        pass
     
     def jerk(self, incx, incy):
         self.ax += incx
@@ -70,13 +78,12 @@ class Thing:
         # Assumes 1 collision...
         collision = newhitbox.collidelist(obstacles[:self.id] + obstacles[self.id + 1:])
         if collision == -1:
-            #print(newx, newy)
+            qrint(newx, newy)
             self.x = newx
             self.y = newy
-            # DON'T FORGET TO UPDATE THE HITBOX!
-            self.hitbox.centerx, self.hitbox.centery = newx, newy
+            self.hitbox.centerx, self.hitbox.centery = newx, newy # DON'T FORGET TO UPDATE THE HITBOX!
         else:
-            # print(collision)
+            qrint(collision)
             otherhit = (obstacles[:self.id] + obstacles[self.id + 1:])[collision]
             dvx, dvy = self.collide(collision, otherhit)
             other = (things[:self.id] + things[self.id + 1:])[collision]
@@ -84,14 +91,14 @@ class Thing:
                 other.jerk(-dvx/2, -dvy/2)
                 
     def collide(self, collision, space):
-        # print(self.hitbox)
+        qrint(self.hitbox)
         left = (self.hitbox.centerx < space.left) - (self.hitbox.centerx > space.right)  # -1 for right, 1 for left
         up = (self.hitbox.centery < space.top) - (self.hitbox.centery > space.bottom)  # -1 for down, 1 for up
-        # print(collision, left, up,
-        #       "\n({} - {} - {})".format(space.left, self.hitbox.centerx, space.right),
-        #       "\n({} - {} - {})".format(space.top, self.hitbox.centery, space.bottom))
+        qrint(collision, left, up,
+              "\n({} - {} - {})".format(space.left, self.hitbox.centerx, space.right),
+              "\n({} - {} - {})".format(space.top, self.hitbox.centery, space.bottom))
         dvx, dvy = -self.vx, -self.vy
-        # if the velocity points into the wall
+        # if the relevant velocity component points into the object, reverse and reduce it
         if left == copysign(1, self.vx):
             self.vx *= -0.7
         if up == copysign(1, self.vy):
@@ -124,6 +131,7 @@ class Thing:
         screen.blit(rotsprite, (self.x - rotsprite.get_width()/2, self.y - rotsprite.get_height()/2))
         self.ax = 0
         self.ay = 0
+
 
 # basic player settigs
 player1col = (0, 150, 0)
@@ -159,7 +167,7 @@ cycles = 0
 
 # main game loop
 while True:
-    screen.fill(0) # Clears screen
+    screen.fill(0)  # Clears screen
     
     # Draw goals
     screen.fill(player1col, goal1)
@@ -192,7 +200,7 @@ while True:
         d = pythag(dx, dy)
         targx = squareball.x - (20 * (dx / d))
         targy = squareball.y - (20 * (dy / d))
-        #pygame.draw.circle(screen, player1col, (int(targx), int(targy)), 10)
+        # pygame.draw.circle(screen, player1col, (int(targx), int(targy)), 10)
         ang = atan2(targy - player1.y, targx - player1.x)
         player1.jerk(kickamt * (cos(ang) + randrange(-1, 1)) / 2, kickamt * (sin(ang) + randrange(-1, 1)) / 2)
     if player2playing:
@@ -210,14 +218,14 @@ while True:
         d = pythag(dx, dy)
         targx = squareball.x - (20 * (dx/d))
         targy = squareball.y - (20 * (dy/d))
-        #pygame.draw.circle(screen, player2col, (int(targx), int(targy)), 10)
+        # pygame.draw.circle(screen, player2col, (int(targx), int(targy)), 10)
         ang = atan2(targy - player2.y, targx - player2.x)
         player2.jerk(kickamt * (cos(ang) + randrange(-1, 1))/2, kickamt * (sin(ang) + randrange(-1, 1))/2)
     
     # Draw the obstacles
     for i, o in enumerate(obstacles):
         if things[i] == 0:
-            screen.fill((255, 0, 255), o.clip(screenrect)) # Must clip to screen or odd constraining behaviour occurs
+            screen.fill((255, 0, 255), o.clip(screenrect))  # Must clip to screen or odd constraining behaviour occurs
     
     # Point scoring mechanism
     goalhit = squareball.hitbox.collidelist([goal1, goal2])
@@ -226,7 +234,7 @@ while True:
     elif not ingoal:
         ingoal = [-1, 1][goalhit]
         pts += ingoal
-        print(pts)
+        qrint(pts)
     
     # Points display
     pygame.draw.rect(screen, (200, 200, 200), (w/2 - 200, h - wallthickness * 2, 400, wallthickness))
@@ -254,12 +262,12 @@ while True:
         elif e.type == KEYDOWN:
             if e.key == K_ESCAPE:
                 quit()
-    time.sleep(0.01)
+    sleep(0.01)
     
     # Win conditions (quits on victory)
     if pts == -5:
         print("PLAYER 1 WINS")
         quit(1)
-    if pts ==5:
+    if pts == 5:
         print("PLAYER 2 WINS")
         quit(2)
