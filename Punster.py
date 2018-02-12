@@ -28,7 +28,7 @@ def fit(tostr, fromstr, leeway=1):
             if k - high[1] < 0:
                 returnstrlist.insert(high[0] + offset, fromstr[k])
                 offset += 1
-            elif k - high[1] >= highscore:
+            elif k - high[1] >= highscore or high[0] + k - high[1] > len(tostr):
                 returnstrlist.insert(high[0] + offset + highscore, fromstr[k])
                 offset += 1
             else:
@@ -40,5 +40,9 @@ def fit(tostr, fromstr, leeway=1):
     return returnstrs
 
 while True:
-    print("\n".join(fit(input("Phrase in which to fit pun\n>> "),
-                        input("Word to fit in phrase for pun\n>> "))) + "\n")
+    phrase = input("Phrase in which to fit pun\n>> ")
+    word = input("Word to fit in phrase for pun\n>> ")
+    for i in range(1, 4):
+        print("\n".join(fit(phrase,
+                            word,
+                            i)) + "\n")
