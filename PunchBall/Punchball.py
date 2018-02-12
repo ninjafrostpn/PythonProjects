@@ -42,6 +42,19 @@ def generatehitbox(x, y, sprite, scaledoffset=(0.5, 0.5)):
     return Rect(x - (sx * scaledoffset[0]), y - (sy * scaledoffset[1]), sx, sy)
 
 
+# Standard AI
+def AI(selfpos, goalpos, ballpos, force, col):
+    dx = goalpos[0] - ballpos[0]
+    dy = goalpos[1] - ballpos[1]
+    d = pythag(dx, dy)
+    targx = ballpos[0] - (20 * (dx / d))
+    targy = ballpos[1] - (20 * (dy / d))
+    if debugmode:
+        pygame.draw.circle(screen, col, (int(targx), int(targy)), 10)
+    ang = atan2(targy - selfpos[1], targx - selfpos[0])
+    return (force * (cos(ang) + randrange(-1, 1)) / 2, force * (sin(ang) + randrange(-1, 1)) / 2)
+
+
 # Base Thing class. Can be moved, accelerated, etc. Collides with other Things.
 class Thing:
     def __init__(self, x, y, sprites):
@@ -133,12 +146,12 @@ class Thing:
         self.ay = 0
 
 
-# basic player settigs
+# basic player settings
 player1col = (0, 150, 0)
 player2col = (200, 0, 0)
 playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIST2.png"), (36, 36)).convert_alpha()
-player1playing = True
-player2playing = False
+player1playing = False
+player2playing = True
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
@@ -195,14 +208,7 @@ while True:
         if pressed[K_DOWN]:
             player1.jerk(0, kickamt)
     else:
-        dx = goal1.centerx - squareball.x
-        dy = goal1.centery - squareball.y
-        d = pythag(dx, dy)
-        targx = squareball.x - (20 * (dx / d))
-        targy = squareball.y - (20 * (dy / d))
-        # pygame.draw.circle(screen, player1col, (int(targx), int(targy)), 10)
-        ang = atan2(targy - player1.y, targx - player1.x)
-        player1.jerk(kickamt * (cos(ang) + randrange(-1, 1)) / 2, kickamt * (sin(ang) + randrange(-1, 1)) / 2)
+        player1.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
     if player2playing:
         if pressed[K_a]:
             player2.jerk(-kickamt, 0)
@@ -213,14 +219,7 @@ while True:
         if pressed[K_s]:
             player2.jerk(0, kickamt)
     else:
-        dx = goal2.centerx - squareball.x
-        dy = goal2.centery - squareball.y
-        d = pythag(dx, dy)
-        targx = squareball.x - (20 * (dx/d))
-        targy = squareball.y - (20 * (dy/d))
-        # pygame.draw.circle(screen, player2col, (int(targx), int(targy)), 10)
-        ang = atan2(targy - player2.y, targx - player2.x)
-        player2.jerk(kickamt * (cos(ang) + randrange(-1, 1))/2, kickamt * (sin(ang) + randrange(-1, 1))/2)
+        player2.jerk(*AI(player2.hitbox.center, goal2.center, squareball.hitbox.center, kickamt, player2col))
     
     # Draw the obstacles
     for i, o in enumerate(obstacles):
