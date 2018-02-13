@@ -29,14 +29,14 @@
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="221" column="109" lean-forward="true" selection-start-line="221" selection-start-column="109" selection-end-line="221" selection-end-column="109" />
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#695#723#0" expanded="false" />
                 <element signature="e#777#812#0" expanded="false" />
                 <element signature="e#854#888#0" expanded="false" />
                 <element signature="e#1040#1172#0" expanded="false" />
-                <element signature="e#1748#5424#0" expanded="false" />
+                <element signature="e#1812#5488#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1247,7 +1247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518441245564</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Take AI out into a function.">
+      <created>1518441943174</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1518441943174</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1314,7 +1321,8 @@
     <MESSAGE value="Quite a few things. I'm going to start being tidier now." />
     <MESSAGE value="Fix paths, Clean up code, and Add in comments." />
     <MESSAGE value="Tidy up more, add qrint function for debugging." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidy up more, add qrint function for debugging." />
+    <MESSAGE value="Take AI out into a function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Take AI out into a function." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1687,14 +1695,14 @@
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="221" column="109" lean-forward="true" selection-start-line="221" selection-start-column="109" selection-end-line="221" selection-end-column="109" />
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#695#723#0" expanded="false" />
             <element signature="e#777#812#0" expanded="false" />
             <element signature="e#854#888#0" expanded="false" />
             <element signature="e#1040#1172#0" expanded="false" />
-            <element signature="e#1748#5424#0" expanded="false" />
+            <element signature="e#1812#5488#0" expanded="false" />
           </folding>
         </state>
       </provider>

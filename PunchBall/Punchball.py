@@ -47,8 +47,11 @@ def AI(selfpos, goalpos, ballpos, force, col):
     dx = goalpos[0] - ballpos[0]
     dy = goalpos[1] - ballpos[1]
     d = pythag(dx, dy)
-    targx = ballpos[0] - (20 * (dx / d))
-    targy = ballpos[1] - (20 * (dy / d))
+    if d == 0:
+        targx, targy = ballpos
+    else:
+        targx = ballpos[0] - (20 * (dx / d))
+        targy = ballpos[1] - (20 * (dy / d))
     if debugmode:
         pygame.draw.circle(screen, col, (int(targx), int(targy)), 10)
     ang = atan2(targy - selfpos[1], targx - selfpos[0])
@@ -151,7 +154,7 @@ player1col = (0, 150, 0)
 player2col = (200, 0, 0)
 playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIST2.png"), (36, 36)).convert_alpha()
 player1playing = False
-player2playing = True
+player2playing = False
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
@@ -261,7 +264,7 @@ while True:
         elif e.type == KEYDOWN:
             if e.key == K_ESCAPE:
                 quit()
-    sleep(0.01)
+    #sleep(0.01)
     
     # Win conditions (quits on victory)
     if pts == -5:
