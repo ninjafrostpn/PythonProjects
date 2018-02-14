@@ -77,7 +77,7 @@ class Thing:
         self.spriteno = which
         self.sprite = self.spritelist[which]
         self.crossarea = pi * ((self.sprite.get_width() + self.sprite.get_height()) / 2) ** 2
-        self.hitbox = generatehitbox(self.x, self.y, self.sprite)
+        self.hitbox = generatehitbox(self.x, self.y, self.sprite)  # TODO: fix hitboxes for non-square rotating Things
     
     def jerk(self, incx, incy):
         if not self.unforceable:
@@ -105,6 +105,8 @@ class Thing:
             dvx, dvy = self.collide(collision, otherhit)
             other = (things[:self.id] + things[self.id + 1:])[collision]
             other.jerk(dvx, dvy)
+        if debugmode:
+            screen.fill((255, 0, 255), self.hitbox)
                 
     def collide(self, collision, space):
         qrint(self.hitbox)
@@ -229,10 +231,11 @@ pygame.draw.circle(ballsprite, (0, 0, 0, 0), (18, 24), 4)
 squareball = Thing(w/2, h/10, [ballsprite])
 
 if False:
+    fishsprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FISH.png"), (21, 36)).convert_alpha()
+    for i, fishx in enumerate(range(0, w, 36)):
+        print(i, "FISH")
+        Player(fishx + 18, h/1.3 + 10 * sin(radians(fishx)), fishsprite, isplaying=False)
     print("FISHPARTY!")
-    fishsprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FISH.png"), (36, 36)).convert_alpha()
-    for i in range(0, w, 36):
-        Player(i + 18, h/1.3 + 10 * sin(radians(i)), fishsprite, isplaying=False)
 
 # Set goal positions
 goal1 = Rect(0, 0, 50, 50)
@@ -256,7 +259,7 @@ while True:
     upperplatform.move(5 * cos(radians(cycles)), 0)
     lowerplatform.move(-5 * cos(radians(cycles)), 0)
     
-    # Obtain playerinputes
+    # Obtain playerinputs
     pressed = pygame.key.get_pressed()
     
     for p in players:
@@ -307,8 +310,8 @@ while True:
     
     # Win conditions (quits on victory)
     if pts == -5:
-        print("PLAYER 1 WINS")
+        print("TEAM 1 WINS")
         quit(1)
     if pts == 5:
-        print("PLAYER 2 WINS")
+        print("TEAM 2 WINS")
         quit(2)
