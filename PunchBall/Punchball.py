@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from math import atan2, degrees, copysign, pi, sin, cos
+from math import atan2, degrees, radians, copysign, pi, sin, cos
 from random import shuffle, randrange
 from time import sleep
 
@@ -12,11 +12,9 @@ h = screen.get_height()
 screenrect = screen.get_rect()
 
 wallthickness = 10
-obstacles = [Rect(0, -wallthickness, w, wallthickness), Rect(-wallthickness, 0, wallthickness, h),
-             Rect(0, h - wallthickness*3, w, wallthickness*4), Rect(w, 0, wallthickness, h),
-             Rect(w/2 - w/6, h/2 - 50, w/3, 50), Rect(w/2 - w/6, h/2 - 150, w/3, 50)]
 
-things = [0 for i in obstacles]
+obstacles = []
+things = []
 
 
 # Handy constrain function
@@ -60,13 +58,14 @@ def AI(selfpos, goalpos, ballpos, force, col):
 
 # Base Thing class. Can be moved, accelerated, etc. Collides with other Things.
 class Thing:
-    def __init__(self, x, y, sprites):
+    def __init__(self, x, y, sprites, unforceable=False):
         self.x = x
         self.y = y
         self.vx = 0
         self.vy = 0
         self.ax = 0
         self.ay = 0
+        self.unforceable = unforceable
         self.spritelist = [sprite.convert_alpha() for sprite in sprites]
         self.set_sprite(0)
         self.id = len(things)
@@ -80,8 +79,9 @@ class Thing:
         self.hitbox = generatehitbox(self.x, self.y, self.sprite)
     
     def jerk(self, incx, incy):
-        self.ax += incx
-        self.ay += incy
+        if not self.unforceable:
+            self.ax += incx
+            self.ay += incy
     
     def accelerate(self, incx, incy):
         self.vx += incx
@@ -103,8 +103,7 @@ class Thing:
             otherhit = (obstacles[:self.id] + obstacles[self.id + 1:])[collision]
             dvx, dvy = self.collide(collision, otherhit)
             other = (things[:self.id] + things[self.id + 1:])[collision]
-            if other != 0:
-                other.jerk(-dvx/2, -dvy/2)
+            other.jerk(-dvx/2, -dvy/2)
                 
     def collide(self, collision, space):
         qrint(self.hitbox)
@@ -122,22 +121,10 @@ class Thing:
         dvx += self.vx
         dvy += self.vy
         return dvx, dvy
-
-    def applyairresistance(self, rho=1.1839, cd=0.47):
-        # F_d = (rho.v^2.A.C_d)/2
-        # rho_air = 1.1839
-        # C_d_sphere = 0.47
-        v = pythag(self.vx, self.vy)
-        if v != 0:
-            a = pythag(self.ax, self.ay)
-            res = -min((rho * (v**2) * self.crossarea * cd)/2000000, a) # Add some extra zeros...(and a should be v - a)
-            self.jerk((self.vx/v) * res, (self.vy/v) * res)
     
     def show(self, cycles):
         if cycles % len(self.spritelist) != self.spriteno:
-            self.spriteno = cycles
-            self.sprite = self.spritelist[self.spriteno]
-        self.applyairresistance()
+            self.set_sprite(cycles % len(self.spritelist))
         self.accelerate(self.ax, self.ay)
         self.move(self.vx, self.vy)
         rotsprite = pygame.transform.rotate(self.sprite, -90 - degrees(atan2(self.vy, self.vx)))
@@ -153,7 +140,7 @@ class Thing:
 class Player(Thing):
     def __init__(self, x, y, sprite, controls=(K_w, K_a, K_s, K_d)):
         self.controls = controls  # Input as WASD
-        super(Player, self).__init__(x, y, [sprite])
+        super(Player, self).__init__(x, y, [sprite], False)
     
     def keypress(self, pressed):
         if pressed[self.controls[0]]:
@@ -164,7 +151,53 @@ class Player(Thing):
             self.jerk(0, kickamt)
         if pressed[self.controls[3]]:
             self.jerk(kickamt, 0)
+    
+    def applyairresistance(self, rho=1.1839, cd=0.47):
+        # F_d = (rho.v^2.A.C_d)/2
+        # rho_air = 1.1839
+        # C_d_sphere = 0.47
+        v = pythag(self.vx, self.vy)
+        if v != 0:
+            a = pythag(self.ax, self.ay)
+            res = -min((rho * (v**2) * self.crossarea * cd)/2000000, v - a) # Add some extra zeros...
+            self.jerk((self.vx/v) * res, (self.vy/v) * res)
+            
+    def show(self, cycles):
+        self.applyairresistance()
+        super(Player, self).show(cycles)
+          
 
+# Wall class, for environment obstacles, derived from above Thing class
+class Wall(Thing):
+    def __init__(self, rectin, col=(255, 0, 255)):
+        sprite = pygame.Surface((rectin.w, rectin.h)).convert_alpha()
+        sprite.fill(col)
+        super(Wall, self).__init__(rectin.x + rectin.w/2, rectin.y + rectin.h/2, [sprite], True)
+    
+    def set_sprite(self, which):
+        self.spriteno = which
+        self.sprite = self.spritelist[which]
+        self.hitbox = generatehitbox(self.x, self.y, self.sprite)
+    
+    def collide(self, collision, space):
+        return 0, 0
+    
+    # TODO: Stop walls from stopping for other things and make them hit them instead? Could be unstable at edges
+    
+    def show(self, cycles):
+        self.accelerate(self.ax, self.ay)
+        self.move(self.vx, self.vy)
+        screen.blit(self.sprite, (self.x - self.sprite.get_width()/2, self.y - self.sprite.get_height()/2))
+        self.ax = 0
+        self.ay = 0
+
+# Add in walls
+screenwalls = [Wall(wallrect) for wallrect in [Rect(0, -wallthickness, w, wallthickness),
+                                               Rect(-wallthickness, 0, wallthickness, h),
+                                               Rect(0, h - wallthickness*3, w, wallthickness*4),
+                                               Rect(w, 0, wallthickness, h)]]
+upperplatform = Wall(Rect(w/2 - w/6, h/2 - 150, w/3, 50))
+lowerplatform = Wall(Rect(w/2 - w/6, h/2 - 50, w/3, 50))
 
 # basic player settings
 player1col = (0, 150, 0)
@@ -186,7 +219,7 @@ ballsprite = pygame.Surface((36, 36)).convert_alpha()
 ballsprite.fill((0, 0, 0, 0))
 pygame.draw.circle(ballsprite, (255, 255, 255), (18, 18), 18)
 pygame.draw.circle(ballsprite, (0, 0, 0, 0), (18, 24), 4)
-squareball = Thing(w/2, h/2, [ballsprite])
+squareball = Thing(w/2, h/1.3, [ballsprite])
 
 # Set goal positions
 goal1 = Rect(0, 0, 50, 50)
@@ -207,8 +240,8 @@ while True:
     screen.fill(player2col, goal2)
     
     # Move moving platforms
-    obstacles[4].centerx = (1 + cos(cycles/700)) * (w/2)
-    obstacles[5].centerx = (1 - cos(cycles/700)) * (w/2)
+    upperplatform.move(5 * cos(radians(cycles)), 0)
+    lowerplatform.move(-5 * cos(radians(cycles)), 0)
     
     # Obtain keypresses
     pressed = pygame.key.get_pressed()
@@ -241,22 +274,21 @@ while True:
         pts += ingoal
         qrint(pts)
     
-    # Points display
-    pygame.draw.rect(screen, (200, 200, 200), (w/2 - 200, h - wallthickness * 2, 400, wallthickness))
-    if pts < 0:
-        pygame.draw.rect(screen, player1col, (w/2, h - wallthickness * 2, pts * 40, wallthickness))
-    elif pts > 0:
-        pygame.draw.rect(screen, player2col, (w/2, h - wallthickness * 2, pts * 40, wallthickness))
-    for i in range(-200, 201, 40):
-        pygame.draw.line(screen, (0, 0, 0), (w/2 + i, h - wallthickness * 2), (w/2 + i, h - wallthickness), 2)
-    pygame.draw.line(screen, (0, 0, 0), (w / 2, h - wallthickness * 2.5), (w / 2, h - wallthickness * 0.5), 2)
-    
     # Activate and show all the Things in random order
     renderorder = things.copy()
     shuffle(renderorder)
     for t in renderorder:
-        if t != 0:
-            t.show(cycles)
+        t.show(cycles)
+
+    # Points display
+    pygame.draw.rect(screen, (200, 200, 200), (w / 2 - 200, h - wallthickness * 2, 400, wallthickness))
+    if pts < 0:
+        pygame.draw.rect(screen, player1col, (w / 2, h - wallthickness * 2, pts * 40, wallthickness))
+    elif pts > 0:
+        pygame.draw.rect(screen, player2col, (w / 2, h - wallthickness * 2, pts * 40, wallthickness))
+    for i in range(-200, 201, 40):
+        pygame.draw.line(screen, (0, 0, 0), (w / 2 + i, h - wallthickness * 2), (w / 2 + i, h - wallthickness), 2)
+    pygame.draw.line(screen, (0, 0, 0), (w / 2, h - wallthickness * 2.5), (w / 2, h - wallthickness * 0.5), 2)
             
     # Display, handle events, then pause between cycles for reasonable framerate
     pygame.display.flip()

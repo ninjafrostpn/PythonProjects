@@ -28,14 +28,15 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="243" column="20" lean-forward="true" selection-start-line="243" selection-start-column="20" selection-end-line="243" selection-end-column="20" />
+            <state relative-caret-position="400">
+              <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#695#723#0" expanded="false" />
-                <element signature="e#777#812#0" expanded="false" />
-                <element signature="e#854#888#0" expanded="false" />
-                <element signature="e#1040#1172#0" expanded="false" />
+                <element signature="e#421#449#0" expanded="false" />
+                <element signature="e#503#538#0" expanded="false" />
+                <element signature="e#580#614#0" expanded="false" />
+                <element signature="e#766#898#0" expanded="false" />
+                <element signature="e#2399#2438#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1260,7 +1261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518485318326</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add Player class which inherits from Thing class">
+      <created>1518615865427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1518615865427</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1329,14 +1337,15 @@
     <MESSAGE value="Tidy up more, add qrint function for debugging." />
     <MESSAGE value="Take AI out into a function." />
     <MESSAGE value="Remove prtential division-by-zero error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove prtential division-by-zero error" />
+    <MESSAGE value="Add Player class which inherits from Thing class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Player class which inherits from Thing class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1701,14 +1710,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="243" column="20" lean-forward="true" selection-start-line="243" selection-start-column="20" selection-end-line="243" selection-end-column="20" />
+        <state relative-caret-position="400">
+          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#695#723#0" expanded="false" />
-            <element signature="e#777#812#0" expanded="false" />
-            <element signature="e#854#888#0" expanded="false" />
-            <element signature="e#1040#1172#0" expanded="false" />
+            <element signature="e#421#449#0" expanded="false" />
+            <element signature="e#503#538#0" expanded="false" />
+            <element signature="e#580#614#0" expanded="false" />
+            <element signature="e#766#898#0" expanded="false" />
+            <element signature="e#2399#2438#0" expanded="false" />
           </folding>
         </state>
       </provider>
