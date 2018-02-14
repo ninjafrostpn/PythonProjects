@@ -28,15 +28,16 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="139" column="115" lean-forward="true" selection-start-line="139" selection-start-column="115" selection-end-line="139" selection-end-column="115" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#421#449#0" expanded="false" />
-                <element signature="e#503#538#0" expanded="false" />
-                <element signature="e#580#614#0" expanded="false" />
-                <element signature="e#766#898#0" expanded="false" />
-                <element signature="e#2399#2438#0" expanded="false" />
+                <element signature="e#434#462#0" expanded="false" />
+                <element signature="e#516#551#0" expanded="false" />
+                <element signature="e#593#627#0" expanded="false" />
+                <element signature="e#779#911#0" expanded="false" />
+                <element signature="e#979#1451#0" expanded="false" />
+                <element signature="e#2412#2451#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -53,7 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>atan2</find>
       <find>90</find>
       <find>1</find>
       <find>play</find>
@@ -83,6 +83,7 @@
       <find># print</find>
       <find>qrint</find>
       <find>print</find>
+      <find>keypress</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -108,6 +109,7 @@
       <replace>speed</replace>
       <replace>,</replace>
       <replace>qrint</replace>
+      <replace>playerinput</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\sr</dir>
@@ -1268,7 +1270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518615865427</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add Wall(Thing) class and rearrange Thing code and move score rendering to accommodate it">
+      <created>1518620763203</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1518620763203</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1298,6 +1307,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22015916" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1312,7 +1322,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1338,14 +1347,15 @@
     <MESSAGE value="Take AI out into a function." />
     <MESSAGE value="Remove prtential division-by-zero error" />
     <MESSAGE value="Add Player class which inherits from Thing class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Player class which inherits from Thing class" />
+    <MESSAGE value="Add Wall(Thing) class and rearrange Thing code and move score rendering to accommodate it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Wall(Thing) class and rearrange Thing code and move score rendering to accommodate it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1710,15 +1720,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state relative-caret-position="200">
+          <caret line="139" column="115" lean-forward="true" selection-start-line="139" selection-start-column="115" selection-end-line="139" selection-end-column="115" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#421#449#0" expanded="false" />
-            <element signature="e#503#538#0" expanded="false" />
-            <element signature="e#580#614#0" expanded="false" />
-            <element signature="e#766#898#0" expanded="false" />
-            <element signature="e#2399#2438#0" expanded="false" />
+            <element signature="e#434#462#0" expanded="false" />
+            <element signature="e#516#551#0" expanded="false" />
+            <element signature="e#593#627#0" expanded="false" />
+            <element signature="e#779#911#0" expanded="false" />
+            <element signature="e#979#1451#0" expanded="false" />
+            <element signature="e#2412#2451#0" expanded="false" />
           </folding>
         </state>
       </provider>

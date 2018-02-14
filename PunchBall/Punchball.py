@@ -15,6 +15,7 @@ wallthickness = 10
 
 obstacles = []
 things = []
+players = []
 
 
 # Handy constrain function
@@ -103,7 +104,7 @@ class Thing:
             otherhit = (obstacles[:self.id] + obstacles[self.id + 1:])[collision]
             dvx, dvy = self.collide(collision, otherhit)
             other = (things[:self.id] + things[self.id + 1:])[collision]
-            other.jerk(-dvx/2, -dvy/2)
+            other.jerk(dvx, dvy)
                 
     def collide(self, collision, space):
         qrint(self.hitbox)
@@ -120,7 +121,7 @@ class Thing:
             self.vy *= -0.7
         dvx += self.vx
         dvy += self.vy
-        return dvx, dvy
+        return -dvx/2, -dvy/2
     
     def show(self, cycles):
         if cycles % len(self.spritelist) != self.spriteno:
@@ -136,22 +137,27 @@ class Thing:
         self.ay = 0
 
 
-# Player class, derived from above Thing class
+# Player class, derived from above Thing class TODO: fix craziness observed in sprite rotation whilst sitting still
 class Player(Thing):
-    def __init__(self, x, y, sprite, controls=(K_w, K_a, K_s, K_d)):
+    def __init__(self, x, y, sprite, controls=(K_w, K_a, K_s, K_d), isplaying=True):
         self.controls = controls  # Input as WASD
+        self.isplaying = isplaying
         super(Player, self).__init__(x, y, [sprite], False)
+        players.append(self)
     
-    def keypress(self, pressed):
-        if pressed[self.controls[0]]:
-            self.jerk(0, -kickamt)
-        if pressed[self.controls[1]]:
-            self.jerk(-kickamt, 0)
-        if pressed[self.controls[2]]:
-            self.jerk(0, kickamt)
-        if pressed[self.controls[3]]:
-            self.jerk(kickamt, 0)
-    
+    def playerinput(self, pressed):
+        if self.isplaying:
+            if pressed[self.controls[0]]:
+                self.jerk(0, -kickamt)
+            if pressed[self.controls[1]]:
+                self.jerk(-kickamt, 0)
+            if pressed[self.controls[2]]:
+                self.jerk(0, kickamt)
+            if pressed[self.controls[3]]:
+                self.jerk(kickamt, 0)
+        else:
+            self.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
+            
     def applyairresistance(self, rho=1.1839, cd=0.47):
         # F_d = (rho.v^2.A.C_d)/2
         # rho_air = 1.1839
@@ -180,13 +186,14 @@ class Wall(Thing):
         self.hitbox = generatehitbox(self.x, self.y, self.sprite)
     
     def collide(self, collision, space):
-        return 0, 0
+        return self.vx, self.vy
     
-    # TODO: Stop walls from stopping for other things and make them hit them instead? Could be unstable at edges
+    def move(self, incx, incy):
+        # Walls are moved, then back-calculate their velocity TODO: acceleration calculation?
+        self.vx, self.vy = incx, incy
+        super(Wall, self).move(incx, incy)
     
     def show(self, cycles):
-        self.accelerate(self.ax, self.ay)
-        self.move(self.vx, self.vy)
         screen.blit(self.sprite, (self.x - self.sprite.get_width()/2, self.y - self.sprite.get_height()/2))
         self.ax = 0
         self.ay = 0
@@ -208,18 +215,24 @@ player2playing = True
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
-player1 = Player(w * 0.75, h/2, player1sprite, (K_UP, K_LEFT, K_DOWN, K_RIGHT))
+player1 = Player(w * 0.75, h/2, player1sprite, (K_UP, K_LEFT, K_DOWN, K_RIGHT), player1playing)
 
 player2sprite = pygame.transform.flip(playersprite, True, False)
 pygame.draw.circle(player2sprite, player2col, (18, 24), 4)
-player2 = Player(w * 0.25, h/2, player2sprite)
+player2 = Player(w * 0.25, h/2, player2sprite, isplaying=player2playing)
 
 # Settings for the ball
 ballsprite = pygame.Surface((36, 36)).convert_alpha()
 ballsprite.fill((0, 0, 0, 0))
 pygame.draw.circle(ballsprite, (255, 255, 255), (18, 18), 18)
 pygame.draw.circle(ballsprite, (0, 0, 0, 0), (18, 24), 4)
-squareball = Thing(w/2, h/1.3, [ballsprite])
+squareball = Thing(w/2, h/10, [ballsprite])
+
+if False:
+    print("FISHPARTY!")
+    fishsprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FISH.png"), (36, 36)).convert_alpha()
+    for i in range(0, w, 36):
+        Player(i + 18, h/1.3 + 10 * sin(radians(i)), fishsprite, isplaying=False)
 
 # Set goal positions
 goal1 = Rect(0, 0, 50, 50)
@@ -243,22 +256,13 @@ while True:
     upperplatform.move(5 * cos(radians(cycles)), 0)
     lowerplatform.move(-5 * cos(radians(cycles)), 0)
     
-    # Obtain keypresses
+    # Obtain playerinputes
     pressed = pygame.key.get_pressed()
     
-    # APPLY GRAVITY (only applies to players)
-    player1.jerk(0, kickamt/2.5)
-    player2.jerk(0, kickamt/2.5)
-    
-    # MOVEMENT (set to AI if player not playing)
-    if player1playing:
-        player1.keypress(pressed)
-    else:
-        player1.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
-    if player2playing:
-        player2.keypress(pressed)
-    else:
-        player2.jerk(*AI(player2.hitbox.center, goal2.center, squareball.hitbox.center, kickamt, player2col))
+    for p in players:
+        p.jerk(0, kickamt / 2.5)  # APPLY GRAVITY (only applies to players)
+        p.playerinput(pressed)  # MOVEMENT (set to AI if player not playing)
+        #player2.jerk(*AI(player2.hitbox.center, goal2.center, squareball.hitbox.center, kickamt, player2col))
     
     # Draw the obstacles
     for i, o in enumerate(obstacles):
