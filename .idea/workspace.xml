@@ -28,15 +28,14 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="350">
+              <caret line="243" column="20" lean-forward="true" selection-start-line="243" selection-start-column="20" selection-end-line="243" selection-end-column="20" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#695#723#0" expanded="false" />
                 <element signature="e#777#812#0" expanded="false" />
                 <element signature="e#854#888#0" expanded="false" />
                 <element signature="e#1040#1172#0" expanded="false" />
-                <element signature="e#1812#5488#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -257,7 +256,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Merger">
+  <component name="RunManager" selected="Python.Punchball">
     <configuration name="Alotter" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -418,24 +417,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="DataManager" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataManager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Dices" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -751,6 +732,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="Punchball" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PunchBall/Punchball.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Shortestpath" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1165,19 +1164,19 @@
       <item index="31" class="java.lang.String" itemvalue="Python.Jayl" />
       <item index="32" class="java.lang.String" itemvalue="Python.ArtStu" />
       <item index="33" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="34" class="java.lang.String" itemvalue="Python.DataManager" />
-      <item index="35" class="java.lang.String" itemvalue="Python.Alotter" />
-      <item index="36" class="java.lang.String" itemvalue="Python.WaterParticlePlanet" />
-      <item index="37" class="java.lang.String" itemvalue="Python.Merger" />
-      <item index="38" class="java.lang.String" itemvalue="Python.SoundSources2" />
+      <item index="34" class="java.lang.String" itemvalue="Python.Alotter" />
+      <item index="35" class="java.lang.String" itemvalue="Python.WaterParticlePlanet" />
+      <item index="36" class="java.lang.String" itemvalue="Python.Merger" />
+      <item index="37" class="java.lang.String" itemvalue="Python.SoundSources2" />
+      <item index="38" class="java.lang.String" itemvalue="Python.Punchball" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Merger" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SoundSources2" />
-        <item index="2" class="java.lang.String" itemvalue="Python.WaterParticlePlanet" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Alotter" />
-        <item index="4" class="java.lang.String" itemvalue="Python.DataManager" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Merger" />
+        <item index="2" class="java.lang.String" itemvalue="Python.SoundSources2" />
+        <item index="3" class="java.lang.String" itemvalue="Python.WaterParticlePlanet" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Alotter" />
       </list>
     </recent_temporary>
   </component>
@@ -1254,7 +1253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518441943174</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Remove prtential division-by-zero error">
+      <created>1518485318326</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1518485318326</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1322,7 +1328,8 @@
     <MESSAGE value="Fix paths, Clean up code, and Add in comments." />
     <MESSAGE value="Tidy up more, add qrint function for debugging." />
     <MESSAGE value="Take AI out into a function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Take AI out into a function." />
+    <MESSAGE value="Remove prtential division-by-zero error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove prtential division-by-zero error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1694,15 +1701,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="243" column="20" lean-forward="true" selection-start-line="243" selection-start-column="20" selection-end-line="243" selection-end-column="20" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#695#723#0" expanded="false" />
             <element signature="e#777#812#0" expanded="false" />
             <element signature="e#854#888#0" expanded="false" />
             <element signature="e#1040#1172#0" expanded="false" />
-            <element signature="e#1812#5488#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -149,20 +149,37 @@ class Thing:
         self.ay = 0
 
 
+# Player class, derived from above Thing class
+class Player(Thing):
+    def __init__(self, x, y, sprite, controls=(K_w, K_a, K_s, K_d)):
+        self.controls = controls  # Input as WASD
+        super(Player, self).__init__(x, y, [sprite])
+    
+    def keypress(self, pressed):
+        if pressed[self.controls[0]]:
+            self.jerk(0, -kickamt)
+        if pressed[self.controls[1]]:
+            self.jerk(-kickamt, 0)
+        if pressed[self.controls[2]]:
+            self.jerk(0, kickamt)
+        if pressed[self.controls[3]]:
+            self.jerk(kickamt, 0)
+
+
 # basic player settings
 player1col = (0, 150, 0)
 player2col = (200, 0, 0)
 playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIST2.png"), (36, 36)).convert_alpha()
-player1playing = False
-player2playing = False
+player1playing = True
+player2playing = True
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
-player1 = Thing(w * 0.75, h/2, [player1sprite])
+player1 = Player(w * 0.75, h/2, player1sprite, (K_UP, K_LEFT, K_DOWN, K_RIGHT))
 
 player2sprite = pygame.transform.flip(playersprite, True, False)
 pygame.draw.circle(player2sprite, player2col, (18, 24), 4)
-player2 = Thing(w * 0.25, h/2, [player2sprite])
+player2 = Player(w * 0.25, h/2, player2sprite)
 
 # Settings for the ball
 ballsprite = pygame.Surface((36, 36)).convert_alpha()
@@ -202,25 +219,11 @@ while True:
     
     # MOVEMENT (set to AI if player not playing)
     if player1playing:
-        if pressed[K_LEFT]:
-            player1.jerk(-kickamt, 0)
-        if pressed[K_RIGHT]:
-            player1.jerk(kickamt, 0)
-        if pressed[K_UP]:
-            player1.jerk(0, -kickamt)
-        if pressed[K_DOWN]:
-            player1.jerk(0, kickamt)
+        player1.keypress(pressed)
     else:
         player1.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
     if player2playing:
-        if pressed[K_a]:
-            player2.jerk(-kickamt, 0)
-        if pressed[K_d]:
-            player2.jerk(kickamt, 0)
-        if pressed[K_w]:
-            player2.jerk(0, -kickamt)
-        if pressed[K_s]:
-            player2.jerk(0, kickamt)
+        player2.keypress(pressed)
     else:
         player2.jerk(*AI(player2.hitbox.center, goal2.center, squareball.hitbox.center, kickamt, player2col))
     
@@ -264,7 +267,7 @@ while True:
         elif e.type == KEYDOWN:
             if e.key == K_ESCAPE:
                 quit()
-    #sleep(0.01)
+    sleep(0.01)
     
     # Win conditions (quits on victory)
     if pts == -5:
