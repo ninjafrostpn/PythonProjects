@@ -3,8 +3,66 @@ from pygame.locals import *
 from math import atan2, degrees, radians, copysign, pi, sin, cos
 from random import shuffle, randrange
 from time import sleep
+import socket
+from _thread import *
+import threading
 
 debugmode = False
+servermode = True
+
+print_lock = threading.Lock()
+
+if servermode:
+    input_lock = threading.Lock()
+    
+    host = ''  # accept anything
+    port = 9001  # socket with the minimally maximal power level
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        s.bind((host, port))
+    except socket.error as e:
+        print(str(e))
+    
+    s.listen(5)  # size of queue of how many connections accepted
+    print("Awaiting contact...")
+    
+    pressed = set()
+    
+    
+    def threaded_client(conn, no):
+        conn.send(str.encode("Hey there, Client " + str(no)))
+        while True:
+            data = conn.recv(4096).decode('utf-8').split(",")
+            with print_lock:
+                print(data)
+            if not data:
+                break
+            for k in data:
+                with input_lock:
+                    pressed.add(int(k))
+            # with print_lock:
+            #     print(pressed)
+        conn.close()
+
+    clients = []
+
+    def clientfinder():
+        while True:
+            conn, addr = s.accept()
+            connno = len(clients)
+            with print_lock:
+                print("Connected to " + str(addr[0]) + ":" + str(addr[1]) + ", Client " + str(connno))
+            clients.append(start_new_thread(threaded_client, (conn, connno)))
+
+
+    start_new_thread(clientfinder, ())
+
+
+    def waspressed(which):
+        if which in pressed:
+            pressed.remove(which)
+            return True
+        return False
 
 screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
@@ -31,7 +89,8 @@ def pythag(a, b):
 # Debug printing
 def qrint(*args):
     if debugmode:
-        print(*args)
+        with print_lock:
+            print(*args)
 
 
 # Generates a hitbox for the given sprite at given position, with scaled image offset
@@ -149,14 +208,24 @@ class Player(Thing):
     
     def playerinput(self, pressed):
         if self.isplaying:
-            if pressed[self.controls[0]]:
-                self.jerk(0, -kickamt)
-            if pressed[self.controls[1]]:
-                self.jerk(-kickamt, 0)
-            if pressed[self.controls[2]]:
-                self.jerk(0, kickamt)
-            if pressed[self.controls[3]]:
-                self.jerk(kickamt, 0)
+            if servermode:
+                if waspressed(self.controls[0]):
+                    self.jerk(0, -kickamt)
+                if waspressed(self.controls[1]):
+                    self.jerk(-kickamt, 0)
+                if waspressed(self.controls[2]):
+                    self.jerk(0, kickamt)
+                if waspressed(self.controls[3]):
+                    self.jerk(kickamt, 0)
+            else:
+                if pressed[self.controls[0]]:
+                    self.jerk(0, -kickamt)
+                if pressed[self.controls[1]]:
+                    self.jerk(-kickamt, 0)
+                if pressed[self.controls[2]]:
+                    self.jerk(0, kickamt)
+                if pressed[self.controls[3]]:
+                    self.jerk(kickamt, 0)
         else:
             self.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
             
@@ -260,7 +329,8 @@ while True:
     lowerplatform.move(-5 * cos(radians(cycles)), 0)
     
     # Obtain playerinputs
-    pressed = pygame.key.get_pressed()
+    if not servermode:
+        pressed = pygame.key.get_pressed()
     
     for p in players:
         p.jerk(0, kickamt / 2.5)  # APPLY GRAVITY (only applies to players)
