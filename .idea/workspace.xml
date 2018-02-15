@@ -4,9 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add in simple server capabilities to main program">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/PunchBall/Client.py" afterPath="$PROJECT_DIR$/PunchBall/Client.py" />
       <change beforePath="$PROJECT_DIR$/PunchBall/Punchball.py" afterPath="$PROJECT_DIR$/PunchBall/Punchball.py" />
+      <change beforePath="$PROJECT_DIR$/PunchBall/Server.py" afterPath="" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,23 +30,20 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="215" column="48" lean-forward="true" selection-start-line="215" selection-start-column="48" selection-end-line="215" selection-end-column="48" />
+            <state relative-caret-position="317">
+              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
               <folding>
-                <element signature="e#1965#1993#0" expanded="false" />
-                <element signature="e#2047#2082#0" expanded="false" />
-                <element signature="e#4025#4064#0" expanded="false" />
+                <element signature="e#573#601#0" expanded="false" />
+                <element signature="e#655#690#0" expanded="false" />
+                <element signature="e#732#795#0" expanded="false" />
+                <element signature="e#931#1041#0" expanded="false" />
+                <element signature="e#3519#3651#0" expanded="false" />
+                <element signature="e#3719#4191#0" expanded="false" />
+                <element signature="e#4291#7672#0" expanded="false" />
+                <element signature="e#5205#5244#0" expanded="false" />
+                <element signature="e#7816#9546#0" expanded="false" />
+                <element signature="e#9654#10542#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PunchBall/Server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="66" column="16" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -52,8 +51,8 @@
       <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="495">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,15 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>90</find>
-      <find>1</find>
-      <find>play</find>
-      <find>soundval</find>
-      <find>del</find>
-      <find>sound</find>
-      <find>channels</find>
-      <find>pygame.i</find>
-      <find>mixer</find>
       <find>music</find>
       <find>sounds</find>
       <find>**</find>
@@ -98,8 +88,17 @@
       <find>,</find>
       <find># print</find>
       <find>qrint</find>
-      <find>print</find>
       <find>keypress</find>
+      <find>print</find>
+      <find>player(</find>
+      <find>player1playing</find>
+      <find>q</find>
+      <find>qri</find>
+      <find>print_</find>
+      <find>-1</find>
+      <find>player.p</find>
+      <find>wai</find>
+      <find>index</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -1196,8 +1195,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Client" />
         <item index="2" class="java.lang.String" itemvalue="Python.Server" />
         <item index="3" class="java.lang.String" itemvalue="Python.SocketTutorial5" />
         <item index="4" class="java.lang.String" itemvalue="Python.SocketTutorialClient" />
@@ -1319,7 +1318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518649320932</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add in simple server capabilities to main program">
+      <created>1518689087129</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1518689087129</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1344,9 +1350,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22015916" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22015916" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1416,14 +1421,15 @@
     <MESSAGE value="Make fish png the right shape" />
     <MESSAGE value="Make fish png the right shape and general cleanup" />
     <MESSAGE value="Add Proof-of-concept socket-based client-side controller game-server thing, based on Socket tutorial files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Proof-of-concept socket-based client-side controller game-server thing, based on Socket tutorial files" />
+    <MESSAGE value="Add in simple server capabilities to main program" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add in simple server capabilities to main program" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="27" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1790,20 +1796,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="495">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="215" column="48" lean-forward="true" selection-start-line="215" selection-start-column="48" selection-end-line="215" selection-end-column="48" />
+        <state relative-caret-position="317">
+          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
           <folding>
-            <element signature="e#1965#1993#0" expanded="false" />
-            <element signature="e#2047#2082#0" expanded="false" />
-            <element signature="e#4025#4064#0" expanded="false" />
+            <element signature="e#573#601#0" expanded="false" />
+            <element signature="e#655#690#0" expanded="false" />
+            <element signature="e#732#795#0" expanded="false" />
+            <element signature="e#931#1041#0" expanded="false" />
+            <element signature="e#3519#3651#0" expanded="false" />
+            <element signature="e#3719#4191#0" expanded="false" />
+            <element signature="e#4291#7672#0" expanded="false" />
+            <element signature="e#5205#5244#0" expanded="false" />
+            <element signature="e#7816#9546#0" expanded="false" />
+            <element signature="e#9654#10542#0" expanded="false" />
           </folding>
         </state>
       </provider>

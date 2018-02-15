@@ -7,73 +7,20 @@ import socket
 from _thread import *
 import threading
 
-debugmode = False
-servermode = True
-
-print_lock = threading.Lock()
-
-if servermode:
-    input_lock = threading.Lock()
-    
-    host = ''  # accept anything
-    port = 9001  # socket with the minimally maximal power level
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        s.bind((host, port))
-    except socket.error as e:
-        print(str(e))
-    
-    s.listen(5)  # size of queue of how many connections accepted
-    print("Awaiting contact...")
-    
-    pressed = set()
-    
-    
-    def threaded_client(conn, no):
-        conn.send(str.encode("Hey there, Client " + str(no)))
-        while True:
-            data = conn.recv(4096).decode('utf-8').split(",")
-            with print_lock:
-                print(data)
-            if not data:
-                break
-            for k in data:
-                with input_lock:
-                    pressed.add(int(k))
-            # with print_lock:
-            #     print(pressed)
-        conn.close()
-
-    clients = []
-
-    def clientfinder():
-        while True:
-            conn, addr = s.accept()
-            connno = len(clients)
-            with print_lock:
-                print("Connected to " + str(addr[0]) + ":" + str(addr[1]) + ", Client " + str(connno))
-            clients.append(start_new_thread(threaded_client, (conn, connno)))
-
-
-    start_new_thread(clientfinder, ())
-
-
-    def waspressed(which):
-        if which in pressed:
-            pressed.remove(which)
-            return True
-        return False
-
-screen = pygame.display.set_mode((1000, 500))
-w = screen.get_width()
-h = screen.get_height()
-screenrect = screen.get_rect()
-
-wallthickness = 10
+LOCALPLAYER = 0
+CPUPLAYER = 1
+REMOTEPLAYER = 2
 
 obstacles = []
 things = []
 players = []
+waitingplayers = []
+
+debugmode = False
+servermode = True
+
+print_lock = threading.Lock()  # lock to prevent crosstalk
+player_lock = threading.Lock()  # lock to prevent simultaneous acceptance of players
 
 
 # Handy constrain function
@@ -91,6 +38,78 @@ def qrint(*args):
     if debugmode:
         with print_lock:
             print(*args)
+            
+
+# List find function like string find function. Because there isn't one.
+def findinlist(listin, val, fromend=False):
+    try:
+        return listin.index(val, fromend)
+    except:
+        return -1  # That's literally all I wanted.
+
+
+if servermode:
+    input_lock = threading.Lock()  # lock to prevent simultaneous input
+    
+    host = ''  # accept anything
+    port = 9001  # socket with the minimally maximal power level
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        s.bind((host, port))
+    except socket.error as e:
+        print(str(e))
+    
+    s.listen(5)  # size of queue of how many connections accepted
+    print("Awaiting contact...")
+    
+    
+    def threaded_client(conn, player):
+        try:
+            conn.send(str.encode("Hey there, player {}".format(player)))
+            while True:
+                data = conn.recv(4096).decode('utf-8').split(",")
+                qrint(data)
+                if not data:
+                    raise Exception("Disconnect?")
+                # finds trailing -1 in list of keys sent
+                recency = findinlist(data, "-1", True)
+                # starts reading keys from either index 0 (if no previous -1s found) or the one after the first -1
+                primacy = findinlist(data[:recency], "-1", True) + 1
+                player.pressed.clear()
+                # Will always include the trailing -1, as a consistent value
+                for k in data[primacy:recency + 1]:
+                    with input_lock:
+                        player.pressed.add(int(k))
+        except Exception as e:
+            print("Player {} disconnected: {}".format(player, e))
+            conn.close()
+            waitingplayers.append(player)  # makes the
+        except:
+            print("OH DEAR")
+
+    clients = []
+
+    def clientfinder():
+        while True:
+            conn, addr = s.accept()
+            connno = len(clients)
+            with print_lock:
+                print("Connected to {}:{}, Client {}".format(*addr, connno))
+            with player_lock:
+                while len(waitingplayers) == 0:
+                    pass
+                # gives the client thread the connection to the player and any old Player object TODO: conserve Player?
+                t = threading.Thread(target=threaded_client, args=(conn, waitingplayers.pop(0)))
+            t.run()
+            clients.append(t)
+
+
+    start_new_thread(clientfinder, ())
+
+screen = pygame.display.set_mode((1000, 500))
+w = screen.get_width()
+h = screen.get_height()
+screenrect = screen.get_rect()
 
 
 # Generates a hitbox for the given sprite at given position, with scaled image offset
@@ -200,33 +219,32 @@ class Thing:
 
 # Player class, derived from above Thing class TODO: fix craziness observed in sprite rotation whilst sitting still
 class Player(Thing):
-    def __init__(self, x, y, sprite, controls=(K_w, K_a, K_s, K_d), isplaying=True):
+    def __init__(self, x, y, sprite, playerno, controls=(K_w, K_a, K_s, K_d), controltype=LOCALPLAYER):
+        self.name = playerno
         self.controls = controls  # Input as WASD
-        self.isplaying = isplaying
+        self.controltype = controltype
+        self.pressed = set()
         super(Player, self).__init__(x, y, [sprite], False)
         players.append(self)
+        if self.controltype == REMOTEPLAYER:
+            waitingplayers.append(self)
     
-    def playerinput(self, pressed):
-        if self.isplaying:
-            if servermode:
-                if waspressed(self.controls[0]):
-                    self.jerk(0, -kickamt)
-                if waspressed(self.controls[1]):
-                    self.jerk(-kickamt, 0)
-                if waspressed(self.controls[2]):
-                    self.jerk(0, kickamt)
-                if waspressed(self.controls[3]):
-                    self.jerk(kickamt, 0)
-            else:
-                if pressed[self.controls[0]]:
-                    self.jerk(0, -kickamt)
-                if pressed[self.controls[1]]:
-                    self.jerk(-kickamt, 0)
-                if pressed[self.controls[2]]:
-                    self.jerk(0, kickamt)
-                if pressed[self.controls[3]]:
-                    self.jerk(kickamt, 0)
-        else:
+    def __str__(self):
+        return str(self.name)
+    
+    def playerinput(self):
+        if self.controltype == LOCALPLAYER:
+            self.pressed = localpressed
+        if (servermode and self.controltype == REMOTEPLAYER) or (self.controltype == LOCALPLAYER):
+            if self.controls[0] in self.pressed:
+                self.jerk(0, -kickamt)
+            if self.controls[1] in self.pressed:
+                self.jerk(-kickamt, 0)
+            if self.controls[2] in self.pressed:
+                self.jerk(0, kickamt)
+            if self.controls[3] in self.pressed:
+                self.jerk(kickamt, 0)
+        elif self.controltype == CPUPLAYER:
             self.jerk(*AI(player1.hitbox.center, goal1.center, squareball.hitbox.center, kickamt, player1col))
             
     def applyairresistance(self, rho=1.1839, cd=0.47):
@@ -269,7 +287,9 @@ class Wall(Thing):
         self.ax = 0
         self.ay = 0
 
+
 # Add in walls
+wallthickness = 10
 screenwalls = [Wall(wallrect) for wallrect in [Rect(0, -wallthickness, w, wallthickness),
                                                Rect(-wallthickness, 0, wallthickness, h),
                                                Rect(0, h - wallthickness*3, w, wallthickness*4),
@@ -281,16 +301,14 @@ lowerplatform = Wall(Rect(w/2 - w/6, h/2 - 50, w/3, 50))
 player1col = (0, 150, 0)
 player2col = (200, 0, 0)
 playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIST2.png"), (36, 36)).convert_alpha()
-player1playing = True
-player2playing = True
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
-player1 = Player(w * 0.75, h/2, player1sprite, (K_UP, K_LEFT, K_DOWN, K_RIGHT), player1playing)
+player1 = Player(w * 0.75, h/2, player1sprite, 1, (K_UP, K_LEFT, K_DOWN, K_RIGHT), LOCALPLAYER)
 
 player2sprite = pygame.transform.flip(playersprite, True, False)
 pygame.draw.circle(player2sprite, player2col, (18, 24), 4)
-player2 = Player(w * 0.25, h/2, player2sprite, isplaying=player2playing)
+player2 = Player(w * 0.25, h / 2, player2sprite, 2, controltype=REMOTEPLAYER)
 
 # Settings for the ball
 ballsprite = pygame.Surface((36, 36)).convert_alpha()
@@ -303,7 +321,7 @@ if False:
     fishsprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FISH.png"), (21, 36)).convert_alpha()
     for i, fishx in enumerate(range(0, w, 36)):
         print(i, "FISH")
-        Player(fishx + 18, h/1.3 + 10 * sin(radians(fishx)), fishsprite, isplaying=False)
+        Player(fishx + 18, h / 1.3 + 10 * sin(radians(fishx)), fishsprite, controltype=False)
     print("FISHPARTY!")
 
 # Set goal positions
@@ -315,6 +333,7 @@ kickamt = 0.5
 pts = 0
 ingoal = 0
 cycles = 0
+localpressed = []
 
 # main game loop
 while True:
@@ -328,13 +347,10 @@ while True:
     upperplatform.move(5 * cos(radians(cycles)), 0)
     lowerplatform.move(-5 * cos(radians(cycles)), 0)
     
-    # Obtain playerinputs
-    if not servermode:
-        pressed = pygame.key.get_pressed()
-    
+    localpressed = [i for i, k in enumerate(pygame.key.get_pressed()) if k]  # gets ids of presses on local keyboard
     for p in players:
         p.jerk(0, kickamt / 2.5)  # APPLY GRAVITY (only applies to players)
-        p.playerinput(pressed)  # MOVEMENT (set to AI if player not playing)
+        p.playerinput()  # MOVEMENT (set to AI if player not playing)
         #player2.jerk(*AI(player2.hitbox.center, goal2.center, squareball.hitbox.center, kickamt, player2col))
     
     # Draw the obstacles
@@ -351,7 +367,7 @@ while True:
         pts += ingoal
         qrint(pts)
     
-    # Activate and show all the Things in random order
+    # Activate and show all the Things in random order (includes Players, Walls)
     renderorder = things.copy()
     shuffle(renderorder)
     for t in renderorder:
@@ -378,10 +394,14 @@ while True:
                 quit()
     sleep(0.01)
     
-    # Win conditions (quits on victory)
+    # Win conditions TODO: We REALLY need a better way to end this.
     if pts == -5:
         print("TEAM 1 WINS")
         quit(1)
     if pts == 5:
         print("TEAM 2 WINS")
         quit(2)
+        
+    for c in clients:
+        if not c.is_alive():
+            clients.remove(c)

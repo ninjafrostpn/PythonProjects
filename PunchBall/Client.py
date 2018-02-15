@@ -1,19 +1,16 @@
 import socket, threading, pygame
 from pygame.locals import *
-from queue import Queue
 from time import sleep
 
 pygame.init()
 
 print_lock = threading.Lock()
 
-q = Queue()
-
 pressed = set()
 
 def sending():
     while True:
-        data = ",".join([str(k) for k in pressed])
+        data = ",".join([str(k) for k in pressed] + ["-1,"])
         s.send(str.encode(data))
         pressed.clear()
         sleep(0.01)
