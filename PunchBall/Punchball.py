@@ -321,7 +321,7 @@ if False:
     fishsprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FISH.png"), (21, 36)).convert_alpha()
     for i, fishx in enumerate(range(0, w, 36)):
         print(i, "FISH")
-        Player(fishx + 18, h / 1.3 + 10 * sin(radians(fishx)), fishsprite, controltype=False)
+        Player(fishx + 18, h / 1.3 + 10 * sin(radians(fishx)), fishsprite, i+2, controltype=CPUPLAYER)
     print("FISHPARTY!")
 
 # Set goal positions
@@ -382,7 +382,7 @@ while True:
     for i in range(-200, 201, 40):
         pygame.draw.line(screen, (0, 0, 0), (w / 2 + i, h - wallthickness * 2), (w / 2 + i, h - wallthickness), 2)
     pygame.draw.line(screen, (0, 0, 0), (w / 2, h - wallthickness * 2.5), (w / 2, h - wallthickness * 0.5), 2)
-            
+    
     # Display, handle events, then pause between cycles for reasonable framerate
     pygame.display.flip()
     cycles += 1

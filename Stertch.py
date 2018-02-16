@@ -25,9 +25,6 @@ class InvalidIndex(Exception):
     pass
 
 
-g = Vector(0, 9.8)
-
-
 class Vector:
     def __init__(self, x, y):
         self.x = x
@@ -73,6 +70,8 @@ class Vector:
             return Vector(0, 0)
         else:
             return self / abs(self)
+
+g = Vector(0, 9.8)
 
 class Mass:
     def __init__(self, x, y, mass, radius=10, restitution=0.9, friction=0.1, col=white):

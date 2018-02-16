@@ -5,7 +5,7 @@ from pygame.locals import *
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
 
-n = 100
+n = 10
 skip = 0
 clockwise = True
 mode = 0
@@ -70,4 +70,4 @@ while True:
             elif e.key == K_SPACE:
                 clockwise = not clockwise
                 startup = True
-    #time.sleep(0.03)
+    time.sleep(0.03)
