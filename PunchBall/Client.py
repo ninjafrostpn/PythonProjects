@@ -1,6 +1,7 @@
 import socket, threading, pygame
 from pygame.locals import *
 from time import sleep
+import numpy as np
 
 pygame.init()
 
@@ -8,6 +9,7 @@ print_lock = threading.Lock()
 
 pressed = set()
 prevpressed = set()
+
 
 def sending():
     try:
@@ -19,33 +21,38 @@ def sending():
                 s.send(str.encode(data))
                 prevpressed.clear()
                 prevpressed.update(pressed)
-            pressed.clear()
             sleep(0.01)  # otherwise it doesn't send things
     except Exception as e:
-        print("Sending error:", e)
-    print("Finished sending")
+        with print_lock:
+            print("Sending error:", e)
+    with print_lock:
+        print("Finished sending")
+
 
 def receiving():
     try:
         while running and not connecting:
-            try:
-                data = s.recv(4096)
-                with print_lock:
-                    print("Server: " + data.decode("utf-8"))
-            except socket.timeout:  # timeout so that the game can actually disconnect/reconnect
-                pass
+            data = bytes()
+            while running and not connecting and (len(data) < 1500000):
+                try:
+                    data += s.recv(1500000)
+                except socket.timeout:  # timeout so that the game can actually disconnect/reconnect
+                    pass
+            if running and not connecting:
+                ps = np.frombuffer(data[:1500000], dtype=np.uint8).reshape(1000, 500, 3)
+                pygame.pixelcopy.array_to_surface(screen, ps)
     except Exception as e:
-        print("Receiving error:", e)
-    print("Finished receiving")
+        with print_lock:
+            print("Receiving error:", e)
+    with print_lock:
+        print("Finished receiving")
 
 
 addr = ("139.166.166.21", 8080)
 homeaddr = ("127.0.0.1", 9001)
 piaddr = ("192.168.0.30", 9001)
 
-screen = pygame.display.set_mode((500, 50))
-screen.fill((255, 0, 0))
-pygame.display.flip()
+screen = pygame.display.set_mode((1000, 500))
 connecting = True
 running = True
 sender = 0
@@ -77,14 +84,15 @@ while running:
         print("Starting receiving")
         receiver = threading.Thread(target=receiving)
         receiver.start()
-    for i, k in enumerate(pygame.key.get_pressed()):
-        if k:
-            pressed.add(i)
+    pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
             running = False
         elif e.type == KEYDOWN:
+            pressed.add(e.key)
             if e.key == K_ESCAPE:
                 running = False
+        elif e.type == KEYUP:
+            pressed.remove(e.key)
     connecting = (threading.active_count() != 3)
-
+    sleep(0.01)

@@ -6,6 +6,7 @@ from time import sleep
 import socket
 from _thread import *
 import threading
+import numpy as np
 
 LOCALPLAYER = 0
 CPUPLAYER = 1
@@ -61,33 +62,63 @@ if servermode:
     
     s.listen(5)  # size of queue of how many connections accepted
     print("Awaiting contact...")
-    
-    
-    def threaded_client(conn, player):
-        try:
-            conn.send(str.encode("Hey there, player {}".format(player)))
-            while True:
-                data = conn.recv(4096).decode('utf-8').split(",")
-                qrint(data)
-                if not data:
-                    raise Exception("Disconnect?")
-                # finds trailing -1 in list of keys sent
-                recency = findinlist(data, "-1", True)
-                # starts reading keys from either index 0 (if no previous -1s found) or the one after the first -1
-                primacy = findinlist(data[:recency], "-1", True) + 1
-                player.pressed.clear()
-                # Will always include the trailing -1, as a consistent value
-                for k in data[primacy:recency + 1]:
-                    with input_lock:
-                        player.pressed.add(int(k))
-        except Exception as e:
-            print("Player {} disconnected: {}".format(player, e))
-            conn.close()
-            waitingplayers.append(player)  # makes the
-        except:
-            print("OH DEAR")
 
     clients = []
+    
+    class threaded_client:
+        def __init__(self, conn, player):
+            self.conn = conn
+            self.player = player
+            self.ended = False
+            # NB: threads must be started for them to run separately
+            self.receiving = threading.Thread(target=self.receiveupdates)
+            self.receiving.daemon = True
+            self.receiving.start()
+            clients.append(self)
+        
+        def end(self):
+            if not self.ended:
+                # Exists simply because having this in __del__ throws nasty errors on program end
+                clients.remove(self)
+                self.conn.close()
+                waitingplayers.append(self.player)
+                self.ended = True
+            del self
+
+        def sendupdates(self):
+            try:
+                ps = np.zeros((w, h, 3), dtype=np.uint8)
+                pygame.pixelcopy.surface_to_array(ps, pygame.display.get_surface())
+                self.conn.send(ps.tobytes())
+            except ConnectionResetError:
+                self.end()
+            except Exception as e:
+                print("Updating error with Player {}:".format(self.player), type(e))
+
+        def receiveupdates(self):
+            try:
+                # conn.send(str.encode("Hey there, player {}".format(player)))
+                while True:
+                    data = self.conn.recv(4096).decode('utf-8').split(",")
+                    qrint(data)
+                    if len(data) == 0:
+                        raise Exception("Disconnect?")
+                    # finds trailing -1 in list of keys sent
+                    recency = findinlist(data, "-1", True)
+                    # starts reading keys from either index 0 (if no previous -1s found) or the one after the first -1
+                    primacy = findinlist(data[:recency], "-1", True) + 1
+                    self.player.pressed.clear()
+                    # Will always include the trailing -1, as a consistent value
+                    for k in data[primacy:recency + 1]:
+                        with input_lock:
+                            self.player.pressed.add(int(k))
+            except ConnectionResetError:
+                print("Player {} disconnected".format(self.player))
+            except Exception as e:
+                print("Player {} disconnected: {}".format(self.player, e))
+            except:
+                print("OH DEAR")
+            self.end()
 
     def clientfinder():
         while True:
@@ -99,9 +130,7 @@ if servermode:
                 while len(waitingplayers) == 0:
                     pass
                 # gives the client thread the connection to the player and any old Player object TODO: conserve Player?
-                t = threading.Thread(target=threaded_client, args=(conn, waitingplayers.pop(0)))
-            t.run()
-            clients.append(t)
+                threaded_client(conn, waitingplayers.pop(0))
 
 
     start_new_thread(clientfinder, ())
@@ -386,6 +415,9 @@ while True:
     # Display, handle events, then pause between cycles for reasonable framerate
     pygame.display.flip()
     cycles += 1
+    if servermode:
+        for c in clients:
+            c.sendupdates()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
@@ -401,7 +433,3 @@ while True:
     if pts == 5:
         print("TEAM 2 WINS")
         quit(2)
-        
-    for c in clients:
-        if not c.is_alive():
-            clients.remove(c)
