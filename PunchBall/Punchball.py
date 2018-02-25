@@ -18,7 +18,7 @@ players = []
 waitingplayers = []
 
 debugmode = False
-servermode = True
+servermode = False
 
 print_lock = threading.Lock()  # lock to prevent crosstalk
 player_lock = threading.Lock()  # lock to prevent simultaneous acceptance of players
@@ -237,7 +237,11 @@ class Thing:
             self.set_sprite(cycles % len(self.spritelist))
         self.accelerate(self.ax, self.ay)
         self.move(self.vx, self.vy)
-        rotsprite = pygame.transform.rotate(self.sprite, -90 - degrees(atan2(self.vy, self.vx)))
+        if self.vx == 0 and self.vy == 0:
+            ang = 0
+        else:
+            ang = degrees(atan2(self.vy, self.vx))
+        rotsprite = pygame.transform.rotate(self.sprite, -90 - ang)
         # used to change sprite colour to reflect speed (Blue to Red = Low to High)
         val = constrain(10 * pythag(self.vx, self.vy), 0, 255)
         pygame.PixelArray(rotsprite).replace((255, 255, 255), (val, 0, 255 - val), 0.5, (1, 1, 1))
@@ -256,7 +260,11 @@ class Player(Thing):
         super(Player, self).__init__(x, y, [sprite], False)
         players.append(self)
         if self.controltype == REMOTEPLAYER:
-            waitingplayers.append(self)
+            if servermode:
+                waitingplayers.append(self)
+            else:
+                print("Error in Player {}: Cannot have remote player on local mode, switching to local".format(self))
+                self.controltype = LOCALPLAYER
     
     def __str__(self):
         return str(self.name)
@@ -333,7 +341,7 @@ playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIS
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
-player1 = Player(w * 0.75, h/2, player1sprite, 1, (K_UP, K_LEFT, K_DOWN, K_RIGHT), LOCALPLAYER)
+player1 = Player(w * 0.75, h/2, player1sprite, 1, (K_UP, K_LEFT, K_DOWN, K_RIGHT), REMOTEPLAYER)
 
 player2sprite = pygame.transform.flip(playersprite, True, False)
 pygame.draw.circle(player2sprite, player2col, (18, 24), 4)
