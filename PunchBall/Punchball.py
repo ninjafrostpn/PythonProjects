@@ -18,7 +18,7 @@ players = []
 waitingplayers = []
 
 debugmode = False
-servermode = False
+servermode = True
 
 print_lock = threading.Lock()  # lock to prevent crosstalk
 player_lock = threading.Lock()  # lock to prevent simultaneous acceptance of players
@@ -85,11 +85,9 @@ if servermode:
                 self.ended = True
             del self
 
-        def sendupdates(self):
+        def sendupdates(self, data):
             try:
-                ps = np.zeros((w, h, 3), dtype=np.uint8)
-                pygame.pixelcopy.surface_to_array(ps, pygame.display.get_surface())
-                self.conn.send(ps.tobytes())
+                self.conn.send(data)
             except ConnectionResetError:
                 self.end()
             except Exception as e:
@@ -250,7 +248,7 @@ class Thing:
         self.ay = 0
 
 
-# Player class, derived from above Thing class TODO: fix craziness observed in sprite rotation whilst sitting still
+# Player class, derived from above Thing class
 class Player(Thing):
     def __init__(self, x, y, sprite, playerno, controls=(K_w, K_a, K_s, K_d), controltype=LOCALPLAYER):
         self.name = playerno
@@ -423,9 +421,12 @@ while True:
     # Display, handle events, then pause between cycles for reasonable framerate
     pygame.display.flip()
     cycles += 1
-    if servermode:
+    if servermode and (cycles % 3 == 0):
+        ps = np.zeros((w, h, 3), dtype=np.uint8)
+        pygame.pixelcopy.surface_to_array(ps, pygame.display.get_surface())
+        ps = ps.tobytes()
         for c in clients:
-            c.sendupdates()
+            c.sendupdates(ps)
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()

@@ -28,18 +28,17 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="436" column="4" lean-forward="true" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
               <folding>
-                <element signature="e#593#621#0" expanded="false" />
-                <element signature="e#675#710#0" expanded="false" />
-                <element signature="e#752#815#0" expanded="false" />
-                <element signature="e#951#1061#0" expanded="false" />
-                <element signature="e#4779#4911#0" expanded="false" />
-                <element signature="e#4979#5451#0" expanded="false" />
-                <element signature="e#6465#6504#0" expanded="false" />
-                <element signature="e#9186#11130#0" expanded="false" />
-                <element signature="e#11238#12126#0" expanded="false" />
+                <element signature="e#592#620#0" expanded="false" />
+                <element signature="e#674#709#0" expanded="false" />
+                <element signature="e#751#814#0" expanded="false" />
+                <element signature="e#950#1060#0" expanded="false" />
+                <element signature="e#4635#4767#0" expanded="false" />
+                <element signature="e#4835#5307#0" expanded="false" />
+                <element signature="e#6321#6360#0" expanded="false" />
+                <element signature="e#8973#10917#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -48,8 +47,8 @@
       <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+            <state relative-caret-position="225">
+              <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -66,8 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>**</find>
-      <find>we</find>
       <find>1000</find>
       <find>100</find>
       <find>10</find>
@@ -96,6 +93,8 @@
       <find>yes</find>
       <find>print</find>
       <find>== 0</find>
+      <find>todo</find>
+      <find>sendu</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -179,13 +178,13 @@
         <option value="$USER_HOME$/PycharmProjects/MinecraftCodes/mobs.py" />
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorial5.py" />
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
-        <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/TagResizer.py" />
         <option value="$PROJECT_DIR$/DiveProfileConverter.py" />
         <option value="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" />
         <option value="$USER_HOME$/tools.py" />
         <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
+        <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
       </list>
     </option>
@@ -1187,10 +1186,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Punchball" />
-        <item index="1" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Client" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="2" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
+        <item index="3" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
         <item index="4" class="java.lang.String" itemvalue="Python.SocketTutorialClient" />
       </list>
     </recent_temporary>
@@ -1359,7 +1358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519732124331</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fix craziness seen on player start by assigning 0 angle at low speed">
+      <created>1519746594558</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1519746594558</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1463,7 +1469,8 @@
     <MESSAGE value="Remove ocelots from readme" />
     <MESSAGE value="Small fix to punchball and added XML-to-CSV converter for dive data" />
     <MESSAGE value="Make the dive converter usable by the toolkit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the dive converter usable by the toolkit" />
+    <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix craziness seen on player start by assigning 0 angle at low speed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1801,26 +1808,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="225">
+          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="436" column="4" lean-forward="true" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
           <folding>
-            <element signature="e#593#621#0" expanded="false" />
-            <element signature="e#675#710#0" expanded="false" />
-            <element signature="e#752#815#0" expanded="false" />
-            <element signature="e#951#1061#0" expanded="false" />
-            <element signature="e#4779#4911#0" expanded="false" />
-            <element signature="e#4979#5451#0" expanded="false" />
-            <element signature="e#6465#6504#0" expanded="false" />
-            <element signature="e#9186#11130#0" expanded="false" />
-            <element signature="e#11238#12126#0" expanded="false" />
+            <element signature="e#592#620#0" expanded="false" />
+            <element signature="e#674#709#0" expanded="false" />
+            <element signature="e#751#814#0" expanded="false" />
+            <element signature="e#950#1060#0" expanded="false" />
+            <element signature="e#4635#4767#0" expanded="false" />
+            <element signature="e#4835#5307#0" expanded="false" />
+            <element signature="e#6321#6360#0" expanded="false" />
+            <element signature="e#8973#10917#0" expanded="false" />
           </folding>
         </state>
       </provider>
