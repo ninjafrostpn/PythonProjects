@@ -49,6 +49,12 @@ def findinlist(listin, val, fromend=False):
         return -1  # That's literally all I wanted.
 
 
+def surfacetobytes(surfacein):
+    ps = np.zeros((surfacein.get_width(), surfacein.get_height(), 3), dtype=np.uint8)
+    pygame.pixelcopy.surface_to_array(ps, surfacein)
+    return ps.tobytes()
+
+
 if servermode:
     input_lock = threading.Lock()  # lock to prevent simultaneous input
     
@@ -70,6 +76,7 @@ if servermode:
             self.conn = conn
             self.player = player
             self.ended = False
+            self.sendupdates()
             # NB: threads must be started for them to run separately
             self.receiving = threading.Thread(target=self.receiveupdates)
             self.receiving.daemon = True
@@ -129,9 +136,6 @@ if servermode:
                     pass
                 # gives the client thread the connection to the player and any old Player object TODO: conserve Player?
                 threaded_client(conn, waitingplayers.pop(0))
-
-
-    start_new_thread(clientfinder, ())
 
 screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
@@ -370,6 +374,10 @@ ingoal = 0
 cycles = 0
 localpressed = []
 
+# In server mode, start looking for clients
+if servermode:
+    start_new_thread(clientfinder, ())
+
 # main game loop
 while True:
     screen.fill(0)  # Clears screen
@@ -422,11 +430,9 @@ while True:
     pygame.display.flip()
     cycles += 1
     if servermode and (cycles % 3 == 0):
-        ps = np.zeros((w, h, 3), dtype=np.uint8)
-        pygame.pixelcopy.surface_to_array(ps, pygame.display.get_surface())
-        ps = ps.tobytes()
+        screendata = surfacetobytes(pygame.display.get_surface())
         for c in clients:
-            c.sendupdates(ps)
+            c.sendupdates(screendata)
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()

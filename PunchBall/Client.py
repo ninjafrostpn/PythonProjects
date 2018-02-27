@@ -1,4 +1,6 @@
-import socket, threading, pygame
+import socket
+import threading
+import pygame
 from pygame.locals import *
 from time import sleep
 import numpy as np
