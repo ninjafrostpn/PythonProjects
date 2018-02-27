@@ -237,7 +237,7 @@ class Thing:
             self.set_sprite(cycles % len(self.spritelist))
         self.accelerate(self.ax, self.ay)
         self.move(self.vx, self.vy)
-        if self.vx == 0 and self.vy == 0:
+        if abs(self.vx) < 0.5 and abs(self.vy) < 0.5:
             ang = 0
         else:
             ang = degrees(atan2(self.vy, self.vx))

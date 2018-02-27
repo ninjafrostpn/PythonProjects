@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" afterPath="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
+      <change beforePath="$PROJECT_DIR$/PunchBall/Punchball.py" afterPath="$PROJECT_DIR$/PunchBall/Punchball.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="25">
+              <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding>
                 <element signature="e#593#621#0" expanded="false" />
                 <element signature="e#675#710#0" expanded="false" />
@@ -38,8 +38,8 @@
                 <element signature="e#4779#4911#0" expanded="false" />
                 <element signature="e#4979#5451#0" expanded="false" />
                 <element signature="e#6465#6504#0" expanded="false" />
-                <element signature="e#9174#11118#0" expanded="false" />
-                <element signature="e#11226#12114#0" expanded="false" />
+                <element signature="e#9186#11130#0" expanded="false" />
+                <element signature="e#11238#12126#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -48,28 +48,8 @@
       <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="diveXMLtoCSV.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/tools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+            <state relative-caret-position="175">
+              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -86,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sounds</find>
       <find>**</find>
       <find>we</find>
       <find>1000</find>
@@ -116,6 +95,7 @@
       <find>wurg</find>
       <find>yes</find>
       <find>print</find>
+      <find>== 0</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -201,12 +181,12 @@
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
         <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
         <option value="$PROJECT_DIR$/TagResizer.py" />
         <option value="$PROJECT_DIR$/DiveProfileConverter.py" />
         <option value="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" />
         <option value="$USER_HOME$/tools.py" />
         <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
+        <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
       </list>
     </option>
   </component>
@@ -291,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DiveProfileConverter">
+  <component name="RunManager" selected="Python.Punchball">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1207,9 +1187,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-        <item index="1" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
+        <item index="2" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
         <item index="3" class="java.lang.String" itemvalue="Python.Client" />
         <item index="4" class="java.lang.String" itemvalue="Python.SocketTutorialClient" />
       </list>
@@ -1372,7 +1352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519579780554</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Make the dive converter usable by the toolkit">
+      <created>1519732124331</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1519732124331</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1399,10 +1386,10 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12679045" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12679045" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1475,7 +1462,8 @@
     <MESSAGE value="Add visual transmission from server to client (very slow)" />
     <MESSAGE value="Remove ocelots from readme" />
     <MESSAGE value="Small fix to punchball and added XML-to-CSV converter for dive data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small fix to punchball and added XML-to-CSV converter for dive data" />
+    <MESSAGE value="Make the dive converter usable by the toolkit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the dive converter usable by the toolkit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1767,36 +1755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="e#593#621#0" expanded="false" />
-            <element signature="e#675#710#0" expanded="false" />
-            <element signature="e#752#815#0" expanded="false" />
-            <element signature="e#951#1061#0" expanded="false" />
-            <element signature="e#4779#4911#0" expanded="false" />
-            <element signature="e#4979#5451#0" expanded="false" />
-            <element signature="e#6465#6504#0" expanded="false" />
-            <element signature="e#9174#11118#0" expanded="false" />
-            <element signature="e#11226#12114#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-125">
           <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1821,19 +1783,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
+        <state relative-caret-position="250">
           <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
+    <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="175">
+          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+          <folding>
+            <element signature="e#593#621#0" expanded="false" />
+            <element signature="e#675#710#0" expanded="false" />
+            <element signature="e#752#815#0" expanded="false" />
+            <element signature="e#951#1061#0" expanded="false" />
+            <element signature="e#4779#4911#0" expanded="false" />
+            <element signature="e#4979#5451#0" expanded="false" />
+            <element signature="e#6465#6504#0" expanded="false" />
+            <element signature="e#9186#11130#0" expanded="false" />
+            <element signature="e#11238#12126#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
