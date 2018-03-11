@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/ItemFinder2.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ItemFinder.py" afterPath="$PROJECT_DIR$/ItemFinder.py" />
-      <change beforePath="$PROJECT_DIR$/PunchBall/Client.py" afterPath="$PROJECT_DIR$/PunchBall/Client.py" />
-      <change beforePath="$PROJECT_DIR$/PunchBall/Punchball.py" afterPath="$PROJECT_DIR$/PunchBall/Punchball.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,18 +60,28 @@
       <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="775">
+              <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemFinder.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ItemFinder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ItemFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            <state relative-caret-position="2075">
+              <caret line="83" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemFinder2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,7 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pri</find>
       <find>.top</find>
       <find>8</find>
       <find>20</find>
@@ -110,7 +117,6 @@
       <find>{}&quot;.format(e)</find>
       <find>wurg</find>
       <find>yes</find>
-      <find>print</find>
       <find>== 0</find>
       <find>todo</find>
       <find>sendu</find>
@@ -120,6 +126,8 @@
       <find>timeo</find>
       <find>rotate</find>
       <find>remot</find>
+      <find>print</find>
+      <find>[</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -160,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Simulator/fakerobotapi/robot/__init__.py" />
         <option value="$PROJECT_DIR$/../../SRobo/SourceBots/simulator-SP2017/run.py" />
         <option value="$PROJECT_DIR$/../../SRobo/SourceBots/simulator-SP2017/test.py" />
         <option value="$PROJECT_DIR$/../../Unity/Simulator/Assets/ServerStuff/SocketTutorialClient.py" />
@@ -211,10 +218,11 @@
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
         <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/ItemFinder.py" />
+        <option value="$PROJECT_DIR$/ItemFinder2.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
@@ -235,8 +243,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,7 +298,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ItemFinder">
+  <component name="RunManager" selected="Python.ItemFinder2">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -530,7 +538,7 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="ItemFinder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ItemFinder" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -543,6 +551,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="ItemFinder2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1163,50 +1189,51 @@
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="39">
-      <item index="0" class="java.lang.String" itemvalue="Python.Test" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Buoy" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Dices" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Miner" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Bending" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Code_conversions" />
-      <item index="6" class="java.lang.String" itemvalue="Python.DictMak" />
-      <item index="7" class="java.lang.String" itemvalue="Python.Moneycheck" />
-      <item index="8" class="java.lang.String" itemvalue="Python.Snek" />
-      <item index="9" class="java.lang.String" itemvalue="Python.Shortestpath" />
-      <item index="10" class="java.lang.String" itemvalue="Python.PointPlacer" />
-      <item index="11" class="java.lang.String" itemvalue="Python.WaveFronts" />
-      <item index="12" class="java.lang.String" itemvalue="Python.Looming" />
-      <item index="13" class="java.lang.String" itemvalue="Python.Packer" />
-      <item index="14" class="java.lang.String" itemvalue="Python.Soundtest" />
-      <item index="15" class="java.lang.String" itemvalue="Python.MiceProblem" />
-      <item index="16" class="java.lang.String" itemvalue="Python.MorSnek" />
-      <item index="17" class="java.lang.String" itemvalue="Python.CursorShiftr" />
-      <item index="18" class="java.lang.String" itemvalue="Python.TBRPG" />
-      <item index="19" class="java.lang.String" itemvalue="Python.DunnA" />
-      <item index="20" class="java.lang.String" itemvalue="Python.WaterBend" />
-      <item index="21" class="java.lang.String" itemvalue="Python.Weasel" />
-      <item index="22" class="java.lang.String" itemvalue="Python.Organiser" />
-      <item index="23" class="java.lang.String" itemvalue="Python.KeyShorts" />
-      <item index="24" class="java.lang.String" itemvalue="Python.KeyCount" />
-      <item index="25" class="java.lang.String" itemvalue="Python.PolynomialTest" />
-      <item index="26" class="java.lang.String" itemvalue="Python.factoring" />
-      <item index="27" class="java.lang.String" itemvalue="Python.Classification" />
-      <item index="28" class="java.lang.String" itemvalue="Python.WriteIt" />
-      <item index="29" class="java.lang.String" itemvalue="Python.WikiMixer" />
-      <item index="30" class="java.lang.String" itemvalue="Python.BioSpec" />
-      <item index="31" class="java.lang.String" itemvalue="Python.Jayl" />
-      <item index="32" class="java.lang.String" itemvalue="Python.ArtStu" />
-      <item index="33" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="34" class="java.lang.String" itemvalue="Python.Punchball" />
-      <item index="35" class="java.lang.String" itemvalue="Python.Client" />
-      <item index="36" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-      <item index="37" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
-      <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder" />
+    <list size="40">
+      <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Buoy" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Dices" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Miner" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Bending" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Code_conversions" />
+      <item index="7" class="java.lang.String" itemvalue="Python.DictMak" />
+      <item index="8" class="java.lang.String" itemvalue="Python.Moneycheck" />
+      <item index="9" class="java.lang.String" itemvalue="Python.Snek" />
+      <item index="10" class="java.lang.String" itemvalue="Python.Shortestpath" />
+      <item index="11" class="java.lang.String" itemvalue="Python.PointPlacer" />
+      <item index="12" class="java.lang.String" itemvalue="Python.WaveFronts" />
+      <item index="13" class="java.lang.String" itemvalue="Python.Looming" />
+      <item index="14" class="java.lang.String" itemvalue="Python.Packer" />
+      <item index="15" class="java.lang.String" itemvalue="Python.Soundtest" />
+      <item index="16" class="java.lang.String" itemvalue="Python.MiceProblem" />
+      <item index="17" class="java.lang.String" itemvalue="Python.MorSnek" />
+      <item index="18" class="java.lang.String" itemvalue="Python.CursorShiftr" />
+      <item index="19" class="java.lang.String" itemvalue="Python.TBRPG" />
+      <item index="20" class="java.lang.String" itemvalue="Python.DunnA" />
+      <item index="21" class="java.lang.String" itemvalue="Python.WaterBend" />
+      <item index="22" class="java.lang.String" itemvalue="Python.Weasel" />
+      <item index="23" class="java.lang.String" itemvalue="Python.Organiser" />
+      <item index="24" class="java.lang.String" itemvalue="Python.KeyShorts" />
+      <item index="25" class="java.lang.String" itemvalue="Python.KeyCount" />
+      <item index="26" class="java.lang.String" itemvalue="Python.PolynomialTest" />
+      <item index="27" class="java.lang.String" itemvalue="Python.factoring" />
+      <item index="28" class="java.lang.String" itemvalue="Python.Classification" />
+      <item index="29" class="java.lang.String" itemvalue="Python.WriteIt" />
+      <item index="30" class="java.lang.String" itemvalue="Python.WikiMixer" />
+      <item index="31" class="java.lang.String" itemvalue="Python.BioSpec" />
+      <item index="32" class="java.lang.String" itemvalue="Python.Jayl" />
+      <item index="33" class="java.lang.String" itemvalue="Python.ArtStu" />
+      <item index="34" class="java.lang.String" itemvalue="Python.SoundSources" />
+      <item index="35" class="java.lang.String" itemvalue="Python.Punchball" />
+      <item index="36" class="java.lang.String" itemvalue="Python.Client" />
+      <item index="37" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
+      <item index="38" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
+      <item index="39" class="java.lang.String" itemvalue="Python.ItemFinder2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder2" />
         <item index="1" class="java.lang.String" itemvalue="Python.Client" />
         <item index="2" class="java.lang.String" itemvalue="Python.Punchball" />
         <item index="3" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
@@ -1399,7 +1426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519749129368</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Attempt to fix connection problems">
+      <created>1520787476887</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1520787476887</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1423,19 +1457,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="950" y="0" width="980" height="1030" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25888595" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5287107" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2739394" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45192307" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39784947" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33783785" sideWeight="0.5124224" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39784947" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1506,7 +1540,8 @@
     <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
     <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
     <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
+    <MESSAGE value="Attempt to fix connection problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt to fix connection problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1518,13 +1553,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/buoy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BasicThreader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1855,16 +1883,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="775">
+          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ItemFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state relative-caret-position="2075">
+          <caret line="83" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
