@@ -76,8 +76,12 @@ if servermode:
             self.conn = conn
             self.player = player
             self.ended = False
-            self.sendupdates()
-            # NB: threads must be started for them to run separately
+            for i, T in enumerate(things):
+                data = b'(' + str(T.sprite.get_width()).encode('utf-8')
+                data += b',' + str(T.sprite.get_height()).encode('utf-8')
+                data += b'){{' + surfacetobytes(T.sprite) + b'}}[' + str(i).encode('utf-8') + b']'
+                self.sendupdates(data)
+            # NB: threads must be started, not run, for them to run separately
             self.receiving = threading.Thread(target=self.receiveupdates)
             self.receiving.daemon = True
             self.receiving.start()
@@ -135,7 +139,9 @@ if servermode:
                 while len(waitingplayers) == 0:
                     pass
                 # gives the client thread the connection to the player and any old Player object TODO: conserve Player?
-                threaded_client(conn, waitingplayers.pop(0))
+                nextplayer = waitingplayers.pop()
+                threaded_client(conn, nextplayer)
+                print("Assigned Client {} to Player {}".format(connno, nextplayer))
 
 screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
@@ -171,6 +177,7 @@ class Thing:
     def __init__(self, x, y, sprites, unforceable=False):
         self.x = x
         self.y = y
+        self.ang = 0
         self.vx = 0
         self.vy = 0
         self.ax = 0
@@ -240,10 +247,10 @@ class Thing:
         self.accelerate(self.ax, self.ay)
         self.move(self.vx, self.vy)
         if abs(self.vx) < 0.5 and abs(self.vy) < 0.5:
-            ang = 0
+            self.ang = 0
         else:
-            ang = degrees(atan2(self.vy, self.vx))
-        rotsprite = pygame.transform.rotate(self.sprite, -90 - ang)
+            self.ang = degrees(atan2(self.vy, self.vx))
+        rotsprite = pygame.transform.rotate(self.sprite, -90 - self.ang)
         # used to change sprite colour to reflect speed (Blue to Red = Low to High)
         val = constrain(10 * pythag(self.vx, self.vy), 0, 255)
         pygame.PixelArray(rotsprite).replace((255, 255, 255), (val, 0, 255 - val), 0.5, (1, 1, 1))
@@ -343,7 +350,7 @@ playersprite = pygame.transform.scale(pygame.image.load_extended(r"PunchBall/FIS
 
 player1sprite = playersprite.copy()
 pygame.draw.circle(player1sprite, player1col, (18, 24), 4)
-player1 = Player(w * 0.75, h/2, player1sprite, 1, (K_UP, K_LEFT, K_DOWN, K_RIGHT), REMOTEPLAYER)
+player1 = Player(w * 0.75, h/2, player1sprite, 1, (K_UP, K_LEFT, K_DOWN, K_RIGHT), LOCALPLAYER)
 
 player2sprite = pygame.transform.flip(playersprite, True, False)
 pygame.draw.circle(player2sprite, player2col, (18, 24), 4)
@@ -429,10 +436,12 @@ while True:
     # Display, handle events, then pause between cycles for reasonable framerate
     pygame.display.flip()
     cycles += 1
-    if servermode and (cycles % 3 == 0):
-        screendata = surfacetobytes(pygame.display.get_surface())
+    if servermode:
+        data = b'+'
+        for i, T in enumerate(things):
+            data += "({},{},{})~[{}]".format(T.x, T.y, T.ang, i).encode('utf-8')
         for c in clients:
-            c.sendupdates(screendata)
+            c.sendupdates(data)
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()

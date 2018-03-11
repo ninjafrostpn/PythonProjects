@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ItemFinder.py" afterPath="$PROJECT_DIR$/ItemFinder.py" />
       <change beforePath="$PROJECT_DIR$/PunchBall/Client.py" afterPath="$PROJECT_DIR$/PunchBall/Client.py" />
       <change beforePath="$PROJECT_DIR$/PunchBall/Punchball.py" afterPath="$PROJECT_DIR$/PunchBall/Punchball.py" />
     </list>
@@ -29,30 +31,49 @@
       <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="78" column="30" lean-forward="true" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+            <state relative-caret-position="7750">
+              <caret line="442" column="25" lean-forward="false" selection-start-line="442" selection-start-column="25" selection-end-line="442" selection-end-column="25" />
               <folding>
                 <element signature="e#592#620#0" expanded="false" />
                 <element signature="e#674#709#0" expanded="false" />
                 <element signature="e#751#814#0" expanded="false" />
                 <element signature="e#950#1060#0" expanded="false" />
                 <element signature="e#1098#1256#0" expanded="false" />
-                <element signature="e#4821#4953#0" expanded="false" />
-                <element signature="e#5021#5493#0" expanded="false" />
-                <element signature="e#5593#9084#0" expanded="false" />
-                <element signature="e#6507#6546#0" expanded="false" />
-                <element signature="e#9159#11103#0" expanded="false" />
-                <element signature="e#11211#12099#0" expanded="false" />
+                <element signature="e#5250#5382#0" expanded="false" />
+                <element signature="e#5450#5922#0" expanded="false" />
+                <element signature="e#6022#9549#0" expanded="false" />
+                <element signature="e#6957#6996#0" expanded="false" />
+                <element signature="e#11676#12564#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SocketTutorialClient.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorialClient.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+            <state relative-caret-position="295">
+              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemFinder.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ItemFinder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -69,12 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1000</find>
-      <find>100</find>
-      <find>10</find>
-      <find>50</find>
-      <find>0.1</find>
-      <find>pr</find>
       <find>pri</find>
       <find>.top</find>
       <find>8</find>
@@ -99,6 +114,12 @@
       <find>== 0</find>
       <find>todo</find>
       <find>sendu</find>
+      <find>conn.</find>
+      <find>set</find>
+      <find>{{</find>
+      <find>timeo</find>
+      <find>rotate</find>
+      <find>remot</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -156,7 +177,6 @@
         <option value="$PROJECT_DIR$/String.py" />
         <option value="$PROJECT_DIR$/Bending/Bending(old interface).py" />
         <option value="$PROJECT_DIR$/Bending/Bending.py" />
-        <option value="$PROJECT_DIR$/ItemFinder.py" />
         <option value="$PROJECT_DIR$/WikiReambiguation.py" />
         <option value="$PROJECT_DIR$/WaterPlan.py" />
         <option value="$PROJECT_DIR$/FunnyWriterResults" />
@@ -188,13 +208,14 @@
         <option value="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" />
         <option value="$USER_HOME$/tools.py" />
         <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
-        <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
+        <option value="$PROJECT_DIR$/PunchBall/Client.py" />
+        <option value="$PROJECT_DIR$/ItemFinder.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
+    <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
   </component>
@@ -215,6 +236,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,18 +246,12 @@
             </path>
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="Tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,7 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Punchball">
+  <component name="RunManager" selected="Python.ItemFinder">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -513,6 +529,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="ItemFinder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Jayl" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -800,24 +834,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Snek/Snek.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="SocketTutorialClient" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1184,17 +1200,17 @@
       <item index="33" class="java.lang.String" itemvalue="Python.SoundSources" />
       <item index="34" class="java.lang.String" itemvalue="Python.Punchball" />
       <item index="35" class="java.lang.String" itemvalue="Python.Client" />
-      <item index="36" class="java.lang.String" itemvalue="Python.SocketTutorialClient" />
-      <item index="37" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-      <item index="38" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
+      <item index="36" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
+      <item index="37" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
+      <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Punchball" />
-        <item index="2" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-        <item index="3" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SocketTutorialClient" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Client" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="3" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
       </list>
     </recent_temporary>
   </component>
@@ -1376,7 +1392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519747896629</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Rearrange imports, move clientfinder start, and add surfacetobytes function">
+      <created>1519749129368</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1519749129368</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1403,7 +1426,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12679045" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25888595" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
@@ -1482,14 +1505,15 @@
     <MESSAGE value="Make the dive converter usable by the toolkit" />
     <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
     <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
+    <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="28" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1533,13 +1557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ItemFinder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1690,13 +1707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorialClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Server.py" />
     <entry file="file://$PROJECT_DIR$/MiceProblem.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1806,7 +1816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1814,34 +1823,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorialClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="78" column="30" lean-forward="true" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        <state relative-caret-position="7750">
+          <caret line="442" column="25" lean-forward="false" selection-start-line="442" selection-start-column="25" selection-end-line="442" selection-end-column="25" />
           <folding>
             <element signature="e#592#620#0" expanded="false" />
             <element signature="e#674#709#0" expanded="false" />
             <element signature="e#751#814#0" expanded="false" />
             <element signature="e#950#1060#0" expanded="false" />
             <element signature="e#1098#1256#0" expanded="false" />
-            <element signature="e#4821#4953#0" expanded="false" />
-            <element signature="e#5021#5493#0" expanded="false" />
-            <element signature="e#5593#9084#0" expanded="false" />
-            <element signature="e#6507#6546#0" expanded="false" />
-            <element signature="e#9159#11103#0" expanded="false" />
-            <element signature="e#11211#12099#0" expanded="false" />
+            <element signature="e#5250#5382#0" expanded="false" />
+            <element signature="e#5450#5922#0" expanded="false" />
+            <element signature="e#6022#9549#0" expanded="false" />
+            <element signature="e#6957#6996#0" expanded="false" />
+            <element signature="e#11676#12564#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+        <state relative-caret-position="295">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ItemFinder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding />
         </state>
       </provider>

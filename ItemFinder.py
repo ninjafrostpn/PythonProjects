@@ -8,14 +8,13 @@ pygame.init()
 
 pokepath = "D:\\Users\\Charles Turvey\\Pictures\\DP Maps\\"
 
-town = pygame.image.load_extended(pokepath + "FaceGraph.png")
+town = pygame.image.load_extended(pokepath + "999temp.png")
 w = town.get_width()
 h = town.get_height()
 screen = pygame.display.set_mode((w, h))
-town.convert()
+town = town.convert_alpha()
 
-target = pygame.image.load_extended(pokepath + "SamFace.png")
-target.convert()
+target = pygame.image.load_extended(pokepath + "999.png").convert_alpha()
 
 def checkfit(area, item, pos, threshold=10):
     areaw = area.get_width()
