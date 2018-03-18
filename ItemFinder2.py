@@ -7,12 +7,13 @@ print_lock = threading.Lock()
 
 pygame.init()
 
-largeimagepath = r"D:\Users\Charles Turvey\Pictures\DP Maps\Facebook.png"
-replacementpath = r"D:\Users\Charles Turvey\Pictures\DP Maps\B.jpg"
+largeimagepath = r"D:\Users\Charles Turvey\Pictures\DP Maps\peaches.jpg"
+replacementpath = r"D:\Users\Charles Turvey\Pictures\DP Maps\Trump.jpg"
 
 largeimage = pygame.image.load_extended(largeimagepath)
-w = largeimage.get_width()
-h = largeimage.get_height()
+w = int(largeimage.get_width()/2)
+h = int(largeimage.get_height()/2)
+largeimage = pygame.transform.smoothscale(largeimage, (w, h))
 screen = pygame.display.set_mode((w, h))
 largeimage = largeimage.convert_alpha()
 
