@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Crawler.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ItemFinder2.py" afterPath="$PROJECT_DIR$/ItemFinder2.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,62 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Punchball.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
+      <file leaf-file-name="Crawler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7750">
-              <caret line="442" column="25" lean-forward="false" selection-start-line="442" selection-start-column="25" selection-end-line="442" selection-end-column="25" />
+            <state relative-caret-position="209">
+              <caret line="244" column="18" lean-forward="true" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="18" />
               <folding>
-                <element signature="e#592#620#0" expanded="false" />
-                <element signature="e#674#709#0" expanded="false" />
-                <element signature="e#751#814#0" expanded="false" />
-                <element signature="e#950#1060#0" expanded="false" />
-                <element signature="e#1098#1256#0" expanded="false" />
-                <element signature="e#5250#5382#0" expanded="false" />
-                <element signature="e#5450#5922#0" expanded="false" />
-                <element signature="e#6022#9549#0" expanded="false" />
-                <element signature="e#6957#6996#0" expanded="false" />
-                <element signature="e#11676#12564#0" expanded="false" />
+                <element signature="e#278#282#0" expanded="false" />
+                <element signature="e#320#324#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocketTutorialClient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorialClient.py">
+      <file leaf-file-name="Stertch.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Stertch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemFinder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ItemFinder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2075">
-              <caret line="83" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemFinder2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state relative-caret-position="-1300">
+              <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -97,20 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>8</find>
-      <find>20</find>
-      <find>,</find>
-      <find># print</find>
-      <find>qrint</find>
-      <find>keypress</find>
-      <find>player(</find>
-      <find>player1playing</find>
-      <find>q</find>
-      <find>qri</find>
-      <find>print_</find>
-      <find>-1</find>
-      <find>player.p</find>
-      <find>wai</find>
       <find>index</find>
       <find>{}&quot;.format(e)</find>
       <find>wurg</find>
@@ -124,9 +72,23 @@
       <find>timeo</find>
       <find>rotate</find>
       <find>remot</find>
-      <find>print</find>
       <find>[</find>
       <find>scale</find>
+      <find>print</find>
+      <find>white</find>
+      <find>dist</find>
+      <find>circle</find>
+      <find>0.1</find>
+      <find>1000</find>
+      <find>legs</find>
+      <find>25)</find>
+      <find>1)</find>
+      <find>sprin</find>
+      <find>w)</find>
+      <find>96</find>
+      <find>* 100</find>
+      <find>100</find>
+      <find>SPACE</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -167,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../SRobo/SourceBots/simulator-SP2017/run.py" />
         <option value="$PROJECT_DIR$/../../SRobo/SourceBots/simulator-SP2017/test.py" />
         <option value="$PROJECT_DIR$/../../Unity/Simulator/Assets/ServerStuff/SocketTutorialClient.py" />
         <option value="$PROJECT_DIR$/../../SRobo/SourceBots/UnitySimulator/Unity.py" />
@@ -218,11 +179,12 @@
         <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/ItemFinder.py" />
         <option value="$PROJECT_DIR$/ItemFinder2.py" />
+        <option value="$PROJECT_DIR$/Crawler.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
+    <option name="x" value="-10" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
   </component>
@@ -297,7 +259,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ItemFinder2">
+  <component name="RunManager" selected="Python.Crawler">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -433,6 +395,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="Crawler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="CursorShiftr" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1056,24 +1036,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="dive-XML-to-CSV" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
-      <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\Tools\diveXMLtoCSV.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="factoring" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1227,16 +1189,16 @@
       <item index="35" class="java.lang.String" itemvalue="Python.Punchball" />
       <item index="36" class="java.lang.String" itemvalue="Python.Client" />
       <item index="37" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-      <item index="38" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
-      <item index="39" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <item index="39" class="java.lang.String" itemvalue="Python.Crawler" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Punchball" />
-        <item index="3" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
-        <item index="4" class="java.lang.String" itemvalue="Python.dive-XML-to-CSV" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Crawler" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Client" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Punchball" />
+        <item index="4" class="java.lang.String" itemvalue="Python.DiveProfileConverter" />
       </list>
     </recent_temporary>
   </component>
@@ -1439,7 +1401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520803233788</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Make Itemfinder2 better for large images">
+      <created>1521405131668</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1521405131668</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1466,10 +1435,10 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21909814" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44745395" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1522,7 +1491,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Complete Tag printer script functionality for local version" />
     <MESSAGE value="Create Auto-Punster" />
     <MESSAGE value="Quite a few things. I'm going to start being tidier now." />
     <MESSAGE value="Fix paths, Clean up code, and Add in comments." />
@@ -1547,25 +1515,19 @@
     <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
     <MESSAGE value="Attempt to fix connection problems" />
     <MESSAGE value="Make a better itemfinder using OpenCV" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a better itemfinder using OpenCV" />
+    <MESSAGE value="Make Itemfinder2 better for large images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make Itemfinder2 better for large images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BasicThreader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NerveNet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1713,13 +1675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/numpyArrayMessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1760,13 +1715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2950">
           <caret line="118" column="43" lean-forward="true" selection-start-line="118" selection-start-column="43" selection-end-line="118" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Stertch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="182" column="32" lean-forward="true" selection-start-line="182" selection-start-column="32" selection-end-line="182" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1908,6 +1856,33 @@
         <state relative-caret-position="224">
           <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stertch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1300">
+          <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="244" column="18" lean-forward="true" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="18" />
+          <folding>
+            <element signature="e#278#282#0" expanded="false" />
+            <element signature="e#320#324#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
