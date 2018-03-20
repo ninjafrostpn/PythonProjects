@@ -7,8 +7,10 @@ from pygame.locals import *
 screen = pygame.display.set_mode((500, 500))
 w = screen.get_width()
 h = screen.get_height()
+screenrect = screen.get_rect()
 
 dist = lambda p1, p2: math.sqrt(((p1[0] - p2[0])**2) + ((p1[1] - p2[1])**2))
+constrain = lambda val, lo, hi: min(max(val, lo), hi)
 
 
 class InvalidOperation(Exception):
@@ -72,7 +74,7 @@ class Vector:
         return Vector(self.x, self.y)
 
 
-g = Vector(0, 150)
+g = Vector(0, 300)
 
 
 class Spring:
@@ -106,14 +108,14 @@ def touchline(pt, line):
     if disc == 0:
         retpt = Vector((D * dy) / (dr ** 2),
                        (-D * dx) / (dr ** 2))
-        print("yolp", retpt)
+        # print("yolp", retpt)
         retpt += pt
     elif disc > 0:
         retpt1 = Vector(((D * dy) + (math.copysign(dx, dy) * math.sqrt(disc))) / (dr ** 2),
                         ((-D * dx) + (abs(dy) * math.sqrt(disc))) / (dr ** 2))
         retpt2 = Vector(((D * dy) - (math.copysign(dx, dy) * math.sqrt(disc))) / (dr ** 2),
                         ((-D * dx) - (abs(dy) * math.sqrt(disc))) / (dr ** 2))
-        print("yelp", retpt1, retpt2)
+        # print("yelp", retpt1, retpt2)
         retpt = ((retpt1 + retpt2) / 2) + pt
     else:
         return False
@@ -139,7 +141,19 @@ class Line:
     
     def show(self):
         pygame.draw.line(screen, self.col, tuple(self.p1), tuple(self.p2))
-        
+
+
+class PolyLine:
+    def __init__(self, vertices, closed=True, col=(255, 255, 255)):
+        self.col = col
+        self.lines = []
+        for i in range(len(vertices) - (not closed)):
+            self.lines.append(Line(vertices[i], vertices[(i + 1) % len(vertices)], col))
+    
+    def show(self):
+        for L in self.lines:
+            L.show()
+
 
 class Foot:
     def __init__(self, body, x, y, mass, col=(255, 0, 255)):
@@ -190,7 +204,7 @@ class Foot:
             for L in lines:
                 touch = touchline(self.pos, L)
                 if touch:
-                    print(touch)
+                    # print(touch)
                     self.pos = touch.copy()
                     self.stood = True
                     self.orig = self.pos.copy()
@@ -198,8 +212,6 @@ class Foot:
                     self.vel = Vector(0, 0)
                     break
         self.leg.show()
-        if self.stood and self.body.released:
-            print("oops")
         pygame.draw.circle(screen, self.col, (int(self.pos.x), int(self.pos.y)), 5)
 
 
@@ -208,6 +220,7 @@ class Bug:
         self.mass = mass
         self.inv_mass = 1 / mass
         self.pos = Vector(x, y)
+        self.hitbox = pygame.Rect(self.pos.x - 25, self.pos.y - 25, 50, 50)
         self.vel = Vector(0, 0)
         self.acc = Vector(0, 0)
         self.feet = [Foot(self, x, y, 0.1, col) for F in range(footno)]
@@ -230,8 +243,13 @@ class Bug:
             self.footindex = (self.footindex + 1) % len(self.feet)
         self.acc += g
         self.vel += (self.acc / 10000)
+        newpos = self.pos + self.vel
+        if not screenrect.contains(self.hitbox):
+            newpos = Vector(constrain(newpos.x, 24, w - 24), constrain(newpos.y, 24, h - 24))
+            self.vel *= 0.7
+        self.pos = newpos.copy()
+        self.hitbox.center = [*self.pos]
         self.vel *= 0.96
-        self.pos += self.vel
         self.acc = Vector(0, 0)
         for F in self.feet:
             F.show()
@@ -240,9 +258,9 @@ class Bug:
         
 
 B = Bug(w/2, h/2, 1)
-Line((0, 0), (w, h))
-Line((300, 0), (100, h))
-Line((w/2, 200), (w, 200))
+PolyLine(((0, 0), (0, h), (w, h), (w, 0)))
+for i in range(25, w - 25, 50):
+    Line((i, i), (i + 50, i))
 
 while True:
     screen.fill(0)

@@ -28,16 +28,14 @@
       <file leaf-file-name="Crawler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
               <folding>
-                <element signature="e#292#296#0" expanded="false" />
-                <element signature="e#334#338#0" expanded="false" />
-                <element signature="e#359#1684#0" expanded="false" />
-                <element signature="e#1726#2348#0" expanded="false" />
-                <element signature="e#2380#3374#0" expanded="false" />
-                <element signature="e#3406#3896#0" expanded="false" />
-                <element signature="e#3923#6028#0" expanded="false" />
+                <element signature="e#377#381#0" expanded="false" />
+                <element signature="e#419#423#0" expanded="false" />
+                <element signature="e#444#1769#0" expanded="false" />
+                <element signature="e#1811#2433#0" expanded="false" />
+                <element signature="e#2465#3463#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,7 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>todo</find>
       <find>sendu</find>
       <find>conn.</find>
       <find>set</find>
@@ -74,7 +71,6 @@
       <find>remot</find>
       <find>[</find>
       <find>scale</find>
-      <find>print</find>
       <find>white</find>
       <find>dist</find>
       <find>circle</find>
@@ -94,6 +90,8 @@
       <find>reach</find>
       <find>100)</find>
       <find>&lt; 10</find>
+      <find>print</find>
+      <find>10</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -1420,7 +1418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521489566104</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Fix touchline function and generally make the whole thing work :D">
+      <created>1521509460764</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1521509460764</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1503,7 +1508,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Quite a few things. I'm going to start being tidier now." />
     <MESSAGE value="Fix paths, Clean up code, and Add in comments." />
     <MESSAGE value="Tidy up more, add qrint function for debugging." />
     <MESSAGE value="Take AI out into a function." />
@@ -1528,7 +1532,8 @@
     <MESSAGE value="Make a better itemfinder using OpenCV" />
     <MESSAGE value="Make Itemfinder2 better for large images" />
     <MESSAGE value="Add Crawler.py in initial iteration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Crawler.py in initial iteration" />
+    <MESSAGE value="Fix touchline function and generally make the whole thing work :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix touchline function and generally make the whole thing work :D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1872,16 +1877,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="220">
+          <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
           <folding>
-            <element signature="e#292#296#0" expanded="false" />
-            <element signature="e#334#338#0" expanded="false" />
-            <element signature="e#359#1684#0" expanded="false" />
-            <element signature="e#1726#2348#0" expanded="false" />
-            <element signature="e#2380#3374#0" expanded="false" />
-            <element signature="e#3406#3896#0" expanded="false" />
-            <element signature="e#3923#6028#0" expanded="false" />
+            <element signature="e#377#381#0" expanded="false" />
+            <element signature="e#419#423#0" expanded="false" />
+            <element signature="e#444#1769#0" expanded="false" />
+            <element signature="e#1811#2433#0" expanded="false" />
+            <element signature="e#2465#3463#0" expanded="false" />
           </folding>
         </state>
       </provider>
