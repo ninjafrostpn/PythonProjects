@@ -1,4 +1,5 @@
 import math
+import random
 import time
 import pygame
 from pygame.locals import *
@@ -106,15 +107,18 @@ def touchline(pt, line):
         retpt = Vector((D * dy) / (dr ** 2),
                        (-D * dx) / (dr ** 2))
         print("yolp", retpt)
-        return retpt + pt
+        retpt += pt
     elif disc > 0:
         retpt1 = Vector(((D * dy) + (math.copysign(dx, dy) * math.sqrt(disc))) / (dr ** 2),
                         ((-D * dx) + (abs(dy) * math.sqrt(disc))) / (dr ** 2))
         retpt2 = Vector(((D * dy) - (math.copysign(dx, dy) * math.sqrt(disc))) / (dr ** 2),
                         ((-D * dx) - (abs(dy) * math.sqrt(disc))) / (dr ** 2))
         print("yelp", retpt1, retpt2)
-        return ((retpt1 + retpt2) / 2) + pt
-    return False
+        retpt = ((retpt1 + retpt2) / 2) + pt
+    else:
+        return False
+    if dist(retpt, line.p1) + dist(retpt, line.p2) <= line.l + 0.1:
+        return retpt
 
 
 lines = []
@@ -126,6 +130,7 @@ class Line:
         self.p2 = Vector(p2[0], p2[1])
         self.dx = p2[0] - p1[0]
         self.dy = p2[1] - p1[1]
+        self.l = dist(self.p1, self.p2)
         if self.dx != 0:
             self.m = self.dy / self.dx
             self.c = p1[1] - (self.m * p1[0])
@@ -165,9 +170,12 @@ class Foot:
         if self.body.released:
             self.stood = False
             self.targs.clear()
+            self.cyc = 0
         if not self.stood and self.cyc % 10 == 0:
             self.acc = self.acc + g
             self.vel = self.vel + (self.acc / 10000)
+            if dist(self.pos, self.body.pos) < 25:
+                self.vel *= 0.96
             self.pos = self.pos + self.vel
             self.acc = Vector(0, 0)
         if len(self.targs) > 0:
@@ -190,17 +198,19 @@ class Foot:
                     self.vel = Vector(0, 0)
                     break
         self.leg.show()
+        if self.stood and self.body.released:
+            print("oops")
         pygame.draw.circle(screen, self.col, (int(self.pos.x), int(self.pos.y)), 5)
 
 
 class Bug:
-    def __init__(self, x, y, mass, col=(255, 0, 255)):
+    def __init__(self, x, y, mass, col=(255, 0, 255), footno=6):
         self.mass = mass
         self.inv_mass = 1 / mass
         self.pos = Vector(x, y)
         self.vel = Vector(0, 0)
         self.acc = Vector(0, 0)
-        self.feet = [Foot(self, x, y, 0.1, col) for F in range(6)]
+        self.feet = [Foot(self, x, y, 0.1, col) for F in range(footno)]
         self.footindex = 0
         self.reaching = False
         self.released = False
@@ -208,20 +218,20 @@ class Bug:
     
     def reachout(self, ang):
         if not self.reaching:
-            self.feet[self.footindex].hurl(ang, 50)
+            self.feet[self.footindex].hurl(ang + math.radians(random.randrange(-3, 3)), 75)
             self.reaching = True
     
     def kick(self, force):
-        self.acc = self.acc + (force * self.inv_mass)
+        self.acc += (force * self.inv_mass)
     
     def show(self):
         if self.reaching and (len(self.feet[self.footindex].targs) == 0):
             self.reaching = False
             self.footindex = (self.footindex + 1) % len(self.feet)
-        self.acc = self.acc + g
-        self.vel = self.vel + (self.acc / 10000)
-        self.vel = self.vel * 0.96
-        self.pos = self.pos + self.vel
+        self.acc += g
+        self.vel += (self.acc / 10000)
+        self.vel *= 0.96
+        self.pos += self.vel
         self.acc = Vector(0, 0)
         for F in self.feet:
             F.show()
@@ -231,8 +241,8 @@ class Bug:
 
 B = Bug(w/2, h/2, 1)
 Line((0, 0), (w, h))
-# Line((300, 0), (100, h))
-Line((0, 200), (w, 200))
+Line((300, 0), (100, h))
+Line((w/2, 200), (w, 200))
 
 while True:
     screen.fill(0)
