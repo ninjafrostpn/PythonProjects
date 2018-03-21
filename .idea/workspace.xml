@@ -28,14 +28,14 @@
       <file leaf-file-name="Crawler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
+            <state relative-caret-position="525">
+              <caret line="279" column="18" lean-forward="true" selection-start-line="279" selection-start-column="18" selection-end-line="279" selection-end-column="18" />
               <folding>
-                <element signature="e#377#381#0" expanded="false" />
-                <element signature="e#419#423#0" expanded="false" />
-                <element signature="e#444#1769#0" expanded="false" />
-                <element signature="e#1811#2433#0" expanded="false" />
-                <element signature="e#2465#3463#0" expanded="false" />
+                <element signature="e#378#382#0" expanded="false" />
+                <element signature="e#420#424#0" expanded="false" />
+                <element signature="e#445#1770#0" expanded="false" />
+                <element signature="e#1812#2434#0" expanded="false" />
+                <element signature="e#2466#3464#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -62,7 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sendu</find>
       <find>conn.</find>
       <find>set</find>
       <find>{{</find>
@@ -83,15 +82,16 @@
       <find>w)</find>
       <find>96</find>
       <find>* 100</find>
-      <find>100</find>
       <find>SPACE</find>
       <find>ang</find>
       <find>6</find>
-      <find>reach</find>
       <find>100)</find>
       <find>&lt; 10</find>
       <find>print</find>
       <find>10</find>
+      <find>100</find>
+      <find>reach</find>
+      <find>45</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -1425,7 +1425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521509460764</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add wall collisions and polylines">
+      <created>1521512026987</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1521512026987</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1508,7 +1515,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix paths, Clean up code, and Add in comments." />
     <MESSAGE value="Tidy up more, add qrint function for debugging." />
     <MESSAGE value="Take AI out into a function." />
     <MESSAGE value="Remove prtential division-by-zero error" />
@@ -1533,7 +1539,8 @@
     <MESSAGE value="Make Itemfinder2 better for large images" />
     <MESSAGE value="Add Crawler.py in initial iteration" />
     <MESSAGE value="Fix touchline function and generally make the whole thing work :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix touchline function and generally make the whole thing work :D" />
+    <MESSAGE value="Add wall collisions and polylines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add wall collisions and polylines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1877,14 +1884,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="259" column="20" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
+        <state relative-caret-position="525">
+          <caret line="279" column="18" lean-forward="true" selection-start-line="279" selection-start-column="18" selection-end-line="279" selection-end-column="18" />
           <folding>
-            <element signature="e#377#381#0" expanded="false" />
-            <element signature="e#419#423#0" expanded="false" />
-            <element signature="e#444#1769#0" expanded="false" />
-            <element signature="e#1811#2433#0" expanded="false" />
-            <element signature="e#2465#3463#0" expanded="false" />
+            <element signature="e#378#382#0" expanded="false" />
+            <element signature="e#420#424#0" expanded="false" />
+            <element signature="e#445#1770#0" expanded="false" />
+            <element signature="e#1812#2434#0" expanded="false" />
+            <element signature="e#2466#3464#0" expanded="false" />
           </folding>
         </state>
       </provider>

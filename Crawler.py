@@ -4,7 +4,7 @@ import time
 import pygame
 from pygame.locals import *
 
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
 h = screen.get_height()
 screenrect = screen.get_rect()
@@ -231,7 +231,7 @@ class Bug:
     
     def reachout(self, ang):
         if not self.reaching:
-            self.feet[self.footindex].hurl(ang + math.radians(random.randrange(-3, 3)), 75)
+            self.feet[self.footindex].hurl(ang + math.radians(random.randrange(-3, 3)), 60)
             self.reaching = True
     
     def kick(self, force):
@@ -257,11 +257,18 @@ class Bug:
         pygame.draw.circle(screen, self.col, (int(self.pos[0]), int(self.pos[1])), 25, 2)
         
 
-B = Bug(w/2, h/2, 1)
+B = Bug(w/2, h/6, 1, footno=6)
+Q = Bug(w/4, h/4, 1, (0, 255, 0), footno=6)
 PolyLine(((0, 0), (0, h), (w, h), (w, 0)))
-for i in range(25, w - 25, 50):
-    Line((i, i), (i + 50, i))
+w10 = w/10
+h10 = h/10
+for i in range(1, 10):
+    Line((w10 * (i + 0.5), 0), (w, h10 * (i + 0.5)))
+    Line((w, h10 * (i + 0.5)), (w - (w10 * (i + 0.5)), h))
+    Line((w - (w10 * (i + 0.5)), h), (0, h - (h10 * (i + 0.5))))
+    Line((0, h - (h10 * (i + 0.5))), (w10 * (i + 0.5), 0))
 
+Qdir = 0
 while True:
     screen.fill(0)
     for L in lines:
@@ -279,6 +286,8 @@ while True:
         if right != 0 or down != 0:
             B.reachout(math.atan2(down, right))
     B.show()
+    Q.reachout(math.atan2(B.pos[1] - Q.pos[1], B.pos[0] - Q.pos[0]))
+    Q.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
@@ -286,4 +295,4 @@ while True:
         elif e.type == KEYDOWN:
             if e.key == K_ESCAPE:
                 quit()
-    time.sleep(0.01)
+    time.sleep(0.005)
