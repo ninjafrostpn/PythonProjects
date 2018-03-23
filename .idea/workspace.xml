@@ -54,8 +54,8 @@
       <file leaf-file-name="OpenCV-video-trial.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+            <state relative-caret-position="492">
+              <caret line="40" column="66" lean-forward="false" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -1459,7 +1459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521819348479</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add some comments and move the text up a bit">
+      <created>1521823981227</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1521823981227</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1542,7 +1549,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Player class which inherits from Thing class" />
     <MESSAGE value="Add Wall(Thing) class and rearrange Thing code and move score rendering to accommodate it" />
     <MESSAGE value="Incorporate (broken) AI into player class to make the class more vague.&#10;Make it so that walls can knock into things but can't be jerk/accelerated.&#10;Add fishparty option for testing the limits of feasability." />
     <MESSAGE value="Make fish png the right shape" />
@@ -1567,7 +1573,8 @@
     <MESSAGE value="Add a simple AI bug (Q) and make the arena nice and webby" />
     <MESSAGE value="Add OpenCV video/image capture with pygame interface" />
     <MESSAGE value="Make OpenCV interface all pretty-like" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make OpenCV interface all pretty-like" />
+    <MESSAGE value="Add some comments and move the text up a bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some comments and move the text up a bit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1913,8 +1920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        <state relative-caret-position="492">
+          <caret line="40" column="66" lean-forward="false" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
           <folding />
         </state>
       </provider>

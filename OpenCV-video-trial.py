@@ -37,8 +37,8 @@ h = screen.get_height()
 smallfont = pygame.font.Font(r"D:\Users\Charles Turvey\Documents\Python\Projects\OpenSans-Regular.ttf", 30)
 
 # Initialise variables which indicate state
-recording = False
-camon = True
+recording = False  # "The camera is recording video"
+camon = True       # "The camera is to stay on for the next cycle"
 
 # Initialise stats
 starttime = time()
@@ -92,7 +92,7 @@ while camon:
                     ["  Recent: {}".format(HMS(time() - phototime) if photocount > 0 else "None"), blue]]
         # Actually draws the readout
         for i, m in enumerate(messages):
-            screen.blit(smallfont.render(m[0], True, m[1]), (650, 20 + (40 * i)))
+            screen.blit(smallfont.render(m[0], True, m[1]), (650, 40 * i))
         # Draw everything to the display
         pygame.display.flip()
         
