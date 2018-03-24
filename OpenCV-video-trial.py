@@ -1,3 +1,4 @@
+import socket
 import os
 import numpy as np
 import cv2
@@ -5,11 +6,16 @@ import pygame
 from pygame.locals import *
 from time import time
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('', 9001))
+s.listen(5)
+conn, addr = s.accept()
+
 path = r"D:\Users\Charles Turvey\Documents\Python\Projects\SavedImages\{:.0f}".format(time())
 os.mkdir(path)
 
 # Open Webcam
-cap = cv2.VideoCapture(1)  # 1 signifies the second available camera device
+cap = cv2.VideoCapture(0)  # 1 signifies the second available camera device
 fourcc = cv2.VideoWriter_fourcc(*"XVID")  # The protocol used for video
 
 # Define some colours
@@ -55,8 +61,8 @@ while camon:
     ret, frame = cap.read()
     # If the frame was captured correctly
     if ret:
-        # Would draw image to opencv window
-        # cv2.imshow('frame', frame)
+        # print(frame.dtype, frame.shape)
+        conn.send(frame.flatten().tobytes())
         
         # Converts from opencv image capture to pygame Surface
         pframe = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
