@@ -7,10 +7,10 @@ print_lock = threading.Lock()
 
 pygame.init()
 
-largeimagepath = r"D:\Users\Charles Turvey\Pictures\DP Maps\peaches.jpg"
-replacementpath = r"D:\Users\Charles Turvey\Pictures\DP Maps\Trump.jpg"
+largeimagepath = r"D:\Users\Charles Turvey\Pictures\DP Maps\999temp.png"
+replacementpath = r"D:\Users\Charles Turvey\Pictures\DP Maps\pc.png"
 
-largeimage = pygame.image.load_extended(largeimagepath)
+largeimage = pygame.transform.scale2x(pygame.image.load_extended(largeimagepath))
 w = int(largeimage.get_width()/2)
 h = int(largeimage.get_height()/2)
 largeimage = pygame.transform.smoothscale(largeimage, (w, h))

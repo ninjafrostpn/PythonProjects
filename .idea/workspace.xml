@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Perspectives-3D.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Perspectives.py" afterPath="$PROJECT_DIR$/Perspectives.py" />
+      <change beforePath="$PROJECT_DIR$/ItemFinder2.py" afterPath="$PROJECT_DIR$/ItemFinder2.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,22 +25,32 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Shadows.py">
+    <leaf>
+      <file leaf-file-name="Perspectives-3D.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="450">
+              <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Perspectives.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ItemFinder2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="10" column="68" lean-forward="true" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Perspectives.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Perspectives.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="41" column="72" lean-forward="false" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
+            <state relative-caret-position="250">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -56,7 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1000</find>
       <find>legs</find>
       <find>25)</find>
       <find>1)</find>
@@ -86,6 +96,7 @@
       <find>sleep</find>
       <find>print(</find>
       <find>vel</find>
+      <find>/2</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -126,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MemPercents.py" />
         <option value="$PROJECT_DIR$/Referencer.py" />
         <option value="$PROJECT_DIR$/BasicThreader.py" />
         <option value="$PROJECT_DIR$/String.py" />
@@ -167,7 +177,6 @@
         <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/ItemFinder.py" />
         <option value="$PROJECT_DIR$/Crawler.py" />
-        <option value="$PROJECT_DIR$/ItemFinder2.py" />
         <option value="$PROJECT_DIR$/OpenCV-video-trial.py" />
         <option value="$PROJECT_DIR$/OpenCV-receiver.py" />
         <option value="$PROJECT_DIR$/../../ROV-Dev/Compware.py" />
@@ -177,6 +186,8 @@
         <option value="$PROJECT_DIR$/PyTutorialBlank.py" />
         <option value="$PROJECT_DIR$/Shadows.py" />
         <option value="$PROJECT_DIR$/Perspectives.py" />
+        <option value="$PROJECT_DIR$/Perspectives-3D.py" />
+        <option value="$PROJECT_DIR$/ItemFinder2.py" />
       </list>
     </option>
   </component>
@@ -184,7 +195,7 @@
     <option name="x" value="-11" />
     <option name="y" value="-11" />
     <option name="width" value="980" />
-    <option name="height" value="1030" />
+    <option name="height" value="520" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -253,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Perspectives">
+  <component name="RunManager" selected="Python.ItemFinder2">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -372,24 +383,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="Compware" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../ROV-Dev/Compware.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="CursorShiftr" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -488,6 +481,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="ItemFinder2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -692,6 +703,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Perspectives-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives-3D.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Perspectives" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -705,24 +734,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Piware" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../ROV-Dev/Piware.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1180,19 +1191,19 @@
       <item index="32" class="java.lang.String" itemvalue="Python.Jayl" />
       <item index="33" class="java.lang.String" itemvalue="Python.ArtStu" />
       <item index="34" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="35" class="java.lang.String" itemvalue="Python.Piware" />
-      <item index="36" class="java.lang.String" itemvalue="Python.Compware" />
-      <item index="37" class="java.lang.String" itemvalue="Python.PyTutorial" />
-      <item index="38" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
-      <item index="39" class="java.lang.String" itemvalue="Python.Perspectives" />
+      <item index="35" class="java.lang.String" itemvalue="Python.PyTutorial" />
+      <item index="36" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
+      <item index="37" class="java.lang.String" itemvalue="Python.Perspectives" />
+      <item index="38" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+      <item index="39" class="java.lang.String" itemvalue="Python.ItemFinder2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Perspectives" />
-        <item index="1" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
-        <item index="2" class="java.lang.String" itemvalue="Python.PyTutorial" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Compware" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Piware" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Perspectives" />
+        <item index="3" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
+        <item index="4" class="java.lang.String" itemvalue="Python.PyTutorial" />
       </list>
     </recent_temporary>
   </component>
@@ -1479,7 +1490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522105204105</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Complete addition of a simple GBA game ;)">
+      <created>1522122375203</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1522122375203</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1562,7 +1580,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make fish png the right shape and general cleanup" />
     <MESSAGE value="Add Proof-of-concept socket-based client-side controller game-server thing, based on Socket tutorial files" />
     <MESSAGE value="Add in simple server capabilities to main program" />
     <MESSAGE value="Remove original server file and integrate server functions into main program with a little resilience" />
@@ -1587,7 +1604,8 @@
     <MESSAGE value="Create a client for receiving images from the OpenCV-video-trial and modify the trial so it sends images to it" />
     <MESSAGE value="Add Tutorial files" />
     <MESSAGE value="Start project on making things look nice and in perspective" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start project on making things look nice and in perspective" />
+    <MESSAGE value="Complete addition of a simple GBA game ;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete addition of a simple GBA game ;)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1599,27 +1617,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../SourceBots/AprilTags/MarkerMaker/TagResizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="28" column="105" lean-forward="true" selection-start-line="28" selection-start-column="105" selection-end-line="28" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Reserves.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Punster.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/1809560983/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20000">
@@ -1823,14 +1820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="39" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SavedImages/1521800881.3.png" />
     <entry file="file://$PROJECT_DIR$/SavedImages/1521818421.png" />
     <entry file="file://$PROJECT_DIR$/SavedImages/1521818682.3944979/1521818688.png" />
@@ -1892,14 +1881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shadows.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1924,10 +1905,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Shadows.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Perspectives.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="41" column="72" lean-forward="false" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/data/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="10" column="68" lean-forward="true" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
           <folding />
         </state>
       </provider>
