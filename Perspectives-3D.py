@@ -15,12 +15,12 @@ def dist(p1, p2):
 
 
 def transformpoints(*points):
-    n = int(len(points)/3)
+    n = int(len(points) / 3)
     point3D = np.float32(points).reshape(1, n, 3)
     point2D, _ = cv2.projectPoints(point3D, np.float32(rvec), np.float32(tvec),
                                    produced_camera_matrix, produced_dist_coefs)
     return list(point2D[:, 0])
-    
+
 
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
@@ -41,7 +41,7 @@ while True:
     keys = pygame.key.get_pressed()
     screen.fill(0)
     mpos = pygame.mouse.get_pos()
-
+    
     # https://stackoverflow.com/a/46048098
     # x is to the right, y is down, z is into the screen
     obj_points = [0, 0, 10,
@@ -52,7 +52,7 @@ while True:
                   400, 100,
                   400, 400,
                   100, 400]
-
+    
     obj_points = np.float32(obj_points).reshape(1, int(len(obj_points) / 3), 3)
     img_points = np.float32(img_points).reshape(1, int(len(img_points) / 2), 2)
     
@@ -60,14 +60,15 @@ while True:
     camera_matrix[0, 0] = 100  # F_x
     camera_matrix[1, 1] = 100  # F_y
     camera_matrix[2, 2] = 1.0
-    camera_matrix[0, 2] = w/2 # C_x
-    camera_matrix[1, 2] = h * 5/8 # C_y
-
+    camera_matrix[0, 2] = w / 2  # C_x
+    camera_matrix[1, 2] = h * 5 / 8  # C_y
+    
     dist_coefs = np.zeros(4, dtype="float32")
     
     retval, produced_camera_matrix, produced_dist_coefs, rvec, tvec = cv2.calibrateCamera(obj_points, img_points,
-                                                                        size, camera_matrix, dist_coefs,
-                                                                        flags=cv2.CALIB_USE_INTRINSIC_GUESS)
+                                                                                          size, camera_matrix,
+                                                                                          dist_coefs,
+                                                                                          flags=cv2.CALIB_USE_INTRINSIC_GUESS)
     
     for i in range(5):
         z = i * w
