@@ -24,6 +24,26 @@ def transformpoints(*points):
     return list(point2D[:, 0])
 
 
+# Computes whether a quad defined by four coplanar points and ray defined by two intersect
+# https://stackoverflow.com/questions/21114796/3d-ray-quad-intersection-test-in-java
+def quad_ray_intersection(planepoints, raypoints):
+    planepoints = np.array(planepoints)
+    planevec1 = planepoints[0] - planepoints[1]
+    planevec2 = planepoints[2] - planepoints[1]
+    planenormvector = np.cross(planevec1, planevec2)
+    raypoints = np.array(raypoints)
+    rayvector = raypoints[1] - raypoints[0]
+    dp = np.dot(planenormvector, rayvector)
+    if abs(dp) > 0.00001:
+        t = np.dot(-planenormvector, raypoints[0] - planepoints[1]) / dp
+        M = raypoints[0] + (rayvector * t)
+        u = np.dot(M - planepoints[1], planevec1)
+        v = np.dot(M - planepoints[1], planevec2)
+        if (0 <= u <= abs(planevec1) ** 2) and (0 <= v <= abs(planevec2) ** 2):
+            return True
+    return False
+
+
 plates = []
 
 # The rect defines top-left in x-y and width to the right, height downward
@@ -45,6 +65,7 @@ class Backplate:
         if -100 < perceivedz < 10000:
             self.points2D = transformpoints(*[(p[0] - posx + w/2, p[1], self.z - posz) for p in self.points3D])
             pygame.draw.polygon(screen, self.col, self.points2D)
+    
 
 # The rect defines top-left in z-y and width to the back, height downward
 class Sideplate:
