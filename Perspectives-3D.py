@@ -39,9 +39,9 @@ def quad_ray_intersection(planepoints, raypoints):
         M = raypoints[0] + (rayvector * t)
         u = np.dot(M - planepoints[1], planevec1)
         v = np.dot(M - planepoints[1], planevec2)
-        if (0 <= u <= abs(planevec1) ** 2) and (0 <= v <= abs(planevec2) ** 2):
-            return True
-    return False
+        if (0 <= u <= dist(*planepoints[:2]) ** 2) and (0 <= v <= dist(*planepoints[1:3]) ** 2):
+            return M
+    return raypoints[0]
 
 
 plates = []
@@ -60,10 +60,9 @@ class Backplate:
         self.col = col
         plates.append(self)
     
-    def show(self):
-        perceivedz = self.z - posz
-        if -100 < perceivedz < 10000:
-            self.points2D = transformpoints(*[(p[0] - posx + w/2, p[1], self.z - posz) for p in self.points3D])
+    def show(self, offset):
+        if -100 < self.z - posz < 10000:
+            self.points2D = transformpoints(np.array(self.points3D) + offset)
             pygame.draw.polygon(screen, self.col, self.points2D)
     
 
@@ -77,14 +76,14 @@ class Sideplate:
                          [x, rectin.bottom, rectin.left]]
         self.points2D = transformpoints(*self.points3D)
         self.x = x
-        self.z, self.y = rectin.topleft
+        self.z = rectin.left + 1
         self.col = col
         plates.append(self)
     
-    def show(self):
+    def show(self, offset):
         perceivedz = self.z - posz
         if -100 < perceivedz < 10000:
-            self.points2D = transformpoints(*[(self.x - posx + w / 2, p[1], p[2] - posz) for p in self.points3D])
+            self.points2D = transformpoints(np.array(self.points3D) + offset)
             pygame.draw.polygon(screen, self.col, self.points2D)
 
 
@@ -155,18 +154,20 @@ while True:
     
     posz = max(posz + (keys[K_UP] - keys[K_DOWN]) * 10, 0)
     
-    tpoints = transformpoints(posx, posy, 0, posx, posy - 25, 0)
+    tpoints = transformpoints(w/2, w - 25, 0, w/2, w - 50, 0)
     
     # Draw things
     plates.sort(key=lambda b: b.z, reverse=True)
     drawnplayer = False
     for i, b in enumerate(plates):
-        if b.z < posz and not drawnplayer:
-            pygame.draw.circle(screen, 255, (int(w / 2), int(tpoints[0][1])), int(dist(tpoints[0], tpoints[1])))
+        if dist(quad_ray_intersection(b.points3D, ((posx, posy, posz),
+                                                   (posx, posy + 25 - h/2, posz - 50))),
+                                                   (posx, posy, posz)) > 0 and not drawnplayer:
+            pygame.draw.circle(screen, 255, tpoints[0], int(dist(tpoints[0], tpoints[1])))
             drawnplayer = True
-        b.show()
+        b.show(np.array([((w / 2) - posx, w - 25 - posy, -posz)]))
     if not drawnplayer:
-        pygame.draw.circle(screen, 255, (int(w/2), int(tpoints[0][1])), int(dist(tpoints[0], tpoints[1])))
+        pygame.draw.circle(screen, 255, tpoints[0], int(dist(tpoints[0], tpoints[1])))
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
