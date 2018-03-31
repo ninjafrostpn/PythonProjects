@@ -46,8 +46,23 @@ def quad_ray_intersection(planepoints, raypoints):
 
 plates = []
 
+class Plate:
+    def show(self, offset):
+        # TODO: clip the rects as they approach the edge of vision
+        if -100 < self.refz - P.z < 2000:
+            self.points2D = transformpoints(np.array(self.points3D) + offset)
+            pygame.draw.polygon(screen, self.col, self.points2D)
+            
+    def __lt__(self, other):
+        if self.z > other.z:
+            return False
+        if self.z == other.z and dist([P.x, P.y], [self.x, self.y]) > dist([P.x, P.y], [other.x, other.y]):
+            return False
+        return True
+
+
 # The rect defines top-left in x-y and width to the right, height downward
-class Backplate:
+class Zplate(Plate):
     def __init__(self, rectin, z, col=(255, 0, 255)):
         rectin = Rect(rectin)
         self.points3D = [[*rectin.topleft, z],
@@ -57,17 +72,18 @@ class Backplate:
         self.points2D = transformpoints(*self.points3D)
         self.z = z
         self.x, self.y = rectin.topleft
+        self.refz = z
         self.col = col
         plates.append(self)
     
-    def show(self, offset):
-        if -100 < self.z - posz < 10000:
-            self.points2D = transformpoints(np.array(self.points3D) + offset)
-            pygame.draw.polygon(screen, self.col, self.points2D)
-    
+    def infront(self):
+        if P.z > self.z:
+            return True
+        return False
+
 
 # The rect defines top-left in z-y and width to the back, height downward
-class Sideplate:
+class Xplate(Plate):
     def __init__(self, rectin, x, col=(255, 0, 255)):
         rectin = Rect(rectin)
         self.points3D = [[x, rectin.top, rectin.left],
@@ -76,15 +92,45 @@ class Sideplate:
                          [x, rectin.bottom, rectin.left]]
         self.points2D = transformpoints(*self.points3D)
         self.x = x
-        self.z = rectin.left + 1
+        self.z, self.y = rectin.center
+        self.refz = rectin.left
         self.col = col
         plates.append(self)
     
+    def infront(self):
+        if abs(P.x - (w/2)) > abs(self.x - (w/2)) and P.z > self.refz:
+            return True
+        return False
+
+
+# The rect defines near-left in x-z and width to the right, height into the screen
+class Yplate(Plate):
+    def __init__(self, rectin, y, col=(255, 0, 255)):
+        rectin = Rect(rectin)
+        self.points3D = [[rectin.left, y, rectin.top],
+                         [rectin.right, y, rectin.top],
+                         [rectin.right, y, rectin.bottom],
+                         [rectin.left, y, rectin.bottom]]
+        self.points2D = transformpoints(*self.points3D)
+        self.y = y
+        self.x, self.z = rectin.center
+        self.refz = rectin.top
+        self.col = col
+        plates.append(self)
+    
+    def infront(self):
+        if abs(P.y - (h/2)) > abs(self.y - (h/2)) and P.z > self.refz:
+            return True
+        return False
+
+
+class Player(Plate):
+    def __init__(self, x, y, z):
+        self.x, self.y, self.z = x, y, z
+        plates.append(self)
+    
     def show(self, offset):
-        perceivedz = self.z - posz
-        if -100 < perceivedz < 10000:
-            self.points2D = transformpoints(np.array(self.points3D) + offset)
-            pygame.draw.polygon(screen, self.col, self.points2D)
+        pygame.draw.circle(screen, 255, tpoints[0], int(dist(tpoints[0], tpoints[1])))
 
 
 pygame.init()
@@ -122,52 +168,52 @@ retval, produced_camera_matrix, produced_dist_coefs, rvec, tvec = cv2.calibrateC
                                                                                       dist_coefs,
                                                                                       flags=cv2.CALIB_USE_INTRINSIC_GUESS)
 
-posx = 0
-posy = 0
+P = Player(0, 0, 0)
 vely = 0
-posz = 0
 
-for i in range(1, 50):
-    z = i * w
-    Backplate((0, 0, w, h), z, ((z * 7) % 256,
-                                (z * 11) % 256,
-                                (z * 13) % 256))
-    Sideplate((z, 0, w, h), w, ((z * 17) % 256,
-                                (z * 19) % 256,
-                                (z * 23) % 256))
+for i in range(1, 500):
+    z = i * w/10
+    # Zplate((0, 0, w, h), z, ((z * 7) % 256,
+    #                          (z * 11) % 256,
+    #                          (z * 13) % 256))
+    Xplate((z, 0, w/10, h), w + i*2, ((z * 17) % 256,
+                             (z * 19) % 256,
+                             (z * 23) % 256))
+    Xplate((z, 0, w/10, h), i*2, ((z * 17) % 256,
+                             (z * 19) % 256,
+                             (z * 23) % 256))
+    Yplate((i*2, z, w, h/10), h, ((z * 29) % 256,
+                             (z * 31) % 256,
+                             (z * 37) % 256))
+    Yplate((i*2, z, w, h/10), 0, ((z * 29) % 256,
+                             (z * 31) % 256,
+                             (z * 37) % 256))
 
 while True:
     keys = pygame.key.get_pressed()
     screen.fill(0)
     mpos = pygame.mouse.get_pos()
     
-    posx = posx + (keys[K_RIGHT] - keys[K_LEFT]) * 10
+    P.x = P.x + (keys[K_RIGHT] - keys[K_LEFT]) * 10
     
-    if posy < h - 25:
+    if P.y < h - 25:
         vely += 0.1
     else:
-        posy = h - 25
+        P.y = h - 25
         vely = 0
-    if keys[K_SPACE] and posy == h - 25:
-        vely = -5
-    posy += vely
+    if keys[K_SPACE] and P.y == h - 25:
+        vely = -15
+    P.y += vely
     
-    posz = max(posz + (keys[K_UP] - keys[K_DOWN]) * 10, 0)
+    P.z = max(P.z + (keys[K_UP] - keys[K_DOWN]) * 10, 0)
     
-    tpoints = transformpoints(w/2, w - 25, 0, w/2, w - 50, 0)
+    tpoints = transformpoints(w/2, h - 25, 0, w/2, h, 0)
     
     # Draw things
-    plates.sort(key=lambda b: b.z, reverse=True)
+    plates.sort(reverse=True)
     drawnplayer = False
     for i, b in enumerate(plates):
-        if dist(quad_ray_intersection(b.points3D, ((posx, posy, posz),
-                                                   (posx, posy + 25 - h/2, posz - 50))),
-                                                   (posx, posy, posz)) > 0 and not drawnplayer:
-            pygame.draw.circle(screen, 255, tpoints[0], int(dist(tpoints[0], tpoints[1])))
-            drawnplayer = True
-        b.show(np.array([((w / 2) - posx, w - 25 - posy, -posz)]))
-    if not drawnplayer:
-        pygame.draw.circle(screen, 255, tpoints[0], int(dist(tpoints[0], tpoints[1])))
+        b.show(np.array([((w / 2) - P.x, w - 25 - P.y, -P.z)]))
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
@@ -175,4 +221,4 @@ while True:
             if e.key == K_ESCAPE:
                 quit()
     pygame.display.flip()
-    sleep(0.001)
+    # sleep(0.001)
