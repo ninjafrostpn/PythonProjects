@@ -24,8 +24,9 @@ def transformpoints(*points):
     return list(point2D[:, 0])
 
 
-backplates = []
+plates = []
 
+# The rect defines top-left in x-y and width to the right, height downward
 class Backplate:
     def __init__(self, rectin, z, col=(255, 0, 255)):
         rectin = Rect(rectin)
@@ -35,12 +36,34 @@ class Backplate:
                          [*rectin.bottomleft, z]]
         self.points2D = transformpoints(*self.points3D)
         self.z = z
+        self.x, self.y = rectin.topleft
         self.col = col
-        backplates.append(self)
+        plates.append(self)
     
     def show(self):
-        if self.z - posz > -100:
+        perceivedz = self.z - posz
+        if -100 < perceivedz < 10000:
             self.points2D = transformpoints(*[(p[0] - posx + w/2, p[1], self.z - posz) for p in self.points3D])
+            pygame.draw.polygon(screen, self.col, self.points2D)
+
+# The rect defines top-left in z-y and width to the back, height downward
+class Sideplate:
+    def __init__(self, rectin, x, col=(255, 0, 255)):
+        rectin = Rect(rectin)
+        self.points3D = [[x, rectin.top, rectin.left],
+                         [x, rectin.top, rectin.right],
+                         [x, rectin.bottom, rectin.right],
+                         [x, rectin.bottom, rectin.left]]
+        self.points2D = transformpoints(*self.points3D)
+        self.x = x
+        self.z, self.y = rectin.topleft
+        self.col = col
+        plates.append(self)
+    
+    def show(self):
+        perceivedz = self.z - posz
+        if -100 < perceivedz < 10000:
+            self.points2D = transformpoints(*[(self.x - posx + w / 2, p[1], p[2] - posz) for p in self.points3D])
             pygame.draw.polygon(screen, self.col, self.points2D)
 
 
@@ -86,16 +109,19 @@ posz = 0
 
 for i in range(1, 50):
     z = i * w
-    Backplate((10, 10, w - 20, h - 20), z, ((z * 7) % 256,
-                                            (z * 11) % 256,
-                                            (z * 13) % 256))
+    Backplate((0, 0, w, h), z, ((z * 7) % 256,
+                                (z * 11) % 256,
+                                (z * 13) % 256))
+    Sideplate((z, 0, w, h), w, ((z * 17) % 256,
+                                (z * 19) % 256,
+                                (z * 23) % 256))
 
 while True:
     keys = pygame.key.get_pressed()
     screen.fill(0)
     mpos = pygame.mouse.get_pos()
     
-    posx = posx + (keys[K_RIGHT] - keys[K_LEFT])
+    posx = posx + (keys[K_RIGHT] - keys[K_LEFT]) * 10
     
     if posy < h - 25:
         vely += 0.1
@@ -106,14 +132,14 @@ while True:
         vely = -5
     posy += vely
     
-    posz = max(posz + (keys[K_UP] - keys[K_DOWN]), 0)
+    posz = max(posz + (keys[K_UP] - keys[K_DOWN]) * 10, 0)
     
     tpoints = transformpoints(posx, posy, 0, posx, posy - 25, 0)
     
     # Draw things
-    backplates.sort(key=lambda b: b.z, reverse=True)
+    plates.sort(key=lambda b: b.z, reverse=True)
     drawnplayer = False
-    for i, b in enumerate(backplates):
+    for i, b in enumerate(plates):
         if b.z < posz and not drawnplayer:
             pygame.draw.circle(screen, 255, (int(w / 2), int(tpoints[0][1])), int(dist(tpoints[0], tpoints[1])))
             drawnplayer = True
