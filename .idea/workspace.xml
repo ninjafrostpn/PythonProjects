@@ -4,9 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add per">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Perspectives-3D.py" afterPath="$PROJECT_DIR$/Perspectives-3D.py" />
+      <change beforePath="$PROJECT_DIR$/Shadows.py" afterPath="$PROJECT_DIR$/Shadows.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,18 +24,46 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Perspectives-3D.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+          <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Shadows.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="151" column="37" lean-forward="false" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Perspectives.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Perspectives.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="500">
+                  <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Perspectives-3D.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="425">
+                  <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>96</find>
-      <find>* 100</find>
       <find>SPACE</find>
       <find>ang</find>
       <find>6</find>
@@ -76,6 +102,8 @@
       <find>vel</find>
       <find>w/2</find>
       <find>posz</find>
+      <find>wa</find>
+      <find>Ba</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -165,14 +193,14 @@
         <option value="$PROJECT_DIR$/PyTutorial.py" />
         <option value="$PROJECT_DIR$/yTutorialBlank.py" />
         <option value="$PROJECT_DIR$/PyTutorialBlank.py" />
-        <option value="$PROJECT_DIR$/Shadows.py" />
         <option value="$PROJECT_DIR$/ItemFinder2.py" />
         <option value="$PROJECT_DIR$/Perspectives.py" />
         <option value="$PROJECT_DIR$/Perspectives-3D.py" />
+        <option value="$PROJECT_DIR$/Shadows.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
@@ -244,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Perspectives-3D">
+  <component name="RunManager" selected="Python.Shadows">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -775,7 +803,7 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="PyTutorialBlank" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -787,7 +815,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Projects" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PyTutorialBlank.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Shadows.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1171,19 +1199,19 @@
       <item index="32" class="java.lang.String" itemvalue="Python.Jayl" />
       <item index="33" class="java.lang.String" itemvalue="Python.ArtStu" />
       <item index="34" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="35" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
-      <item index="36" class="java.lang.String" itemvalue="Python.Perspectives" />
-      <item index="37" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
-      <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder2" />
-      <item index="39" class="java.lang.String" itemvalue="Python.Crawler" />
+      <item index="35" class="java.lang.String" itemvalue="Python.Perspectives" />
+      <item index="36" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+      <item index="37" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <item index="38" class="java.lang.String" itemvalue="Python.Crawler" />
+      <item index="39" class="java.lang.String" itemvalue="Python.Shadows" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Shadows" />
         <item index="1" class="java.lang.String" itemvalue="Python.Perspectives" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Crawler" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ItemFinder2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.PyTutorialBlank" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Crawler" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ItemFinder2" />
       </list>
     </recent_temporary>
   </component>
@@ -1533,7 +1561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522524938791</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Get 3D perspective idea good enough to go back to shadows">
+      <created>1522536717339</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1522536717339</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1557,13 +1592,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="980" height="1030" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26312998" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53687" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27151516" sideWeight="0.4918919" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26762247" sideWeight="0.4918919" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1616,7 +1651,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Small fix to punchball and added XML-to-CSV converter for dive data" />
     <MESSAGE value="Make the dive converter usable by the toolkit" />
     <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
     <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
@@ -1641,7 +1675,8 @@
     <MESSAGE value="Add Sidepanels and a render distance, still based on z" />
     <MESSAGE value="Add a function for raycasting collision detection" />
     <MESSAGE value="Improve render order slightly and add offset of environment properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve render order slightly and add offset of environment properly" />
+    <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get 3D perspective idea good enough to go back to shadows" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1894,13 +1929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shadows.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1957,18 +1985,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives.py">
+    <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
+    <entry file="file://$PROJECT_DIR$/Perspectives.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+        <state relative-caret-position="500">
+          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shadows.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="151" column="37" lean-forward="false" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
           <folding />
         </state>
       </provider>
