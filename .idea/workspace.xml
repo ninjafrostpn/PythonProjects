@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/ShadOwpenCV.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Shadows.py" afterPath="$PROJECT_DIR$/Shadows.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shadows.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+            <state relative-caret-position="497">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShadOwpenCV.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -218,19 +228,19 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakesr\robot" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\SocketToYa" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi\robot" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakesr\robot" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\SocketToYa" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -776,7 +786,7 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1137,54 +1147,53 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list size="40">
-      <item index="0" class="java.lang.String" itemvalue="Python.ItemFinder" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Buoy" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Dices" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Miner" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Bending" />
-      <item index="6" class="java.lang.String" itemvalue="Python.Code_conversions" />
-      <item index="7" class="java.lang.String" itemvalue="Python.DictMak" />
-      <item index="8" class="java.lang.String" itemvalue="Python.Moneycheck" />
-      <item index="9" class="java.lang.String" itemvalue="Python.Snek" />
-      <item index="10" class="java.lang.String" itemvalue="Python.Shortestpath" />
-      <item index="11" class="java.lang.String" itemvalue="Python.PointPlacer" />
-      <item index="12" class="java.lang.String" itemvalue="Python.WaveFronts" />
-      <item index="13" class="java.lang.String" itemvalue="Python.Looming" />
-      <item index="14" class="java.lang.String" itemvalue="Python.Packer" />
-      <item index="15" class="java.lang.String" itemvalue="Python.Soundtest" />
-      <item index="16" class="java.lang.String" itemvalue="Python.MiceProblem" />
-      <item index="17" class="java.lang.String" itemvalue="Python.MorSnek" />
-      <item index="18" class="java.lang.String" itemvalue="Python.CursorShiftr" />
-      <item index="19" class="java.lang.String" itemvalue="Python.TBRPG" />
-      <item index="20" class="java.lang.String" itemvalue="Python.DunnA" />
-      <item index="21" class="java.lang.String" itemvalue="Python.WaterBend" />
-      <item index="22" class="java.lang.String" itemvalue="Python.Weasel" />
-      <item index="23" class="java.lang.String" itemvalue="Python.Organiser" />
-      <item index="24" class="java.lang.String" itemvalue="Python.KeyShorts" />
-      <item index="25" class="java.lang.String" itemvalue="Python.KeyCount" />
-      <item index="26" class="java.lang.String" itemvalue="Python.PolynomialTest" />
-      <item index="27" class="java.lang.String" itemvalue="Python.factoring" />
-      <item index="28" class="java.lang.String" itemvalue="Python.Classification" />
-      <item index="29" class="java.lang.String" itemvalue="Python.WriteIt" />
-      <item index="30" class="java.lang.String" itemvalue="Python.WikiMixer" />
-      <item index="31" class="java.lang.String" itemvalue="Python.BioSpec" />
-      <item index="32" class="java.lang.String" itemvalue="Python.Jayl" />
-      <item index="33" class="java.lang.String" itemvalue="Python.ArtStu" />
-      <item index="34" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="35" class="java.lang.String" itemvalue="Python.Perspectives" />
-      <item index="36" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
-      <item index="37" class="java.lang.String" itemvalue="Python.ItemFinder2" />
-      <item index="38" class="java.lang.String" itemvalue="Python.Crawler" />
-      <item index="39" class="java.lang.String" itemvalue="Python.Shadows" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Shadows" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ItemFinder" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Buoy" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Dices" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Miner" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Bending" />
+      <item index="7" class="java.lang.String" itemvalue="Python.Code_conversions" />
+      <item index="8" class="java.lang.String" itemvalue="Python.DictMak" />
+      <item index="9" class="java.lang.String" itemvalue="Python.Moneycheck" />
+      <item index="10" class="java.lang.String" itemvalue="Python.Snek" />
+      <item index="11" class="java.lang.String" itemvalue="Python.Shortestpath" />
+      <item index="12" class="java.lang.String" itemvalue="Python.PointPlacer" />
+      <item index="13" class="java.lang.String" itemvalue="Python.WaveFronts" />
+      <item index="14" class="java.lang.String" itemvalue="Python.Looming" />
+      <item index="15" class="java.lang.String" itemvalue="Python.Packer" />
+      <item index="16" class="java.lang.String" itemvalue="Python.Soundtest" />
+      <item index="17" class="java.lang.String" itemvalue="Python.MiceProblem" />
+      <item index="18" class="java.lang.String" itemvalue="Python.MorSnek" />
+      <item index="19" class="java.lang.String" itemvalue="Python.CursorShiftr" />
+      <item index="20" class="java.lang.String" itemvalue="Python.TBRPG" />
+      <item index="21" class="java.lang.String" itemvalue="Python.DunnA" />
+      <item index="22" class="java.lang.String" itemvalue="Python.WaterBend" />
+      <item index="23" class="java.lang.String" itemvalue="Python.Weasel" />
+      <item index="24" class="java.lang.String" itemvalue="Python.Organiser" />
+      <item index="25" class="java.lang.String" itemvalue="Python.KeyShorts" />
+      <item index="26" class="java.lang.String" itemvalue="Python.KeyCount" />
+      <item index="27" class="java.lang.String" itemvalue="Python.PolynomialTest" />
+      <item index="28" class="java.lang.String" itemvalue="Python.factoring" />
+      <item index="29" class="java.lang.String" itemvalue="Python.Classification" />
+      <item index="30" class="java.lang.String" itemvalue="Python.WriteIt" />
+      <item index="31" class="java.lang.String" itemvalue="Python.WikiMixer" />
+      <item index="32" class="java.lang.String" itemvalue="Python.BioSpec" />
+      <item index="33" class="java.lang.String" itemvalue="Python.Jayl" />
+      <item index="34" class="java.lang.String" itemvalue="Python.ArtStu" />
+      <item index="35" class="java.lang.String" itemvalue="Python.SoundSources" />
+      <item index="36" class="java.lang.String" itemvalue="Python.Perspectives" />
+      <item index="37" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+      <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <item index="39" class="java.lang.String" itemvalue="Python.Crawler" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Shadows" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Perspectives" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Crawler" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.Perspectives" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Crawler" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ItemFinder2" />
       </list>
     </recent_temporary>
   </component>
@@ -1204,13 +1213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Make a lot of changes. I should be committing more often.">
-      <created>1511965247499</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1511965247499</updated>
     </task>
     <task id="LOCAL-00002" summary="Make a lot of changes. I should be committing more often.">
       <created>1513590998394</created>
@@ -1548,7 +1550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522630538604</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Add shadows. Easier said than done.">
+      <created>1522747754519</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1522747754526</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1575,7 +1584,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53687" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5363395" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26762247" sideWeight="0.4918919" order="12" side_tool="false" content_ui="tabs" />
@@ -1631,7 +1640,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
     <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
     <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
     <MESSAGE value="Attempt to fix connection problems" />
@@ -1656,7 +1664,8 @@
     <MESSAGE value="Improve render order slightly and add offset of environment properly" />
     <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
     <MESSAGE value="Add functioning backdrops and motion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add functioning backdrops and motion" />
+    <MESSAGE value="Add shadows. Easier said than done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add shadows. Easier said than done." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1668,13 +1677,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FollowingOn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="151" column="53" lean-forward="true" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WikiMixer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1983,8 +1985,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Shadows.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+        <state relative-caret-position="497">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
           <folding />
         </state>
       </provider>
