@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add per">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Shadows.py" afterPath="$PROJECT_DIR$/Shadows.py" />
     </list>
@@ -24,46 +24,18 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Shadows.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="151" column="37" lean-forward="false" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Perspectives.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Perspectives.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Perspectives-3D.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Shadows.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -74,13 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SPACE</find>
-      <find>ang</find>
-      <find>6</find>
-      <find>100)</find>
-      <find>&lt; 10</find>
-      <find>10</find>
-      <find>100</find>
       <find>reach</find>
       <find>45</find>
       <find>time()</find>
@@ -104,6 +69,13 @@
       <find>posz</find>
       <find>wa</find>
       <find>Ba</find>
+      <find>set_</find>
+      <find>light.</find>
+      <find>reshape</find>
+      <find>circle</find>
+      <find>lines</find>
+      <find>cvt</find>
+      <find>pos[2]</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -132,6 +104,7 @@
       <replace>playerinput</replace>
       <replace>&quot;, e</replace>
       <replace>P.z</replace>
+      <replace>self.z</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\sr</dir>
@@ -1568,7 +1541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522536717339</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Add functioning backdrops and motion">
+      <created>1522630538603</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1522630538604</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1651,7 +1631,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make the dive converter usable by the toolkit" />
     <MESSAGE value="Fix craziness seen on player start by assigning 0 angle at low speed" />
     <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
     <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
@@ -1676,7 +1655,8 @@
     <MESSAGE value="Add a function for raycasting collision detection" />
     <MESSAGE value="Improve render order slightly and add offset of environment properly" />
     <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get 3D perspective idea good enough to go back to shadows" />
+    <MESSAGE value="Add functioning backdrops and motion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add functioning backdrops and motion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1985,6 +1965,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Perspectives.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1993,18 +1981,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Shadows.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="151" column="37" lean-forward="false" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+        <state relative-caret-position="450">
+          <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
           <folding />
         </state>
       </provider>
