@@ -1,15 +1,14 @@
-import pygame
-from pygame.locals import *
 import cv2
 import numpy as np
 from math import sqrt, sin, cos, radians
+from time import sleep
 
-pygame.init()
-screen = pygame.display.set_mode((500, 500))
-w = screen.get_width()
-h = screen.get_height()
+w = 500
+h = 500
+screensize = (w, h)
+screen = np.zeros([w, h, 3])
 
-manimg = pygame.image.load_extended(r"D:\Users\Charles Turvey\Pictures\Art\Shadows\Man.png")
+manimg = cv2.imread(r"D:\Users\Charles Turvey\Pictures\Art\Shadows\Man.png", -1)
 
 constrain = lambda val, lo, hi: min(max(lo, val), hi)
 
@@ -47,22 +46,19 @@ def transformpoints(*points):
     return point2D
 
 
-def surfacetocvimage(surface):
-    sa = pygame.surfarray.array3d(surface)
-    sa = np.flipud(np.rot90(sa))
-    cvimage = cv2.cvtColor(sa, cv2.COLOR_RGB2BGR)
-    return cvimage
+# Blits, but transparency is a binary option. If it's not 0, it's counted as 255
+def blit(src, dest, pos=(0,0)):
+    destw, desth = dest.shape[:2]
+    srcw, srch = src.shape[:2]
+    destx = (constrain(pos[0], 0, destw - 1), constrain(pos[0] + srcw, 0, destw - 1))
+    desty = (constrain(pos[1], 0, desth - 1), constrain(pos[0] + srch, 0, desth - 1))
+    srcx = (destx[0] - pos[0], destx[1] - pos[0])
+    srcy = (desty[0] - pos[1], desty[1] - pos[1])
+    decisions = (src[srcx[0]:srcx[1], srcy[0]:srcy[1], 3] > 0)
+    for i in range(3):
+        dest[destx[0]:destx[1], desty[0]:desty[1], i][decisions] = src[srcx[0]:srcx[1], srcy[0]:srcy[1], i][decisions]
+    dest[:10, :10, :3] = np.array([255, 0, 0])
 
-
-def cvimagetosurface(cvimage, colorkey=(10, 0, 10)):
-    sa = cv2.cvtColor(cvimage, cv2.COLOR_BGR2RGB)
-    sa = np.rot90(np.fliplr(sa))
-    surface = pygame.surfarray.make_surface(sa)
-    surface.set_colorkey(colorkey)
-    return surface
-
-
-screensize = (w, h)
 
 # https://stackoverflow.com/a/46048098
 # x is to the right, y is down, z is into the screen
@@ -97,25 +93,24 @@ backdrops = []
 
 class Backdrop:
     def __init__(self, rectin, z, ang=0, col=(255, 255, 255)):
-        self.rect = pygame.Rect(rectin)
+        self.rect = rectin
         self.z = z
         self.ang = radians(ang)
         self.col = col
-        rightedgex = self.rect.left + (self.rect.width * cos(self.ang))
-        rightedgez = z + (self.rect.width * sin(self.ang))
-        self.corners3D = np.float32([[*self.rect.topleft, z],
-                                     [rightedgex, self.rect.top, rightedgez],
-                                     [rightedgex, self.rect.bottom, rightedgez],
-                                     [*self.rect.bottomleft, z]])
+        rightedgex = self.rect[0] + (self.rect[2] * cos(self.ang))
+        rightedgez = z + (self.rect[2] * sin(self.ang))
+        self.corners3D = np.float32([[*self.rect[:2], z],
+                                     [rightedgex, self.rect[1], rightedgez],
+                                     [rightedgex, self.rect[1] + self.rect[3], rightedgez],
+                                     [self.rect[0], self.rect[1] + self.rect[3], z]])
         self.xvec = self.corners3D[1] - self.corners3D[0]
         self.yvec = self.corners3D[3] - self.corners3D[0]
         self.planevec = np.cross(self.xvec, self.yvec)
         self.corners2D = np.float32([[0, 0],
-                                     [self.rect.width, 0],
-                                     self.rect.size,
-                                     [0, self.rect.height]]).reshape(4, 1, 2)
-        self.surface = pygame.Surface(self.rect.size).convert_alpha()
-        self.surface.fill(self.col)
+                                     [self.rect[2], 0],
+                                     self.rect[2:],
+                                     [0, self.rect[3]]]).reshape(4, 1, 2)
+        self.surface = np.ones([self.rect[2], self.rect[3], 4], dtype="uint8") * 255
         backdrops.append(self)
     
     def project(self, lightpos, silhouette):
@@ -128,19 +123,18 @@ class Backdrop:
                               == np.sign(np.dot(silhouette.corners3D[:] - self.corners3D[0], self.planevec)))
         if lightisbehindobject and bothsameside:
             projection2D = np.zeros((4, 1, 2), dtype="float32")
-            projection2D[:, 0, 0] = np.dot(projection3D - self.corners3D[0], self.xvec) / self.rect.width
-            projection2D[:, 0, 1] = np.dot(projection3D - self.corners3D[0], self.yvec) / self.rect.height
+            projection2D[:, 0, 0] = np.dot(projection3D - self.corners3D[0], self.xvec) / self.rect[2]
+            projection2D[:, 0, 1] = np.dot(projection3D - self.corners3D[0], self.yvec) / self.rect[3]
             M = cv2.getPerspectiveTransform(silhouette.corners2D, projection2D)
-            cvsurface = surfacetocvimage(silhouette.surface)
             # Transparent bordermode is not listed in docs...
             # Neither is there a simple way to keep transparency in conversion from cvimages to surfaces...
             # So currently, transparency is handled by using a dark pink border in the cvimage and
             #   setting the colorkey to this colour in the surface
-            cvsurface = cv2.warpPerspective(cvsurface, M, self.rect.size,
-                                            borderMode=cv2.BORDER_CONSTANT, borderValue=(10, 0, 10))
+            tsurface = cv2.warpPerspective(silhouette.surface, M, self.rect[2:],
+                                           borderMode=cv2.BORDER_TRANSPARENT)
             # Shadowifies the object by turning all non-dark-pink pixels dark grey
-            cvsurface[cvsurface != [10, 0, 10]] = 20
-            self.surface.blit(cvimagetosurface(cvsurface).convert_alpha(), (0, 0))
+            tsurface[tsurface != [10, 0, 10, 0]] = 20
+            blit(tsurface, self.surface)
         
     def show(self, offset=(0, 0, 0)):
         points2D = transformpoints(self.corners3D - np.array(offset))
@@ -149,15 +143,14 @@ class Backdrop:
         yon = not (np.all(0 > points2D[:, 0, 1]) or np.all(points2D[:, 0, 1] > h))
         if xon and yon:
             M = cv2.getPerspectiveTransform(self.corners2D, points2D)
-            cvsurface = surfacetocvimage(self.surface)
             # Transparent bordermode is not listed in docs...
             # Neither is there a simple way to keep transparency in conversion from cvimages to surfaces...
             # So currently, transparency is handled by using a dark pink border in the cvimage and
             #   setting the colorkey to this colour in the surface
-            cvsurface = cv2.warpPerspective(cvsurface, M, screensize,
-                                            borderMode=cv2.BORDER_CONSTANT, borderValue=(10, 0, 10))
-            screen.blit(cvimagetosurface(cvsurface).convert_alpha(), (0, 0))
-            self.surface.fill(self.col)
+            tsurface = cv2.warpPerspective(self.surface, M, screensize,
+                                           borderMode=cv2.BORDER_TRANSPARENT)
+            blit(tsurface, screen)
+            self.surface = np.ones([*self.rect[2:], 4], dtype="uint8") * 255
 
 
 class Light:
@@ -167,24 +160,24 @@ class Light:
 
 class Silhouette:
     def __init__(self, surface, pos, ang=0):
-        self.surface = surface.convert_alpha()
-        self.rect = surface.get_rect().move(*pos[:2])
+        self.surface = surface
+        self.rect = [*pos[:2], len(surface), len(surface[0])]
         self.pos = pos
         self.ang = radians(ang)
         self.z = pos[2]
-        rightedgex = self.rect.left + (self.rect.width * cos(self.ang))
-        rightedgez = self.z + (self.rect.width * sin(self.ang))
-        self.corners3D = np.float32([[*self.rect.topleft, self.z],
-                                     [rightedgex, self.rect.top, rightedgez],
-                                     [rightedgex, self.rect.bottom, rightedgez],
-                                     [*self.rect.bottomleft, self.z]])
+        rightedgex = self.rect[0] + (self.rect[2] * cos(self.ang))
+        rightedgez = self.z + (self.rect[2] * sin(self.ang))
+        self.corners3D = np.float32([[*self.rect[:2], self.z],
+                                     [rightedgex, self.rect[1], rightedgez],
+                                     [rightedgex, self.rect[1] + self.rect[3], rightedgez],
+                                     [self.rect[0], self.rect[1] + self.rect[3], self.z]])
         self.xvec = self.corners3D[1] - self.corners3D[0]
         self.yvec = self.corners3D[3] - self.corners3D[0]
         self.planevec = np.cross(self.xvec, self.yvec)
         self.corners2D = np.float32([[0, 0],
-                                     [self.rect.width, 0],
-                                     self.rect.size,
-                                     [0, self.rect.height]]).reshape(4, 1, 2)
+                                     [self.rect[2], 0],
+                                     self.rect[2:],
+                                     [0, self.rect[3]]]).reshape(4, 1, 2)
         backdrops.append(self)
     
     def project(self, a, b):
@@ -197,38 +190,37 @@ class Silhouette:
         yon = not (np.all(0 > points2D[:, 0, 1]) or np.all(points2D[:, 0, 1] > h))
         if xon and yon:
             M = cv2.getPerspectiveTransform(self.corners2D, points2D)
-            cvsurface = surfacetocvimage(self.surface)
             # Transparent bordermode is not listed in docs...
             # Neither is there a simple way to keep transparency in conversion from cvimages to surfaces...
             # So currently, transparency is handled by using a dark pink border in the cvimage and
             #   setting the colorkey to this colour in the surface
-            cvsurface = cv2.warpPerspective(cvsurface, M, screensize,
-                                            borderMode=cv2.BORDER_CONSTANT, borderValue=(10, 0, 10))
-            screen.blit(cvimagetosurface(cvsurface).convert_alpha(), (0, 0))
+            tsurface = cv2.warpPerspective(self.surface, M, screensize,
+                                           borderMode=cv2.BORDER_TRANSPARENT)
+            blit(tsurface, screen)
 
 
-Backdrop((w/2, h/3, w, h/1.5), 150, -10)
+Backdrop((int(w/2), int(h/3), w, int(h/1.5)), 150, -10)
 Backdrop((-w*2, 0, w*4, h), 200, 0)
-Silhouette(manimg, (0, h - manimg.get_height(), 0))
+Silhouette(manimg, (0, h - len(manimg[0]), 0))
 pos = np.array([0, 0, 0])
+k = -1
 while True:
-    screen.fill(0)
-    keys = pygame.key.get_pressed()
-    mpos = pygame.mouse.get_pos()
-    pos += np.array([keys[K_RIGHT] - keys[K_LEFT],
-                     0,
-                     keys[K_UP] - keys[K_DOWN]]) * 10
+    screen[:, :] = 0
+    if k == 27:       # ESC
+        break
+    if k == 2555904:  # RIGHT
+        pos[0] += 10
+    if k == 2424832:  # LEFT
+        pos[0] -= 10
+    if k == 2490368:  # UP
+        pos[2] += 10
+    if k == 2621440:  # DOWN
+        pos[2] -= 10
     backdrops.sort(key=lambda B: B.z, reverse=True)
     lightpos = np.array([pos[0] + w/2, h/1.3, -50])
     for i, B in enumerate(backdrops):
         for B2 in backdrops[:i] + backdrops[i+1:]:
             B.project(lightpos, B2)
         B.show(pos)
-    pygame.draw.circle(screen, (255, 0, 255), transformpoints(lightpos - pos)[0][0], 10)
-    for e in pygame.event.get():
-        if e.type == QUIT:
-            quit()
-        if e.type == KEYDOWN:
-            if e.key == K_ESCAPE:
-                quit()
-    pygame.display.flip()
+    cv2.imshow("Window", screen)
+    k = cv2.waitKeyEx(1)

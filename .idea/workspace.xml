@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/ShadOwpenCV.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ShadOwpenCV.py" afterPath="$PROJECT_DIR$/ShadOwpenCV.py" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,28 +24,46 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Shadows.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShadOwpenCV.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+          <file leaf-file-name="ShadOwpenCV.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="163">
+                  <caret line="133" column="34" lean-forward="true" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Shadows.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Shadows.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="397">
+                  <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Piware.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../ROV-Dev/Piware.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="850">
+                  <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -56,17 +74,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reach</find>
-      <find>45</find>
-      <find>time()</find>
-      <find>receiv</find>
-      <find>sendu</find>
-      <find>.send</find>
       <find>np.f</find>
       <find>recv</find>
       <find>.start</find>
       <find>zeros</find>
-      <find>print</find>
       <find>camon</find>
       <find>sleep</find>
       <find>print(</find>
@@ -86,6 +97,13 @@
       <find>lines</find>
       <find>cvt</find>
       <find>pos[2]</find>
+      <find>pygame</find>
+      <find>rect.top</find>
+      <find>width</find>
+      <find>pyg</find>
+      <find>!=</find>
+      <find>rot90</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -129,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Referencer.py" />
         <option value="$PROJECT_DIR$/BasicThreader.py" />
         <option value="$PROJECT_DIR$/String.py" />
         <option value="$PROJECT_DIR$/Bending/Bending(old interface).py" />
@@ -180,6 +197,7 @@
         <option value="$PROJECT_DIR$/Perspectives.py" />
         <option value="$PROJECT_DIR$/Perspectives-3D.py" />
         <option value="$PROJECT_DIR$/Shadows.py" />
+        <option value="$PROJECT_DIR$/ShadOwpenCV.py" />
       </list>
     </option>
   </component>
@@ -255,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Shadows">
+  <component name="RunManager" selected="Python.ShadOwpenCV">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -786,6 +804,24 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
+    <configuration name="ShadOwpenCV" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Projects" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ShadOwpenCV.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1146,7 +1182,7 @@
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="40">
+    <list size="41">
       <item index="0" class="java.lang.String" itemvalue="Python.Shadows" />
       <item index="1" class="java.lang.String" itemvalue="Python.ItemFinder" />
       <item index="2" class="java.lang.String" itemvalue="Python.Test" />
@@ -1187,13 +1223,15 @@
       <item index="37" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
       <item index="38" class="java.lang.String" itemvalue="Python.ItemFinder2" />
       <item index="39" class="java.lang.String" itemvalue="Python.Crawler" />
+      <item index="40" class="java.lang.String" itemvalue="Python.ShadOwpenCV" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.Perspectives" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Crawler" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ItemFinder2" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.ShadOwpenCV" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Perspectives" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Perspectives-3D" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Crawler" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ItemFinder2" />
       </list>
     </recent_temporary>
   </component>
@@ -1213,13 +1251,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Make a lot of changes. I should be committing more often.">
-      <created>1513590998394</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1513590998394</updated>
     </task>
     <task id="LOCAL-00003" summary="Complete Tag printer script functionality for local version">
       <created>1513638366513</created>
@@ -1557,7 +1588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522747754526</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Start OpenCV version of Shadows, in the hope that it's faster.">
+      <created>1522748178590</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1522748178590</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1584,7 +1622,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5363395" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30026525" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26762247" sideWeight="0.4918919" order="12" side_tool="false" content_ui="tabs" />
@@ -1640,7 +1678,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make it so that the data to be sent is generated once every 3 cycles and not once per player" />
     <MESSAGE value="Rearrange imports, move clientfinder start, and add surfacetobytes function" />
     <MESSAGE value="Attempt to fix connection problems" />
     <MESSAGE value="Make a better itemfinder using OpenCV" />
@@ -1665,7 +1702,8 @@
     <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
     <MESSAGE value="Add functioning backdrops and motion" />
     <MESSAGE value="Add shadows. Easier said than done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add shadows. Easier said than done." />
+    <MESSAGE value="Start OpenCV version of Shadows, in the hope that it's faster." />
+    <option name="LAST_COMMIT_MESSAGE" value="Start OpenCV version of Shadows, in the hope that it's faster." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1869,13 +1907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../ROV-Dev/Piware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PyTutorial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -1983,18 +2014,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../ROV-Dev/Piware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Shadows.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="397">
+          <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="163">
+          <caret line="133" column="34" lean-forward="true" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
           <folding />
         </state>
       </provider>
