@@ -34,7 +34,7 @@ w = screen.get_width()
 h = screen.get_height()
 
 # Load up a nice font
-smallfont = pygame.font.Font(r"D:\Users\Charles Turvey\Documents\Python\Projects\OpenSans-Regular.ttf", 30)
+smallfont = pygame.font.Font(r"D:\Users\Charles Turvey\Documents\Python\Projects\OpenSans-Regular.ttf", 20)
 
 # Initialise variables which indicate state
 recording = False  # "The camera is recording video"
@@ -56,26 +56,26 @@ while camon:
     ret, frame = cap.read()
     # If the frame was captured correctly
     if ret:
+        cv2.putText(frame, HMS(time() - starttime), (10, h - 10),
+                    cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, white, 1, cv2.LINE_AA)
         # Converts from opencv image capture to pygame Surface
         pframe = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         pframe = np.rot90(np.fliplr(pframe))
-        # print(pframe.shape)
         pframe = pygame.surfarray.make_surface(pframe)
-        # print(pframe.get_size())
         
         # Draw everything
         screen.fill(black)
         screen.blit(pframe, (0, 0))
         pygame.draw.line(screen, white, (640, 0), (640, h))
-        if recording and time() > previouscapturetime + captureinterval:
-            # Record frames if recording
-            out.write(frame)
-            # Show red recording circle
+        if recording:
+            # Show red recording indicator
             pygame.draw.circle(screen, red, (15, 15), 10)
-            # Update the potential end time of the recording
-            recordfinishtime = time()
-            previouscapturetime = recordfinishtime
-            capturecount += 1
+            if time() > starttime + (captureinterval * capturecount):
+                out.write(frame)
+                # Update the potential end time of the recording
+                recordfinishtime = time()
+                previouscapturetime = recordfinishtime
+                capturecount += 1
         # Generates the readout on the right
         messages = [["Activity this session:", green],
                     ["  Time: {}".format(HMS(time() - starttime)), green],
@@ -86,10 +86,14 @@ while camon:
                     ["Captures:", blue],
                     ["  Every {} seconds".format(captureinterval), blue],
                     ["  Last: {}".format(HMS(previouscapturetime - recordstarttime) if recordcount else None), blue],
-                    ["  Count: {}".format(capturecount), blue]]
+                    ["  Count: {}".format(capturecount), blue],
+                    ["Press:", white],
+                    ["  [SPACE] to start/stop recording", white],
+                    ["  [UP][DOWN] to in/decrease interval", white],
+                    ["  [ESC] to leave application", white]]
         # Actually draws the readout
         for i, m in enumerate(messages):
-            screen.blit(smallfont.render(m[0], True, m[1]), (650, 40 * i))
+            screen.blit(smallfont.render(m[0], True, m[1]), (650, 30 * i))
         # Draw everything to the display
         pygame.display.flip()
         
@@ -124,4 +128,3 @@ while camon:
 cap.release()
 if recording:
     out.release()
-# cv2.destroyAllWindows()
