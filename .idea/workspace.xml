@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Slo-Time.py" afterPath="$PROJECT_DIR$/Slo-Time.py" />
+      <change afterPath="$PROJECT_DIR$/Neural-Nets/Dancer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,32 +25,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Slo-Time.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Slo-Time.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Slo-Time.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="58" column="54" lean-forward="false" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenCV-video-trial.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
+      <file leaf-file-name="Dancer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="477">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenCV-receiver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
+      <file leaf-file-name="Basic Pygame File.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="15" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -139,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/String.py" />
         <option value="$PROJECT_DIR$/Bending/Bending(old interface).py" />
         <option value="$PROJECT_DIR$/Bending/Bending.py" />
         <option value="$PROJECT_DIR$/WikiReambiguation.py" />
@@ -190,32 +186,22 @@
         <option value="$PROJECT_DIR$/Shadows.py" />
         <option value="$PROJECT_DIR$/ShadOwpenCV.py" />
         <option value="$PROJECT_DIR$/Slo-Time.py" />
+        <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1030" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1943" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,18 +212,13 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="SavedImages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="SavedImages" type="462c0819:PsiDirectoryNode" />
-              <item name="1522267671" type="462c0819:PsiDirectoryNode" />
+              <item name="Neural-Nets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,7 +226,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ROV-Dev/Piware.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SourceBots" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
@@ -278,6 +259,7 @@
   </component>
   <component name="RunManager" selected="Python.Slo-Time">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -288,7 +270,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Artificial_Stupidity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -298,6 +279,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Bending" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -308,7 +290,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -316,6 +297,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="BioSpec" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -326,7 +308,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BioSpecSort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -336,6 +317,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Buoy" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -346,7 +328,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/buoy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -356,6 +337,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Classification" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -366,7 +348,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -376,6 +357,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Code_conversions" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -386,7 +368,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/num_to_let.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -396,6 +377,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="CursorShiftr" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -409,7 +391,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CursorShiftr.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -421,6 +402,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Dices" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -431,7 +413,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CombiDice.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -441,6 +422,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="DictMak" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -451,7 +433,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DictionaryMaker.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -461,6 +442,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="DunnA" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -471,7 +453,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DNA.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -481,6 +462,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="ItemFinder" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -491,7 +473,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ItemFinder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -499,6 +480,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Jayl" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -512,7 +494,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Jayl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -522,6 +503,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="KeyCount" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -535,7 +517,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KeyCount.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -545,6 +526,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="KeyShorts" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -558,7 +540,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KeyShorts.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -568,6 +549,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Looming" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -578,7 +560,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Looming.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -586,6 +567,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="MiceProblem" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -596,7 +578,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MiceProblem.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -604,6 +585,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Miner" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -614,7 +596,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GoldMiner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -624,6 +605,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Moneycheck" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -634,7 +616,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Moneycheck.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -642,6 +623,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="MorSnek" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -652,7 +634,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MorSnek.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -660,6 +641,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="OpenCV-receiver" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -670,7 +652,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenCV-receiver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -678,6 +659,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="OpenCV-video-trial" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -688,7 +670,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenCV-video-trial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -696,6 +677,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Organiser" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -706,7 +688,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/system139.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -716,6 +697,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Packer" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -726,7 +708,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Packer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -734,6 +715,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Perspectives" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -744,7 +726,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -752,6 +733,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="PointPlacer" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -762,7 +744,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/E Arth/PointPlacer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -770,6 +751,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="PolynomialTest" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -780,7 +762,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Binomial generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -790,6 +771,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="ShadOwpenCV" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -800,7 +782,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ShadOwpenCV.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -808,6 +789,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -818,7 +800,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Shadows.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -826,6 +807,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Shortestpath" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -836,7 +818,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Isobath/Shortestpath.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -844,6 +825,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Slo-Time" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -854,7 +836,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Slo-Time.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -862,6 +843,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Snek" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -872,7 +854,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Snek/Snek.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -880,6 +861,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="SoundSources" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -890,7 +872,6 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SoundSources.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -898,6 +879,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Soundtest" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -908,7 +890,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SoundTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -916,6 +897,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="TBRPG" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -926,7 +908,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TBRPG/Layout.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -936,6 +917,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="Test" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -946,7 +928,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Sudoku.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -958,6 +939,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="WaterBend" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -968,7 +950,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/WaterBending.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -976,6 +957,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="WaveFronts" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -986,7 +968,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Wavefronts.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -994,6 +975,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Weasel" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1004,7 +986,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Weasel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -1014,6 +995,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="WikiMixer" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1024,7 +1006,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WikiMixer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -1034,6 +1015,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration name="WriteIt" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1044,7 +1026,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Writer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -1054,6 +1035,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1064,7 +1046,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -1072,6 +1053,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="factoring" type="PythonConfigurationType" factoryName="Python">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1082,7 +1064,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/factors_filling.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -1142,104 +1123,98 @@
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
+      <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Projects" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="41">
-      <item index="0" class="java.lang.String" itemvalue="Python.Shadows" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ItemFinder" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Test" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Buoy" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Dices" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Miner" />
-      <item index="6" class="java.lang.String" itemvalue="Python.Bending" />
-      <item index="7" class="java.lang.String" itemvalue="Python.Code_conversions" />
-      <item index="8" class="java.lang.String" itemvalue="Python.DictMak" />
-      <item index="9" class="java.lang.String" itemvalue="Python.Moneycheck" />
-      <item index="10" class="java.lang.String" itemvalue="Python.Snek" />
-      <item index="11" class="java.lang.String" itemvalue="Python.Shortestpath" />
-      <item index="12" class="java.lang.String" itemvalue="Python.PointPlacer" />
-      <item index="13" class="java.lang.String" itemvalue="Python.WaveFronts" />
-      <item index="14" class="java.lang.String" itemvalue="Python.Looming" />
-      <item index="15" class="java.lang.String" itemvalue="Python.Packer" />
-      <item index="16" class="java.lang.String" itemvalue="Python.Soundtest" />
-      <item index="17" class="java.lang.String" itemvalue="Python.MiceProblem" />
-      <item index="18" class="java.lang.String" itemvalue="Python.MorSnek" />
-      <item index="19" class="java.lang.String" itemvalue="Python.CursorShiftr" />
-      <item index="20" class="java.lang.String" itemvalue="Python.TBRPG" />
-      <item index="21" class="java.lang.String" itemvalue="Python.DunnA" />
-      <item index="22" class="java.lang.String" itemvalue="Python.WaterBend" />
-      <item index="23" class="java.lang.String" itemvalue="Python.Weasel" />
-      <item index="24" class="java.lang.String" itemvalue="Python.Organiser" />
-      <item index="25" class="java.lang.String" itemvalue="Python.KeyShorts" />
-      <item index="26" class="java.lang.String" itemvalue="Python.KeyCount" />
-      <item index="27" class="java.lang.String" itemvalue="Python.PolynomialTest" />
-      <item index="28" class="java.lang.String" itemvalue="Python.factoring" />
-      <item index="29" class="java.lang.String" itemvalue="Python.Classification" />
-      <item index="30" class="java.lang.String" itemvalue="Python.WriteIt" />
-      <item index="31" class="java.lang.String" itemvalue="Python.WikiMixer" />
-      <item index="32" class="java.lang.String" itemvalue="Python.BioSpec" />
-      <item index="33" class="java.lang.String" itemvalue="Python.Jayl" />
-      <item index="34" class="java.lang.String" itemvalue="Python.ArtStu" />
-      <item index="35" class="java.lang.String" itemvalue="Python.SoundSources" />
-      <item index="36" class="java.lang.String" itemvalue="Python.Perspectives" />
-      <item index="37" class="java.lang.String" itemvalue="Python.ShadOwpenCV" />
-      <item index="38" class="java.lang.String" itemvalue="Python.OpenCV-video-trial" />
-      <item index="39" class="java.lang.String" itemvalue="Python.OpenCV-receiver" />
-      <item index="40" class="java.lang.String" itemvalue="Python.Slo-Time" />
+    <list>
+      <item itemvalue="Python.Shadows" />
+      <item itemvalue="Python.ItemFinder" />
+      <item itemvalue="Python.Test" />
+      <item itemvalue="Python.Buoy" />
+      <item itemvalue="Python.Dices" />
+      <item itemvalue="Python.Miner" />
+      <item itemvalue="Python.Bending" />
+      <item itemvalue="Python.Code_conversions" />
+      <item itemvalue="Python.DictMak" />
+      <item itemvalue="Python.Moneycheck" />
+      <item itemvalue="Python.Snek" />
+      <item itemvalue="Python.Shortestpath" />
+      <item itemvalue="Python.PointPlacer" />
+      <item itemvalue="Python.WaveFronts" />
+      <item itemvalue="Python.Looming" />
+      <item itemvalue="Python.Packer" />
+      <item itemvalue="Python.Soundtest" />
+      <item itemvalue="Python.MiceProblem" />
+      <item itemvalue="Python.MorSnek" />
+      <item itemvalue="Python.CursorShiftr" />
+      <item itemvalue="Python.TBRPG" />
+      <item itemvalue="Python.DunnA" />
+      <item itemvalue="Python.WaterBend" />
+      <item itemvalue="Python.Weasel" />
+      <item itemvalue="Python.Organiser" />
+      <item itemvalue="Python.KeyShorts" />
+      <item itemvalue="Python.KeyCount" />
+      <item itemvalue="Python.PolynomialTest" />
+      <item itemvalue="Python.factoring" />
+      <item itemvalue="Python.Classification" />
+      <item itemvalue="Python.WriteIt" />
+      <item itemvalue="Python.WikiMixer" />
+      <item itemvalue="Python.BioSpec" />
+      <item itemvalue="Python.Jayl" />
+      <item itemvalue="Python.ArtStu" />
+      <item itemvalue="Python.SoundSources" />
+      <item itemvalue="Python.Perspectives" />
+      <item itemvalue="Python.ShadOwpenCV" />
+      <item itemvalue="Python.OpenCV-video-trial" />
+      <item itemvalue="Python.OpenCV-receiver" />
+      <item itemvalue="Python.Slo-Time" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Slo-Time" />
-        <item index="1" class="java.lang.String" itemvalue="Python.OpenCV-receiver" />
-        <item index="2" class="java.lang.String" itemvalue="Python.OpenCV-video-trial" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ShadOwpenCV" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Perspectives" />
+      <list>
+        <item itemvalue="Python.Slo-Time" />
+        <item itemvalue="Python.OpenCV-receiver" />
+        <item itemvalue="Python.OpenCV-video-trial" />
+        <item itemvalue="Python.ShadOwpenCV" />
+        <item itemvalue="Python.Perspectives" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED,ALPHA_COMPARATOR" />
@@ -1254,13 +1229,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Quite a few things. I'm going to start being tidier now.">
-      <created>1518438463730</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1518438463730</updated>
     </task>
     <task id="LOCAL-00006" summary="Fix paths, Clean up code, and Add in comments.">
       <created>1518440143998</created>
@@ -1598,7 +1566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523066552034</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Make the interface nicer/clearer">
+      <created>1523068255517</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1523068255517</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1622,51 +1597,51 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="980" height="1030" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6127321" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26762247" sideWeight="0.5103448" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27151516" sideWeight="0.48965517" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45192307" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39784947" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33783785" sideWeight="0.5124224" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.24165341" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5103448" side_tool="true" weight="0.26762247" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48965517" weight="0.26762247" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
+      <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39784947" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Changes" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Data View" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48156956" sideWeight="0.5081081" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27001196" sideWeight="0.4918919" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7772512" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45192307" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12679045" sideWeight="0.48757765" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39784947" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33783785" sideWeight="0.5124224" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
+      <window_info id="Structure" order="1" weight="0.24986738" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Changes" order="7" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1681,7 +1656,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a better itemfinder using OpenCV" />
     <MESSAGE value="Make Itemfinder2 better for large images" />
     <MESSAGE value="Add Crawler.py in initial iteration" />
     <MESSAGE value="Fix touchline function and generally make the whole thing work :D" />
@@ -1706,7 +1680,8 @@
     <MESSAGE value="Start OpenCV version of Shadows, in the hope that it's faster." />
     <MESSAGE value="Begin conversion of pygame code to OpenCV" />
     <MESSAGE value="Add attempt at timelapse software" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add attempt at timelapse software" />
+    <MESSAGE value="Make the interface nicer/clearer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the interface nicer/clearer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1715,34 +1690,22 @@
       </breakpoints-dialog>
       <option name="time" value="34" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WaterParticlePlanet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Artificial_Stupidity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/numpyArrayMessing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Snek/Snek.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1225">
-          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1769,11 +1732,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../SourceBots/Vision/sb-vision/sb_vision/camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/PycharmProjects/MinecraftCodes/mobs.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1792,16 +1751,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
     <entry file="file://$PROJECT_DIR$/PunchBall/SocketTutorial5.py" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/DataManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-125">
@@ -1812,63 +1762,56 @@
     <entry file="file://$PROJECT_DIR$/Moneycheck.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="44" />
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TagResizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
-          <caret line="142" column="20" lean-forward="false" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Alotter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorialClient.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ItemFinder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2075">
-          <caret line="83" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="22" />
+          <caret line="83" column="25" selection-end-line="105" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Stertch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2175">
-          <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+          <caret line="87" column="26" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1878,21 +1821,21 @@
     <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorial5.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="27" selection-end-column="16" />
+          <caret line="17" selection-start-line="17" selection-end-line="27" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
-          <caret line="53" column="45" lean-forward="false" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
-          <caret line="52" column="85" lean-forward="false" selection-start-line="52" selection-start-column="85" selection-end-line="52" selection-end-column="85" />
+          <caret line="52" column="85" selection-start-line="52" selection-start-column="85" selection-end-line="52" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -1906,7 +1849,7 @@
     <entry file="file://$PROJECT_DIR$/PyTutorialBlank.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <caret line="4" column="29" lean-forward="true" selection-end-line="36" />
         </state>
       </provider>
     </entry>
@@ -1918,16 +1861,12 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/data/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -1941,7 +1880,7 @@
     <entry file="file://$PROJECT_DIR$/MiceProblem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="72" column="19" lean-forward="false" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1977,15 +1916,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-          <folding />
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
         </state>
       </provider>
     </entry>
@@ -1993,7 +1930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2001,7 +1937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2009,36 +1944,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="143" column="23" lean-forward="true" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="650">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
+          <caret line="15" selection-end-line="134" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SavedImages/1522267671/1522267675.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Slo-Time.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="58" column="54" lean-forward="false" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
         </state>
       </provider>
     </entry>
