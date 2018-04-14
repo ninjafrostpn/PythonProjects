@@ -1,9 +1,7 @@
 import numpy as np
 import pygame
 from pygame.locals import *
-from keras.models import Sequential
-from keras.layers import Dense, Activation
-from keras.utils.np_utils import to_categorical
+from time import sleep
 
 pygame.init()
 
@@ -18,16 +16,128 @@ pygame.init()
 # The output of said neural net is interpreted as keypresses
 # We dance!
 
-screen = pygame.display.set_mode((500, 500))
+
+def sigmoid(x, deriv=False):
+    if not deriv:
+        val = 1 / (1 + np.exp(-x))
+    else:
+        val = x * (1 - x)
+    # print(val, deriv)
+    return val
+
+
+screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
 h = screen.get_height()
+screenrect = screen.get_rect()
+
+white = (255, 255, 255)
+turquoise = (0, 255, 255)
+pink = (255, 0, 255)
+
+recordlength = 3
+
+gravity = np.float32([0, 0.5])
+
+# np.random.seed(1)
+
+class Ball:
+    def __init__(self, pos, mass=50, col=white):
+        self.pos = np.float32(pos)
+        self.vel = np.zeros(2, 'float32')
+        self.acc = np.zeros(2, 'float32')
+        self.inversemass = 1/mass
+        self.col = col
+    
+    def kick(self, force):
+        self.acc += np.float32(force) * self.inversemass
+    
+    def show(self):
+        pygame.draw.circle(screen, self.col, np.uint(self.pos), 10)
+
+
+class PlayerBall(Ball):
+    def __init__(self, pos, keys=(K_UP, K_LEFT, K_DOWN, K_RIGHT), mass=50, col=pink):
+        self.keys = np.array(keys)
+        pos = np.float32(pos)
+        self.posrecord = []
+        for i in range(recordlength):
+            self.posrecord.append(pos[0])
+            self.posrecord.append(pos[1])
+        super(PlayerBall, self).__init__(pos, mass, col)
+    
+    def move(self, keys):
+        # print(keys)
+        keycheck = [(key in keys) for key in self.keys]
+        rightforce = keycheck[3] - keycheck[1]
+        downforce = keycheck[2] - keycheck[0]
+        self.kick((rightforce, downforce))
+        self.kick(gravity)
+        self.vel += self.acc
+        self.pos += self.vel
+        if self.pos[0] < 0 or self.pos[0] >= w:
+            self.vel[0] = 0
+        if self.pos[1] < 0 or self.pos[1] >= h:
+            self.vel[1] = 0
+        self.pos = np.clip(self.pos, np.zeros(2), np.array([w, h]))
+        self.acc = np.zeros(2, 'float32')
+        for i in range(2):
+            self.posrecord.append(self.pos[i])
+            self.posrecord.pop(0)
+        # print(self.posrecord)
+        # print(keycheck)
+        return np.array([self.posrecord]), np.array([keycheck])
+
+
+class AIBall(PlayerBall):
+    def __init__(self, pos, mass=50, col=turquoise):
+        self.syn0 = 2 * np.random.random((recordlength * 2, recordlength * 4)) - 1
+        self.syn1 = 2 * np.random.random((recordlength * 4, 4)) - 1
+        super(AIBall, self).__init__(pos, mass=mass, col=col)
+    
+    def move(self, inputdata, outputdata):
+        relpos = np.float32(inputdata.copy())
+        relpos[0::2] -= w/2
+        relpos[1::2] -= h/2
+        layer0 = relpos
+        layer1 = sigmoid(np.dot(layer0, self.syn0))
+        layer2 = sigmoid(np.dot(layer1, self.syn1))
+        layer2error = outputdata - layer2
+        layer2delta = layer2error * sigmoid(layer2, True)
+        layer1error = layer2delta.dot(self.syn1.T)
+        layer1delta = layer1error * sigmoid(layer1, True)
+        self.syn1 += layer1.T.dot(layer2delta)
+        self.syn0 += layer0.T.dot(layer1delta)
+
+        relpos = np.float32(self.posrecord.copy())
+        relpos[0::2] -= w/2
+        relpos[1::2] -= h/2
+        layer0 = relpos
+        layer1 = sigmoid(np.dot(layer0, self.syn0))
+        layer2 = sigmoid(np.dot(layer1, self.syn1))
+        activations = layer2 > 0.9
+        super(AIBall, self).move(self.keys[activations])
+
+
+As = [AIBall((w/2, h/2)) for i in range(5)]
+B = PlayerBall((w/2, h/2))
+keyset = set()
 
 while True:
     screen.fill(0)
+    record = B.move(keyset)
+    B.show()
+    for A in As:
+        A.move(*record)
+        A.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
         elif e.type == KEYDOWN:
+            keyset.add(e.key)
             if e.key == K_ESCAPE:
                 quit()
+        elif e.type == KEYUP:
+            keyset.remove(e.key)
+    sleep(0.01)
