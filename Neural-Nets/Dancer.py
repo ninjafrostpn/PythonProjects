@@ -29,17 +29,18 @@ def sigmoid(x, deriv=False):
 screen = pygame.display.set_mode((1000, 500))
 w = screen.get_width()
 h = screen.get_height()
+size = (w, h)
 screenrect = screen.get_rect()
 
 white = (255, 255, 255)
 turquoise = (0, 255, 255)
 pink = (255, 0, 255)
 
-recordlength = 3
+recordlength = 1
 
 gravity = np.float32([0, 0.5])
 
-# np.random.seed(1)
+balls = []
 
 class Ball:
     def __init__(self, pos, mass=50, col=white):
@@ -48,6 +49,7 @@ class Ball:
         self.acc = np.zeros(2, 'float32')
         self.inversemass = 1/mass
         self.col = col
+        balls.append(self)
     
     def kick(self, force):
         self.acc += np.float32(force) * self.inversemass
@@ -61,10 +63,10 @@ class PlayerBall(Ball):
         self.keys = np.array(keys)
         pos = np.float32(pos)
         self.posrecord = []
-        for i in range(recordlength):
-            self.posrecord.append(pos[0])
-            self.posrecord.append(pos[1])
         super(PlayerBall, self).__init__(pos, mass, col)
+        for i in range(recordlength):
+            for j in range(len(self.pos)):
+                self.posrecord.append(self.pos[j] - size[j])
     
     def move(self, keys):
         # print(keys)
@@ -81,8 +83,8 @@ class PlayerBall(Ball):
             self.vel[1] = 0
         self.pos = np.clip(self.pos, np.zeros(2), np.array([w, h]))
         self.acc = np.zeros(2, 'float32')
-        for i in range(2):
-            self.posrecord.append(self.pos[i])
+        for i in range(len(self.pos)):
+            self.posrecord.append(self.pos[i] - size[i])
             self.posrecord.pop(0)
         # print(self.posrecord)
         # print(keycheck)
@@ -96,10 +98,7 @@ class AIBall(PlayerBall):
         super(AIBall, self).__init__(pos, mass=mass, col=col)
     
     def move(self, inputdata, outputdata):
-        relpos = np.float32(inputdata.copy())
-        relpos[0::2] -= w/2
-        relpos[1::2] -= h/2
-        layer0 = relpos
+        layer0 = np.float32(inputdata.copy())
         layer1 = sigmoid(np.dot(layer0, self.syn0))
         layer2 = sigmoid(np.dot(layer1, self.syn1))
         layer2error = outputdata - layer2
@@ -109,27 +108,24 @@ class AIBall(PlayerBall):
         self.syn1 += layer1.T.dot(layer2delta)
         self.syn0 += layer0.T.dot(layer1delta)
 
-        relpos = np.float32(self.posrecord.copy())
-        relpos[0::2] -= w/2
-        relpos[1::2] -= h/2
-        layer0 = relpos
+        layer0 = np.float32(self.posrecord.copy())
         layer1 = sigmoid(np.dot(layer0, self.syn0))
         layer2 = sigmoid(np.dot(layer1, self.syn1))
         activations = layer2 > 0.9
         super(AIBall, self).move(self.keys[activations])
 
 
-As = [AIBall((w/2, h/2)) for i in range(5)]
-B = PlayerBall((w/2, h/2))
+AIs = [AIBall((w/2, h/2)) for i in range(5)]
+Player = PlayerBall((w/2, h/2))
 keyset = set()
 
 while True:
     screen.fill(0)
-    record = B.move(keyset)
-    B.show()
-    for A in As:
-        A.move(*record)
-        A.show()
+    record = Player.move(keyset)
+    for AI in AIs:
+        AI.move(*record)
+    for B in balls:
+        B.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
@@ -140,4 +136,4 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keyset.remove(e.key)
-    sleep(0.01)
+    #sleep(0.01)
