@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Neural-Nets/Dancer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Neural-Nets/Dancer.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Dancer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dancer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="187">
+              <caret line="19" selection-start-line="19" selection-end-line="25" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Neural-Net-Tutorial-3.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -65,7 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>camon</find>
       <find>sleep</find>
       <find>print(</find>
       <find>/2</find>
@@ -95,6 +101,7 @@
       <find>float</find>
       <find>print</find>
       <find>10</find>
+      <find>pos</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -141,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WikiReambiguation.py" />
         <option value="$PROJECT_DIR$/WaterPlan.py" />
         <option value="$PROJECT_DIR$/FunnyWriterResults" />
         <option value="$PROJECT_DIR$/Bending/TagResizer.py" />
@@ -192,11 +198,12 @@
         <option value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial.py" />
         <option value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-2.py" />
         <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
+        <option value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="949" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
   </component>
@@ -261,7 +268,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Dancer">
+  <component name="RunManager" selected="Python.Neural-Net-Tutorial-3">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -680,6 +687,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Neural-Net-Tutorial-3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Neural-Net-Tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -693,24 +718,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="OpenCV-receiver" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenCV-receiver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1204,19 +1211,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.OpenCV-receiver" />
       <item itemvalue="Python.Slo-Time" />
       <item itemvalue="Python.Dancer" />
       <item itemvalue="Python.Neural-Net-Tutorial" />
       <item itemvalue="Python.Neural-Net-Tutorial-2" />
+      <item itemvalue="Python.Neural-Net-Tutorial-3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Neural-Net-Tutorial-3" />
         <item itemvalue="Python.Dancer" />
         <item itemvalue="Python.Neural-Net-Tutorial-2" />
         <item itemvalue="Python.Neural-Net-Tutorial" />
         <item itemvalue="Python.Slo-Time" />
-        <item itemvalue="Python.OpenCV-receiver" />
       </list>
     </recent_temporary>
   </component>
@@ -1233,20 +1240,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Tidy up more, add qrint function for debugging.">
-      <created>1518441245564</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1518441245564</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Take AI out into a function.">
-      <created>1518441943174</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1518441943174</updated>
     </task>
     <task id="LOCAL-00009" summary="Remove prtential division-by-zero error">
       <created>1518485318326</created>
@@ -1577,7 +1570,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523657496183</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Add neural net tutorial attempts and significantly develop Dancer">
+      <created>1523748452613</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1523748452613</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Increase efficiency of some parts">
+      <created>1523799782083</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1523799782083</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1601,7 +1608,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="633" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.4935065" />
@@ -1610,7 +1617,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32667875" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48965517" visible="true" weight="0.2665474" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48965517" visible="true" weight="0.27041742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1660,8 +1667,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Crawler.py in initial iteration" />
-    <MESSAGE value="Fix touchline function and generally make the whole thing work :D" />
     <MESSAGE value="Add wall collisions and polylines" />
     <MESSAGE value="Add a simple AI bug (Q) and make the arena nice and webby" />
     <MESSAGE value="Add OpenCV video/image capture with pygame interface" />
@@ -1685,7 +1690,9 @@
     <MESSAGE value="Add attempt at timelapse software" />
     <MESSAGE value="Make the interface nicer/clearer" />
     <MESSAGE value="Start developing a neural-net dancer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start developing a neural-net dancer" />
+    <MESSAGE value="Add neural net tutorial attempts and significantly develop Dancer" />
+    <MESSAGE value="Increase efficiency of some parts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increase efficiency of some parts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1696,7 +1703,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PunchBall/Server.py" />
     <entry file="file://$PROJECT_DIR$/SoundSources.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1988,8 +1994,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="187">
+          <caret line="19" selection-start-line="19" selection-end-line="25" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
         </state>
       </provider>
     </entry>
