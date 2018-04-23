@@ -206,15 +206,15 @@ pos = np.array([0, 0, 0])
 k = -1
 while True:
     screen[:, :] = 0
-    if k == 27:       # ESC
+    if k == 27:       # ESC KEY
         break
-    if k == 2555904:  # RIGHT
+    if k == 2555904:  # RIGHT KEY
         pos[0] += 10
-    if k == 2424832:  # LEFT
+    if k == 2424832:  # LEFT KEY
         pos[0] -= 10
-    if k == 2490368:  # UP
+    if k == 2490368:  # UP KEY
         pos[2] += 10
-    if k == 2621440:  # DOWN
+    if k == 2621440:  # DOWN KEY
         pos[2] -= 10
     backdrops.sort(key=lambda B: B.z, reverse=True)
     lightpos = np.array([pos[0] + w/2, h/1.3, -50])
