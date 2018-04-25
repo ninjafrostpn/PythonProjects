@@ -70,13 +70,13 @@ squareno = 17
 squares = []
 for i in range(squareno):
     imagecolour = np.ones((40, 40, 3), dtype='uint32')
-    imagecolour[:, :] = (rand(256), rand(256), rand(256))
+    imagecolour[:, :] = (0, rand(256), rand(256))
     squares.append(Image(imagecolour, imagedepth, imagealpha))
 
 imagealpha = np.ones((80, h - 50), dtype='bool')
 imagedepth = np.zeros((80, h - 50), dtype='float64')
 imagecolour = np.ones((80, h - 50, 3), dtype='uint32')
-imagecolour[:, :] = (rand(256), rand(256), rand(256))
+imagecolour[:, :] = (rand(256), 0, rand(256))
 tower = Image(imagecolour, imagedepth, imagealpha)
 
 
@@ -93,6 +93,6 @@ while cv2.waitKey(10) == -1:
                  h/2 - (squareno * 5 * cos(radians(cycles*2 + (i * (360/squareno))))) - 20,
                  -squareno * 10 * sin(radians(cycles + (i * (360/squareno)))) - 20)
     tower.render(w/2 - 40, 50)
-    cv2.imshow("", np.rot90(np.fliplr(screen)))
+    cv2.imshow("", cv2.cvtColor(np.rot90(np.fliplr(screen)), cv2.COLOR_RGB2BGR))
     cycles += 1
 print("Nooooo...")

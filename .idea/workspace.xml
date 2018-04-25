@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Depth-Buffer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Depth-Buffer-3D.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShadOwpenCV.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShadOwpenCV.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Depth-Buffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Depth-Buffer.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +26,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Depth-Buffer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Depth-Buffer-3D.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Depth-Buffer-3D.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Depth-Buffer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Depth-Buffer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+            <state relative-caret-position="126">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
             </state>
           </provider>
         </entry>
@@ -65,7 +74,6 @@
       <find>float</find>
       <find>10</find>
       <find>pos</find>
-      <find>print</find>
       <find>grav</find>
       <find>self.pos</find>
       <find>nl</find>
@@ -76,6 +84,7 @@
       <find>in caps</find>
       <find>replace</find>
       <find>3</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -122,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Bending/TagResizer.py" />
         <option value="$PROJECT_DIR$/../../SourceBots/AprilTags/MarkerMaker/TagResizer.py" />
         <option value="$PROJECT_DIR$/Punster.py" />
         <option value="$PROJECT_DIR$/FollowingOn.py" />
@@ -173,20 +181,35 @@
         <option value="$PROJECT_DIR$/ShadOwpenCV.py" />
         <option value="$PROJECT_DIR$/../../SourceBots/art/Certificates/cert-gen.py" />
         <option value="$PROJECT_DIR$/Depth-Buffer.py" />
+        <option value="$PROJECT_DIR$/Depth-Buffer-3D.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
     <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="height" value="522" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SourceBots" />
@@ -197,19 +220,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakesr\robot" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi\robot" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakesr\robot" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -224,7 +247,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Depth-Buffer">
+  <component name="RunManager" selected="Python.Depth-Buffer-3D">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -368,7 +391,7 @@
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="Dancer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Depth-Buffer-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -380,7 +403,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Depth-Buffer-3D.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -643,60 +666,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Neural-Net-Tutorial-2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Neural-Net-Tutorial-3" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial-3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Neural-Net-Tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Neural-Net-Tutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="Organiser" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -730,6 +699,42 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Packer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Perspectives-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives-3D.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Perspectives" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -772,6 +777,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="ShadOwpenCV" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ShadOwpenCV.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -1167,19 +1190,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.Dancer" />
-      <item itemvalue="Python.Neural-Net-Tutorial" />
-      <item itemvalue="Python.Neural-Net-Tutorial-2" />
-      <item itemvalue="Python.Neural-Net-Tutorial-3" />
       <item itemvalue="Python.Depth-Buffer" />
+      <item itemvalue="Python.ShadOwpenCV" />
+      <item itemvalue="Python.Perspectives-3D" />
+      <item itemvalue="Python.Depth-Buffer-3D" />
+      <item itemvalue="Python.Perspectives" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Depth-Buffer-3D" />
         <item itemvalue="Python.Depth-Buffer" />
-        <item itemvalue="Python.Dancer" />
-        <item itemvalue="Python.Neural-Net-Tutorial-3" />
-        <item itemvalue="Python.Neural-Net-Tutorial-2" />
-        <item itemvalue="Python.Neural-Net-Tutorial" />
+        <item itemvalue="Python.Perspectives" />
+        <item itemvalue="Python.Perspectives-3D" />
+        <item itemvalue="Python.ShadOwpenCV" />
       </list>
     </recent_temporary>
   </component>
@@ -1196,13 +1219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Add Wall(Thing) class and rearrange Thing code and move score rendering to accommodate it">
-      <created>1518620763203</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1518620763203</updated>
     </task>
     <task id="LOCAL-00012" summary="Incorporate (broken) AI into player class to make the class more vague.&#10;Make it so that walls can knock into things but can't be jerk/accelerated.&#10;Add fishparty option for testing the limits of feasability.">
       <created>1518636321524</created>
@@ -1540,7 +1556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523894012888</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Add an attempt at render ordering using a depth buffer">
+      <created>1524526888104</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1524526888105</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1567,12 +1590,12 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.49284577" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.20508744" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5103448" side_tool="true" weight="0.2665474" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48965517" visible="true" weight="0.27370304" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27370304" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1591,24 +1614,24 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1623,7 +1646,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add OpenCV video/image capture with pygame interface" />
     <MESSAGE value="Make OpenCV interface all pretty-like" />
     <MESSAGE value="Add some comments and move the text up a bit" />
     <MESSAGE value="Create a client for receiving images from the OpenCV-video-trial and modify the trial so it sends images to it" />
@@ -1648,7 +1670,8 @@
     <MESSAGE value="Increase efficiency of some parts" />
     <MESSAGE value="Add an interpretation of 3blue1brown's neural net series" />
     <MESSAGE value="Attempt to implement the methods of tutorial 3 in the Dancer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to implement the methods of tutorial 3 in the Dancer" />
+    <MESSAGE value="Add an attempt at render ordering using a depth buffer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add an attempt at render ordering using a depth buffer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1659,24 +1682,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../SourceBots/art/Certificates/cert-gen.py">
+    <entry file="file://$PROJECT_DIR$/Depth-Buffer-3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="103" lean-forward="true" selection-start-line="19" selection-start-column="103" selection-end-line="19" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tropism.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2950">
-          <caret line="118" column="43" lean-forward="true" selection-start-line="118" selection-start-column="43" selection-end-line="118" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoundSources2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        <state relative-caret-position="1479">
+          <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1855,27 +1864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shadows.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../ROV-Dev/Piware.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1953,13 +1941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1967,10 +1948,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/get-pip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325363">
+          <caret line="19154" lean-forward="true" selection-start-line="19154" selection-end-line="19154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Perspectives.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="146" column="42" lean-forward="true" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shadows.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Depth-Buffer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+        <state relative-caret-position="126">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Depth-Buffer-3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
         </state>
       </provider>
     </entry>
