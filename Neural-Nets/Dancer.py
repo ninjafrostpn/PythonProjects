@@ -75,7 +75,7 @@ white = (255, 255, 255)
 turquoise = (0, 255, 255)
 pink = (255, 0, 255)
 
-recordlength = 3
+recordlength = 1
 recordslength = 50
 
 trainingdata = [[0,0,0,1],
@@ -94,7 +94,7 @@ trainingdata = [[0,0,0,1],
                 [1, 1, 1, 0],
                 [1, 1, 1, 1]]
 
-trainingdata = [[i * recordlength, i * recordlength] for i in trainingdata]
+trainingdata = [[i * recordlength, i] for i in trainingdata]
 
 gravity = np.float32([0, 0.5])
 
@@ -165,9 +165,9 @@ class AIBall(PlayerBall):
 
 
 AIs = [AIBall((w/4, h/4)) for i in range(5)]
-for i in range(5000):
-    for AI in AIs:
-        AI.brain.train(trainingdata)
+# for i in range(5000):
+#     for AI in AIs:
+#         AI.brain.train(trainingdata)
 Player = PlayerBall((w/2, h/2))
 keyset = set()
 istraining = True
@@ -179,12 +179,12 @@ while True:
     screen.fill(0)
     cycles += 1
     Player.move(keyset, AI)
-    # if istraining:
-    #     records.append(record)
-    # if len(records) > recordslength:
-    #     AI.brain.train(records)
-    #     if istraining:
-    #         records.pop(0)
+    if istraining:
+        records.append(record)
+    if len(records) > recordslength:
+        AI.brain.train(records)
+        if istraining:
+            records.pop(0)
     for AI in AIs:
         if istraining:
             AI.brain.train([record])
