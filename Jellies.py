@@ -65,7 +65,7 @@ class Ball:
             pass
 
 
-corners = [(100, 400), (400, 400), (400, 100), (100, 100)]
+corners = [(100, 400), (400, 300), (400, 100), (100, 100)]
 for i in range(len(corners)):
     TrampoLine(corners[i], corners[(i + 1) % len(corners)], 0.1)
 Q = Ball((200, 250), 1)
@@ -88,4 +88,4 @@ while True:
                 Q.force((-5, -5))
             if e.key == K_RIGHT:
                 Q.force((5, -5))
-    sleep(0.1)
+    sleep(0.01)
