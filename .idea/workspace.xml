@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Snookered.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Neural-Nets/Competitive.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/👌Crabs/👌Crabs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jellies.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jellies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenCV-receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenCV-receiver.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,13 +27,9 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Snookered.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Snookered.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="934">
-              <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-            </state>
-          </provider>
+      <file leaf-file-name="👌Crabs.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/👌Crabs/👌Crabs.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -122,8 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Alotter.py" />
-        <option value="$PROJECT_DIR$/WaterParticlePlanet.py" />
         <option value="$PROJECT_DIR$/Basic Pygame File.py" />
         <option value="$PROJECT_DIR$/Platformer.py" />
         <option value="$PROJECT_DIR$/numpyArrayMessing.py" />
@@ -150,7 +145,6 @@
         <option value="$PROJECT_DIR$/ItemFinder.py" />
         <option value="$PROJECT_DIR$/Crawler.py" />
         <option value="$PROJECT_DIR$/OpenCV-video-trial.py" />
-        <option value="$PROJECT_DIR$/OpenCV-receiver.py" />
         <option value="$PROJECT_DIR$/../../ROV-Dev/Compware.py" />
         <option value="$PROJECT_DIR$/../../ROV-Dev/Piware.py" />
         <option value="$PROJECT_DIR$/PyTutorial.py" />
@@ -169,10 +163,13 @@
         <option value="$PROJECT_DIR$/Depth-Buffer.py" />
         <option value="$PROJECT_DIR$/Depth-Buffer-3D.py" />
         <option value="$PROJECT_DIR$/ChessDetector.py" />
-        <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
         <option value="$PROJECT_DIR$/Jellies.py" />
         <option value="$PROJECT_DIR$/Frames.py" />
         <option value="$PROJECT_DIR$/Snookered.py" />
+        <option value="$PROJECT_DIR$/Neural-Nets/Competitive.py" />
+        <option value="$PROJECT_DIR$/OpenCV-receiver.py" />
+        <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
+        <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
       </list>
     </option>
   </component>
@@ -194,6 +191,11 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="👌Crabs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -237,7 +239,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Snookered">
+  <component name="RunManager" selected="Python.OpenCV-receiver">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -316,24 +318,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="ChessDetector" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChessDetector.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="Classification" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -374,6 +358,24 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
+    <configuration name="Competitive" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Competitive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="CursorShiftr" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -412,24 +414,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Depth-Buffer-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Depth-Buffer-3D.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -687,6 +671,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MorSnek.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="OpenCV-receiver" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenCV-receiver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1180,19 +1182,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.Depth-Buffer-3D" />
-      <item itemvalue="Python.ChessDetector" />
       <item itemvalue="Python.Dancer" />
       <item itemvalue="Python.Jellies" />
       <item itemvalue="Python.Snookered" />
+      <item itemvalue="Python.Competitive" />
+      <item itemvalue="Python.OpenCV-receiver" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.OpenCV-receiver" />
+        <item itemvalue="Python.Competitive" />
         <item itemvalue="Python.Snookered" />
         <item itemvalue="Python.Jellies" />
         <item itemvalue="Python.Dancer" />
-        <item itemvalue="Python.ChessDetector" />
-        <item itemvalue="Python.Depth-Buffer-3D" />
       </list>
     </recent_temporary>
   </component>
@@ -1209,13 +1211,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add in simple server capabilities to main program">
-      <created>1518689087129</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1518689087129</updated>
     </task>
     <task id="LOCAL-00016" summary="Remove original server file and integrate server functions into main program with a little resilience">
       <created>1518723448768</created>
@@ -1553,7 +1548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525188421892</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Add colliding balls">
+      <created>1525288596997</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1525288596998</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1577,13 +1579,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.41812402" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.41812402" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27728087" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" weight="0.27728087" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
@@ -1636,7 +1638,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Tutorial files" />
     <MESSAGE value="Start project on making things look nice and in perspective" />
     <MESSAGE value="Complete addition of a simple GBA game ;)" />
     <MESSAGE value="Change ItemFinder2 targets" />
@@ -1661,7 +1662,8 @@
     <MESSAGE value="Add (currently broken) 3D version of depth buffer test" />
     <MESSAGE value="Add chessboard detector which turns servo motor to follow with camera" />
     <MESSAGE value="Tried building some trampolines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tried building some trampolines" />
+    <MESSAGE value="Add colliding balls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add colliding balls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1672,8 +1674,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
-    <entry file="file://$PROJECT_DIR$/PunchBall/SocketTutorial5.py" />
     <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/DataManager.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1839,13 +1839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Slo-Time.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1951,20 +1944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="185" column="22" lean-forward="true" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Jellies.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1986,10 +1965,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Snookered.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="934">
-          <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="69" column="29" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Neural-Nets/Competitive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/👌Crabs/👌Crabs.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

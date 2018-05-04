@@ -4,7 +4,7 @@ import threading
 import numpy as np
 from time import sleep
 
-homeaddr = ("127.0.0.1", 9001)
+homeaddr = ("192.168.0.30", 9001)
 framelock = threading.Lock()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,6 +23,7 @@ def receiving():
 receiver = threading.Thread(target=receiving)
 receiver.start()
 
-while True:
+while cv2.waitKey(1) == -1:
     cv2.imshow("frame2", frame)
-    cv2.waitKey(1)
+
+cv2.destroyAllWindows()
