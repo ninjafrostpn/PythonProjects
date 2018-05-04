@@ -5,29 +5,34 @@ from pygame.locals import *
 from random import random
 from time import sleep
 
-w, h = 1000, 500
+w, h = 1200, 500
 screen = pygame.display.set_mode((w, h))
 
 CRABAPPLE = (135, 56, 47)
+WHITE = (255, 255, 255)
 
 xflip = np.float32([-1, 1])
 
 sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
+hand = pygame.image.load_extended(r"Crabs/Hand.png").convert_alpha()
+
 
 class Crab:
     def __init__(self, pos,
                  width=100, leglength=40,
                  aspect=0.5, legaspect=1,
-                 maxspeed=15,
+                 maxspeed=20,
                  controls=(K_UP, K_LEFT, K_DOWN, K_RIGHT), col=CRABAPPLE):
         self.pos = np.float32(pos)
         self.vel = np.float32([0, 0])
         self.maxspeed = maxspeed
+        self.col = np.int32(col)
         self.width = width
         self.aspect = aspect
-        self.diag = np.float32([self.width, self.width * aspect]) / 2
+        self.height = width * aspect
+        self.diag = np.float32([self.width, self.height]) / 2
         self.rgt = np.float32([self.width / 2, 0])
         self.btm = np.float32([0, self.width * aspect / 2])
         self.rect = pygame.Rect(0, 0, *(self.diag * 2))
@@ -43,10 +48,15 @@ class Crab:
         self.stride = self.leglength2 * cosd(22.5) / 90
         self.lefteye = -self.diag[::-1] / 1.2
         self.righteye = (self.lefteye * xflip) - np.float32([self.eyerect.w, 0])
+        self.lefthand = pygame.transform.scale(hand, (int(hand.get_width() * self.height * 1.1 / hand.get_width()),
+                                                      int(hand.get_height() * self.height * 1.1 / hand.get_width())))
+        self.righthand = pygame.transform.flip(self.lefthand, True, False)
+        self.handdiag = np.float32(self.lefthand.get_rect().size)
+        self.arm = np.float32([self.leglength1 * 2.1, 0])
+        self.armcol = np.int32(WHITE) - self.col
         self.cycles = 0
         self.swimming = False
         self.controls = controls
-        self.col = np.int32(col)
     
     def move(self, keys):
         uppressed, leftpressed, downpressed, rightpressed = [(self.controls[i] in keys) for i in range(4)]
@@ -103,16 +113,24 @@ class Crab:
                               5)
         pygame.draw.ellipse(screen, self.col,
                             self.rect.move(*(self.pos - self.diag)))
-        pygame.draw.ellipse(screen, (255, 255, 255),
+        pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.lefteye)))
         pygame.draw.ellipse(screen, 0,
                             self.eyerect.move(*(self.pos + self.lefteye + np.sign(self.vel)))
                                         .inflate(-2, min(max(self.vel[0] - 8, 8 - self.eyerect.h), -8)))
-        pygame.draw.ellipse(screen, (255, 255, 255),
+        pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.righteye - np.sign(self.vel))))
         pygame.draw.ellipse(screen, 0,
                             self.eyerect.move(*(self.pos + self.righteye))
                                         .inflate(-2, min(max(-self.vel[0] - 8, 8 - self.eyerect.h), -8)))
+        lefthandpos = self.pos - self.arm - self.btm
+        righthandpos = self.pos + self.arm - self.btm
+        pygame.draw.line(screen, self.armcol, leftlegjoin, lefthandpos, 10)
+        currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * 10 * sind(self.cycles))
+        screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2 - 2)
+        pygame.draw.line(screen, self.armcol, rightlegjoin, righthandpos, 10)
+        currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * 10 * sind(self.cycles))
+        screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2 - 2)
         self.cycles += self.vel[0]
         if self.swimming:
             self.pos[0] += self.vel[0] * self.stride / 1.5
