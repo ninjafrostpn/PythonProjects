@@ -125,12 +125,12 @@ class Crab:
                                         .inflate(-2, min(max(-self.vel[0] - 8, 8 - self.eyerect.h), -8)))
         lefthandpos = self.pos - self.arm - self.btm
         righthandpos = self.pos + self.arm - self.btm
-        pygame.draw.line(screen, self.armcol, leftlegjoin, lefthandpos, 10)
+        pygame.draw.line(screen, self.armcol, leftlegjoin, lefthandpos, 5)
         currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * 10 * sind(self.cycles))
-        screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2 - 2)
-        pygame.draw.line(screen, self.armcol, rightlegjoin, righthandpos, 10)
+        screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2)
+        pygame.draw.line(screen, self.armcol, rightlegjoin, righthandpos, 5)
         currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * 10 * sind(self.cycles))
-        screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2 - 2)
+        screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2)
         self.cycles += self.vel[0]
         if self.swimming:
             self.pos[0] += self.vel[0] * self.stride / 1.5
@@ -139,7 +139,7 @@ class Crab:
         self.pos[1] += self.vel[1]
 
 
-C = Crab((w/2, h/2), col=(100, 0, 100))
+C = Crab((w/2, h/2))
 
 keyspressed = set()
 while True:
