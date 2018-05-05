@@ -10,6 +10,7 @@ screen = pygame.display.set_mode((w, h))
 
 CRABAPPLE = (135, 56, 47)
 WHITE = (255, 255, 255)
+DARK_MAGENTA = (100, 0, 100)
 
 xflip = np.float32([-1, 1])
 
@@ -17,6 +18,8 @@ sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
 hand = pygame.image.load_extended(r"Crabs/Hand.png").convert_alpha()
+
+crabs = []
 
 
 class Crab:
@@ -57,6 +60,10 @@ class Crab:
         self.cycles = 0
         self.swimming = False
         self.controls = controls
+        self.orighitbox = pygame.Rect(*(-self.arm - self.btm - self.handdiag/2),
+                                      *(self.arm * 2 + self.btm + self.handdiag))
+        self.hitbox = self.orighitbox.move(*self.pos)
+        crabs.append(self)
     
     def move(self, keys):
         uppressed, leftpressed, downpressed, rightpressed = [(self.controls[i] in keys) for i in range(4)]
@@ -126,26 +133,38 @@ class Crab:
         lefthandpos = self.pos - self.arm - self.btm
         righthandpos = self.pos + self.arm - self.btm
         pygame.draw.line(screen, self.armcol, leftlegjoin, lefthandpos, 5)
-        currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * 10 * sind(self.cycles))
+        currlefthand = pygame.transform.rotate(self.lefthand,
+                                               (self.vel[0] < 0) * 10 * sind(self.cycles) + self.vel[1] * 2)
         screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2)
         pygame.draw.line(screen, self.armcol, rightlegjoin, righthandpos, 5)
-        currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * 10 * sind(self.cycles))
+        currrighthand = pygame.transform.rotate(self.righthand,
+                                                (self.vel[0] > 0) * 10 * sind(self.cycles) - self.vel[1] * 2)
         screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2)
+        self.vel[0] = min(max(self.vel[0], -self.maxspeed), self.maxspeed)  # speed moderated before shoving
+        for C in crabs:
+            if C != self:
+                if self.hitbox.colliderect(C.hitbox):
+                    # random() for breaking up equal chances
+                    C.vel[0] += (C.pos[0] - self.pos[0] + random()) * np.linalg.norm(self.vel - C.vel)
         self.cycles += self.vel[0]
         if self.swimming:
             self.pos[0] += self.vel[0] * self.stride / 1.5
         else:
             self.pos[0] += self.vel[0] * self.stride
         self.pos[1] += self.vel[1]
+        self.hitbox = self.orighitbox.move(*self.pos)
+        # pygame.draw.rect(screen, WHITE, self.hitbox, 1)
 
 
-C = Crab((w/2, h/2))
+crab1 = Crab((w/4, h/2))
+crab2 = Crab((w * 0.75, h/2), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 
 keyspressed = set()
 while True:
     screen.fill(0)
-    C.move(keyspressed)
-    C.show()
+    for C in crabs:
+        C.move(keyspressed)
+        C.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
