@@ -24,7 +24,7 @@ crabs = []
 
 class Crab:
     def __init__(self, pos,
-                 width=100, leglength=40,
+                 width=80, leglength=32,
                  aspect=0.5, legaspect=1,
                  maxspeed=20,
                  controls=(K_UP, K_LEFT, K_DOWN, K_RIGHT), col=CRABAPPLE):
