@@ -2,8 +2,10 @@ from math import sin, cos, radians, asin, copysign
 import numpy as np
 import pygame
 from pygame.locals import *
-from random import random
+import random as r
 from time import sleep
+
+pygame.init()
 
 w, h = 1200, 500
 screen = pygame.display.set_mode((w, h))
@@ -19,6 +21,28 @@ cosd = lambda theta: cos(radians(theta))
 
 hand = pygame.image.load_extended(r"Crabs/Hand.png").convert_alpha()
 
+SFXphrases = ["crab-powie", "clack", "crunch-stacean", "smack", "bam", "whack", "crunch", "biff", "bop"]
+SFXfont = pygame.font.Font(None, 40)
+
+SFXs = []
+
+
+class SFX:
+    def __init__(self, pos):
+        self.pos = pos
+        self.phrase = SFXfont.render(r.choice(SFXphrases).upper() + ("!" * r.randrange(1, 4)), True, (255, 255, 255))
+        self.size = 1
+        SFXs.append(self)
+    
+    def show(self):
+        text = pygame.transform.scale(self.phrase, np.float32(self.phrase.get_rect().size) * self.size/200)
+        screen.blit(text, self.pos - np.float32(text.get_rect().size)/2 - np.float32([0, text.get_height()]))
+        self.size += 9
+        if self.size >= 255:
+            SFXs.remove(self)
+
+
+collisions = set()
 crabs = []
 
 
@@ -61,8 +85,9 @@ class Crab:
         self.swimming = False
         self.controls = controls
         self.orighitbox = pygame.Rect(*(-self.arm - self.btm - self.handdiag/2),
-                                      *(self.arm * 2 + self.btm + self.handdiag))
+                                      *(self.arm * 2 + self.handdiag))
         self.hitbox = self.orighitbox.move(*self.pos)
+        self.multiplier = 1
         crabs.append(self)
     
     def move(self, keys):
@@ -75,14 +100,12 @@ class Crab:
             self.vel[0] -= copysign(min(self.vel[0]/20, 1), self.vel[0])
         if uppressed:
             if not self.swimming:
-                self.vel[1] = -5
-        if downpressed:
-            self.vel[0] = 0
+                self.vel[1] = -7
         self.vel[0] = min(max(self.vel[0], -self.maxspeed), self.maxspeed)
     
     def show(self):
         if self.pos[1] < h - self.btm[1]:
-            self.vel[1] += 0.1
+            self.vel[1] += 0.2
             self.swimming = True
         else:
             if self.vel[1] >= 0:
@@ -97,7 +120,7 @@ class Crab:
             theta1 = self.midlegtheta + (self.movelegtheta * sind(theta))
             if not self.swimming:
                 theta1 = max(theta1, self.midlegtheta - self.movelegtheta / 2)
-            theta1 += random() * (self.vel[0]/180)
+            theta1 += r.random() * (self.vel[0]/180)
             theta2 = -30 * (3 + cosd(theta))
             legpos1 = self.leglength1 * np.float32([cos(theta1), -sin(theta1)])
             legpos2 = self.leglength2 * np.float32([cosd(theta2), -sind(theta2)])
@@ -109,7 +132,7 @@ class Crab:
             theta1 = self.midlegtheta + (self.movelegtheta * sind(-theta))
             if not self.swimming:
                 theta1 = max(theta1, self.midlegtheta - self.movelegtheta / 2)
-            theta1 += random() * (self.vel[0]/180)
+            theta1 += r.random() * (self.vel[0]/180)
             theta2 = -30 * (3 + cosd(-theta))
             legpos1 = self.leglength1 * np.float32([cos(theta1), -sin(theta1)])
             legpos2 = self.leglength2 * np.float32([cosd(theta2), -sind(theta2)])
@@ -124,12 +147,12 @@ class Crab:
                             self.eyerect.move(*(self.pos + self.lefteye)))
         pygame.draw.ellipse(screen, 0,
                             self.eyerect.move(*(self.pos + self.lefteye + np.sign(self.vel)))
-                                        .inflate(-2, min(max(self.vel[0] - 8, 8 - self.eyerect.h), -8)))
+                                        .inflate(-2, min(max(self.vel[0] - 8, 4 - self.eyerect.h), -8)))
         pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.righteye - np.sign(self.vel))))
         pygame.draw.ellipse(screen, 0,
                             self.eyerect.move(*(self.pos + self.righteye))
-                                        .inflate(-2, min(max(-self.vel[0] - 8, 8 - self.eyerect.h), -8)))
+                                        .inflate(-2, min(max(-self.vel[0] - 8, 4 - self.eyerect.h), -8)))
         lefthandpos = self.pos - self.arm - self.btm
         righthandpos = self.pos + self.arm - self.btm
         pygame.draw.line(screen, self.armcol, leftlegjoin, lefthandpos, 5)
@@ -140,12 +163,22 @@ class Crab:
         currrighthand = pygame.transform.rotate(self.righthand,
                                                 (self.vel[0] > 0) * 10 * sind(self.cycles) - self.vel[1] * 2)
         screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2)
-        self.vel[0] = min(max(self.vel[0], -self.maxspeed), self.maxspeed)  # speed moderated before shoving
         for C in crabs:
             if C != self:
                 if self.hitbox.colliderect(C.hitbox):
                     # random() for breaking up equal chances
-                    C.vel[0] += (C.pos[0] - self.pos[0] + random()) * np.linalg.norm(self.vel - C.vel)
+                    veldiff = np.linalg.norm(self.vel - C.vel)
+                    C.vel[0] -= (self.pos[0] - C.pos[0] + r.random()) * veldiff
+                    self.vel[0] += (self.pos[0] - C.pos[0] + r.random()) * veldiff
+                    C.vel[1] -= (self.pos[1] - C.pos[1]) / 20 + r.random() * 2
+                    self.vel[1] -= (C.pos[1] - self.pos[1]) / 20 + r.random() * 2
+                    if not (self, C) in collisions:
+                        collisions.update([(self, C), (C, self)])
+                        SFX((self.pos + C.pos) / 2)
+                else:
+                    collisions.discard((self, C))
+                    collisions.discard((C, self))
+        self.vel[0] = min(max(self.vel[0], -self.maxspeed * 2), self.maxspeed * 2)  # speed moderated before shoving
         self.cycles += self.vel[0]
         if self.swimming:
             self.pos[0] += self.vel[0] * self.stride / 1.5
@@ -153,7 +186,7 @@ class Crab:
             self.pos[0] += self.vel[0] * self.stride
         self.pos[1] += self.vel[1]
         self.hitbox = self.orighitbox.move(*self.pos)
-        # pygame.draw.rect(screen, WHITE, self.hitbox, 1)
+        pygame.draw.rect(screen, WHITE, self.hitbox, 1)
 
 
 crab1 = Crab((w/4, h/2))
@@ -162,9 +195,12 @@ crab2 = Crab((w * 0.75, h/2), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 keyspressed = set()
 while True:
     screen.fill(0)
+    r.shuffle(crabs)
     for C in crabs:
         C.move(keyspressed)
         C.show()
+    for S in SFXs:
+        S.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
