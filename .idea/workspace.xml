@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Decrease crab size by 20%">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="175" column="95" selection-start-line="175" selection-start-column="95" selection-end-line="175" selection-end-column="95" />
+            <state relative-caret-position="34">
+              <caret line="178" column="97" selection-start-line="178" selection-start-column="97" selection-end-line="178" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -63,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pos[2]</find>
       <find>pygame</find>
       <find>rect.top</find>
       <find>width</find>
@@ -93,6 +92,7 @@
       <find>max</find>
       <find>init</find>
       <find>l[1]</find>
+      <find>sind(</find>
     </findStrings>
     <replaceStrings>
       <replace>FIST</replace>
@@ -1250,13 +1250,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00022" summary="Fix craziness seen on player start by assigning 0 angle at low speed">
-      <created>1519746594558</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1519746594558</updated>
-    </task>
     <task id="LOCAL-00023" summary="Make it so that the data to be sent is generated once every 3 cycles and not once per player">
       <created>1519747896629</created>
       <option name="number" value="00023" />
@@ -1593,7 +1586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525482757088</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Add sound effects and improve collisions">
+      <created>1525594509593</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1525594509593</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1676,7 +1676,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add a function for raycasting collision detection" />
     <MESSAGE value="Improve render order slightly and add offset of environment properly" />
     <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
     <MESSAGE value="Add functioning backdrops and motion" />
@@ -1701,7 +1700,8 @@
     <MESSAGE value="Improve le gesturing" />
     <MESSAGE value="Collide the crabs" />
     <MESSAGE value="Decrease crab size by 20%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decrease crab size by 20%" />
+    <MESSAGE value="Add sound effects and improve collisions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sound effects and improve collisions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2038,8 +2038,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="175" column="95" selection-start-line="175" selection-start-column="95" selection-end-line="175" selection-end-column="95" />
+        <state relative-caret-position="34">
+          <caret line="178" column="97" selection-start-line="178" selection-start-column="97" selection-end-line="178" selection-end-column="97" />
         </state>
       </provider>
     </entry>
