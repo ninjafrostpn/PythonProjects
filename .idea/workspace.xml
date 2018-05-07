@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add vertical sumo zone and a way to detect it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="238">
+              <caret line="27" column="60" lean-forward="true" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -63,9 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pyg</find>
-      <find>!=</find>
-      <find>rot90</find>
       <find>level</find>
       <find>uint</find>
       <find>float32</find>
@@ -93,6 +90,9 @@
       <find>GRE</find>
       <find>.col</find>
       <find>self.col</find>
+      <find>isin</find>
+      <find>100</find>
+      <find>...</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -1263,13 +1263,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00024" summary="Rearrange imports, move clientfinder start, and add surfacetobytes function">
-      <created>1519749129368</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1519749129368</updated>
-    </task>
     <task id="LOCAL-00025" summary="Attempt to fix connection problems">
       <created>1520787476887</created>
       <option name="number" value="00025" />
@@ -1606,7 +1599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525636397077</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Add vertical sumo zone and a way to detect it">
+      <created>1525689465959</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1525689465959</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1636,7 +1636,6 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.29252782" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
       <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27728087" />
@@ -1652,29 +1651,30 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
       <window_info anchor="right" id="Data View" order="3" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1689,7 +1689,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Get 3D perspective idea good enough to go back to shadows" />
     <MESSAGE value="Add functioning backdrops and motion" />
     <MESSAGE value="Add shadows. Easier said than done." />
     <MESSAGE value="Start OpenCV version of Shadows, in the hope that it's faster." />
@@ -1714,7 +1713,8 @@
     <MESSAGE value="Decrease crab size by 20%" />
     <MESSAGE value="Add sound effects and improve collisions" />
     <MESSAGE value="Improve attack and knockback patterns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve attack and knockback patterns" />
+    <MESSAGE value="Add vertical sumo zone and a way to detect it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add vertical sumo zone and a way to detect it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="238">
+          <caret line="27" column="60" lean-forward="true" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
         </state>
       </provider>
     </entry>

@@ -20,6 +20,14 @@ xflip = np.float32([-1, 1])
 sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
+
+def enshadow(surface, rect):
+    surf = pygame.surfarray.pixels3d(surface)
+    rect = pygame.Rect(rect)
+    darkversion = surf[rect.left:rect.right, rect.top:rect.bottom] / 2
+    surf[rect.left:rect.right, rect.top:rect.bottom] = np.uint8(darkversion)
+
+
 hand = pygame.image.load_extended(r"Crabs/Hand.png").convert_alpha()
 
 SFXphrases = ["crab-powie", "clack", "crunch-stacean", "smack", "bam", "whack", "crunch", "biff", "bop"]
@@ -226,7 +234,7 @@ while True:
         C.show(keyspressed, zone)
     for S in SFXs:
         S.show()
-    pygame.display.flip()
+    pygame.display.update()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
@@ -236,4 +244,4 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keyspressed.remove(e.key)
-    sleep(0.01)
+    sleep(0.001)
