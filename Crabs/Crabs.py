@@ -21,10 +21,15 @@ sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
 
-def enshadow(surface, rect):
+def enshadow(surface, rect, diagonal=0):
     surf = pygame.surfarray.pixels3d(surface)
     rect = pygame.Rect(rect)
-    darkversion = surf[rect.left:rect.right, rect.top:rect.bottom] / 2
+    mask = np.ones((rect.right - rect.left, rect.bottom - rect.top, 3), dtype='float32') / 2
+    if diagonal:
+        mask[np.triu_indices(mask.shape[0], m=mask.shape[1])] = 1
+        mask = np.flip(mask, axis=1)
+        mask = np.maximum(mask, np.flip(mask, axis=0))
+    darkversion = surf[rect.left:rect.right, rect.top:rect.bottom] * mask
     surf[rect.left:rect.right, rect.top:rect.bottom] = np.uint8(darkversion)
 
 
@@ -56,11 +61,12 @@ crabs = []
 
 
 class Crab:
-    def __init__(self, pos,
+    def __init__(self, name, pos,
                  width=80, leglength=32,
                  aspect=0.5, legaspect=1,
                  maxspeed=20,
                  controls=(K_UP, K_LEFT, K_DOWN, K_RIGHT), col=CRABAPPLE):
+        self.name = name
         self.pos = np.float32(pos)
         self.vel = np.float32([0, 0])
         self.maxspeed = maxspeed
@@ -122,10 +128,6 @@ class Crab:
         return np.all(np.cross(zone[1:] - zone[:-1], self.pos - zone[:-1], axis=1) > 0)
         
     def show(self, keys, zone):
-        if not self.isin(zone):
-            currcol = np.minimum(np.maximum(self.col + r.randint(-30, 31), 0), 255)
-        else:
-            currcol = self.col
         self.stance = min(max(self.stance + copysign(10, self.changestance), 0), 90)
         if self.pos[1] < h - self.btm[1]:
             self.vel[1] += 0.2
@@ -138,7 +140,7 @@ class Crab:
         rightlegjoin = self.pos + self.legjoin
         leftlegjoin = self.pos - self.legjoin
         for i in range(4):
-            col = np.maximum(np.minimum(currcol + (10 * i), 255), 0)
+            col = np.maximum(np.minimum(self.col + (10 * i), 255), 0)
             theta = self.cycles + (140 * i)
             theta1 = self.midlegtheta + (self.movelegtheta * sind(theta))
             if not self.swimming:
@@ -164,7 +166,7 @@ class Crab:
                                leftlegjoin + (legpos1 * xflip),
                                leftlegjoin + ((legpos1 + legpos2) * xflip)],
                               5)
-        pygame.draw.ellipse(screen, currcol,
+        pygame.draw.ellipse(screen, self.col,
                             self.rect.move(*(self.pos - self.diag)))
         pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.lefteye)))
@@ -180,10 +182,10 @@ class Crab:
         righthandpos = self.pos + self.arm - self.btm
         ang1 = 10 * sind(self.cycles)
         ang2 = self.vel[1] * 2 + 40 * sind(self.stance)
-        pygame.draw.line(screen, np.int32(WHITE) - currcol, leftlegjoin, lefthandpos, 5)
+        pygame.draw.line(screen, np.int32(WHITE) - self.col, leftlegjoin, lefthandpos, 5)
         currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * ang1 + ang2)
         screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2)
-        pygame.draw.line(screen, np.int32(WHITE) - currcol, rightlegjoin, righthandpos, 5)
+        pygame.draw.line(screen, np.int32(WHITE) - self.col, rightlegjoin, righthandpos, 5)
         currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * ang1 - ang2)
         screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2)
         for C in crabs:
@@ -213,17 +215,19 @@ class Crab:
         self.pos[1] += self.vel[1]
         self.hitbox = self.orighitbox.move(*self.pos)
         # pygame.draw.rect(screen, WHITE, self.hitbox, 1)
+        return not self.isin(zone)
 
-zone = np.int32([(w * 2/16, h),
-                 (w * 4/16, h * 5/8),
-                 (w * 12/16, h * 5/8),
+zone = np.int32([(w *  2/16, h),
+                 (w *  5/16, h - (w * 3/16)),
+                 (w * 11/16, h - (w * 3/16)),
                  (w * 14/16, h)])
 
-crab1 = Crab((w/4, h/2), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
-crab2 = Crab((w * 0.75, h/2))
+crab1 = Crab("Geoffrey", (w/4, h/2), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
+crab2 = Crab("WinklePicker", (w * 0.75, h/2))
 
 keyspressed = set()
-while True:
+activation = 0
+while activation < w:
     # It's actually faster to draw this every time than to blit a background in
     screen.fill(0)
     pygame.draw.lines(screen, GREY * 100, False, zone, 10)
@@ -231,7 +235,11 @@ while True:
         pygame.draw.circle(screen, GREY * 150, zone[i], 10)
     r.shuffle(crabs)
     for C in crabs:
-        C.show(keyspressed, zone)
+        activation += C.show(keyspressed, zone) * 2
+    activation -= 1
+    activation = min(max(activation, 0), w)
+    pygame.draw.rect(screen, (255 * activation/w, 255 * (1 - activation/w), 0), (0, 0, activation, 20))
+    enshadow(screen, (zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), -1)
     for S in SFXs:
         S.show()
     pygame.display.update()
@@ -244,4 +252,10 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keyspressed.remove(e.key)
-    sleep(0.001)
+    sleep(0.0001)
+
+for C in crabs:
+    if C.isin(zone):
+        print(C.name, "WINS")
+    else:
+        print(C.name, "LOSES")
