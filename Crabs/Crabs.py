@@ -12,6 +12,8 @@ screen = pygame.display.set_mode((w, h))
 
 CRABAPPLE = (135, 56, 47)
 DARK_MAGENTA = (100, 0, 100)
+BLUESKY = (10, 200, 200)
+SAND = (225, 169, 95)
 WHITE = (255, 255, 255)
 GREY = np.float32((1, 1, 1))
 
@@ -21,10 +23,10 @@ sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
 
-def enshadow(surface, rect, diagonal=0):
+def enshadow(surface, rect, diagonal=False):
     surf = pygame.surfarray.pixels3d(surface)
     rect = pygame.Rect(rect)
-    mask = np.ones((rect.right - rect.left, rect.bottom - rect.top, 3), dtype='float32') / 2
+    mask = np.ones((rect.right - rect.left, rect.bottom - rect.top, 3), dtype='float32') * 0.7
     if diagonal:
         mask[np.triu_indices(mask.shape[0], m=mask.shape[1])] = 1
         mask = np.flip(mask, axis=1)
@@ -222,24 +224,39 @@ zone = np.int32([(w *  2/16, h),
                  (w * 11/16, h - (w * 3/16)),
                  (w * 14/16, h)])
 
-crab1 = Crab("Geoffrey", (w/4, h/2), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
-crab2 = Crab("WinklePicker", (w * 0.75, h/2))
+crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
+crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
 
 keyspressed = set()
 activation = 0
 while activation < w:
     # It's actually faster to draw this every time than to blit a background in
-    screen.fill(0)
-    pygame.draw.lines(screen, GREY * 100, False, zone, 10)
+    # Draw background
+    screen.fill(BLUESKY)
+    
+    # Draw background part of bunker
+    pygame.draw.polygon(screen, SAND, zone)
     for i in range(1, zone.shape[0] - 1):
-        pygame.draw.circle(screen, GREY * 150, zone[i], 10)
+        pygame.draw.line(screen, GREY * 100, zone[i], (zone[i][0], h), 10)
+    
+    # Draw crabs in bunker and calculate danger
     r.shuffle(crabs)
     for C in crabs:
         activation += C.show(keyspressed, zone) * 2
     activation -= 1
     activation = min(max(activation, 0), w)
-    pygame.draw.rect(screen, (255 * activation/w, 255 * (1 - activation/w), 0), (0, 0, activation, 20))
-    enshadow(screen, (zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), -1)
+    
+    # Draw foreground portion of bunker, including shadow
+    enshadow(screen, (zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
+    pygame.draw.lines(screen, GREY * 100, False, zone, 10)
+    for i in range(1, zone.shape[0] - 1):
+        pygame.draw.circle(screen, GREY * 150, zone[i], 10)
+    
+    # Draw danger bar
+    pygame.draw.rect(screen, GREY * 200, (0, 0, w, 20))
+    pygame.draw.rect(screen, (255 * activation / w, 255 * (1 - activation / w), 0), (0, 0, activation, 20))
+    pygame.draw.line(screen, 0, (activation, 0), (activation, 20), 2)
+    pygame.draw.line(screen, 0, (0, 20), (w, 20), 2)
     for S in SFXs:
         S.show()
     pygame.display.update()

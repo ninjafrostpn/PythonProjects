@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add vertical sumo zone and a way to detect it">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="27" column="60" lean-forward="true" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+            <state relative-caret-position="142">
+              <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -1263,20 +1263,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00025" summary="Attempt to fix connection problems">
-      <created>1520787476887</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1520787476887</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Make a better itemfinder using OpenCV">
-      <created>1520803233788</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1520803233788</updated>
-    </task>
     <task id="LOCAL-00027" summary="Make Itemfinder2 better for large images">
       <created>1521405131668</created>
       <option name="number" value="00027" />
@@ -1606,7 +1592,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525689465959</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Add an enshadow function">
+      <created>1525729012628</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1525729012629</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Move goal zone, update and apply shadow to goal, add win condition">
+      <created>1525744530861</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1525744530862</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1689,8 +1689,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add functioning backdrops and motion" />
-    <MESSAGE value="Add shadows. Easier said than done." />
     <MESSAGE value="Start OpenCV version of Shadows, in the hope that it's faster." />
     <MESSAGE value="Begin conversion of pygame code to OpenCV" />
     <MESSAGE value="Add attempt at timelapse software" />
@@ -1714,7 +1712,9 @@
     <MESSAGE value="Add sound effects and improve collisions" />
     <MESSAGE value="Improve attack and knockback patterns" />
     <MESSAGE value="Add vertical sumo zone and a way to detect it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add vertical sumo zone and a way to detect it" />
+    <MESSAGE value="Add an enshadow function" />
+    <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move goal zone, update and apply shadow to goal, add win condition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="27" column="60" lean-forward="true" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+        <state relative-caret-position="142">
+          <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
         </state>
       </provider>
     </entry>
