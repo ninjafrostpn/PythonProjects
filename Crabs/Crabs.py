@@ -1,4 +1,4 @@
-from math import sin, cos, radians, asin, copysign, pi
+from math import sin, cos, radians, asin, copysign
 import numpy as np
 import pygame
 from pygame.locals import *
@@ -94,7 +94,7 @@ class Crab:
         self.changestance = -1
         crabs.append(self)
     
-    def updateInputs(self, keys=set()):
+    def updateinputs(self, keys=set()):
         uppressed, leftpressed, downpressed, rightpressed = [(self.controls[i] in keys) for i in range(4)]
         if leftpressed:
             self.vel[0] -= 1
@@ -192,7 +192,7 @@ class Crab:
                 else:
                     collisions.discard((self, C))
                     collisions.discard((C, self))
-        self.updateInputs(keys)
+        self.updateinputs(keys)
         # speed moderated before shoving
         self.vel[0] = min(max(self.vel[0], -self.maxspeed * 2), self.maxspeed * 2)
         self.vel[1] = min(max(self.vel[1], -self.maxspeed/2), self.maxspeed/2)
@@ -217,13 +217,20 @@ class Shadow:
             self.mask = np.flip(self.mask, axis=1)
             self.mask = np.maximum(self.mask, np.flip(self.mask, axis=0))
     
-    def move(self, pos):
-        self.rect.topleft = pos
+    def move(self, pos, relative=False):
+        if relative:
+            self.rect = self.rect.move(pos)
+        else:
+            self.rect.topleft = pos
 
     def enshadow(self, surface):
         surf = pygame.surfarray.pixels3d(surface)
-        darkversion = surf[self.rect.left:self.rect.right, self.rect.top:self.rect.bottom] * self.mask
-        surf[self.rect.left:self.rect.right, self.rect.top:self.rect.bottom] = np.uint8(darkversion)
+        currrect = self.rect.clip(surface.get_rect())
+        maskrect = pygame.Rect(currrect)
+        maskrect.topleft = (0, 0)
+        darkversion = surf[currrect.left:currrect.right, currrect.top:currrect.bottom]\
+                      * self.mask[maskrect.left:maskrect.right, maskrect.top:maskrect.bottom]
+        surf[currrect.left:currrect.right, currrect.top:currrect.bottom] = np.uint8(darkversion)
 
 
 zone = np.int32([(w *  2/16, h),
