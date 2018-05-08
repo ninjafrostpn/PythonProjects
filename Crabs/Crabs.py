@@ -22,19 +22,6 @@ xflip = np.float32([-1, 1])
 sind = lambda theta: sin(radians(theta))
 cosd = lambda theta: cos(radians(theta))
 
-
-def enshadow(surface, rect, diagonal=False):
-    surf = pygame.surfarray.pixels3d(surface)
-    rect = pygame.Rect(rect)
-    mask = np.ones((rect.right - rect.left, rect.bottom - rect.top, 3), dtype='float32') * 0.7
-    if diagonal:
-        mask[np.triu_indices(mask.shape[0], m=mask.shape[1])] = 1
-        mask = np.flip(mask, axis=1)
-        mask = np.maximum(mask, np.flip(mask, axis=0))
-    darkversion = surf[rect.left:rect.right, rect.top:rect.bottom] * mask
-    surf[rect.left:rect.right, rect.top:rect.bottom] = np.uint8(darkversion)
-
-
 hand = pygame.image.load_extended(r"Crabs/Hand.png").convert_alpha()
 
 SFXphrases = ["crab-powie", "clack", "crunch-stacean", "smack", "bam", "whack", "crunch", "biff", "bop"]
@@ -185,10 +172,10 @@ class Crab:
         ang1 = 10 * sind(self.cycles)
         ang2 = self.vel[1] * 2 + 40 * sind(self.stance)
         pygame.draw.line(screen, np.int32(WHITE) - self.col, leftlegjoin, lefthandpos, 5)
-        currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * ang1 + ang2)
+        currlefthand = pygame.transform.rotate(self.lefthand, (self.vel[0] < 0) * ang1 + ang2).convert_alpha()
         screen.blit(currlefthand, lefthandpos - np.float32(currlefthand.get_rect().size)/2)
         pygame.draw.line(screen, np.int32(WHITE) - self.col, rightlegjoin, righthandpos, 5)
-        currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * ang1 - ang2)
+        currrighthand = pygame.transform.rotate(self.righthand, (self.vel[0] > 0) * ang1 - ang2).convert_alpha()
         screen.blit(currrighthand, righthandpos - np.float32(currrighthand.get_rect().size)/2)
         for C in crabs:
             if C != self:
@@ -219,6 +206,26 @@ class Crab:
         # pygame.draw.rect(screen, WHITE, self.hitbox, 1)
         return not self.isin(zone)
 
+
+class Shadow:
+    def __init__(self, rect, diagonal=False):
+        self.rect = pygame.Rect(rect)
+        self.mask = np.ones((self.rect.right - self.rect.left, self.rect.bottom - self.rect.top, 3),
+                            dtype='float32') * 0.7
+        if diagonal:
+            self.mask[np.triu_indices(self.mask.shape[0], m=self.mask.shape[1])] = 1
+            self.mask = np.flip(self.mask, axis=1)
+            self.mask = np.maximum(self.mask, np.flip(self.mask, axis=0))
+    
+    def move(self, pos):
+        self.rect.topleft = pos
+
+    def enshadow(self, surface):
+        surf = pygame.surfarray.pixels3d(surface)
+        darkversion = surf[self.rect.left:self.rect.right, self.rect.top:self.rect.bottom] * self.mask
+        surf[self.rect.left:self.rect.right, self.rect.top:self.rect.bottom] = np.uint8(darkversion)
+
+
 zone = np.int32([(w *  2/16, h),
                  (w *  5/16, h - (w * 3/16)),
                  (w * 11/16, h - (w * 3/16)),
@@ -226,6 +233,9 @@ zone = np.int32([(w *  2/16, h),
 
 crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
+
+bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
+birdshadow = Shadow((0, 0, 100, h))
 
 keyspressed = set()
 activation = 0
@@ -247,7 +257,7 @@ while activation < w:
     activation = min(max(activation, 0), w)
     
     # Draw foreground portion of bunker, including shadow
-    enshadow(screen, (zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
+    bunkershadow.enshadow(screen)
     pygame.draw.lines(screen, GREY * 100, False, zone, 10)
     for i in range(1, zone.shape[0] - 1):
         pygame.draw.circle(screen, GREY * 150, zone[i], 10)

@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
+            <state relative-caret-position="221">
+              <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
             </state>
           </provider>
         </entry>
@@ -63,9 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>level</find>
-      <find>uint</find>
-      <find>float32</find>
       <find>float</find>
       <find>10</find>
       <find>pos</find>
@@ -93,9 +90,11 @@
       <find>isin</find>
       <find>100</find>
       <find>...</find>
+      <find>/ 2</find>
+      <find>rect(</find>
+      <find>rect</find>
     </findStrings>
     <replaceStrings>
-      <replace>1</replace>
       <replace>/10</replace>
       <replace>100)</replace>
       <replace>conduct</replace>
@@ -125,6 +124,7 @@
       <replace>float</replace>
       <replace>float32</replace>
       <replace>currcol</replace>
+      <replace>self.rect</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\sr</dir>
@@ -1263,13 +1263,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00027" summary="Make Itemfinder2 better for large images">
-      <created>1521405131668</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1521405131668</updated>
-    </task>
     <task id="LOCAL-00028" summary="Add Crawler.py in initial iteration">
       <created>1521489566104</created>
       <option name="number" value="00028" />
@@ -1606,7 +1599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525744530862</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Make arena look nice and clean up enshadow function">
+      <created>1525747870652</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1525747870652</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1689,7 +1689,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start OpenCV version of Shadows, in the hope that it's faster." />
     <MESSAGE value="Begin conversion of pygame code to OpenCV" />
     <MESSAGE value="Add attempt at timelapse software" />
     <MESSAGE value="Make the interface nicer/clearer" />
@@ -1714,7 +1713,8 @@
     <MESSAGE value="Add vertical sumo zone and a way to detect it" />
     <MESSAGE value="Add an enshadow function" />
     <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move goal zone, update and apply shadow to goal, add win condition" />
+    <MESSAGE value="Make arena look nice and clean up enshadow function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make arena look nice and clean up enshadow function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
+        <state relative-caret-position="221">
+          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
         </state>
       </provider>
     </entry>
