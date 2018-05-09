@@ -341,18 +341,19 @@ zone = np.int32([(w *  2/16, h),
 crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
 
-bird1 = Bird((w/4, h/4))
-
 bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
 
 keyspressed = set()
 activation = 0
 gameover = False
+timer = 0
 while not gameover:
+    if timer % 3000 == 0:
+        Bird((-50, h/2))
     # It's actually faster to draw this every time than to blit a background in
     # Draw background
     screen.fill(BLUESKY)
-
+    
     # Draw birds in background
     for B in birds:
         if B.background:
@@ -366,7 +367,7 @@ while not gameover:
     # Draw crabs in bunker and calculate danger
     r.shuffle(crabs)
     for C in crabs:
-        activation += C.show(keyspressed, zone) * 2
+        activation += C.show(keyspressed, zone) * 2 * len(birds)
         if C.dead and C.pos[1] < 0:
             gameover = True
     activation -= 1
@@ -402,6 +403,7 @@ while not gameover:
         elif e.type == KEYUP:
             keyspressed.remove(e.key)
     sleep(0.0001)
+    timer += 1
 
 for C in crabs:
     if not C.dead:

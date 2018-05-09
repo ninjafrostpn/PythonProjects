@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add hungry birb">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="408" column="9" lean-forward="true" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
+            <state relative-caret-position="186">
+              <caret line="350" column="16" selection-start-line="350" selection-start-column="16" selection-end-line="350" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -1263,13 +1263,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00030" summary="Add wall collisions and polylines">
-      <created>1521512026987</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1521512026987</updated>
-    </task>
     <task id="LOCAL-00031" summary="Add a simple AI bug (Q) and make the arena nice and webby">
       <created>1521667809065</created>
       <option name="number" value="00031" />
@@ -1606,7 +1599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525804516538</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Add hungry birb">
+      <created>1525885384338</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1525885384340</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1689,7 +1689,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make the interface nicer/clearer" />
     <MESSAGE value="Start developing a neural-net dancer" />
     <MESSAGE value="Add neural net tutorial attempts and significantly develop Dancer" />
     <MESSAGE value="Increase efficiency of some parts" />
@@ -1714,7 +1713,8 @@
     <MESSAGE value="Make arena look nice and clean up enshadow function" />
     <MESSAGE value="Speed up game by moving the enshadowing into a class" />
     <MESSAGE value="Make shadow class more usable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make shadow class more usable" />
+    <MESSAGE value="Add hungry birb" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add hungry birb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="408" column="9" lean-forward="true" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
+        <state relative-caret-position="186">
+          <caret line="350" column="16" selection-start-line="350" selection-start-column="16" selection-end-line="350" selection-end-column="16" />
         </state>
       </provider>
     </entry>
