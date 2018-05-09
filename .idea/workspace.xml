@@ -28,8 +28,8 @@
       <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+            <state relative-caret-position="220">
+              <caret line="408" column="9" lean-forward="true" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -63,11 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>float</find>
-      <find>10</find>
-      <find>pos</find>
-      <find>grav</find>
-      <find>self.pos</find>
       <find>nl</find>
       <find>.append</find>
       <find>,</find>
@@ -83,7 +78,6 @@
       <find>max</find>
       <find>init</find>
       <find>l[1]</find>
-      <find>sind(</find>
       <find>GRE</find>
       <find>.col</find>
       <find>self.col</find>
@@ -93,6 +87,12 @@
       <find>/ 2</find>
       <find>rect(</find>
       <find>rect</find>
+      <find>(1, 0</find>
+      <find>self.diag</find>
+      <find>sind(</find>
+      <find>0.5</find>
+      <find>Crab</find>
+      <find>s Crab</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -194,9 +194,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
+    <option name="x" value="-12" />
     <option name="width" value="981" />
-    <option name="height" value="522" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1263,20 +1263,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00028" summary="Add Crawler.py in initial iteration">
-      <created>1521489566104</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1521489566104</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Fix touchline function and generally make the whole thing work :D">
-      <created>1521509460764</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1521509460764</updated>
-    </task>
     <task id="LOCAL-00030" summary="Add wall collisions and polylines">
       <created>1521512026987</created>
       <option name="number" value="00030" />
@@ -1606,7 +1592,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525747870652</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Speed up game by moving the enshadowing into a class">
+      <created>1525803636741</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1525803636741</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Make shadow class more usable">
+      <created>1525804516538</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1525804516538</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1658,23 +1658,23 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1689,8 +1689,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Begin conversion of pygame code to OpenCV" />
-    <MESSAGE value="Add attempt at timelapse software" />
     <MESSAGE value="Make the interface nicer/clearer" />
     <MESSAGE value="Start developing a neural-net dancer" />
     <MESSAGE value="Add neural net tutorial attempts and significantly develop Dancer" />
@@ -1714,7 +1712,9 @@
     <MESSAGE value="Add an enshadow function" />
     <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
     <MESSAGE value="Make arena look nice and clean up enshadow function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make arena look nice and clean up enshadow function" />
+    <MESSAGE value="Speed up game by moving the enshadowing into a class" />
+    <MESSAGE value="Make shadow class more usable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make shadow class more usable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2051,8 +2051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+        <state relative-caret-position="220">
+          <caret line="408" column="9" lean-forward="true" selection-start-line="408" selection-start-column="9" selection-end-line="408" selection-end-column="9" />
         </state>
       </provider>
     </entry>

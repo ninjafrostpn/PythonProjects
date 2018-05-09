@@ -8,10 +8,13 @@ from time import sleep
 pygame.init()
 
 w, h = 1200, 500
-screen = pygame.display.set_mode((w, h))
+screen = pygame.display.set_mode((w, h), DOUBLEBUF)
+
+groundy = 20
 
 CRABAPPLE = (135, 56, 47)
 DARK_MAGENTA = (100, 0, 100)
+BEAK = (255, 255, 0)
 BLUESKY = (10, 200, 200)
 SAND = (225, 169, 95)
 WHITE = (255, 255, 255)
@@ -43,6 +46,32 @@ class SFX:
         self.size += 9
         if self.size >= 255:
             SFXs.remove(self)
+
+
+class Shadow:
+    def __init__(self, rect, diagonal=False):
+        self.rect = pygame.Rect(rect)
+        self.mask = np.ones((self.rect.right - self.rect.left, self.rect.bottom - self.rect.top, 3),
+                            dtype='float32') * 0.7
+        if diagonal:
+            self.mask[np.triu_indices(self.mask.shape[0], m=self.mask.shape[1])] = 1
+            self.mask = np.flip(self.mask, axis=1)
+            self.mask = np.maximum(self.mask, np.flip(self.mask, axis=0))
+    
+    def move(self, pos, relative=False):
+        if relative:
+            self.rect = self.rect.move(pos)
+        else:
+            self.rect.topleft = pos
+    
+    def enshadow(self, surface):
+        surf = pygame.surfarray.pixels3d(surface)
+        currrect = self.rect.clip(surface.get_rect())
+        maskrect = pygame.Rect(currrect)
+        maskrect.topleft = (0, 0)
+        darkversion = surf[currrect.left:currrect.right, currrect.top:currrect.bottom] \
+                      * self.mask[maskrect.left:maskrect.right, maskrect.top:maskrect.bottom]
+        surf[currrect.left:currrect.right, currrect.top:currrect.bottom] = np.uint8(darkversion)
 
 
 collisions = set()
@@ -92,20 +121,20 @@ class Crab:
         self.hitbox = self.orighitbox.move(*self.pos)
         self.stance = 0
         self.changestance = -1
+        self.dead = False
         crabs.append(self)
     
     def updateinputs(self, keys=set()):
         uppressed, leftpressed, downpressed, rightpressed = [(self.controls[i] in keys) for i in range(4)]
-        if leftpressed:
+        if leftpressed and not self.dead:
             self.vel[0] -= 1
-        if rightpressed:
+        if rightpressed and not self.dead:
             self.vel[0] += 1
-        if not (leftpressed ^ rightpressed) and self.vel[0] != 0:
+        if (not (leftpressed ^ rightpressed) or self.dead) and self.vel[0] != 0:
             self.vel[0] -= copysign(min(self.vel[0]/20, 1), self.vel[0])
-        if uppressed:
-            if not self.swimming:
-                self.vel[1] = -7
-        if downpressed:
+        if uppressed and not self.dead and not self.swimming:
+            self.vel[1] = -7
+        if downpressed and not self.dead:
             if abs(self.changestance) == 1:
                 self.changestance *= -2
         elif abs(self.changestance) > 1:
@@ -118,13 +147,13 @@ class Crab:
         
     def show(self, keys, zone):
         self.stance = min(max(self.stance + copysign(10, self.changestance), 0), 90)
-        if self.pos[1] < h - self.btm[1]:
+        if self.pos[1] < h - self.btm[1] - groundy:
             self.vel[1] += 0.2
             self.swimming = True
         else:
             if self.vel[1] >= 0:
                 self.vel[1] = 0
-                self.pos[1] = h - self.btm[1]
+                self.pos[1] = h - self.btm[1] - groundy
                 self.swimming = False
         rightlegjoin = self.pos + self.legjoin
         leftlegjoin = self.pos - self.legjoin
@@ -180,7 +209,6 @@ class Crab:
         for C in crabs:
             if C != self:
                 if self.hitbox.colliderect(C.hitbox):
-                    # random() for breaking up equal chances
                     posdiff = C.pos - self.pos + np.float32([0, 50])
                     self.vel -= posdiff * np.float32([(sind(C.stance) - sind(self.stance) + 1)/50,
                                                       (cosd(C.stance) - cosd(self.stance) + 1)/25])
@@ -207,31 +235,103 @@ class Crab:
         return not self.isin(zone)
 
 
-class Shadow:
-    def __init__(self, rect, diagonal=False):
-        self.rect = pygame.Rect(rect)
-        self.mask = np.ones((self.rect.right - self.rect.left, self.rect.bottom - self.rect.top, 3),
-                            dtype='float32') * 0.7
-        if diagonal:
-            self.mask[np.triu_indices(self.mask.shape[0], m=self.mask.shape[1])] = 1
-            self.mask = np.flip(self.mask, axis=1)
-            self.mask = np.maximum(self.mask, np.flip(self.mask, axis=0))
+birds = []
+
+
+class Bird:
+    def __init__(self, pos, length=50):
+        self.pos = np.float32(pos)
+        self.length = length
+        self.height = length/4
+        self.eyepos = np.float32([0, -self.height/6])
+        self.diag = np.float32([self.length, self.height]) / 2
+        self.wingpoly = np.float32([(0.35, 0),
+                                    (-0.35, 0),
+                                    (-0.2, 0.5),
+                                    (-0.3, 1),
+                                    (0.2, 0.7)])
+        self.sidebeakpoly = np.float32([self.eyepos - self.eyepos[::-1],
+                                        -self.eyepos * 3 - self.eyepos[::-1] * 10,
+                                        -self.eyepos - self.eyepos[::-1]])
+        self.frontbeakpoly = np.float32([self.eyepos + self.eyepos[::-1],
+                                         -self.eyepos * 3,
+                                         self.eyepos - self.eyepos[::-1]])
+        self.openbeakpoly = np.float32([(-self.length, -h),
+                                        (self.length, -h),
+                                        (self.length/3, 0),
+                                        (0, -h * 0.7),
+                                        (-self.length/3, 0)])
+        self.closedbeakpoly = np.float32([(-self.length, -h),
+                                          (self.length, -h),
+                                          (0, 0)])
+        self.shadow = Shadow((self.pos[0] - self.length, 0, self.length * 2, h))
+        self.background = True
+        self.cycles = 0
+        self.speed = 5
+        self.nom = False
+        birds.append(self)
     
-    def move(self, pos, relative=False):
-        if relative:
-            self.rect = self.rect.move(pos)
+    def show(self):
+        if self.background:
+            headcentre = np.float32([self.pos[0] + copysign(self.length / 2, self.speed), self.pos[1]])
+            pygame.draw.ellipse(screen, GREY * 200, (*(self.pos - self.diag), *(self.diag * 2)))
+            pygame.draw.polygon(screen, GREY * 100,
+                                self.wingpoly * np.float32([copysign(self.length, self.speed),
+                                                            self.height * sind(self.cycles)]) + self.pos)
+            pygame.draw.circle(screen, GREY * 200, headcentre, int(self.length / 6))
+            if activation == 0:
+                pygame.draw.polygon(screen, BEAK,
+                                    headcentre + self.sidebeakpoly * np.float32([copysign(1, self.speed), 1]))
+                pygame.draw.circle(screen, 0, headcentre + self.eyepos, int(self.length / 15))
+            else:
+                pygame.draw.polygon(screen, BEAK,
+                                    headcentre + self.frontbeakpoly)
+                pygame.draw.circle(screen, 0, headcentre + self.eyepos - self.eyepos[::-1] * 2, int(self.length / 15))
+                pygame.draw.circle(screen, 0, headcentre + self.eyepos + self.eyepos[::-1] * 2, int(self.length / 15))
+            self.pos[0] += self.speed
         else:
-            self.rect.topleft = pos
-
-    def enshadow(self, surface):
-        surf = pygame.surfarray.pixels3d(surface)
-        currrect = self.rect.clip(surface.get_rect())
-        maskrect = pygame.Rect(currrect)
-        maskrect.topleft = (0, 0)
-        darkversion = surf[currrect.left:currrect.right, currrect.top:currrect.bottom]\
-                      * self.mask[maskrect.left:maskrect.right, maskrect.top:maskrect.bottom]
-        surf[currrect.left:currrect.right, currrect.top:currrect.bottom] = np.uint8(darkversion)
-
+            self.pos[1] = min(max(self.pos[1] + self.nom, -100), h - groundy)
+            if self.pos[1] >= 0:
+                if self.nom > 0:
+                    pygame.draw.polygon(screen, BEAK,
+                                        self.pos + self.openbeakpoly * np.float32([copysign(1, self.speed), 1]))
+                else:
+                    pygame.draw.polygon(screen, BEAK,
+                                        self.pos + self.closedbeakpoly * np.float32([copysign(1, self.speed), 1]))
+            elif self.nom < 0:
+                self.nom = 0
+                self.pos[1] = -100
+            self.shadow.move((self.pos[0] - self.length, 0))
+            self.shadow.enshadow(screen)
+            if self.nom == 0:
+                self.pos[0] += self.speed * 1.5
+                for crab in crabs:
+                    if not crab.isin(zone):
+                        if -self.length/2 < crab.pos[0] - self.pos[0] < self.length/2 or \
+                                (self.pos[0] < 0 and crab.pos[0] < 0) or \
+                                (self.pos[0] > w and crab.pos[0] > w):
+                            self.nom = 20
+            elif self.nom > 0:
+                hitcrab = False
+                for crab in crabs:
+                    if crab.hitbox.collidepoint(self.pos):
+                        crab.pos = self.pos
+                        crab.vel[:] = 0
+                        crab.dead = True
+                        hitcrab = True
+                if self.pos[1] >= h - groundy or hitcrab:
+                    self.nom *= -1
+        if self.pos[0] > w + self.length * 2 or self.pos[0] < -self.length * 2:
+            if activation/w >= 0.5:
+                if self.background:
+                    self.background = False
+                    self.pos[1] = -100
+            else:
+                self.background = True
+                self.pos[1] = r.randrange(groundy * 2, h - groundy * 2)
+            self.speed *= -1
+        self.cycles += 10
+        
 
 zone = np.int32([(w *  2/16, h),
                  (w *  5/16, h - (w * 3/16)),
@@ -241,15 +341,22 @@ zone = np.int32([(w *  2/16, h),
 crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
 
+bird1 = Bird((w/4, h/4))
+
 bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
-birdshadow = Shadow((0, 0, 100, h))
 
 keyspressed = set()
 activation = 0
-while activation < w:
+gameover = False
+while not gameover:
     # It's actually faster to draw this every time than to blit a background in
     # Draw background
     screen.fill(BLUESKY)
+
+    # Draw birds in background
+    for B in birds:
+        if B.background:
+            B.show()
     
     # Draw background part of bunker
     pygame.draw.polygon(screen, SAND, zone)
@@ -260,14 +367,22 @@ while activation < w:
     r.shuffle(crabs)
     for C in crabs:
         activation += C.show(keyspressed, zone) * 2
+        if C.dead and C.pos[1] < 0:
+            gameover = True
     activation -= 1
     activation = min(max(activation, 0), w)
     
-    # Draw foreground portion of bunker, including shadow
+    # Draw foreground portion of bunker, including shadow and sand
     bunkershadow.enshadow(screen)
     pygame.draw.lines(screen, GREY * 100, False, zone, 10)
     for i in range(1, zone.shape[0] - 1):
         pygame.draw.circle(screen, GREY * 150, zone[i], 10)
+    pygame.draw.rect(screen, SAND, (0, h - groundy, w, h - groundy))
+
+    # Draw birds in foreground
+    for B in birds:
+        if not B.background:
+            B.show()
     
     # Draw danger bar
     pygame.draw.rect(screen, GREY * 200, (0, 0, w, 20))
@@ -276,7 +391,7 @@ while activation < w:
     pygame.draw.line(screen, 0, (0, 20), (w, 20), 2)
     for S in SFXs:
         S.show()
-    pygame.display.update()
+    pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
@@ -289,7 +404,7 @@ while activation < w:
     sleep(0.0001)
 
 for C in crabs:
-    if C.isin(zone):
+    if not C.dead:
         print(C.name, "WINS")
     else:
         print(C.name, "LOSES")
