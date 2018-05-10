@@ -8,7 +8,7 @@ from time import sleep
 pygame.init()
 
 w, h = 1200, 500
-screen = pygame.display.set_mode((w, h), DOUBLEBUF)
+screen = pygame.display.set_mode((w, h))
 
 groundy = 20
 
@@ -225,11 +225,13 @@ class Crab:
         self.vel[0] = min(max(self.vel[0], -self.maxspeed * 2), self.maxspeed * 2)
         self.vel[1] = min(max(self.vel[1], -self.maxspeed/2), self.maxspeed/2)
         self.cycles += self.vel[0]
-        if self.swimming:
-            self.pos[0] += self.vel[0] * self.stride / 1.5
-        else:
-            self.pos[0] += self.vel[0] * self.stride
-        self.pos[1] += self.vel[1]
+        if not self.dead:
+            if self.swimming:
+                self.pos[0] += self.vel[0] * self.stride / 1.5
+            else:
+                self.pos[0] += self.vel[0] * self.stride
+            self.pos[1] += self.vel[1]
+        self.pos[0] = min(max(self.pos[0], 0), w)
         self.hitbox = self.orighitbox.move(*self.pos)
         # pygame.draw.rect(screen, WHITE, self.hitbox, 1)
         return not self.isin(zone)
@@ -268,7 +270,7 @@ class Bird:
         self.background = True
         self.cycles = 0
         self.speed = 5
-        self.nom = False
+        self.nom = 0
         birds.append(self)
     
     def show(self):
@@ -310,14 +312,13 @@ class Bird:
                         if -self.length/2 < crab.pos[0] - self.pos[0] < self.length/2 or \
                                 (self.pos[0] < 0 and crab.pos[0] < 0) or \
                                 (self.pos[0] > w and crab.pos[0] > w):
-                            self.nom = 20
+                            self.nom = 10
             elif self.nom > 0:
                 hitcrab = False
                 for crab in crabs:
                     if crab.hitbox.collidepoint(self.pos):
-                        crab.pos = self.pos
-                        crab.vel[:] = 0
                         crab.dead = True
+                        crab.pos = self.pos
                         hitcrab = True
                 if self.pos[1] >= h - groundy or hitcrab:
                     self.nom *= -1
@@ -333,15 +334,15 @@ class Bird:
         self.cycles += 10
         
 
-zone = np.int32([(w *  2/16, h),
+zone = np.int32([(w *  5/16, h),
                  (w *  5/16, h - (w * 3/16)),
                  (w * 11/16, h - (w * 3/16)),
-                 (w * 14/16, h)])
+                 (w * 11/16, h)])
 
 crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
 
-bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]), True)
+bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]))
 
 keyspressed = set()
 activation = 0
@@ -367,13 +368,13 @@ while not gameover:
     # Draw crabs in bunker and calculate danger
     r.shuffle(crabs)
     for C in crabs:
-        activation += C.show(keyspressed, zone) * 2 * len(birds)
+        activation += C.show(keyspressed, zone) * len(birds)
         if C.dead and C.pos[1] < 0:
             gameover = True
-    activation -= 1
+    activation -= 0.5
     activation = min(max(activation, 0), w)
     
-    # Draw foreground portion of bunker, including shadow and sand
+    # Draw foreground portion of bunker, including sand
     bunkershadow.enshadow(screen)
     pygame.draw.lines(screen, GREY * 100, False, zone, 10)
     for i in range(1, zone.shape[0] - 1):
@@ -402,7 +403,7 @@ while not gameover:
                 quit()
         elif e.type == KEYUP:
             keyspressed.remove(e.key)
-    sleep(0.0001)
+    sleep(0.002)
     timer += 1
 
 for C in crabs:
