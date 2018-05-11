@@ -4,7 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add hungry birb">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Optimise speed somewhat and correct terminal bird capture">
+      <change afterPath="$PROJECT_DIR$/ChessReplacer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
@@ -25,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
+      <file leaf-file-name="ChessReplacer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ChessReplacer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="350" column="16" selection-start-line="350" selection-start-column="16" selection-end-line="350" selection-end-column="16" />
+            <state relative-caret-position="51">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -37,17 +38,8 @@
       <file leaf-file-name="OpenCV-video-trial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenCV-receiver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+            <state relative-caret-position="-561">
+              <caret line="78" column="40" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -63,16 +55,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nl</find>
-      <find>.append</find>
-      <find>,</find>
-      <find>&lt;</find>
-      <find>print(</find>
-      <find>in caps</find>
-      <find>replace</find>
-      <find>print</find>
-      <find>/ 10</find>
-      <find>3</find>
       <find>6</find>
       <find>255</find>
       <find>max</find>
@@ -93,6 +75,16 @@
       <find>0.5</find>
       <find>Crab</find>
       <find>s Crab</find>
+      <find>shadow</find>
+      <find>* 2</find>
+      <find>* 2 *</find>
+      <find>20</find>
+      <find>crabhit</find>
+      <find>bird</find>
+      <find>= 0</find>
+      <find>pos = self.pos</find>
+      <find>send</find>
+      <find>sendu</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -139,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Basic Pygame File.py" />
         <option value="$PROJECT_DIR$/Platformer.py" />
         <option value="$PROJECT_DIR$/numpyArrayMessing.py" />
         <option value="$PROJECT_DIR$/Snek/Snek.py" />
@@ -190,11 +181,13 @@
         <option value="$PROJECT_DIR$/OpenCV-receiver.py" />
         <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
         <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
+        <option value="$PROJECT_DIR$/ChessReplacer.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
+    <option name="x" value="501" />
+    <option name="y" value="15" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
@@ -204,7 +197,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,10 +204,16 @@
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="SavedImages" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Crabs">
+  <component name="RunManager" selected="Python.ChessReplacer">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -332,6 +330,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="ChessReplacer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChessReplacer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Classification" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -727,24 +743,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="OpenCV-receiver" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenCV-receiver.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="Organiser" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -783,7 +781,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Perspectives-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Perspectives" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -795,7 +793,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives-3D.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1233,19 +1231,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.OpenCV-receiver" />
       <item itemvalue="Python.Crabs" />
-      <item itemvalue="Python.Perspectives-3D" />
       <item itemvalue="Python.Depth-Buffer-3D" />
       <item itemvalue="Python.Depth-Buffer" />
+      <item itemvalue="Python.ChessReplacer" />
+      <item itemvalue="Python.Perspectives" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ChessReplacer" />
+        <item itemvalue="Python.Perspectives" />
         <item itemvalue="Python.Crabs" />
         <item itemvalue="Python.Depth-Buffer" />
         <item itemvalue="Python.Depth-Buffer-3D" />
-        <item itemvalue="Python.Perspectives-3D" />
-        <item itemvalue="Python.OpenCV-receiver" />
       </list>
     </recent_temporary>
   </component>
@@ -1262,20 +1260,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Add a simple AI bug (Q) and make the arena nice and webby">
-      <created>1521667809065</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1521667809065</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Add OpenCV video/image capture with pygame interface">
-      <created>1521801120380</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1521801120380</updated>
     </task>
     <task id="LOCAL-00033" summary="Make OpenCV interface all pretty-like">
       <created>1521819348479</created>
@@ -1606,7 +1590,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525885384340</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Add increasing birb count">
+      <created>1525885809822</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1525885809822</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Optimise speed somewhat and correct terminal bird capture">
+      <created>1525943241782</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1525943241782</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1636,9 +1634,10 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.29252782" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27728087" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27728087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1651,23 +1650,22 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
       <window_info anchor="right" id="Data View" order="3" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
@@ -1689,8 +1687,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start developing a neural-net dancer" />
-    <MESSAGE value="Add neural net tutorial attempts and significantly develop Dancer" />
     <MESSAGE value="Increase efficiency of some parts" />
     <MESSAGE value="Add an interpretation of 3blue1brown's neural net series" />
     <MESSAGE value="Attempt to implement the methods of tutorial 3 in the Dancer" />
@@ -1714,7 +1710,9 @@
     <MESSAGE value="Speed up game by moving the enshadowing into a class" />
     <MESSAGE value="Make shadow class more usable" />
     <MESSAGE value="Add hungry birb" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add hungry birb" />
+    <MESSAGE value="Add increasing birb count" />
+    <MESSAGE value="Optimise speed somewhat and correct terminal bird capture" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimise speed somewhat and correct terminal bird capture" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1725,13 +1723,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Moneycheck.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
@@ -1795,20 +1786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="17" selection-start-line="17" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="52" column="85" selection-start-line="52" selection-start-column="85" selection-end-line="52" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -1945,13 +1922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Perspectives.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1970,13 +1940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
           <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChessDetector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -2013,28 +1976,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" lean-forward="true" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/👌Crabs/Crabs.py" />
-    <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Depth-Buffer-3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -2049,10 +1991,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OpenCV-receiver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="450" column="15" lean-forward="true" selection-start-line="450" selection-start-column="15" selection-end-line="450" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PunchBall/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="350" column="16" selection-start-line="350" selection-start-column="16" selection-end-line="350" selection-end-column="16" />
+        <state relative-caret-position="323">
+          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChessDetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Perspectives.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" selection-end-column="1" />
+          <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenCV-video-trial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="78" column="40" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChessReplacer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

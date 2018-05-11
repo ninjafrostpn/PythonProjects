@@ -3,6 +3,7 @@ import numpy as np
 import pygame
 from pygame.locals import *
 import random as r
+import socket
 from time import sleep
 
 pygame.init()
