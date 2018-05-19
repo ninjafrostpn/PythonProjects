@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Sudoku.py" line="19" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Disintegratinator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SimuKey.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basic Pygame File.py" beforeDir="false" afterPath="$PROJECT_DIR$/Basic Pygame File.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Disintegratinator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Disintegratinator.py">
+      <file leaf-file-name="Jellies.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Jellies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+            <state relative-caret-position="1309">
+              <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimuKey.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SimuKey.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
             </state>
           </provider>
         </entry>
@@ -46,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>255</find>
       <find>max</find>
       <find>init</find>
       <find>l[1]</find>
@@ -76,6 +80,7 @@
       <find>send</find>
       <find>sendu</find>
       <find>int8</find>
+      <find>ctrl</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -122,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Snek/Snek.py" />
         <option value="$PROJECT_DIR$/SoundSources.py" />
         <option value="$PROJECT_DIR$/SoundSources2.py" />
         <option value="$PROJECT_DIR$/Merger.py" />
@@ -173,14 +177,14 @@
         <option value="$PROJECT_DIR$/ChessReplacer.py" />
         <option value="$PROJECT_DIR$/Basic Pygame File.py" />
         <option value="$PROJECT_DIR$/Disintegratinator.py" />
+        <option value="$PROJECT_DIR$/SimuKey.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="501" />
-    <option name="y" value="15" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="949" />
+    <option name="width" value="980" />
+    <option name="height" value="521" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -216,19 +220,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,7 +247,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Disintegratinator">
+  <component name="RunManager" selected="Python.SimuKey">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -458,24 +462,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="Depth-Buffer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Depth-Buffer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Dices" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -864,6 +850,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="SimuKey" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimuKey.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Snek" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1223,18 +1227,18 @@
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
       <item itemvalue="Python.Crabs" />
-      <item itemvalue="Python.Depth-Buffer" />
       <item itemvalue="Python.ChessReplacer" />
       <item itemvalue="Python.Perspectives" />
       <item itemvalue="Python.Disintegratinator" />
+      <item itemvalue="Python.SimuKey" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SimuKey" />
         <item itemvalue="Python.Disintegratinator" />
         <item itemvalue="Python.ChessReplacer" />
         <item itemvalue="Python.Perspectives" />
         <item itemvalue="Python.Crabs" />
-        <item itemvalue="Python.Depth-Buffer" />
       </list>
     </recent_temporary>
   </component>
@@ -1251,13 +1255,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Add some comments and move the text up a bit">
-      <created>1521823981227</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1521823981227</updated>
     </task>
     <task id="LOCAL-00035" summary="Add some comments and move the text up a bit">
       <created>1521847174706</created>
@@ -1595,7 +1592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526073989744</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Make a disintegrationator">
+      <created>1526214992638</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1526214992639</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1622,12 +1626,12 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.29252782" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5974026" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27728087" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" weight="0.27586207" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1647,23 +1651,23 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1678,7 +1682,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add an interpretation of 3blue1brown's neural net series" />
     <MESSAGE value="Attempt to implement the methods of tutorial 3 in the Dancer" />
     <MESSAGE value="Add an attempt at render ordering using a depth buffer" />
     <MESSAGE value="Add (currently broken) 3D version of depth buffer test" />
@@ -1703,31 +1706,18 @@
     <MESSAGE value="Add increasing birb count" />
     <MESSAGE value="Optimise speed somewhat and correct terminal bird capture" />
     <MESSAGE value="Make a chessboard replacer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a chessboard replacer" />
+    <MESSAGE value="Make a disintegrationator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make a disintegrationator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="35" />
+      <option name="time" value="36" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TagResizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1927,13 +1917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Jellies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../SourceBots/UnitySimulator/BuiltSimulator/Test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-222" />
@@ -2041,8 +2024,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Disintegratinator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+        <state relative-caret-position="119">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jellies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/ctypes/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimuKey.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
         </state>
       </provider>
     </entry>
