@@ -5,6 +5,8 @@ import random as r
 from time import sleep
 
 windowname = "ALL UR BASE R BELONG 2 US"
+for i in range(100):
+    print("Nyeh heh heh")
 
 
 def printscreen():
