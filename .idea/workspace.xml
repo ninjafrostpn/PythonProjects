@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Glitcheroony/Glitch.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Glitcheroony/Glitch.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" beforeDir="false" afterPath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
@@ -22,20 +23,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Glitch.bat" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Glitch.bat" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitch.bat">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="87" selection-start-column="87" selection-end-column="87" />
+            <state relative-caret-position="17">
+              <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="67" column="96" selection-start-line="67" selection-start-column="96" selection-end-line="67" selection-end-column="96" />
+            <state relative-caret-position="17">
+              <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -176,15 +177,15 @@
         <option value="$PROJECT_DIR$/SimuKey.py" />
         <option value="$PROJECT_DIR$/ScreenGrabber.py" />
         <option value="$PROJECT_DIR$/Glitcheroony.py" />
-        <option value="$PROJECT_DIR$/Glitcheroony/Glitch.bat" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
+        <option value="$PROJECT_DIR$/Glitcheroony/Glitch.bat" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="949" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1260,13 +1261,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00039" summary="Complete addition of a simple GBA game ;)">
-      <created>1522122375203</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1522122375203</updated>
-    </task>
     <task id="LOCAL-00040" summary="Change ItemFinder2 targets">
       <created>1522175154420</created>
       <option name="number" value="00040" />
@@ -1603,7 +1597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526787535278</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Fix spooky skull embossing">
+      <created>1526787636677</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1526787636677</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1627,15 +1628,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="633" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.5969793" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5969793" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27191412" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27586207" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1686,7 +1687,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tried building some trampolines" />
     <MESSAGE value="Add colliding balls" />
     <MESSAGE value="Start making a competitive neaural net and Crab game" />
     <MESSAGE value="Make nice-looking crab leg and eye movement, in lieu of sleeping" />
@@ -1711,7 +1711,8 @@
     <MESSAGE value="Make a screen messer-upper" />
     <MESSAGE value="Make Glitcheroony usable as a &quot;Screensaver&quot;" />
     <MESSAGE value="Add spooky skull embossing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add spooky skull embossing" />
+    <MESSAGE value="Fix spooky skull embossing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix spooky skull embossing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2040,17 +2041,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitch.bat">
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="87" selection-start-column="87" selection-end-column="87" />
+        <state relative-caret-position="17">
+          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitch.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="67" column="96" selection-start-line="67" selection-start-column="96" selection-end-line="67" selection-end-column="96" />
+        <state relative-caret-position="17">
+          <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="67" />
         </state>
       </provider>
     </entry>
