@@ -65,7 +65,7 @@ cv2.startWindowThread()
 passcode = [103, 101, 116, 109, 101, 111, 117, 116, 27]  # getmeout[esc]
 checkcode = []
 
-flatmask = cv2.imread(r"D:\Users\Charles Turvey\Pictures\Art\Shadows\Skull.png")
+flatmask = cv2.imread(r"D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony\Skull.png")
 flatmask = cv2.cvtColor(flatmask, cv2.COLOR_RGB2BGR)
 flatmask = flatmask[:, :, 0] == 0
 
