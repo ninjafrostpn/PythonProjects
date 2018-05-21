@@ -5,3 +5,4 @@ rem  # When it runs the second time, the flag is set and therefore the python sc
 
 if not DEFINED IS_MINIMISED set IS_MINIMISED=1 && start "" /min "D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony\Glitch.bat" && exit
 python "D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony\Glitcheroony.py"
+exit
