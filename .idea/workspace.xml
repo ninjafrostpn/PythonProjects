@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Heatwave.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Camouflage/Camouflage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
@@ -31,11 +31,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Heatwave.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Heatwave.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Heatwave.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="392">
+              <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Camouflage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Camouflage/Camouflage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -127,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/PycharmProjects/MinecraftCodes/mobs.py" />
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorial5.py" />
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -178,6 +186,7 @@
         <option value="$PROJECT_DIR$/ascii-art.py" />
         <option value="$PROJECT_DIR$/ascii-art/ascii-art.py" />
         <option value="$PROJECT_DIR$/Heatwave.py" />
+        <option value="$PROJECT_DIR$/Camouflage/Camouflage.py" />
       </list>
     </option>
   </component>
@@ -192,7 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,10 +208,16 @@
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Camouflage" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,19 +229,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -242,7 +256,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Heatwave">
+  <component name="RunManager" selected="Python.Camouflage">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -321,7 +335,7 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="ChessReplacer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Camouflage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -333,7 +347,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChessReplacer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Camouflage/Camouflage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1221,19 +1235,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.ChessReplacer" />
       <item itemvalue="Python.SimuKey" />
       <item itemvalue="Python.ScreenGrabber" />
       <item itemvalue="Python.Particles" />
       <item itemvalue="Python.Heatwave" />
+      <item itemvalue="Python.Camouflage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Camouflage" />
         <item itemvalue="Python.Heatwave" />
         <item itemvalue="Python.Particles" />
         <item itemvalue="Python.ScreenGrabber" />
         <item itemvalue="Python.SimuKey" />
-        <item itemvalue="Python.ChessReplacer" />
       </list>
     </recent_temporary>
   </component>
@@ -1250,13 +1264,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Add a function for raycasting collision detection">
-      <created>1522494067400</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1522494067400</updated>
     </task>
     <task id="LOCAL-00046" summary="Improve render order slightly and add offset of environment properly">
       <created>1522524821462</created>
@@ -1594,7 +1601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527018345341</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Add an attempt at heatwave effects">
+      <created>1527161945143</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1527161945144</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1626,7 +1640,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" weight="0.27549195" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27549195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1677,7 +1691,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Collide the crabs" />
     <MESSAGE value="Decrease crab size by 20%" />
     <MESSAGE value="Add sound effects and improve collisions" />
     <MESSAGE value="Improve attack and knockback patterns" />
@@ -1702,7 +1715,8 @@
     <MESSAGE value="Add another attempt at particle collisions" />
     <MESSAGE value="Start an attempt at an ascii-art generator" />
     <MESSAGE value="Finish making an ASCII generator and get back to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish making an ASCII generator and get back to work" />
+    <MESSAGE value="Add an attempt at heatwave effects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add an attempt at heatwave effects" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1713,7 +1727,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SavedImages/1521800881.3.png" />
     <entry file="file://$PROJECT_DIR$/SavedImages/1521818421.png" />
     <entry file="file://$PROJECT_DIR$/SavedImages/1521818682.3944979/1521818688.png" />
     <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorial5.py">
@@ -2040,8 +2053,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Heatwave.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="392">
+          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Camouflage/Camouflage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
