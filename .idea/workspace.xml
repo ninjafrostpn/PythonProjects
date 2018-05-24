@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Camouflage/Camouflage.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add s">
+      <change afterPath="$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" beforeDir="false" afterPath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camouflage.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Camouflage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Camouflage/Camouflage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="170">
+              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -136,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PunchBall/SocketTutorial5.py" />
         <option value="$PROJECT_DIR$/PunchBall/SocketTutorialClient.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/TagResizer.py" />
@@ -180,13 +189,14 @@
         <option value="$PROJECT_DIR$/SimuKey.py" />
         <option value="$PROJECT_DIR$/ScreenGrabber.py" />
         <option value="$PROJECT_DIR$/Glitcheroony.py" />
-        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
         <option value="$PROJECT_DIR$/Particles.py" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitch.bat" />
         <option value="$PROJECT_DIR$/ascii-art.py" />
         <option value="$PROJECT_DIR$/ascii-art/ascii-art.py" />
         <option value="$PROJECT_DIR$/Heatwave.py" />
         <option value="$PROJECT_DIR$/Camouflage/Camouflage.py" />
+        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py" />
+        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
       </list>
     </option>
   </component>
@@ -213,6 +223,11 @@
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
               <item name="Camouflage" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Glitcheroony" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -230,11 +245,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Simulator\fakerobotapi2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
@@ -256,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Camouflage">
+  <component name="RunManager" selected="Python.Glitcheroony">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -495,6 +510,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="Glitcheroony" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Heatwave" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -836,24 +869,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Isobath/Shortestpath.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="SimuKey" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimuKey.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1235,19 +1250,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.SimuKey" />
       <item itemvalue="Python.ScreenGrabber" />
       <item itemvalue="Python.Particles" />
       <item itemvalue="Python.Heatwave" />
       <item itemvalue="Python.Camouflage" />
+      <item itemvalue="Python.Glitcheroony" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Glitcheroony" />
         <item itemvalue="Python.Camouflage" />
         <item itemvalue="Python.Heatwave" />
         <item itemvalue="Python.Particles" />
         <item itemvalue="Python.ScreenGrabber" />
-        <item itemvalue="Python.SimuKey" />
       </list>
     </recent_temporary>
   </component>
@@ -1264,13 +1279,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Improve render order slightly and add offset of environment properly">
-      <created>1522524821462</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1522524821462</updated>
     </task>
     <task id="LOCAL-00047" summary="Improve render order slightly and add offset of environment properly">
       <created>1522524938791</created>
@@ -1608,7 +1616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527161945144</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Start making a camouflage lizard">
+      <created>1527172672955</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1527172672955</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1640,7 +1655,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27549195" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.27549195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1691,7 +1706,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Decrease crab size by 20%" />
     <MESSAGE value="Add sound effects and improve collisions" />
     <MESSAGE value="Improve attack and knockback patterns" />
     <MESSAGE value="Add vertical sumo zone and a way to detect it" />
@@ -1716,7 +1730,8 @@
     <MESSAGE value="Start an attempt at an ascii-art generator" />
     <MESSAGE value="Finish making an ASCII generator and get back to work" />
     <MESSAGE value="Add an attempt at heatwave effects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add an attempt at heatwave effects" />
+    <MESSAGE value="Start making a camouflage lizard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start making a camouflage lizard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1727,7 +1742,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SavedImages/1521818421.png" />
     <entry file="file://$PROJECT_DIR$/SavedImages/1521818682.3944979/1521818688.png" />
     <entry file="file://$PROJECT_DIR$/SocketToYa/SocketTutorial5.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -2023,13 +2037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Particles.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -2060,8 +2067,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Camouflage/Camouflage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="170">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
