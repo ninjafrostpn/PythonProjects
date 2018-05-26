@@ -32,13 +32,16 @@ class Segment:
             pos = np.float32(pos)
             topos = pos - self.pts[0]
             todist = np.linalg.norm(topos)
-            ang = acos(np.dot(self.parallelunit, topos) / todist)  # Because unit vector has length 1
-            toposparallel = todist * cos(ang)
-            toposperp = todist * sin(ang)
-            spreaddist = sqrt((dist ** 2) - (toposperp ** 2))
-            alongdist1 = toposparallel - spreaddist
-            alongdist2 = toposparallel + spreaddist
-            return np.float32([self.parallelunit * alongdist1, self.parallelunit * alongdist2]) + self.pts[0]
+            if todist > 0:
+                ang = acos(np.dot(self.parallelunit, topos) / todist)  # Because unit vector has length 1
+                toposparallel = todist * cos(ang)
+                toposperp = todist * sin(ang)
+                spreaddist = sqrt((dist ** 2) - (toposperp ** 2))
+                alongdist1 = toposparallel - spreaddist
+                alongdist2 = toposparallel + spreaddist
+                return np.float32([self.parallelunit * alongdist1, self.parallelunit * alongdist2]) + self.pts[0]
+            else:
+                return np.float32([self.parallelunit * dist, self.parallelunit * -dist]) + self.pts[0]
         except ValueError:
             return np.float32([])
     
@@ -57,14 +60,14 @@ class Driver:
         self.speed = speed
         self.col = col
         drivers.append(self)
-    
+        
     def move(self, howmuch):
         self.alongpos += howmuch * self.speed
         self.pos = self.track.calcpos(self.alongpos)
     
     def show(self):
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
-
+        
 
 class Follower:
     def __init__(self, track, driver, chainlength, startpref=(0, 0), col=WHITE):
@@ -95,9 +98,11 @@ rad = int(w/4)
 
 T1 = Segment((0, 0), (w, h), col=(255, 255, 0))
 T2 = Segment((0, 60), (w, h + 10), col=(255, 0, 255))
+T3 = Segment((0, 120), (w, h + 60), col=(0, 255, 0))
 D1 = Driver(T1, 0, speed=5, col=(0, 255, 255))
-F1 = Follower(T2, D1, rad, startpref=T2.parallelunit * -rad)
-F2 = Follower(T2, D1, rad, startpref=(w, h))
+F1 = Follower(T3, D1, rad, startpref=T1.parallelunit * -rad)
+F2 = Follower(T1, F1, rad, startpref=T3.parallelunit * 2 * -rad)
+F3 = Follower(T3, F2, rad, startpref=T3.parallelunit * 3 * -rad)
 
 keys = set()
 

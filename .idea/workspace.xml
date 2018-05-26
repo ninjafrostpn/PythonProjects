@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+            <state relative-caret-position="187">
+              <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -1270,13 +1270,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00050" summary="Add shadows. Easier said than done.">
-      <created>1522747754519</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1522747754526</updated>
-    </task>
     <task id="LOCAL-00051" summary="Start OpenCV version of Shadows, in the hope that it's faster.">
       <created>1522748178590</created>
       <option name="number" value="00051" />
@@ -1613,7 +1606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527365290754</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Add a Follower class which tries to stay near a Driver">
+      <created>1527368314962</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1527368314962</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1696,7 +1696,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add an enshadow function" />
     <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
     <MESSAGE value="Make arena look nice and clean up enshadow function" />
     <MESSAGE value="Speed up game by moving the enshadowing into a class" />
@@ -1721,7 +1720,8 @@
     <MESSAGE value="Add spoopy eyes to &quot;screensaver&quot;" />
     <MESSAGE value="Start on line-followers by making a rough circle-line intersector" />
     <MESSAGE value="Add a Driver class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a Driver class" />
+    <MESSAGE value="Add a Follower class which tries to stay near a Driver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a Follower class which tries to stay near a Driver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2077,8 +2077,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+        <state relative-caret-position="187">
+          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
         </state>
       </provider>
     </entry>
