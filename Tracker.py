@@ -2,6 +2,7 @@ from math import acos, atan2, cos, radians, sin, sqrt
 import numpy as np
 import pygame
 from pygame.locals import *
+from time import sleep
 
 WHITE = (255, 255, 255)
 
@@ -16,12 +17,12 @@ segments = []
 
 class Segment:
     def __init__(self, pt1, pt2, col=WHITE):
-        self.col = col
         self.pts = np.float32([pt1, pt2])
         self.parallelunit = self.pts[1] - self.pts[0]
         self.parallelunit /= np.linalg.norm(self.parallelunit)
         self.perpunit = np.matrix([[0, -1],
                                    [1,  0]]).dot(self.parallelunit)
+        self.col = col
         segments.append(self)
     
     def posspoints(self, pos, dist):
@@ -38,13 +39,36 @@ class Segment:
             return np.float32([self.parallelunit * alongdist1, self.parallelunit * alongdist2]) + self.pts[0]
         except ValueError:
             return np.float32([])
+    
+    def calcpos(self, alongpos):
+        return self.pts[0] + (self.parallelunit * alongpos)
         
-    def show(self, ):
+    def show(self):
         pygame.draw.line(screen, self.col, *self.pts[:])
 
-Segment((0, 0), (w, h), col=(255, 255, 0))
-Segment((w, 0), (0, h), col=(255, 0, 255))
+
+class Driver:
+    def __init__(self, track, alongpos, speed=1, col=WHITE):
+        self.track = track
+        self.alongpos = alongpos
+        self.pos = self.track.calcpos(self.alongpos)
+        self.speed = speed
+        self.col = col
+    
+    def move(self, howmuch):
+        self.alongpos += howmuch * self.speed
+        self.pos = self.track.calcpos(self.alongpos)
+    
+    def show(self):
+        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
+
+
+T1 = Segment((0, 0), (w, h), col=(255, 255, 0))
+T2 = Segment((w, 0), (0, h), col=(255, 0, 255))
+D = Driver(T1, 0, speed=5, col=(0, 255, 255))
+
 rad = int(w/4)
+keys = set()
 
 while True:
     screen.fill(0)
@@ -54,10 +78,16 @@ while True:
         S.show()
         for pt in S.posspoints(mpos, rad):
             pygame.draw.circle(screen, S.col, np.int32(pt), 10)
+    D.move((K_RIGHT in keys) - (K_LEFT in keys))
+    D.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
         elif e.type == KEYDOWN:
+            keys.add(e.key)
             if e.key == K_ESCAPE:
                 quit()
+        elif e.type == KEYUP:
+            keys.discard(e.key)
+    sleep(0.01)
