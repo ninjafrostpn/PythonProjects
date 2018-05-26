@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Tracker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tracker.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+            <state relative-caret-position="137">
+              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -60,7 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>init</find>
       <find>l[1]</find>
       <find>GRE</find>
       <find>.col</find>
@@ -90,6 +89,7 @@
       <find>int8</find>
       <find>ctrl</find>
       <find>&quot;&quot;</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -191,9 +191,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="949" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1270,20 +1270,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00048" summary="Get 3D perspective idea good enough to go back to shadows">
-      <created>1522536717339</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1522536717339</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Add functioning backdrops and motion">
-      <created>1522630538603</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1522630538604</updated>
-    </task>
     <task id="LOCAL-00050" summary="Add shadows. Easier said than done.">
       <created>1522747754519</created>
       <option name="number" value="00050" />
@@ -1613,7 +1599,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527197346741</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Start on line-followers by making a rough circle-line intersector">
+      <created>1527363440873</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1527363440874</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Add a Driver class">
+      <created>1527365290754</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1527365290754</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1696,8 +1696,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Improve attack and knockback patterns" />
-    <MESSAGE value="Add vertical sumo zone and a way to detect it" />
     <MESSAGE value="Add an enshadow function" />
     <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
     <MESSAGE value="Make arena look nice and clean up enshadow function" />
@@ -1721,7 +1719,9 @@
     <MESSAGE value="Add an attempt at heatwave effects" />
     <MESSAGE value="Start making a camouflage lizard" />
     <MESSAGE value="Add spoopy eyes to &quot;screensaver&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add spoopy eyes to &quot;screensaver&quot;" />
+    <MESSAGE value="Start on line-followers by making a rough circle-line intersector" />
+    <MESSAGE value="Add a Driver class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a Driver class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2077,8 +2077,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        <state relative-caret-position="137">
+          <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
         </state>
       </provider>
     </entry>

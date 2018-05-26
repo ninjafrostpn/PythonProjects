@@ -13,6 +13,8 @@ w = screen.get_width()
 h = screen.get_height()
 
 segments = []
+drivers = []
+followers = []
 
 
 class Segment:
@@ -54,6 +56,7 @@ class Driver:
         self.pos = self.track.calcpos(self.alongpos)
         self.speed = speed
         self.col = col
+        drivers.append(self)
     
     def move(self, howmuch):
         self.alongpos += howmuch * self.speed
@@ -63,11 +66,39 @@ class Driver:
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
 
 
-T1 = Segment((0, 0), (w, h), col=(255, 255, 0))
-T2 = Segment((w, 0), (0, h), col=(255, 0, 255))
-D = Driver(T1, 0, speed=5, col=(0, 255, 255))
-
+class Follower:
+    def __init__(self, track, driver, chainlength, startpref=(0, 0), col=WHITE):
+        self.track = track
+        self.driver = driver
+        self.chainlength = chainlength
+        self.place(startpref)
+        self.col = col
+        followers.append(self)
+    
+    def place(self, pref=None):
+        if pref is None:
+            pref = self.pos
+        else:
+            pref = np.float32(pref)
+        poss = self.track.posspoints(self.driver.pos, self.chainlength)
+        if len(poss) != 0:
+            best = np.argmin(np.linalg.norm(poss - pref, axis=1))
+            self.pos = poss[best]
+    
+    def show(self):
+        self.place()
+        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
+        pygame.draw.line(screen, self.col, self.pos, self.driver.pos)
+        
+        
 rad = int(w/4)
+
+T1 = Segment((0, 0), (w, h), col=(255, 255, 0))
+T2 = Segment((0, 60), (w, h + 10), col=(255, 0, 255))
+D1 = Driver(T1, 0, speed=5, col=(0, 255, 255))
+F1 = Follower(T2, D1, rad, startpref=T2.parallelunit * -rad)
+F2 = Follower(T2, D1, rad, startpref=(w, h))
+
 keys = set()
 
 while True:
@@ -78,8 +109,11 @@ while True:
         S.show()
         for pt in S.posspoints(mpos, rad):
             pygame.draw.circle(screen, S.col, np.int32(pt), 10)
-    D.move((K_RIGHT in keys) - (K_LEFT in keys))
-    D.show()
+    for D in drivers:
+        D.move((K_RIGHT in keys) - (K_LEFT in keys))
+        D.show()
+    for F in followers:
+        F.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
