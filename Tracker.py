@@ -8,9 +8,8 @@ WHITE = (255, 255, 255)
 
 pygame.init()
 
-screen = pygame.display.set_mode((500, 500))
-w = screen.get_width()
-h = screen.get_height()
+w, h = 500, 500
+screen = pygame.display.set_mode((w, h))
 
 segments = []
 drivers = []
@@ -63,69 +62,34 @@ class Segment:
         pygame.draw.line(screen, self.col, *self.pts[:])
 
 
-class Driver:
-    def __init__(self, track, alongpos, speed=1, col=WHITE):
-        self.track = track
-        self.alongpos = alongpos
-        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos)
-        self.speed = speed
-        self.col = col
-        drivers.append(self)
-        
-    def move(self, howmuch):
-        self.alongpos += howmuch * self.speed
-        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos, self.segi)
-    
-    def show(self):
-        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
-
-
-class Follower:
-    def __init__(self, track, driver, chainlength, startpref=(0, 0), col=WHITE):
-        self.track = track
-        self.driver = driver
-        self.chainlength = chainlength
-        self.segi = -1
-        self.pos, self.segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, startpref)
-        self.col = col
-        followers.append(self)
-    
-    def show(self):
-        pos, segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, self.pos)
-        if pos is not None:
-            self.pos, self.segi = pos, segi
-        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
-        pygame.draw.line(screen, self.col, self.pos, self.driver.pos)
-        
-
 class Track:
     def __init__(self, ptlist, closed=True, col=WHITE):
         self.ptlist = list(ptlist)
         self.segments = []
         self.closed = closed
         for i in range(len(self.ptlist) + self.closed - 1):
-            self.segments.append(Segment(ptlist[i], ptlist[(i + 1) % len(ptlist)], col))
+            S = Segment(ptlist[i], ptlist[(i + 1) % len(ptlist)], col)
+            self.segments.append(S)
+            segments.remove(S)
         self.col = col
+        segments.append(self)
 
     def posspoints(self, pos, dist, segi=-1, pref=(0,0), filterbest=True):
-        if segi == -1:
-            poss = []
-            segis = []
-            for S in self.segments:
-                pt, newsegi = S.posspoints(pos, dist, pref=pref)
-                if pt is not None and (0 <= np.dot(S.parallelunit, pt - S.pts[0]) <= S.length):
-                    poss.append(pt)
-                    segis.append(newsegi)
-            poss = np.float32(poss)
-            if not filterbest:
-                return poss, segis
-            if len(poss) != 0:
-                best = np.argmin(np.linalg.norm(poss - np.float32(pref), axis=1))
-                return poss[best], segis[best]
-            else:
-                return None, segi
+        poss = []
+        segis = []
+        for newsegi, S in enumerate(self.segments):
+            pt, _ = S.posspoints(pos, dist, pref=pref)
+            if pt is not None and (0 <= np.dot(S.parallelunit, pt - S.pts[0]) <= S.length):
+                poss.append(pt)
+                segis.append(newsegi)
+        poss = np.float32(poss)
+        if not filterbest:
+            return poss, segis
+        if len(poss) != 0:
+            best = np.argmin(np.linalg.norm(poss - np.float32(pref), axis=1))
+            return poss[best], segis[best]
         else:
-            pass
+            return None, segi
     
     def calcpos(self, alongpos, segi=0):
         currseg = self.segments[segi]
@@ -154,7 +118,47 @@ class Track:
                 alongpos -= currseg.length
                 currseg = self.segments[segi]
         return alongpos, currseg.pts[0] + (currseg.parallelunit * alongpos), segi
+
+    def show(self):
+        for S in self.segments:
+            S.show()
+
+
+class Driver:
+    def __init__(self, track, alongpos, speed=1, col=WHITE):
+        self.track = track
+        self.alongpos = alongpos
+        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos)
+        self.speed = speed
+        self.col = col
+        drivers.append(self)
         
+    def move(self, howmuch):
+        self.alongpos += howmuch * self.speed
+        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos, self.segi)
+    
+    def show(self):
+        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
+        
+
+class Follower:
+    def __init__(self, track, driver, chainlength, startpref=(0, 0), col=WHITE):
+        self.track = track
+        self.driver = driver
+        self.chainlength = chainlength
+        self.segi = -1
+        self.pos, self.segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, startpref)
+        self.col = col
+        followers.append(self)
+    
+    def show(self):
+        pos, segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, self.pos)
+        if pos is not None:
+            self.pos, self.segi = pos, segi
+        pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
+        pygame.draw.line(screen, self.col, self.pos, self.driver.pos)
+
+
 rad = int(w/8)
 
 T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(0, 360, 20)])))
@@ -174,10 +178,8 @@ keys = set()
 while True:
     screen.fill(0)
     mpos = pygame.mouse.get_pos()
-    pygame.draw.circle(screen, WHITE, mpos, rad, 1)
     for S in segments:
         S.show()
-        # pts, _ = S.posspoints(mpos, rad)
     for D in drivers:
         D.move((K_RIGHT in keys) - (K_LEFT in keys))
         D.show()

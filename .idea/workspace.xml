@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="186" column="32" lean-forward="true" selection-start-line="186" selection-start-column="32" selection-end-line="186" selection-end-column="32" />
+            <state relative-caret-position="119">
+              <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -60,7 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isin</find>
       <find>100</find>
       <find>...</find>
       <find>/ 2</find>
@@ -90,6 +89,7 @@
       <find>print</find>
       <find>360</find>
       <find>len(pt</find>
+      <find>-1</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -1216,13 +1216,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00055" summary="Start developing a neural-net dancer">
-      <created>1523657496182</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1523657496183</updated>
-    </task>
     <task id="LOCAL-00056" summary="Add neural net tutorial attempts and significantly develop Dancer">
       <created>1523748452613</created>
       <option name="number" value="00056" />
@@ -1559,7 +1552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527439450203</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Make it possible to followers to run on complete Tracks">
+      <created>1527450360574</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1527450360574</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1642,7 +1642,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add hungry birb" />
     <MESSAGE value="Add increasing birb count" />
     <MESSAGE value="Optimise speed somewhat and correct terminal bird capture" />
     <MESSAGE value="Make a chessboard replacer" />
@@ -1667,7 +1666,8 @@
     <MESSAGE value="Add tracks, which have multiple segments, and make Drivers follow them" />
     <MESSAGE value="Make an example mechanism" />
     <MESSAGE value="Remove error with segment-change upper-bound." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove error with segment-change upper-bound." />
+    <MESSAGE value="Make it possible to followers to run on complete Tracks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make it possible to followers to run on complete Tracks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2023,8 +2023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="186" column="32" lean-forward="true" selection-start-line="186" selection-start-column="32" selection-end-line="186" selection-end-column="32" />
+        <state relative-caret-position="119">
+          <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
         </state>
       </provider>
     </entry>
