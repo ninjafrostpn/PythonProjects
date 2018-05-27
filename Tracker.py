@@ -28,7 +28,7 @@ class Segment:
         self.col = col
         segments.append(self)
     
-    def posspoints(self, pos, dist):
+    def posspoints(self, pos, dist, segi=-1, pref=(0, 0), filterbest=True):
         try:
             pos = np.float32(pos)
             topos = pos - self.pts[0]
@@ -40,11 +40,20 @@ class Segment:
                 spreaddist = sqrt((dist ** 2) - (toposperp ** 2))
                 alongdist1 = toposparallel - spreaddist
                 alongdist2 = toposparallel + spreaddist
-                return np.float32([self.parallelunit * alongdist1, self.parallelunit * alongdist2]) + self.pts[0]
+                poss = np.float32([self.parallelunit * alongdist1, self.parallelunit * alongdist2]) + self.pts[0]
+                if not filterbest:
+                    return poss, segi
             else:
-                return np.float32([self.parallelunit * dist, self.parallelunit * -dist]) + self.pts[0]
+                poss = np.float32([self.parallelunit * dist, self.parallelunit * -dist]) + self.pts[0]
+                if not filterbest:
+                    return poss, segi
         except ValueError:
-            return np.float32([])
+            return None, segi
+        if len(poss) != 0:
+            best = np.argmin(np.linalg.norm(poss - np.float32(pref), axis=1))
+            return poss[best], segi
+        else:
+            return None, segi
     
     def calcpos(self, alongpos, segi=-1):
         relpos = self.parallelunit * min(max(alongpos, 0), self.length)
@@ -76,22 +85,15 @@ class Follower:
         self.track = track
         self.driver = driver
         self.chainlength = chainlength
-        self.place(startpref)
+        self.segi = -1
+        self.pos, self.segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, startpref)
         self.col = col
         followers.append(self)
     
-    def place(self, pref=None):
-        if pref is None:
-            pref = self.pos
-        else:
-            pref = np.float32(pref)
-        poss = self.track.posspoints(self.driver.pos, self.chainlength)
-        if len(poss) != 0:
-            best = np.argmin(np.linalg.norm(poss - pref, axis=1))
-            self.pos = poss[best]
-    
     def show(self):
-        self.place()
+        pos, segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, self.pos)
+        if pos is not None:
+            self.pos, self.segi = pos, segi
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
         pygame.draw.line(screen, self.col, self.pos, self.driver.pos)
         
@@ -104,6 +106,26 @@ class Track:
         for i in range(len(self.ptlist) + self.closed - 1):
             self.segments.append(Segment(ptlist[i], ptlist[(i + 1) % len(ptlist)], col))
         self.col = col
+
+    def posspoints(self, pos, dist, segi=-1, pref=(0,0), filterbest=True):
+        if segi == -1:
+            poss = []
+            segis = []
+            for S in self.segments:
+                pt, newsegi = S.posspoints(pos, dist, pref=pref)
+                if pt is not None and (0 <= np.dot(S.parallelunit, pt - S.pts[0]) <= S.length):
+                    poss.append(pt)
+                    segis.append(newsegi)
+            poss = np.float32(poss)
+            if not filterbest:
+                return poss, segis
+            if len(poss) != 0:
+                best = np.argmin(np.linalg.norm(poss - np.float32(pref), axis=1))
+                return poss[best], segis[best]
+            else:
+                return None, segi
+        else:
+            pass
     
     def calcpos(self, alongpos, segi=0):
         currseg = self.segments[segi]
@@ -135,17 +157,17 @@ class Track:
         
 rad = int(w/8)
 
-T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(0, 360, 30)])))
+T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(0, 360, 20)])))
 T2 = Segment((0, 60), (w, h), col=(255, 0, 255))
 T3 = Segment((60, 0), (w, h), col=(0, 255, 0))
 T4 = Segment((w, 0), (0, h), col=(255, 0, 0))
 
 D1 = Driver(T1, 0, col=(0, 255, 255))
-F1 = Follower(T3, D1, 125 * 1.5, startpref=T3.parallelunit * -rad)
-F2 = Follower(T2, F1, 125 / 1.5, startpref=T2.parallelunit * 2 * -rad)
-F3 = Follower(T3, F2, 125, startpref=T3.parallelunit * 3 * -rad)
-F4 = Follower(T4, F1, 250, startpref=(0, h))
-F5 = Follower(T4, F3, 300, startpref=(w, 0))
+F1 = Follower(T1, D1, 100, startpref=(w, h))
+F2 = Follower(T2, D1, 200, startpref=(w/2, h/2))
+F3 = Follower(T3, F1, 200, startpref=(w/2, h/2))
+F4 = Follower(T2, F3, 100, startpref=(0, 0))
+F5 = Follower(T1, F4, 280, startpref=(0, 0))
 
 keys = set()
 
@@ -155,8 +177,7 @@ while True:
     pygame.draw.circle(screen, WHITE, mpos, rad, 1)
     for S in segments:
         S.show()
-        for pt in S.posspoints(mpos, rad):
-            pygame.draw.circle(screen, S.col, np.int32(pt), 10)
+        # pts, _ = S.posspoints(mpos, rad)
     for D in drivers:
         D.move((K_RIGHT in keys) - (K_LEFT in keys))
         D.show()
