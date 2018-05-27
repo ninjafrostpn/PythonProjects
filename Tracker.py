@@ -1,14 +1,22 @@
-from math import acos, atan2, cos, radians, sin, sqrt
+from math import acos, cos, radians, sin, sqrt
 import numpy as np
 import pygame
 from pygame.locals import *
 from time import sleep
 
-WHITE = (255, 255, 255)
+WHITE = np.int32([255, 255, 255])
+GREY = np.int32([1, 1, 1])
+RED = np.int32([255, 0, 0])
+GREEN = np.int32([0, 255, 0])
+BLUE = np.int32([0, 0, 255])
+CYAN = BLUE + GREEN
+perpmat =np.matrix([[0, -1],
+                    [1,  0]])
 
 pygame.init()
 
-w, h = 500, 500
+w, h = 1000, 500
+screensize = np.int32([w, h])
 screen = pygame.display.set_mode((w, h))
 
 segments = []
@@ -22,8 +30,7 @@ class Segment:
         self.parallelunit = self.pts[1] - self.pts[0]
         self.length = np.linalg.norm(self.parallelunit)
         self.parallelunit /= self.length
-        self.perpunit = np.matrix([[0, -1],
-                                   [1,  0]]).dot(self.parallelunit)
+        self.perpunit = perpmat.dot(self.parallelunit)
         self.col = col
         segments.append(self)
     
@@ -151,27 +158,66 @@ class Follower:
         self.col = col
         followers.append(self)
     
-    def show(self):
+    def move(self):
         pos, segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, self.pos)
         if pos is not None:
             self.pos, self.segi = pos, segi
+    
+    def show(self):
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
         pygame.draw.line(screen, self.col, self.pos, self.driver.pos)
 
 
+class Train:
+    def __init__(self, front, rear, maincol=WHITE, bogeycol=WHITE):
+        self.ends = [front, rear]
+        self.maincol = maincol
+        self.bogeycol = bogeycol
+    
+    def show(self):
+        for end in self.ends:
+            seg = end.track.segments[end.segi]
+            parallelunit, perpunit = seg.parallelunit, seg.perpunit
+            outline = [(end.pos + parallelunit * 20 + perpunit * 10),
+                       (end.pos + parallelunit * 20 - perpunit * 10),
+                       (end.pos - parallelunit * 20 - perpunit * 10),
+                       (end.pos - parallelunit * 20 + perpunit * 10)]
+            pygame.draw.polygon(screen, self.bogeycol, [(i[0, 0], i[0, 1]) for i in outline])
+        parallelunit = self.ends[0].pos - self.ends[1].pos
+        parallelunit /= np.linalg.norm(parallelunit)
+        perpunit = perpmat.dot(parallelunit)
+        outline = [(self.ends[0].pos + (parallelunit + perpunit) * 10),
+                   (self.ends[0].pos + (parallelunit - perpunit) * 10),
+                   (self.ends[1].pos + (-parallelunit - perpunit) * 10),
+                   (self.ends[1].pos + (-parallelunit + perpunit) * 10)]
+        pygame.draw.polygon(screen, self.maincol, [(i[0, 0], i[0, 1]) for i in outline])
+    
+    
 rad = int(w/8)
 
-T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(0, 360, 20)])))
-T2 = Segment((0, 60), (w, h), col=(255, 0, 255))
-T3 = Segment((60, 0), (w, h), col=(0, 255, 0))
-T4 = Segment((w, 0), (0, h), col=(255, 0, 0))
+t1 = []
+t2 = []
+for i in range(-90, 91, 10):
+    t1.append([(w - 200) + cos(radians(i)) * 170,
+               h/2 + sin(radians(i)) * (h/2 - 30)])
+    t2.append([(w - 270) + cos(radians(i)) * 170,
+               (h/2 - 30) + sin(radians(i)) * (h/2 - 60)])
+for i in range(90, 271, 10):
+    t1.append([200 + cos(radians(i)) * 170,
+               h/2 + sin(radians(i)) * (h/2 - 30)])
+    t2.append([270 + cos(radians(i)) * 170,
+               (h/2 - 30) + sin(radians(i)) * (h/2 - 60)])
 
-D1 = Driver(T1, 0, col=(0, 255, 255))
-F1 = Follower(T1, D1, 100, startpref=(w, h))
-F2 = Follower(T2, D1, 200, startpref=(w/2, h/2))
-F3 = Follower(T3, F1, 200, startpref=(w/2, h/2))
-F4 = Follower(T2, F3, 100, startpref=(0, 0))
-F5 = Follower(T1, F4, 280, startpref=(0, 0))
+T1 = Track(t1)
+T2 = Track(t2)
+
+D1 = Driver(T2, 0, speed=2, col=CYAN)
+F1 = Follower(T1, D1, 100, startpref=(w, 0))
+F2 = Follower(T1, F1, 50, startpref=(w, 0))
+F3 = Follower(T1, F2, 100, startpref=(w, 0))
+Tren = Train(D1, F1, GREEN, BLUE)
+Carriage = Train(F2, F3, RED, BLUE)
+
 
 keys = set()
 
@@ -182,9 +228,10 @@ while True:
         S.show()
     for D in drivers:
         D.move((K_RIGHT in keys) - (K_LEFT in keys))
-        D.show()
     for F in followers:
-        F.show()
+        F.move()
+    Tren.show()
+    Carriage.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
@@ -195,4 +242,3 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keys.discard(e.key)
-    sleep(0.001)
