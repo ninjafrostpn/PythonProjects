@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -1270,20 +1270,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00051" summary="Start OpenCV version of Shadows, in the hope that it's faster.">
-      <created>1522748178590</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1522748178590</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Begin conversion of pygame code to OpenCV">
-      <created>1522937071349</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1522937071350</updated>
-    </task>
     <task id="LOCAL-00053" summary="Add attempt at timelapse software">
       <created>1523066552034</created>
       <option name="number" value="00053" />
@@ -1613,7 +1599,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527368314962</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Make Follower class work properly with 0s">
+      <created>1527376507306</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1527376507306</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Add tracks, which have multiple segments, and make Drivers follow them">
+      <created>1527427526317</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1527427526317</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1696,8 +1696,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move goal zone, update and apply shadow to goal, add win condition" />
-    <MESSAGE value="Make arena look nice and clean up enshadow function" />
     <MESSAGE value="Speed up game by moving the enshadowing into a class" />
     <MESSAGE value="Make shadow class more usable" />
     <MESSAGE value="Add hungry birb" />
@@ -1721,7 +1719,9 @@
     <MESSAGE value="Start on line-followers by making a rough circle-line intersector" />
     <MESSAGE value="Add a Driver class" />
     <MESSAGE value="Add a Follower class which tries to stay near a Driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a Follower class which tries to stay near a Driver" />
+    <MESSAGE value="Make Follower class work properly with 0s" />
+    <MESSAGE value="Add tracks, which have multiple segments, and make Drivers follow them" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tracks, which have multiple segments, and make Drivers follow them" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2077,8 +2077,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
+        <state relative-caret-position="51">
+          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
         </state>
       </provider>
     </entry>

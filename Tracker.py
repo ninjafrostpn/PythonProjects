@@ -98,9 +98,10 @@ class Follower:
 
 class Track:
     def __init__(self, ptlist, closed=True, col=WHITE):
+        self.ptlist = list(ptlist)
         self.segments = []
         self.closed = closed
-        for i in range(len(ptlist) + self.closed - 1):
+        for i in range(len(self.ptlist) + self.closed - 1):
             self.segments.append(Segment(ptlist[i], ptlist[(i + 1) % len(ptlist)], col))
         self.col = col
     
@@ -130,23 +131,21 @@ class Track:
                 segi += 1
                 alongpos -= currseg.length
                 currseg = self.segments[segi]
-        print(alongpos, segi)
         return alongpos, currseg.pts[0] + (currseg.parallelunit * alongpos), segi
         
-rad = int(w/4)
+rad = int(w/8)
 
-T1 = Track(((0, 0),
-            (100, 100),
-            (200, 250),
-            (300, 150),
-            (400, 300),
-            (500, 400)))
-T2 = Segment((0, 60), (w, h + 10), col=(255, 0, 255))
-T3 = Segment((0, 120), (w, h + 60), col=(0, 255, 0))
-D1 = Driver(T1, 0, speed=5, col=(0, 255, 255))
-F1 = Follower(T3, D1, rad * 2, startpref=T3.parallelunit * -rad)
-F2 = Follower(T2, F1, rad, startpref=T2.parallelunit * 2 * -rad)
-F3 = Follower(T3, F2, rad, startpref=T3.parallelunit * 3 * -rad)
+T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(360)])))
+T2 = Segment((0, 60), (w, h), col=(255, 0, 255))
+T3 = Segment((60, 0), (w, h), col=(0, 255, 0))
+T4 = Segment((w, 0), (0, h), col=(255, 0, 0))
+
+D1 = Driver(T1, 0, speed=10, col=(0, 255, 255))
+F1 = Follower(T3, D1, 125 * 1.5, startpref=T3.parallelunit * -rad)
+F2 = Follower(T2, F1, 125 / 1.5, startpref=T2.parallelunit * 2 * -rad)
+F3 = Follower(T3, F2, 125, startpref=T3.parallelunit * 3 * -rad)
+F4 = Follower(T4, F1, 250, startpref=(0, h))
+F5 = Follower(T4, F3, 300, startpref=(w, 0))
 
 keys = set()
 
