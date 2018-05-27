@@ -119,7 +119,7 @@ class Track:
                 segi -= 1
                 currseg = self.segments[segi]
                 alongpos += currseg.length
-        while alongpos >= currseg.length:
+        while alongpos > currseg.length:
             if segi == len(self.segments) - 1:
                 if self.closed:
                     segi = 0
@@ -135,12 +135,12 @@ class Track:
         
 rad = int(w/8)
 
-T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(360)])))
+T1 = Track(125 * (3 * np.ones(2) - np.float32([(cos(radians(theta)), sin(radians(theta))) for theta in range(0, 360, 30)])))
 T2 = Segment((0, 60), (w, h), col=(255, 0, 255))
 T3 = Segment((60, 0), (w, h), col=(0, 255, 0))
 T4 = Segment((w, 0), (0, h), col=(255, 0, 0))
 
-D1 = Driver(T1, 0, speed=10, col=(0, 255, 255))
+D1 = Driver(T1, 0, col=(0, 255, 255))
 F1 = Follower(T3, D1, 125 * 1.5, startpref=T3.parallelunit * -rad)
 F2 = Follower(T2, F1, 125 / 1.5, startpref=T2.parallelunit * 2 * -rad)
 F3 = Follower(T3, F2, 125, startpref=T3.parallelunit * 3 * -rad)
@@ -172,4 +172,4 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keys.discard(e.key)
-    sleep(0.01)
+    sleep(0.001)
