@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+            <state relative-caret-position="221">
+              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
             </state>
           </provider>
         </entry>
@@ -60,11 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>100</find>
-      <find>...</find>
-      <find>/ 2</find>
-      <find>rect(</find>
-      <find>rect</find>
       <find>(1, 0</find>
       <find>self.diag</find>
       <find>sind(</find>
@@ -86,10 +81,15 @@
       <find>&quot;&quot;</find>
       <find>Tr</find>
       <find>Tra</find>
-      <find>print</find>
       <find>360</find>
       <find>len(pt</find>
       <find>-1</find>
+      <find>10)</find>
+      <find>-1, 0</find>
+      <find>10</find>
+      <find>arr</find>
+      <find>print</find>
+      <find>perp</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -1216,20 +1216,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00056" summary="Add neural net tutorial attempts and significantly develop Dancer">
-      <created>1523748452613</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1523748452613</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Increase efficiency of some parts">
-      <created>1523799782083</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1523799782083</updated>
-    </task>
     <task id="LOCAL-00058" summary="Add an interpretation of 3blue1brown's neural net series">
       <created>1523813796274</created>
       <option name="number" value="00058" />
@@ -1559,7 +1545,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527450360574</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Restructure code slightly so that Tracks draw their segments and Followers' segis change from -1">
+      <created>1527451347346</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1527451347346</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Enable MultiTrack Drifting Trains!">
+      <created>1527459629584</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1527459629585</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1642,8 +1642,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add increasing birb count" />
-    <MESSAGE value="Optimise speed somewhat and correct terminal bird capture" />
     <MESSAGE value="Make a chessboard replacer" />
     <MESSAGE value="Make a disintegrationator" />
     <MESSAGE value="Make a keypress simulator" />
@@ -1667,7 +1665,9 @@
     <MESSAGE value="Make an example mechanism" />
     <MESSAGE value="Remove error with segment-change upper-bound." />
     <MESSAGE value="Make it possible to followers to run on complete Tracks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make it possible to followers to run on complete Tracks" />
+    <MESSAGE value="Restructure code slightly so that Tracks draw their segments and Followers' segis change from -1" />
+    <MESSAGE value="Enable MultiTrack Drifting Trains!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enable MultiTrack Drifting Trains!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2023,8 +2023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="82" column="31" lean-forward="true" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+        <state relative-caret-position="221">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-from math import acos, cos, radians, sin, sqrt
+from math import acos, atan2, cos, radians, sin, sqrt
 import numpy as np
 import pygame
 from pygame.locals import *
@@ -19,7 +19,7 @@ w, h = 1000, 500
 screensize = np.int32([w, h])
 screen = pygame.display.set_mode((w, h))
 
-segments = []
+tracks = []
 drivers = []
 followers = []
 
@@ -32,7 +32,7 @@ class Segment:
         self.parallelunit /= self.length
         self.perpunit = perpmat.dot(self.parallelunit)
         self.col = col
-        segments.append(self)
+        tracks.append(self)
     
     def posspoints(self, pos, dist, segi=-1, pref=(0, 0), filterbest=True):
         try:
@@ -75,11 +75,39 @@ class Track:
         self.segments = []
         self.closed = closed
         for i in range(len(self.ptlist) + self.closed - 1):
-            S = Segment(ptlist[i], ptlist[(i + 1) % len(ptlist)], col)
+            S = Segment(self.ptlist[i], self.ptlist[(i + 1) % len(self.ptlist)], col)
             self.segments.append(S)
-            segments.remove(S)
+            tracks.remove(S)
         self.col = col
-        segments.append(self)
+        tracks.append(self)
+    
+    def __add__(self, other):
+        if isinstance(other, Track):
+            return Track(self.ptlist + other.ptlist, self.closed, self.col)
+        elif isinstance(other, Segment):
+            return Track(self.ptlist + other.pts, self.closed, self.col)
+        else:
+            newptlist = self.ptlist
+            for pt in other:
+                newptlist.append(pt)
+            return Track(newptlist, self.closed, self.col)
+    
+    def __sub__(self, other):
+        newptlist = self.ptlist
+        if isinstance(other, Track):
+            removals = other.ptlist
+        elif isinstance(other, Segment):
+            removals = other.pts
+        else:
+            removals = list(other)
+        for pt in removals:
+            try:
+                print(pt)
+                newptlist.remove(pt)
+                print("Removed")
+            except ValueError:
+                pass
+        return Track(newptlist, self.closed, self.col)
 
     def posspoints(self, pos, dist, segi=-1, pref=(0,0), filterbest=True):
         poss = []
@@ -144,6 +172,15 @@ class Driver:
         self.alongpos += howmuch * self.speed
         self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos, self.segi)
     
+    def move2(self, movdir):
+        print(movdir)
+        movdist = np.linalg.norm(movdir)
+        if movdist != 0:
+            newpos = self.pos + np.float32(movdir) * 2/movdist
+            pos, segi = self.track.posspoints(newpos, 1.5, self.segi, self.pos)
+            if pos is not None:
+                self.pos, self.segi = pos, segi
+    
     def show(self):
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
         
@@ -157,7 +194,7 @@ class Follower:
         self.pos, self.segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, startpref)
         self.col = col
         followers.append(self)
-    
+        
     def move(self):
         pos, segi = self.track.posspoints(self.driver.pos, self.chainlength, self.segi, self.pos)
         if pos is not None:
@@ -210,21 +247,21 @@ for i in range(90, 271, 10):
 
 T1 = Track(t1)
 T2 = Track(t2)
+T2 += T1
 
-D1 = Driver(T2, 0, speed=2, col=CYAN)
-F1 = Follower(T1, D1, 100, startpref=(w, 0))
+D1 = Driver(T2, -200, speed=2, col=CYAN)
+F1 = Follower(T2, D1, 100, startpref=(w, 0))
 F2 = Follower(T1, F1, 50, startpref=(w, 0))
 F3 = Follower(T1, F2, 100, startpref=(w, 0))
 Tren = Train(D1, F1, GREEN, BLUE)
 Carriage = Train(F2, F3, RED, BLUE)
-
 
 keys = set()
 
 while True:
     screen.fill(0)
     mpos = pygame.mouse.get_pos()
-    for S in segments:
+    for S in tracks:
         S.show()
     for D in drivers:
         D.move((K_RIGHT in keys) - (K_LEFT in keys))
