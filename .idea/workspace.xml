@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add sketchy __add__ and __sub__ methods for Tracks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tracker.py" afterDir="false" />
     </list>
@@ -34,8 +34,8 @@
       <file leaf-file-name="Tracker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+            <state relative-caret-position="238">
+              <caret line="176" column="11" lean-forward="true" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -88,8 +88,8 @@
       <find>-1, 0</find>
       <find>10</find>
       <find>arr</find>
-      <find>print</find>
       <find>perp</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -1216,13 +1216,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00058" summary="Add an interpretation of 3blue1brown's neural net series">
-      <created>1523813796274</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1523813796274</updated>
-    </task>
     <task id="LOCAL-00059" summary="Attempt to implement the methods of tutorial 3 in the Dancer">
       <created>1523894012887</created>
       <option name="number" value="00059" />
@@ -1559,7 +1552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527459629585</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Add sketchy __add__ and __sub__ methods for Tracks">
+      <created>1527511318586</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1527511318586</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1642,7 +1642,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a chessboard replacer" />
     <MESSAGE value="Make a disintegrationator" />
     <MESSAGE value="Make a keypress simulator" />
     <MESSAGE value="Make a screen messer-upper" />
@@ -1667,7 +1666,8 @@
     <MESSAGE value="Make it possible to followers to run on complete Tracks" />
     <MESSAGE value="Restructure code slightly so that Tracks draw their segments and Followers' segis change from -1" />
     <MESSAGE value="Enable MultiTrack Drifting Trains!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enable MultiTrack Drifting Trains!" />
+    <MESSAGE value="Add sketchy __add__ and __sub__ methods for Tracks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sketchy __add__ and __sub__ methods for Tracks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2023,8 +2023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+        <state relative-caret-position="238">
+          <caret line="176" column="11" lean-forward="true" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
         </state>
       </provider>
     </entry>

@@ -70,10 +70,14 @@ class Segment:
 
 
 class Track:
-    def __init__(self, ptlist, closed=True, col=WHITE):
+    def __init__(self, ptlist, ends=(None, None), col=WHITE):
         self.ptlist = list(ptlist)
         self.segments = []
-        self.closed = closed
+        self.closed = ends == (None, None)
+        if not self.closed:
+            self.ends = ends
+        else:
+            self.ends = None
         for i in range(len(self.ptlist) + self.closed - 1):
             S = Segment(self.ptlist[i], self.ptlist[(i + 1) % len(self.ptlist)], col)
             self.segments.append(S)
@@ -102,9 +106,7 @@ class Track:
             removals = list(other)
         for pt in removals:
             try:
-                print(pt)
                 newptlist.remove(pt)
-                print("Removed")
             except ValueError:
                 pass
         return Track(newptlist, self.closed, self.col)
@@ -135,7 +137,10 @@ class Track:
                     currseg = self.segments[segi]
                     alongpos += currseg.length
                 else:
-                    alongpos = 0
+                    if self.ends[0] is None:
+                        alongpos = 0
+                    else:
+                        return self.ends[0].nexttrack(self)
             else:
                 segi -= 1
                 currseg = self.segments[segi]
@@ -147,39 +152,60 @@ class Track:
                     alongpos -= currseg.length
                     currseg = self.segments[segi]
                 else:
-                    alongpos = currseg.length
+                    if self.ends[0] is None:
+                        alongpos = currseg.length
+                    else:
+                        return self.ends[0].nexttrack(self)
             else:
                 segi += 1
                 alongpos -= currseg.length
                 currseg = self.segments[segi]
-        return alongpos, currseg.pts[0] + (currseg.parallelunit * alongpos), segi
+        return alongpos, currseg.pts[0] + (currseg.parallelunit * alongpos), segi, self
 
     def show(self):
         for S in self.segments:
             S.show()
 
 
+class Trackchange:
+    def __init__(self):
+        # Is attached to several tracks on one side and the other
+        # Could be attached to far or near end of said tracks
+        # Must send position of moving items to next track on opposite side according to its own state
+        # May involve reversing speed of train according to directionality of incoming and outgoing tracks
+        # No idea about Followers...
+        ...
+    
+    def next(self):
+        ...
+    
+    def show(self):
+        ...
+
+
 class Driver:
     def __init__(self, track, alongpos, speed=1, col=WHITE):
         self.track = track
         self.alongpos = alongpos
-        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos)
+        self.alongpos, self.pos, self.segi, self.track = self.track.calcpos(self.alongpos)
         self.speed = speed
         self.col = col
         drivers.append(self)
         
     def move(self, howmuch):
         self.alongpos += howmuch * self.speed
-        self.alongpos, self.pos, self.segi = self.track.calcpos(self.alongpos, self.segi)
+        self.alongpos, self.pos, self.segi, self.track = self.track.calcpos(self.alongpos, self.segi)
     
-    def move2(self, movdir):
-        print(movdir)
-        movdist = np.linalg.norm(movdir)
-        if movdist != 0:
-            newpos = self.pos + np.float32(movdir) * 2/movdist
-            pos, segi = self.track.posspoints(newpos, 1.5, self.segi, self.pos)
+    def jumptracks(self, newtrack, maxjump=2):
+        for i in range(int(maxjump + 1)):
+            pos, segi = newtrack.posspoints(self.pos, i)
             if pos is not None:
-                self.pos, self.segi = pos, segi
+                self.track = newtrack
+                self.pos = pos
+                self.segi = segi
+                self.alongpos = np.dot(newtrack.segments[segi].parallelunit,
+                                       self.pos - newtrack.segments[segi].pts[0])
+                break
     
     def show(self):
         pygame.draw.circle(screen, self.col, np.int32(self.pos), 15, 1)
@@ -244,13 +270,12 @@ for i in range(90, 271, 10):
                h/2 + sin(radians(i)) * (h/2 - 30)])
     t2.append([270 + cos(radians(i)) * 170,
                (h/2 - 30) + sin(radians(i)) * (h/2 - 60)])
-
+    
 T1 = Track(t1)
 T2 = Track(t2)
-T2 += T1
 
 D1 = Driver(T2, -200, speed=2, col=CYAN)
-F1 = Follower(T2, D1, 100, startpref=(w, 0))
+F1 = Follower(T1, D1, 100, startpref=(w, 0))
 F2 = Follower(T1, F1, 50, startpref=(w, 0))
 F3 = Follower(T1, F2, 100, startpref=(w, 0))
 Tren = Train(D1, F1, GREEN, BLUE)
@@ -260,7 +285,7 @@ keys = set()
 
 while True:
     screen.fill(0)
-    mpos = pygame.mouse.get_pos()
+    # mpos = pygame.mouse.get_pos()
     for S in tracks:
         S.show()
     for D in drivers:
