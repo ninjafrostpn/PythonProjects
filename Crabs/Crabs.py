@@ -1,9 +1,10 @@
+# TODO: LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG.
+
 from math import sin, cos, radians, asin, copysign
 import numpy as np
 import pygame
 from pygame.locals import *
 import random as r
-import socket
 from time import sleep
 
 pygame.init()
@@ -189,14 +190,18 @@ class Crab:
                             self.rect.move(*(self.pos - self.diag)))
         pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.lefteye)))
-        pygame.draw.ellipse(screen, 0,
-                            self.eyerect.move(*(self.pos + self.lefteye + np.sign(self.vel)))
-                                        .inflate(-2, min(max(self.vel[0] - 8, 4 - self.eyerect.h), -8)))
         pygame.draw.ellipse(screen, WHITE,
                             self.eyerect.move(*(self.pos + self.righteye - np.sign(self.vel))))
-        pygame.draw.ellipse(screen, 0,
-                            self.eyerect.move(*(self.pos + self.righteye))
-                                        .inflate(-2, min(max(-self.vel[0] - 8, 4 - self.eyerect.h), -8)))
+        if not self.dead:
+            pygame.draw.ellipse(screen, 0,
+                                self.eyerect.move(*(self.pos + self.lefteye + np.sign(self.vel)))
+                                            .inflate(-2, min(max(self.vel[0] - 8, 4 - self.eyerect.h), -8)))
+            pygame.draw.ellipse(screen, 0,
+                                self.eyerect.move(*(self.pos + self.righteye))
+                                            .inflate(-2, min(max(-self.vel[0] - 8, 4 - self.eyerect.h), -8)))
+        else:
+            pygame.draw.circle(screen, 0, self.eyerect.move(*(self.pos + self.lefteye)).center, 1)
+            pygame.draw.circle(screen, 0, self.eyerect.move(*(self.pos + self.righteye)).center, 1)
         lefthandpos = self.pos - self.arm - self.btm
         righthandpos = self.pos + self.arm - self.btm
         ang1 = 10 * sind(self.cycles)
@@ -394,7 +399,7 @@ while not gameover:
     pygame.draw.line(screen, 0, (0, 20), (w, 20), 2)
     for S in SFXs:
         S.show()
-    pygame.display.flip()
+    pygame.display.update()
     for e in pygame.event.get():
         if e.type == QUIT:
             quit()
