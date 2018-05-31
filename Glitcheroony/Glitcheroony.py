@@ -9,6 +9,14 @@ windowname = "ALL UR BASE R BELONG 2 US"
 
 mode = r.randrange(0, 2)
 
+if mode == 1:
+    eye_cascade = cv2.CascadeClassifier(
+        r'C:\Users\Charles Turvey\AppData\Local\Programs\Python\Python35-32\Lib\site-packages\cv2\data\haarcascade_eye.xml')
+    cap = cv2.VideoCapture(0)
+    _, frame = cap.read()
+    framesize = np.array(frame.shape[1::-1])
+    framecentre = np.int32(framesize / 2)
+
 
 def printscreen():
     img = pag.screenshot()
@@ -55,6 +63,16 @@ def emboss(frame, mask, embossdist=(0, 50)):
     frame[top + yj: bottom + yj, left + xj: right + xj][mask] = frame[top: bottom, left: right][mask]
 
 
+def isfeaturevisible(cap, featuredetector):
+    ret, frame = cap.read()
+    if ret:
+        frame = cv2.cvtColor(frame, cv2.CV_8U)
+        features = featuredetector.detectMultiScale(frame, 1.3, 5)
+        if len(features) > 0:
+            return True
+    return False
+
+
 class Eye:
     def __init__(self, frame, size=(500, 200), pupilpos=(-1, -1), vertical=True):
         framedims = frame.shape[:2]
@@ -71,11 +89,17 @@ class Eye:
     def show(self):
         self.source[:] = 0
         cv2.circle(self.source, tuple(np.int32(self.pupilpos)), self.pupilrad, (255, 255, 0), int(self.pupilrad/2))
+        halfwidth = ceil(self.size[int(self.vertical)] / 2)
         if np.all(self.size * 0.4 < self.pupilpos) and np.all(self.pupilpos < self.size * 0.6):
+            if self.inc > 0 or self.cycles >= halfwidth:
+                if isfeaturevisible(cap, eye_cascade):
+                    if self.cycles >= halfwidth:
+                        self.cycles = halfwidth - 1
+                    if self.inc > 0:
+                        self.inc *= -1
             for i in range(self.pupilrad):
                 self.source[int(self.pupilpos[1] + r.randrange(-int(self.pupilrad/2.5), int(self.pupilrad/2.5))),
                             int(self.pupilpos[0] + r.randrange(-int(self.pupilrad/2.5), int(self.pupilrad/2.5))), 1] = 255
-        halfwidth = ceil(self.size[int(self.vertical)]/2)
         if self.cycles < halfwidth:
             if self.vertical:
                 toplidfrom = self.cycles
@@ -96,9 +120,9 @@ class Eye:
         else:
             pupilmov = self.size / 2 - self.pupilpos
             self.pupilpos += pupilmov / 10
-            if self.cycles >= halfwidth + self.inc * 40 and self.inc > 0:
+            if self.cycles >= halfwidth + self.inc * 200 and self.inc > 0:
                 self.inc *= -1
-        self.cycles += self.inc
+        self.cycles = max(self.cycles + self.inc, 0)
         return True, self.pupilpos + self.pos
 
 
@@ -153,10 +177,11 @@ while True:
                     cycles = -1000
                     del curreye
             except NameError as e:
-                curreye = Eye(frame,
-                              size=np.int32([r.randrange(50, 250), r.randrange(50, 250)]) * 2,
-                              pupilpos=startpos,
-                              vertical=r.random() < 0.5)
+                if not isfeaturevisible(cap, eye_cascade):
+                    curreye = Eye(frame,
+                                  size=np.int32([r.randrange(50, 250), r.randrange(50, 250)]) * 2,
+                                  pupilpos=startpos,
+                                  vertical=r.random() < 0.5)
     else:
         frame = screengrab.copy()
         cycles += r.randrange(10)
