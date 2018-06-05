@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/FaceDetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tools/trackGPXtoKML.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BioSpecSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/BioSpecSort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" beforeDir="false" afterPath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
@@ -22,52 +23,35 @@
     <favorites_list name="Projects" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="189">
-                  <caret line="93" column="56" lean-forward="true" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ChessDetector.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ChessDetector.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="8" lean-forward="true" selection-end-line="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="FaceDetector.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/FaceDetector.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="187" column="37" lean-forward="true" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trackGPXtoKML.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="111" column="76" lean-forward="true" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diveXMLtoCSV.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>0.5</find>
-      <find>Crab</find>
-      <find>s Crab</find>
       <find>shadow</find>
       <find>* 2</find>
       <find>* 2 *</find>
@@ -104,10 +85,13 @@
       <find>10</find>
       <find>arr</find>
       <find>perp</find>
-      <find>print</find>
       <find>dead</find>
       <find>ensha</find>
       <find>500</find>
+      <find>isf</find>
+      <find>{}</find>
+      <find>excep</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -154,8 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TagResizer.py" />
-        <option value="$PROJECT_DIR$/DiveProfileConverter.py" />
         <option value="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" />
         <option value="$USER_HOME$/tools.py" />
         <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
@@ -205,11 +187,13 @@
         <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
         <option value="$PROJECT_DIR$/FaceDetector.py" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
+        <option value="$PROJECT_DIR$/BioSpecSort.py" />
+        <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
+    <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
   </component>
@@ -223,6 +207,15 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
@@ -260,7 +253,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SourceBots" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SourceBots/robotd" />
     <property name="options.lastSelected" value="configurable.group.build" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -295,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Glitcheroony">
+  <component name="RunManager" selected="Python.trackGPXtoKML">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -373,24 +366,6 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="Camouflage" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Camouflage/Camouflage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Classification" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -1146,6 +1121,24 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
+    <configuration name="trackGPXtoKML" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1243,19 +1236,19 @@
       <item itemvalue="Python.Jayl" />
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
-      <item itemvalue="Python.Camouflage" />
       <item itemvalue="Python.Glitcheroony" />
       <item itemvalue="Python.Tracker" />
       <item itemvalue="Python.Crabs" />
       <item itemvalue="Python.FaceDetector" />
+      <item itemvalue="Python.trackGPXtoKML" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trackGPXtoKML" />
         <item itemvalue="Python.Glitcheroony" />
         <item itemvalue="Python.FaceDetector" />
         <item itemvalue="Python.Crabs" />
         <item itemvalue="Python.Tracker" />
-        <item itemvalue="Python.Camouflage" />
       </list>
     </recent_temporary>
   </component>
@@ -1272,13 +1265,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Add (currently broken) 3D version of depth buffer test">
-      <created>1524696838815</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1524696838816</updated>
     </task>
     <task id="LOCAL-00062" summary="Add chessboard detector which turns servo motor to follow with camera">
       <created>1524750120048</created>
@@ -1616,7 +1602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527701007407</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Add attempt at face detection and then add this to creepy eyes in Glitch">
+      <created>1527787892906</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1527787892907</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1643,12 +1636,12 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5969793" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5953895" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.2701252" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.25939178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
@@ -1667,24 +1660,24 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1699,7 +1692,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a screen messer-upper" />
     <MESSAGE value="Make Glitcheroony usable as a &quot;Screensaver&quot;" />
     <MESSAGE value="Add spooky skull embossing" />
     <MESSAGE value="Fix spooky skull embossing" />
@@ -1724,59 +1716,18 @@
     <MESSAGE value="Add sketchy __add__ and __sub__ methods for Tracks" />
     <MESSAGE value="Lay out ideas for how to implement Trackchanger (like traintrack points)" />
     <MESSAGE value="Make crabs appear scared of being eaten. I am a cruel human." />
-    <option name="LAST_COMMIT_MESSAGE" value="Make crabs appear scared of being eaten. I am a cruel human." />
+    <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="36" />
+      <option name="time" value="38" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PyTutorial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PyTutorialBlank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="29" lean-forward="true" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../ROV-Dev/Compware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="92" column="51" lean-forward="true" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/site-packages/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ItemFinder2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1571">
-          <caret line="10" column="68" lean-forward="true" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiceProblem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -2072,16 +2023,50 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FaceDetector.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Blender/Knot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SourceBots/robotd/robotd/robotd/master.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bio.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BioSpecSort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="93" column="56" lean-forward="true" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
+        <state relative-caret-position="270">
+          <caret line="187" column="37" lean-forward="true" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="111" column="76" lean-forward="true" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 import cv2
-from math import ceil, cos, pi, sin
+from math import atan2, ceil, cos, pi, sin
 import numpy as np
 import pyautogui as pag
 import random as r
@@ -9,9 +9,9 @@ windowname = "ALL UR BASE R BELONG 2 US"
 
 mode = r.randrange(0, 2)
 
-if mode == 1:
-    eye_cascade = cv2.CascadeClassifier(
-        r'C:\Users\Charles Turvey\AppData\Local\Programs\Python\Python35-32\Lib\site-packages\cv2\data\haarcascade_eye.xml')
+if mode in [1, 2]:
+    eye_cascade = cv2.CascadeClassifier(r'C:\Users\Charles Turvey\AppData\Local\Programs\Python\Python35-32\Lib\site-packages\cv2\data\haarcascade_eye.xml')
+    face_cascade = cv2.CascadeClassifier(r'C:\Users\Charles Turvey\AppData\Local\Programs\Python\Python35-32\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
     cap = cv2.VideoCapture(0)
     _, frame = cap.read()
     framesize = np.array(frame.shape[1::-1])
@@ -64,13 +64,14 @@ def emboss(frame, mask, embossdist=(0, 50)):
 
 
 def isfeaturevisible(cap, featuredetector):
-    ret, frame = cap.read()
+    ret, img = cap.read()
     if ret:
-        frame = cv2.cvtColor(frame, cv2.CV_8U)
-        features = featuredetector.detectMultiScale(frame, 1.3, 5)
+        img = cv2.cvtColor(img, cv2.CV_8U)
+        # cv2.imshow("", img)
+        features = featuredetector.detectMultiScale(img, 1.3, 5)
         if len(features) > 0:
-            return True
-    return False
+            return True, features
+    return False, []
 
 
 class Eye:
@@ -92,7 +93,8 @@ class Eye:
         halfwidth = ceil(self.size[int(self.vertical)] / 2)
         if np.all(self.size * 0.4 < self.pupilpos) and np.all(self.pupilpos < self.size * 0.6):
             if self.inc > 0 or self.cycles >= halfwidth:
-                if isfeaturevisible(cap, eye_cascade):
+                ret, _ = isfeaturevisible(cap, eye_cascade)
+                if ret:
                     if self.cycles >= halfwidth:
                         self.cycles = halfwidth - 1
                     if self.inc > 0:
@@ -129,6 +131,8 @@ class Eye:
 sleep(2)
 
 screengrab = printscreen()
+screensize = np.int32(screengrab.shape[1::-1])
+screencentre = np.int32(screensize / 2)
 cv2.namedWindow(windowname, cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty(windowname, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 cv2.startWindowThread()
@@ -147,7 +151,7 @@ startpos = (-1, -1)
 while True:
     if mode == 0:
         key = cv2.waitKey(33)
-    elif mode == 1:
+    elif mode in [1, 2]:
         key = cv2.waitKey(1)
     if key != -1:
         checkcode.append(key)
@@ -177,11 +181,19 @@ while True:
                     cycles = -1000
                     del curreye
             except NameError as e:
-                if not isfeaturevisible(cap, eye_cascade):
+                ret, _ = isfeaturevisible(cap, eye_cascade)
+                if not ret:
                     curreye = Eye(frame,
                                   size=np.int32([r.randrange(50, 250), r.randrange(50, 250)]) * 2,
                                   pupilpos=startpos,
                                   vertical=r.random() < 0.5)
+        # elif mode == 2:
+        #     ret, eyes = isfeaturevisible(cap, eye_cascade)
+        #     if ret:
+        #         cv2.circle(frame,
+        #                    tuple(np.int32(np.mean(eyes[:, :2] + eyes[:, 2:]/2, axis=0) * screensize / framesize)),
+        #                    10, 255)
+        #         cycles = 199
     else:
         frame = screengrab.copy()
         cycles += r.randrange(10)

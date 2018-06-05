@@ -1,4 +1,3 @@
-__author__ = 'Charlie'
 import win32api as w
 
 q = 1
