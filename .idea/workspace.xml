@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Tools/trackGPXtoKML.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SoSalty.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BioSpecSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/BioSpecSort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" beforeDir="false" afterPath="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,17 +25,26 @@
       <file leaf-file-name="Glitcheroony.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="187" column="37" lean-forward="true" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+            <state relative-caret-position="425">
+              <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trackGPXtoKML.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SoSalty.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SoSalty.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trackGPXtoKML.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="111" column="76" lean-forward="true" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
+            <state relative-caret-position="1836">
+              <caret line="108" column="75" selection-start-line="108" selection-start-column="75" selection-end-line="108" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -138,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tools/dive-XML-to-CSV.py" />
         <option value="$USER_HOME$/tools.py" />
         <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
@@ -186,14 +192,15 @@
         <option value="$PROJECT_DIR$/Tracker.py" />
         <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
         <option value="$PROJECT_DIR$/FaceDetector.py" />
-        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
         <option value="$PROJECT_DIR$/BioSpecSort.py" />
         <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
+        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
+        <option value="$PROJECT_DIR$/SoSalty.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
+    <option name="x" value="949" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
   </component>
@@ -288,7 +295,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.trackGPXtoKML">
+  <component name="RunManager" selected="Python.SoSalty">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -873,6 +880,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="SoSalty" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SoSalty.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="SoundSources" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -950,24 +975,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="Tracker" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tracker.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="WaterBend" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -1237,18 +1244,18 @@
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
       <item itemvalue="Python.Glitcheroony" />
-      <item itemvalue="Python.Tracker" />
       <item itemvalue="Python.Crabs" />
       <item itemvalue="Python.FaceDetector" />
       <item itemvalue="Python.trackGPXtoKML" />
+      <item itemvalue="Python.SoSalty" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.trackGPXtoKML" />
+        <item itemvalue="Python.SoSalty" />
         <item itemvalue="Python.Glitcheroony" />
+        <item itemvalue="Python.trackGPXtoKML" />
         <item itemvalue="Python.FaceDetector" />
         <item itemvalue="Python.Crabs" />
-        <item itemvalue="Python.Tracker" />
       </list>
     </recent_temporary>
   </component>
@@ -1265,13 +1272,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Add chessboard detector which turns servo motor to follow with camera">
-      <created>1524750120048</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1524750120049</updated>
     </task>
     <task id="LOCAL-00063" summary="Tried building some trampolines">
       <created>1525188421891</created>
@@ -1609,7 +1609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527787892907</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Fix face detection in Glitch and make GPX to KML converter">
+      <created>1528228486767</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1528228486768</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1639,13 +1646,13 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5953895" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.2021467" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.25939178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.3938294" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.39534885" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1661,23 +1668,23 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1692,7 +1699,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make Glitcheroony usable as a &quot;Screensaver&quot;" />
     <MESSAGE value="Add spooky skull embossing" />
     <MESSAGE value="Fix spooky skull embossing" />
     <MESSAGE value="make it so it minimises the command prompt" />
@@ -1717,7 +1723,8 @@
     <MESSAGE value="Lay out ideas for how to implement Trackchanger (like traintrack points)" />
     <MESSAGE value="Make crabs appear scared of being eaten. I am a cruel human." />
     <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
+    <MESSAGE value="Fix face detection in Glitch and make GPX to KML converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix face detection in Glitch and make GPX to KML converter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1728,13 +1735,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="157" column="11" lean-forward="true" selection-start-line="157" selection-start-column="11" selection-end-line="157" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dict.moo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -2056,17 +2056,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+    <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="187" column="37" lean-forward="true" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+        <state relative-caret-position="1836">
+          <caret line="108" column="75" selection-start-line="108" selection-start-column="75" selection-end-line="108" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="111" column="76" lean-forward="true" selection-start-line="111" selection-start-column="76" selection-end-line="111" selection-end-column="76" />
+        <state relative-caret-position="425">
+          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoSalty.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
