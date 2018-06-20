@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a so salty meme generator">
-      <change afterPath="$PROJECT_DIR$/Bam.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/So Salty (no words).png" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Flock.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Neural-Nets/Competitive.py" beforeDir="false" afterPath="$PROJECT_DIR$/Neural-Nets/Competitive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basic Pygame File.py" beforeDir="false" afterPath="$PROJECT_DIR$/Basic Pygame File.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoSalty.py" beforeDir="false" afterPath="$PROJECT_DIR$/SoSalty.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
@@ -28,17 +27,26 @@
       <file leaf-file-name="Basic Pygame File.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bam.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Bam.py">
+      <file leaf-file-name="SoSalty.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SoSalty.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="85" column="66" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+            <state relative-caret-position="126">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flock.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -54,8 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>* 2 *</find>
-      <find>crabhit</find>
       <find>bird</find>
       <find>= 0</find>
       <find>pos = self.pos</find>
@@ -84,6 +90,8 @@
       <find>200</find>
       <find>/ 10</find>
       <find>20</find>
+      <find>clip</find>
+      <find>corre</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -130,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tools/diveXMLtoCSV.py" />
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
         <option value="$PROJECT_DIR$/PunchBall/Client.py" />
         <option value="$PROJECT_DIR$/ItemFinder.py" />
@@ -177,17 +184,18 @@
         <option value="$PROJECT_DIR$/BioSpecSort.py" />
         <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
-        <option value="$PROJECT_DIR$/SoSalty.py" />
         <option value="$PROJECT_DIR$/Neural-Nets/Competitive.py" />
-        <option value="$PROJECT_DIR$/Basic Pygame File.py" />
         <option value="$PROJECT_DIR$/Bam.py" />
+        <option value="$PROJECT_DIR$/Basic Pygame File.py" />
+        <option value="$PROJECT_DIR$/Flock.py" />
+        <option value="$PROJECT_DIR$/SoSalty.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="-8" />
+    <option name="width" value="1934" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -245,7 +253,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Bam">
+  <component name="RunManager" selected="Python.SoSalty">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -503,6 +511,24 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
+    <configuration name="Flock" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Flock.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="ItemFinder" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -720,24 +746,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Particles" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Particles.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="PointPlacer" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -848,6 +856,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="SoSalty" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SoSalty.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="SoundSources" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -925,24 +951,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="Tracker" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tracker.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="WaterBend" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -1194,18 +1202,18 @@
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
       <item itemvalue="Python.Bam" />
-      <item itemvalue="Python.Particles" />
-      <item itemvalue="Python.Tracker" />
       <item itemvalue="Python.Punchball" />
       <item itemvalue="Python.Crawler" />
+      <item itemvalue="Python.Flock" />
+      <item itemvalue="Python.SoSalty" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SoSalty" />
+        <item itemvalue="Python.Flock" />
         <item itemvalue="Python.Bam" />
         <item itemvalue="Python.Crawler" />
         <item itemvalue="Python.Punchball" />
-        <item itemvalue="Python.Tracker" />
-        <item itemvalue="Python.Particles" />
       </list>
     </recent_temporary>
   </component>
@@ -1222,13 +1230,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Add colliding balls">
-      <created>1525288596997</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1525288596998</updated>
     </task>
     <task id="LOCAL-00065" summary="Start making a competitive neaural net and 👌Crab game">
       <created>1525393077055</created>
@@ -1566,7 +1567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528550246472</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Fix so salty meme generator and make a dramatic (if unreliable) collider">
+      <created>1529249757533</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1529249757533</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1597,7 +1605,7 @@
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5111288" side_tool="true" weight="0.27370304" />
       <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.48887122" visible="true" weight="0.2021467" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32855436" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32737032" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.7772512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.45192307" />
@@ -1649,7 +1657,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix spooky skull embossing" />
     <MESSAGE value="make it so it minimises the command prompt" />
     <MESSAGE value="Make it so it minimises the command prompt... and closes the window after the script is finished" />
     <MESSAGE value="Add another attempt at particle collisions" />
@@ -1674,7 +1681,8 @@
     <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
     <MESSAGE value="Fix face detection in Glitch and make GPX to KML converter" />
     <MESSAGE value="Make a so salty meme generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a so salty meme generator" />
+    <MESSAGE value="Fix so salty meme generator and make a dramatic (if unreliable) collider" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix so salty meme generator and make a dramatic (if unreliable) collider" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1685,13 +1693,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Slo-Time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1809560983/pygame/draw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
@@ -1953,13 +1954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SoSalty.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/diveXMLtoCSV.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1978,13 +1972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -2018,8 +2005,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="85" column="66" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+        <state relative-caret-position="-520">
+          <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoSalty.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
         </state>
       </provider>
     </entry>
