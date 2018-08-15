@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Leap.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Tools/shiptrack000toKML.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wah/Wah.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crabs/Crabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crabs/Crabs.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="Basic Pygame File.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="9" column="29" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -35,17 +36,26 @@
       <file leaf-file-name="Flock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="95" column="26" lean-forward="true" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
+            <state relative-caret-position="1615">
+              <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Leap.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Leap.py">
+      <file leaf-file-name="Wah.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Wah/Wah.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            <state relative-caret-position="356">
+              <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="313" column="65" lean-forward="true" selection-start-line="313" selection-start-column="65" selection-end-line="313" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -61,9 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>= 0</find>
-      <find>pos = self.pos</find>
-      <find>send</find>
       <find>sendu</find>
       <find>int8</find>
       <find>ctrl</find>
@@ -91,6 +98,9 @@
       <find>clip</find>
       <find>corre</find>
       <find>50</find>
+      <find>ground</find>
+      <find>shadow</find>
+      <find>red</find>
     </findStrings>
     <replaceStrings>
       <replace>/10</replace>
@@ -137,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../ROV-Dev/Compware.py" />
-        <option value="$PROJECT_DIR$/../../ROV-Dev/Piware.py" />
         <option value="$PROJECT_DIR$/PyTutorial.py" />
         <option value="$PROJECT_DIR$/yTutorialBlank.py" />
         <option value="$PROJECT_DIR$/PyTutorialBlank.py" />
@@ -172,7 +180,6 @@
         <option value="$PROJECT_DIR$/Camouflage/Camouflage.py" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py" />
         <option value="$PROJECT_DIR$/Tracker.py" />
-        <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
         <option value="$PROJECT_DIR$/FaceDetector.py" />
         <option value="$PROJECT_DIR$/BioSpecSort.py" />
         <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
@@ -188,6 +195,9 @@
         <option value="$PROJECT_DIR$/Rawrckets.py" />
         <option value="$PROJECT_DIR$/Tools/shiptrack000toKML.py" />
         <option value="$PROJECT_DIR$/Leap.py" />
+        <option value="$PROJECT_DIR$/Wah.py" />
+        <option value="$PROJECT_DIR$/Wah/Wah.py" />
+        <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
       </list>
     </option>
   </component>
@@ -213,6 +223,11 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Crabs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
               <item name="Tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -230,19 +245,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PunchBall" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -257,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Leap">
+  <component name="RunManager" selected="Python.Crabs">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -393,6 +408,24 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+    </configuration>
+    <configuration name="Crabs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crabs/Crabs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Crawler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -788,24 +821,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="Rawrckets" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Rawrckets.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="Shadows" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -956,6 +971,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Wah" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\Wah\Wah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="WaterBend" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1090,24 +1123,6 @@
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
     </configuration>
-    <configuration name="shiptrack000toKML" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/shiptrack000toKML.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1206,18 +1221,18 @@
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
       <item itemvalue="Python.Flock" />
-      <item itemvalue="Python.Rawrckets" />
-      <item itemvalue="Python.shiptrack000toKML" />
       <item itemvalue="Python.Bam" />
       <item itemvalue="Python.Leap" />
+      <item itemvalue="Python.Wah" />
+      <item itemvalue="Python.Crabs" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Crabs" />
+        <item itemvalue="Python.Wah" />
         <item itemvalue="Python.Leap" />
         <item itemvalue="Python.Flock" />
         <item itemvalue="Python.Bam" />
-        <item itemvalue="Python.shiptrack000toKML" />
-        <item itemvalue="Python.Rawrckets" />
       </list>
     </recent_temporary>
   </component>
@@ -1234,13 +1249,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Improve le gesturing">
-      <created>1525411561983</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1525411561983</updated>
     </task>
     <task id="LOCAL-00069" summary="Collide the crabs">
       <created>1525481522032</created>
@@ -1578,7 +1586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531036573728</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="Make a synchronised jumping game">
+      <created>1532940948700</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1532940948700</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1629,24 +1644,24 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" visible="true" weight="0.12679045" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" weight="0.24986738" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4918919" weight="0.27001196" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5081081" side_tool="true" weight="0.48156956" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32819906" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32855436" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1661,7 +1676,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start an attempt at an ascii-art generator" />
     <MESSAGE value="Finish making an ASCII generator and get back to work" />
     <MESSAGE value="Add an attempt at heatwave effects" />
     <MESSAGE value="Start making a camouflage lizard" />
@@ -1686,7 +1700,8 @@
     <MESSAGE value="Make a flocking simulator... sort of :)" />
     <MESSAGE value="Make a simple vector field thing" />
     <MESSAGE value="Make a rocket launcher ish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a rocket launcher ish" />
+    <MESSAGE value="Make a synchronised jumping game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make a synchronised jumping game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1697,13 +1712,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/get-pip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325363">
-          <caret line="19154" lean-forward="true" selection-start-line="19154" selection-end-line="19154" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Perspectives-3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1848,13 +1856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -2014,24 +2015,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+    <entry file="file://$PROJECT_DIR$/Leap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="-427">
+          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="95" column="26" lean-forward="true" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
+        <state relative-caret-position="1615">
+          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Leap.py">
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wah/Wah.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="313" column="65" lean-forward="true" selection-start-line="313" selection-start-column="65" selection-end-line="313" selection-end-column="65" />
         </state>
       </provider>
     </entry>

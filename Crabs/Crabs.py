@@ -18,9 +18,10 @@ CRABAPPLE = (135, 56, 47)
 DARK_MAGENTA = (100, 0, 100)
 BEAK = (255, 255, 0)
 BLUESKY = (10, 200, 200)
-SAND = (225, 169, 95)
+SAND = np.float32([225, 169, 95])
 WHITE = (255, 255, 255)
 GREY = np.float32((1, 1, 1))
+RED = (255, 0, 0)
 
 xflip = np.float32([-1, 1])
 
@@ -49,7 +50,7 @@ class SFX:
         if self.size >= 255:
             SFXs.remove(self)
 
-
+"""
 class Shadow:
     def __init__(self, rect, diagonal=False):
         self.rect = pygame.Rect(rect)
@@ -74,6 +75,7 @@ class Shadow:
         darkversion = surf[currrect.left:currrect.right, currrect.top:currrect.bottom] \
                       * self.mask[maskrect.left:maskrect.right, maskrect.top:maskrect.bottom]
         surf[currrect.left:currrect.right, currrect.top:currrect.bottom] = np.uint8(darkversion)
+"""
 
 
 collisions = set()
@@ -272,7 +274,7 @@ class Bird:
         self.closedbeakpoly = np.float32([(-self.length, -h),
                                           (self.length, -h),
                                           (0, 0)])
-        self.shadow = Shadow((self.pos[0] - self.length, 0, self.length * 2, h))
+        #self.shadow = Shadow((self.pos[0] - self.length, 0, self.length * 2, h))
         self.background = True
         self.cycles = 0
         self.speed = 5
@@ -309,8 +311,9 @@ class Bird:
             elif self.nom < 0:
                 self.nom = 0
                 self.pos[1] = -100
-            self.shadow.move((self.pos[0] - self.length, 0))
-            self.shadow.enshadow(screen)
+            pygame.draw.circle(screen, RED, (int(self.pos[0]), 40), 10)
+            #self.shadow.move((self.pos[0] - self.length, 0))
+            #self.shadow.enshadow(screen)
             if self.nom == 0:
                 self.pos[0] += self.speed * 1.5
                 for crab in crabs:
@@ -348,7 +351,7 @@ zone = np.int32([(w *  5/16, h),
 crab1 = Crab("Geoffrey", (w/4, h * 0.75), controls=(K_w, K_a, K_s, K_d), col=DARK_MAGENTA)
 crab2 = Crab("WinklePicker", (w * 0.75, h * 0.75))
 
-bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]))
+# bunkershadow = Shadow((zone[0][0], zone[1][1], zone[3][0] - zone[0][0], h - zone[1][1]))
 
 keyspressed = set()
 activation = 0
@@ -367,7 +370,7 @@ while not gameover:
             B.show()
     
     # Draw background part of bunker
-    pygame.draw.polygon(screen, SAND, zone)
+    pygame.draw.polygon(screen, SAND/1.5, zone)
     for i in range(1, zone.shape[0] - 1):
         pygame.draw.line(screen, GREY * 100, zone[i], (zone[i][0], h), 10)
     
@@ -381,7 +384,7 @@ while not gameover:
     activation = min(max(activation, 0), w)
     
     # Draw foreground portion of bunker, including sand
-    bunkershadow.enshadow(screen)
+    # bunkershadow.enshadow(screen)
     pygame.draw.lines(screen, GREY * 100, False, zone, 10)
     for i in range(1, zone.shape[0] - 1):
         pygame.draw.circle(screen, GREY * 150, zone[i], 10)
