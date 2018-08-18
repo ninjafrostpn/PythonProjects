@@ -1,5 +1,3 @@
-# TODO: LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG.
-
 from math import sin, cos, radians, asin, copysign
 import numpy as np
 import pygame

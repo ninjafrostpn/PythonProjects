@@ -42,20 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wah.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Wah.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wah/Wah.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Crabs.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="313" column="65" lean-forward="true" selection-start-line="313" selection-start-column="65" selection-end-line="313" selection-end-column="65" />
+            <state relative-caret-position="-1">
+              <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -272,7 +263,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Crabs">
+  <component name="RunManager" selected="Python.Wah (1)">
     <configuration name="ArtStu" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -292,24 +283,6 @@
       <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-    </configuration>
-    <configuration name="Bam" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bam.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="Bending" type="PythonConfigurationType" factoryName="Python">
       <module name="Projects" />
@@ -971,6 +944,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Wah (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Wah/Wah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Wah" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1221,18 +1212,18 @@
       <item itemvalue="Python.ArtStu" />
       <item itemvalue="Python.SoundSources" />
       <item itemvalue="Python.Flock" />
-      <item itemvalue="Python.Bam" />
       <item itemvalue="Python.Leap" />
       <item itemvalue="Python.Wah" />
       <item itemvalue="Python.Crabs" />
+      <item itemvalue="Python.Wah (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Wah (1)" />
         <item itemvalue="Python.Crabs" />
         <item itemvalue="Python.Wah" />
         <item itemvalue="Python.Leap" />
         <item itemvalue="Python.Flock" />
-        <item itemvalue="Python.Bam" />
       </list>
     </recent_temporary>
   </component>
@@ -1249,13 +1240,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Collide the crabs">
-      <created>1525481522032</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1525481522032</updated>
     </task>
     <task id="LOCAL-00070" summary="Decrease crab size by 20%">
       <created>1525482757087</created>
@@ -1593,7 +1577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532940948700</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Make crab game worse but faster">
+      <created>1534335212685</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1534335212686</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1676,7 +1667,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finish making an ASCII generator and get back to work" />
     <MESSAGE value="Add an attempt at heatwave effects" />
     <MESSAGE value="Start making a camouflage lizard" />
     <MESSAGE value="Add spoopy eyes to &quot;screensaver&quot;" />
@@ -1701,7 +1691,8 @@
     <MESSAGE value="Make a simple vector field thing" />
     <MESSAGE value="Make a rocket launcher ish" />
     <MESSAGE value="Make a synchronised jumping game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a synchronised jumping game" />
+    <MESSAGE value="Make crab game worse but faster" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make crab game worse but faster" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2036,17 +2027,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Wah/Wah.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="313" column="65" lean-forward="true" selection-start-line="313" selection-start-column="65" selection-end-line="313" selection-end-column="65" />
+        <state relative-caret-position="-1">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
