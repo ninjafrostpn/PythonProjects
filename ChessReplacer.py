@@ -3,11 +3,11 @@ import numpy as np
 
 debug = False
 
-img = cv2.imread(r"D:\Users\Charles Turvey\Pictures\Art\Hand\Hand.jpg")
+img = np.rot90(cv2.imread(r"D:\Users\Charles Turvey\Pictures\Art\Hand\Hand.jpg"))
 imgsize = img.shape[:2]
 imgcorners = np.float32([[0,0], [imgsize[1], 0], imgsize[::-1], [0, imgsize[0]]])
 
-cap = cv2.VideoCapture(r"D:\Users\Charles Turvey\Videos\WIN_20180511_14_16_04_Pro.mp4")
+cap = cv2.VideoCapture(0)#r"D:\Users\Charles Turvey\Videos\WIN_20180511_14_16_04_Pro.mp4")
 _, frame = cap.read()
 framesize = np.array(frame.shape[1::-1])
 framecentre = np.int32(framesize/2)
@@ -15,7 +15,7 @@ framecentre = np.int32(framesize/2)
 fourcc = cv2.VideoWriter_fourcc(*"XVID")  # The protocol used for video
 out = cv2.VideoWriter(r"SavedImages\Test.avi", fourcc, 20, tuple(framesize))
 
-chesssize = (5, 7)  # format is (height - 1, width - 1)
+chesssize = (3, 4)  # format is (height - 1, width - 1)
 
 while cv2.waitKey(1) == -1:
     ret, frame = cap.read()
