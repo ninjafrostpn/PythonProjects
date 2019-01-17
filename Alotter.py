@@ -1,15 +1,15 @@
 import pygame
-import twitter
+# import twitter
 from pygame.locals import *
 from io import BytesIO
 import urllib.request as ur
 
 pygame.init()
 
-twit = twitter.Api(consumer_key="DOB7Rr5SHg48rK8VBSTGnLoRe",
-                   consumer_secret="T7rvjDvtx6QTDIerftG8fqACxhGv3BmCCHFIJRuwzbBGY4WZYs",
-                   access_token_key="778583630184611840-Rb2vsoSn0VHxWr9TuDECr6eUsPxgrLP",
-                   access_token_secret="GYQHdi6fCFb5RaeNme2RjHf2pMblj17gCWYy7cAqEOEIY")
+# twit = twitter.Api(consumer_key="DOB7Rr5SHg48rK8VBSTGnLoRe",
+#                    consumer_secret="T7rvjDvtx6QTDIerftG8fqACxhGv3BmCCHFIJRuwzbBGY4WZYs",
+#                    access_token_key="778583630184611840-Rb2vsoSn0VHxWr9TuDECr6eUsPxgrLP",
+#                    access_token_secret="GYQHdi6fCFb5RaeNme2RjHf2pMblj17gCWYy7cAqEOEIY")
 
 alotfiles = "D:\\Users\\Charles Turvey\\Pictures\\Art\\Alots\\"
 
