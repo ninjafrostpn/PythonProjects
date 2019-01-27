@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Bring up to date (much nothing)">
-      <change afterPath="$PROJECT_DIR$/OptimalHunter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wah/Wah2.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make Wah version of 3blue1brown simulator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArmLocator/Forearm.py" beforeDir="false" afterPath="$PROJECT_DIR$/ArmLocator/Forearm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wah/Wah2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wah/Wah2.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wah/Wah2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="169" column="66" selection-start-line="169" selection-start-column="66" selection-end-line="169" selection-end-column="66" />
+            <state relative-caret-position="277">
+              <caret line="222" column="33" lean-forward="true" selection-start-line="222" selection-start-column="33" selection-end-line="222" selection-end-column="33" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -175,9 +173,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -475,27 +473,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Add an enshadow function">
-      <created>1525729012628</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1525729012629</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Move goal zone, update and apply shadow to goal, add win condition">
-      <created>1525744530861</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1525744530862</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Make arena look nice and clean up enshadow function">
-      <created>1525747870652</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1525747870652</updated>
     </task>
     <task id="LOCAL-00077" summary="Speed up game by moving the enshadowing into a class">
       <created>1525803636741</created>
@@ -819,7 +796,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547763746148</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="Try to make a forearm detector">
+      <created>1548489079066</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1548489079066</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Try to simulate optimal hunting strategies (unfinished)">
+      <created>1548489117062</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1548489117062</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Make Wah version of 3blue1brown simulator">
+      <created>1548489138392</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1548489138392</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -844,14 +842,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.34902596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4880763" visible="true" weight="0.28774422" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4880763" weight="0.28774422" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39253998" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -877,9 +874,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add a Driver class" />
-    <MESSAGE value="Add a Follower class which tries to stay near a Driver" />
-    <MESSAGE value="Make Follower class work properly with 0s" />
     <MESSAGE value="Add tracks, which have multiple segments, and make Drivers follow them" />
     <MESSAGE value="Make an example mechanism" />
     <MESSAGE value="Remove error with segment-change upper-bound." />
@@ -902,7 +896,10 @@
     <MESSAGE value="Make Armlocator for Unity ROV controls" />
     <MESSAGE value="Complete initial version of Competitive Neural Network" />
     <MESSAGE value="Bring up to date (much nothing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bring up to date (much nothing)" />
+    <MESSAGE value="Try to make a forearm detector" />
+    <MESSAGE value="Try to simulate optimal hunting strategies (unfinished)" />
+    <MESSAGE value="Make Wah version of 3blue1brown simulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make Wah version of 3blue1brown simulator" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BioSpecSort.py">
@@ -1253,8 +1250,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wah/Wah2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="169" column="66" selection-start-line="169" selection-start-column="66" selection-end-line="169" selection-end-column="66" />
+        <state relative-caret-position="277">
+          <caret line="222" column="33" lean-forward="true" selection-start-line="222" selection-start-column="33" selection-end-line="222" selection-end-column="33" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
