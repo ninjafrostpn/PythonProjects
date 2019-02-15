@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Leave final version of 3blue1brown Wah physics and start one with friction">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/charl.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/KnitTracker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OptimalHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/OptimalHunter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OptimalHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/OptimalForaging/OptimalHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wah/Wah3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wah/Wah3.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
@@ -25,29 +25,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Wah/Wah3.py">
+        <entry file="file://$PROJECT_DIR$/Wah/Wah2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="192" column="23" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="23" />
+            <state relative-caret-position="255">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="14" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#530#1303#0" />
-                <element signature="e#1339#2060#0" />
-                <element signature="e#2088#3050#0" />
-                <element signature="e#3126#4038#0" />
-                <element signature="e#2806#3060#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OptimalHunter.py">
+        <entry file="file://$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="85">
+              <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#29#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,9 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isf</find>
-      <find>{}</find>
-      <find>excep</find>
       <find>10</find>
       <find>200</find>
       <find>20</find>
@@ -94,6 +86,9 @@
       <find>= 10</find>
       <find>ora</find>
       <find>10000</find>
+      <find>Wah</find>
+      <find>RED</find>
+      <find>_RED</find>
     </findStrings>
     <replaceStrings>
       <replace>rand</replace>
@@ -138,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Snookered.py" />
         <option value="$PROJECT_DIR$/OpenCV-receiver.py" />
         <option value="$PROJECT_DIR$/Neural-Nets/Dancer.py" />
         <option value="$PROJECT_DIR$/Disintegratinator.py" />
@@ -189,10 +183,11 @@
         <option value="$PROJECT_DIR$/KnitTracker.py" />
         <option value="$PROJECT_DIR$/Wah/Wah3.py" />
         <option value="$PROJECT_DIR$/OptimalHunter.py" />
+        <option value="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -210,6 +205,11 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="OptimalForaging" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
@@ -247,18 +247,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Crabs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -273,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OptimalHunter">
+  <component name="RunManager" selected="Python.OptimalWAHunter">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -292,27 +292,6 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
-    </configuration>
-    <configuration name="Flock" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Flock.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="KnitTracker" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -347,7 +326,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OptimalHunter.py" />
+      <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging\OptimalHunter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="OptimalWAHunter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -465,18 +465,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Wah3" />
-      <item itemvalue="Python.Flock" />
       <item itemvalue="Python.SoSalty" />
       <item itemvalue="Python.KnitTracker" />
       <item itemvalue="Python.OptimalHunter" />
+      <item itemvalue="Python.OptimalWAHunter" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.OptimalWAHunter" />
         <item itemvalue="Python.OptimalHunter" />
         <item itemvalue="Python.Wah3" />
         <item itemvalue="Python.KnitTracker" />
         <item itemvalue="Python.SoSalty" />
-        <item itemvalue="Python.Flock" />
       </list>
     </recent_temporary>
   </component>
@@ -493,13 +493,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Make shadow class more usable">
-      <created>1525804516538</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1525804516538</updated>
     </task>
     <task id="LOCAL-00079" summary="Add hungry birb">
       <created>1525885384338</created>
@@ -837,7 +830,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548551596941</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Just a small thing. Build a model for optimal foraging.">
+      <created>1550188273061</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1550188273062</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -861,7 +861,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.34896663" />
@@ -869,7 +869,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3250444" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.29129663" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2954955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39253998" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -895,7 +895,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make an example mechanism" />
     <MESSAGE value="Remove error with segment-change upper-bound." />
     <MESSAGE value="Make it possible to followers to run on complete Tracks" />
     <MESSAGE value="Restructure code slightly so that Tracks draw their segments and Followers' segis change from -1" />
@@ -920,16 +919,10 @@
     <MESSAGE value="Try to simulate optimal hunting strategies (unfinished)" />
     <MESSAGE value="Make Wah version of 3blue1brown simulator" />
     <MESSAGE value="Leave final version of 3blue1brown Wah physics and start one with friction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leave final version of 3blue1brown Wah physics and start one with friction" />
+    <MESSAGE value="Just a small thing. Build a model for optimal foraging." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just a small thing. Build a model for optimal foraging." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Neural-Nets/Dancer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SL4A/GPSReader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1231,16 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wah/Wah2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="54" column="26" lean-forward="true" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KnitTracker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1258,10 +1241,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OptimalForaging/OptimalHunter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Wah/Wah3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="192" column="23" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="23" />
+        <state>
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#530#1303#0" />
@@ -1273,19 +1272,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/fromnumeric.py">
+    <entry file="file://$PROJECT_DIR$/Wah/Wah2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="255">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="14" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OptimalHunter.py">
+    <entry file="file://$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="85">
+          <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#29#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
