@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 import numpy as np
-from time import sleep
 
 pygame.init()
 
@@ -236,9 +235,3 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keys.discard(e.key)
-    #sleep(0.005)
-"""
-And so ends the day
-But my love for you will not
-(End, that is, of course <3 )
-"""

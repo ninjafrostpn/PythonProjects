@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Fix">
       <change afterPath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Problem 10985.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OptimalForaging/OptimalHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py" afterDir="false" />
@@ -36,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="19" selection-end-column="26" />
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -48,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="748">
+              <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -501,13 +500,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00081" summary="Optimise speed somewhat and correct terminal bird capture">
-      <created>1525943241782</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1525943241782</updated>
-    </task>
     <task id="LOCAL-00082" summary="Make a chessboard replacer">
       <created>1526073989743</created>
       <option name="number" value="00082" />
@@ -844,7 +836,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550416905002</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue">
+      <created>1550749233233</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1550749233235</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -902,7 +901,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Restructure code slightly so that Tracks draw their segments and Followers' segis change from -1" />
     <MESSAGE value="Enable MultiTrack Drifting Trains!" />
     <MESSAGE value="Add sketchy __add__ and __sub__ methods for Tracks" />
     <MESSAGE value="Lay out ideas for how to implement Trackchanger (like traintrack points)" />
@@ -927,7 +925,8 @@
     <MESSAGE value="Just a small thing. Build a model for optimal foraging." />
     <MESSAGE value="Add Wah to Optimal Foraging" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Tools/shiptrack000toKML.py">
@@ -1287,20 +1286,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="748">
+          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
