@@ -120,7 +120,6 @@ class Simulation:
                             i = np.argmin(dists)
                             self.field_prey_pos = np.delete(self.field_prey_pos, i, 0)
                             self.field_prey_vel = np.delete(self.field_prey_vel, i, 0)
-                            y = self.imagesize[1] * (1 - (self.field_prey_eaten / self.field_prey_init_no))
                             self.field_pred_eating = 50
                 else:
                     self.field_pred_eating -= 1
