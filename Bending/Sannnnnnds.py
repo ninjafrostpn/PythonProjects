@@ -1,10 +1,12 @@
+# For making images appear out of the sands
+
 import pygame
 from pygame.locals import *
 from random import randint, shuffle
 from math import sin
 
 pygame.init()
-screen = pygame.Surface((500, 100))                                                  # The actual screen for playing
+screen = pygame.Surface((120, 250))                                                  # The actual screen for playing
 window = pygame.display.set_mode((screen.get_width() * 2, screen.get_height() * 2))  # The scaled-up screen for viewing
 
 
@@ -17,16 +19,10 @@ def constrain(val, lo, hi):
     else:
         return val
 
+
 # A filled-in block
 blank = pygame.Surface((20, 20))
 blank.set_colorkey((255, 255, 255))
-
-# The SR Logo
-#logopath = "C:\\Users\\Charles Turvey\\PycharmProjects\\Stuff\\Simulator\\fakerobotapi\\Resources\\LogoSmall.png"
-#srlogo = pygame.image.load_extended(logopath)
-#srlogo = pygame.transform.scale(srlogo, (20, 20))
-#srlogo.set_colorkey((0, 0, 0))
-#srlogo.convert()
 
 # A large fist in a number of orientations
 FIST = pygame.image.load_extended("D:\\Users\\Charles Turvey\\Documents\\Python\\FIST.png")
@@ -42,6 +38,11 @@ leftDRAGON = pygame.transform.scale(leftDRAGON, (40*int(leftDRAGON.get_width()/l
 leftDRAGON.set_colorkey((255, 255, 255))
 leftDRAGON.convert()
 rightDRAGON = pygame.transform.flip(leftDRAGON, True, False)
+
+# SANS
+SANS = pygame.image.load_extended(r"D:\Users\Charles Turvey\Pictures\Art\Wah\WahFaceSans.png")
+SANS.set_colorkey((0, 0, 0))
+SANS.convert()
 
 # A list of all the grains
 pieces = []
@@ -290,11 +291,11 @@ class Player:
         chunk(blank, self.x, self.y - 20, self.x + 10, self.y - 30)
         chunk(blank, self.x - 20, self.y - 20, self.x - 40, self.y - 30)
 
-    def dragon(self, x, y):
+    def dragon(self, x, y, focin):
         if x < 0:
-            generate(leftDRAGON, self.x - int(leftDRAGON.get_width()/2) + x, self.y + y)
+            generate(leftDRAGON, self.x - int(leftDRAGON.get_width()/2) + x, self.y + y, focin)
         else:
-            generate(rightDRAGON, self.x - int(rightDRAGON.get_width()/2) + x, self.y + y)
+            generate(rightDRAGON, self.x - int(rightDRAGON.get_width()/2) + x, self.y + y, focin)
 
     def undertow(self, x):
         chunk(blank, self.x + x - 10, self.y + 1, self.x - 10, self.y + 1, 50)
@@ -336,18 +337,15 @@ def chunk(structure, origx, origy, targx, targy, focin=100):
                             grid[origx + i][origy + j].focus = 0
 
 
-groundx = int(screen.get_width())
-groundy = int(screen.get_height()/3)
+groundx = screen.get_width()
+groundy = 149
 for i in range(groundx):
-    for j in range(2 * groundy - int((groundy/2) * sin(i/30) * sin(i/60)), 3 * groundy):
-        Piece(i, j, (0, 100, randint(0, 255)))
-#for i in range(100, 120):
-#    for j in range(0, 50):
-#        Piece(i, j, (255, 255, 0))
+    for j in range(groundy, screen.get_height()):
+        r = randint(100, 255)
+        Piece(i, j, (r, r, 0))
 
-P1 = Player("K", 400, 10, (0, 255, 0))
+P1 = Player("K", 50, 130, (0, 255, 0))
 P1go = 0
-P2 = Player("G", 498, 10, (200, 0, 0))
 
 w = False
 a = False
@@ -362,9 +360,6 @@ while True:
     for p in R:
         pieces[p].show()
     P1.side(P1go)
-    if abs(P1.x - P2.x) > 10:
-        P2.side(P1.x - P2.x)
-        P2.jump()
     for P in players.values():
         P.show()
     window.blit(pygame.transform.scale2x(screen, window), (0, 0))
@@ -374,12 +369,20 @@ while True:
             exit()
         elif e.type == KEYDOWN:
             u = e.unicode
+            if e.key == K_ESCAPE:
+                exit()
             if e.key == K_UP:
                 P1.jump()
             elif e.key == K_LEFT:
                 P1go -= 1
             elif e.key == K_RIGHT:
                 P1go += 1
+            elif e.key == K_u:
+                P1.generate(SANS, -59, -151, 300)
+            elif e.key == K_y:
+                P1.dragon(0, -30, 100)
+            elif e.key == K_t:
+                P1.fist(0, -30)
             elif u == "w":
                 w = True
                 if a:

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Fix">
-      <change afterPath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry">
+      <change afterPath="$PROJECT_DIR$/Bending/Sannnnnnds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OptimalForaging/OptimalHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bending/Bending.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+            <state relative-caret-position="-1434">
+              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -50,11 +49,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="71">
+              <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bending/Bending.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="300" lean-forward="true" selection-start-line="300" selection-end-line="300" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bending/Sannnnnnds.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="383" column="30" lean-forward="true" selection-start-line="383" selection-start-column="30" selection-end-line="383" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -93,13 +110,13 @@
       <find>print</find>
       <find>_time</find>
       <find>record</find>
-      <find>500</find>
       <find>= 10</find>
       <find>ora</find>
       <find>10000</find>
       <find>Wah</find>
       <find>RED</find>
       <find>_RED</find>
+      <find>500</find>
     </findStrings>
     <replaceStrings>
       <replace>rand</replace>
@@ -144,9 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ScreenGrabber.py" />
-        <option value="$PROJECT_DIR$/Glitcheroony.py" />
-        <option value="$PROJECT_DIR$/Particles.py" />
         <option value="$PROJECT_DIR$/Glitcheroony/Glitch.bat" />
         <option value="$PROJECT_DIR$/ascii-art.py" />
         <option value="$PROJECT_DIR$/ascii-art/ascii-art.py" />
@@ -194,11 +208,14 @@
         <option value="$PROJECT_DIR$/OptimalForaging/OptimalHunter.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/BatesianMimicry.py" />
         <option value="$PROJECT_DIR$/Problem 10985.py" />
+        <option value="$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" />
+        <option value="$PROJECT_DIR$/Bending/Bending.py" />
+        <option value="$PROJECT_DIR$/Bending/Sannnnnnds.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -220,7 +237,7 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="BehaviouralEcology" type="462c0819:PsiDirectoryNode" />
+              <item name="Bending" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
@@ -252,19 +269,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\ascii-art" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\TBRPG" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Glitcheroony" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -279,7 +296,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OptimalHunter (2)">
+  <component name="RunManager" selected="Python.Sannnnnnds">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -299,6 +316,27 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration name="Bending" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Mimicry" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -312,27 +350,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="OptimalHunter (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OptimalForaging/OptimalHunter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -362,27 +379,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="OptimalWAHunter" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OptimalForaging/OptimalWAHunter.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Problem 10985" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -396,6 +392,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Problem 10985.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sannnnnnds" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Sannnnnnds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -470,19 +487,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.OptimalWAHunter" />
-      <item itemvalue="Python.OptimalHunter (1)" />
       <item itemvalue="Python.Mimicry" />
       <item itemvalue="Python.Problem 10985" />
       <item itemvalue="Python.OptimalHunter (2)" />
+      <item itemvalue="Python.Bending" />
+      <item itemvalue="Python.Sannnnnnds" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.OptimalHunter (2)" />
+        <item itemvalue="Python.Sannnnnnds" />
+        <item itemvalue="Python.Bending" />
         <item itemvalue="Python.Mimicry" />
+        <item itemvalue="Python.OptimalHunter (2)" />
         <item itemvalue="Python.Problem 10985" />
-        <item itemvalue="Python.OptimalHunter (1)" />
-        <item itemvalue="Python.OptimalWAHunter" />
       </list>
     </recent_temporary>
   </component>
@@ -499,20 +516,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Make a chessboard replacer">
-      <created>1526073989743</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1526073989744</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Make a disintegrationator">
-      <created>1526214992638</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1526214992639</updated>
     </task>
     <task id="LOCAL-00084" summary="Make a keypress simulator">
       <created>1526751298256</created>
@@ -843,7 +846,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550749233235</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry">
+      <created>1550749285911</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1550749285911</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Add prey and restructure update/draw order">
+      <created>1550861018475</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1550861018475</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -867,15 +884,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.5016234" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.50974023" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3250444" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.29129663" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2954955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39253998" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -901,8 +918,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Enable MultiTrack Drifting Trains!" />
-    <MESSAGE value="Add sketchy __add__ and __sub__ methods for Tracks" />
     <MESSAGE value="Lay out ideas for how to implement Trackchanger (like traintrack points)" />
     <MESSAGE value="Make crabs appear scared of being eaten. I am a cruel human." />
     <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
@@ -926,23 +941,11 @@
     <MESSAGE value="Add Wah to Optimal Foraging" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
+    <MESSAGE value="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry" />
+    <MESSAGE value="Add prey and restructure update/draw order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add prey and restructure update/draw order" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tools/shiptrack000toKML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Leap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-427">
@@ -1120,13 +1123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bending/Bending.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FunnyWriterResults">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1286,23 +1282,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        <state relative-caret-position="-1434">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
+    <entry file="file://$PROJECT_DIR$/Bending/Bending(old interface).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        <state>
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bending/Bending.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="300" lean-forward="true" selection-start-line="300" selection-end-line="300" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bending/Sannnnnnds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="383" column="30" lean-forward="true" selection-start-line="383" selection-start-column="30" selection-end-line="383" selection-end-column="30" />
         </state>
       </provider>
     </entry>
