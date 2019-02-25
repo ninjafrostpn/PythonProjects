@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a meme version of Bending">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make it so that Predators selectively choose or take Prey">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" afterDir="false" />
     </list>
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="90" column="64" lean-forward="true" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
+            <state relative-caret-position="125">
+              <caret line="90" column="77" lean-forward="true" selection-start-line="90" selection-start-column="77" selection-end-line="90" selection-end-column="77" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -68,8 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clip</find>
-      <find>corre</find>
       <find>50</find>
       <find>ground</find>
       <find>shadow</find>
@@ -97,7 +95,9 @@
       <find>run</find>
       <find>[nan</find>
       <find>nan</find>
+      <find>big</find>
       <find>print</find>
+      <find>-0</find>
     </findStrings>
     <replaceStrings>
       <replace>rand</replace>
@@ -196,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -497,13 +497,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Make a screen messer-upper">
-      <created>1526760333040</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1526760333041</updated>
     </task>
     <task id="LOCAL-00086" summary="Make Glitcheroony usable as a &quot;Screensaver&quot;">
       <created>1526783478859</created>
@@ -841,7 +834,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550867529823</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Make it so that Predators selectively choose or take Prey">
+      <created>1551053150568</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1551053150570</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -865,14 +865,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="0" width="653" height="687" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.50953895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3250444" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.29129663" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2954955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39253998" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -898,7 +899,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make crabs appear scared of being eaten. I am a cruel human." />
     <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
     <MESSAGE value="Fix face detection in Glitch and make GPX to KML converter" />
     <MESSAGE value="Make a so salty meme generator" />
@@ -923,16 +923,10 @@
     <MESSAGE value="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry" />
     <MESSAGE value="Add prey and restructure update/draw order" />
     <MESSAGE value="Make a meme version of Bending" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a meme version of Bending" />
+    <MESSAGE value="Make it so that Predators selectively choose or take Prey" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make it so that Predators selectively choose or take Prey" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Leap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-427">
-          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crabs/Crabs.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1235,16 +1229,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="e#29#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1295,10 +1279,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="4527" selection-start-line="4527" selection-end-line="4527" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="e#29#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="90" column="64" lean-forward="true" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
+        <state relative-caret-position="125">
+          <caret line="90" column="77" lean-forward="true" selection-start-line="90" selection-start-column="77" selection-end-line="90" selection-end-column="77" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

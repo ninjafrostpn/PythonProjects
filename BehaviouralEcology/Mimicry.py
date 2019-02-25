@@ -28,36 +28,44 @@ def drawspinner(pos, rad, ang):
         pygame.draw.line(screen, COL_MAGENTA, pos - i, pos + i, 5)
 
 
-class Prey:
-    def __init__(self, pos, vel, edible, col):
-        self.pos = np.float32(pos)
-        self.vel = np.float32(vel)
-        self.edible = edible
-        self.col = col
+class AllPrey:
+    def __init__(self):
+        self.pos = None
+        self.vel = None
+        self.edible = None
+        self.col = None
 
     def update(self):
-        chased = False
         for P in predators:
-            diffvec = np.float32(self.pos - P.pos)
-            diff = np.linalg.norm(diffvec)
-            if 0 < diff < 40:
-                self.vel += diffvec / (diff * 5)
-                chased = True
-        if not chased:
-            self.vel += np.random.randint(-1, 2, 2) / 10
+            diffvec = self.pos - P.pos
+            diff = np.linalg.norm(diffvec, axis=1)
+            detectmask = (0 < diff) & (diff < 40)
+            if np.any(detectmask):
+                self.vel[detectmask] += (diffvec[detectmask].T / (diff[detectmask] * 5)).T
+        self.vel += np.random.randint(-1, 2, self.vel.shape) / 10
         self.pos += self.vel
-        if self.pos[0] < 0 or self.pos[0] >= w:
-            self.pos[0] = np.minimum(np.maximum(self.pos[0], 0), w)
-            self.vel[0] *= -1
-        if self.pos[1] < 0 or self.pos[1] >= h:
-            self.pos[1] = np.minimum(np.maximum(self.pos[1], 0), h)
-            self.vel[1] *= -1
+        outsidemask = (self.pos < 0) | (self.pos > screensize)
+        self.vel[outsidemask] *= -1
+        self.pos = np.minimum(np.maximum(self.pos, 0), screensize)
         self.vel *= 0.9
 
     def show(self):
-        pygame.draw.circle(screen, self.col, np.int32(self.pos), 5)
-        if not self.edible:
-            pygame.draw.circle(screen, 0, np.int32(self.pos), 2)
+        for i in range(len(self.pos)):
+            pygame.draw.circle(screen, self.col[i], np.int32(self.pos[i]), 5)
+            if not self.edible[i]:
+                pygame.draw.circle(screen, 0, np.int32(self.pos[i]), 2)
+
+    def addprey(self, pos, vel, edible, col):
+        if self.pos is None:
+            self.pos = np.float32([pos])
+            self.vel = np.float32([vel])
+            self.edible = np.bool([edible])
+            self.col = np.float32([col])
+        else:
+            self.pos = np.append(self.pos, [pos], axis=0)
+            self.vel = np.append(self.vel, [vel], axis=0)
+            self.edible = np.append(self.edible, edible)
+            self.col = np.append(self.col, [col], axis=0)
 
 
 class Predator:
@@ -65,47 +73,43 @@ class Predator:
         self.pos = np.float32(pos)
         self.vel = np.float32(vel)
         self.randacc = np.float32([0, 0])
-        self.badmemories = []
-        self.goodmemories = []
+        self.memories = dict()
         self.timer = -10
 
-    def update(self):
-        chasing = False
-        eaten = False
-        for P in prey:
-            diffvec = np.float32(self.pos - P.pos)
-            diff = np.linalg.norm(diffvec)
-            if len(self.goodmemories) == 0:
-                pros = 0
-            else:
-                pros = sum(np.max(np.abs(np.int32(self.goodmemories) - P.col), axis=1) < 50)
-            if len(self.badmemories) == 0:
-                cons = 0
-            else:
-                cons = sum(np.max(np.abs(np.int32(self.badmemories) - P.col), axis=1) < 50)
-            bias = pros - cons + 2
-            if 0 < diff < 100:
-                # print(P.col, bias, pros, cons)
-                self.vel -= (diffvec / (diff ** 2)) * (min(max(bias, -2), 2) / 2)
-                chasing = True
-            if np.random.random() > 0.5 - (min(max(bias, -4), 4) / 10) and not eaten:
-                if diff < 15:
-                    if P.edible:
-                        self.goodmemories.append(P.col)
-                    else:
-                        self.badmemories.append(P.col)
-                    prey.remove(P)
-                    eaten = True
+    def update(self, preylist):
+        diffvec = np.float32(self.pos - preylist.pos)
+        diff = np.linalg.norm(diffvec, axis=1)
+        detectmask = (0 < diff) | (diff < 100)
+        bias = np.ones(preylist.pos[detectmask].shape[0], "float32") * 2
+        for knowncol in list(self.memories.keys()):
+            bias += (np.max(np.abs(knowncol - preylist.col[detectmask]), axis=1) < 50) * self.memories[knowncol]
+        self.vel -= np.sum(((diffvec.T / (diff ** 2)) * (np.minimum(np.maximum(bias, -2), 2) / 2)).T, axis=0)
+        reachmask = diff < 15
+        eatchance = 0.5 - (np.minimum(np.maximum(bias[reachmask], -4), 4) / 10)
+        eatmask = np.random.random_sample(len(eatchance)) > eatchance
+        if np.any(eatmask):
+            #print(np.argwhere(reachmask)[np.argwhere(eatmask).flatten(), 0])
+            i = np.argwhere(reachmask)[np.random.choice(np.argwhere(eatmask).flatten()), 0]
+            thiscol = tuple(np.int32(preylist.col[i]))
+            try:
+                self.memories[thiscol] += [-1, 1][int(preylist.edible[i])]
+            except KeyError:
+                self.memories[thiscol] = [-1, 1][int(preylist.edible[i])]
+            preylist.pos = np.delete(preylist.pos, i, axis=0)
+            preylist.vel = np.delete(preylist.vel, i, axis=0)
+            preylist.edible = np.delete(preylist.edible, i)
+            preylist.col = np.delete(preylist.col, i, axis=0)
+
         self.randacc += np.random.randint(-1, 2, 2)
         self.randacc = np.minimum(np.maximum(self.randacc, -1), 1)
         self.vel += self.randacc / 10
         self.pos += self.vel
         if self.pos[0] < 0 or self.pos[0] >= w:
             self.pos[0] = np.minimum(np.maximum(self.pos[0], 0), w)
-            self.vel[0] *= -0.5
+            self.vel[0] *= -1
         if self.pos[1] < 0 or self.pos[1] >= h:
             self.pos[1] = np.minimum(np.maximum(self.pos[1], 0), h)
-            self.vel[1] *= -0.5
+            self.vel[1] *= -1
         self.vel *= 0.995
         if self.timer > 0:
             self.timer -= 1
@@ -123,17 +127,22 @@ class Predator:
             pygame.draw.circle(screen, COL_RED, np.int32(self.pos), max(11 + self.timer, 1))
 
 
-prey = [Prey(np.random.random_sample(2) * screensize, (0, 0), True, COL_RED) for i in range(20)]
-prey += [Prey(np.random.random_sample(2) * screensize, (0, 0), False, COL_GREEN) for i in range(20)]
-prey += [Prey(np.random.random_sample(2) * screensize, (0, 0), True, COL_GREEN) for i in range(10)]
+allprey = AllPrey()
+for i in range(20):
+    allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), True, COL_RED)
+    allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), False, COL_GREEN)
+for i in range(10):
+    allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), True, COL_GREEN)
 predators = [Predator(np.random.randint(0, w, 2), (0, 0))]
 
 cycles = 0
 while True:
     screen.fill(0)
-    for Q in prey + predators:
-        Q.update()
+    for Q in predators:
+        Q.update(allprey)
         Q.show()
+    allprey.update()
+    allprey.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
@@ -147,6 +156,7 @@ while True:
     cycles += 1
     if cycles % 2500 == 0:
         predators.append(Predator(np.random.randint(0, w, 2), (0, 1)))
-        for i in range(0, len(prey), 2):
-            P = prey[i]
-            prey.append(Prey(P.pos.copy(), -P.vel.copy() + np.random.randint(-5, 5, 2), P.edible, P.col))
+        allprey.pos = np.append(allprey.pos, allprey.pos[::2], axis=0)
+        allprey.vel = np.append(allprey.vel, 2 * np.random.random_sample(allprey.vel[::2].shape), axis=0)
+        allprey.edible = np.append(allprey.edible, allprey.edible[::2])
+        allprey.col = np.append(allprey.col, allprey.col[::2], axis=0)
