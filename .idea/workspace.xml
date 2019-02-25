@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry">
-      <change afterPath="$PROJECT_DIR$/Bending/Sannnnnnds.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a meme version of Bending">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bending/Bending.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
               <folding>
                 <element signature="e#29#42#0" expanded="true" />
               </folding>
@@ -38,40 +37,22 @@
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1434">
-              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bending/Bending.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="300" lean-forward="true" selection-start-line="300" selection-end-line="300" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Bending/Sannnnnnds.py">
+        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="383" column="30" lean-forward="true" selection-start-line="383" selection-start-column="30" selection-end-line="383" selection-end-column="30" />
+            <state relative-caret-position="-142">
+              <caret line="90" column="64" lean-forward="true" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,9 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>10</find>
-      <find>200</find>
-      <find>20</find>
       <find>clip</find>
       <find>corre</find>
       <find>50</find>
@@ -107,7 +85,6 @@
       <find>100</find>
       <find>circle</find>
       <find>bam</find>
-      <find>print</find>
       <find>_time</find>
       <find>record</find>
       <find>= 10</find>
@@ -117,6 +94,10 @@
       <find>RED</find>
       <find>_RED</find>
       <find>500</find>
+      <find>run</find>
+      <find>[nan</find>
+      <find>nan</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>rand</replace>
@@ -209,13 +190,13 @@
         <option value="$PROJECT_DIR$/BehaviouralEcology/BatesianMimicry.py" />
         <option value="$PROJECT_DIR$/Problem 10985.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py" />
-        <option value="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" />
         <option value="$PROJECT_DIR$/Bending/Bending.py" />
         <option value="$PROJECT_DIR$/Bending/Sannnnnnds.py" />
+        <option value="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -261,7 +242,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HenryPathfinding" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HenryPathFindingVisFork/Eurobot-2019" />
     <property name="options.lastSelected" value="configurable.group.build" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -296,7 +277,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Sannnnnnds">
+  <component name="RunManager" selected="Python.Mimicry">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -495,9 +476,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Mimicry" />
         <item itemvalue="Python.Sannnnnnds" />
         <item itemvalue="Python.Bending" />
-        <item itemvalue="Python.Mimicry" />
         <item itemvalue="Python.OptimalHunter (2)" />
         <item itemvalue="Python.Problem 10985" />
       </list>
@@ -516,13 +497,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Make a keypress simulator">
-      <created>1526751298256</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1526751298257</updated>
     </task>
     <task id="LOCAL-00085" summary="Make a screen messer-upper">
       <created>1526760333040</created>
@@ -860,7 +834,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550861018475</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Make a meme version of Bending">
+      <created>1550867529823</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1550867529823</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -884,15 +865,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="653" height="687" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.50974023" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.50953895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3250444" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2954955" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.29129663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39253998" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -918,7 +898,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Lay out ideas for how to implement Trackchanger (like traintrack points)" />
     <MESSAGE value="Make crabs appear scared of being eaten. I am a cruel human." />
     <MESSAGE value="Add attempt at face detection and then add this to creepy eyes in Glitch" />
     <MESSAGE value="Fix face detection in Glitch and make GPX to KML converter" />
@@ -943,7 +922,8 @@
     <MESSAGE value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
     <MESSAGE value="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry" />
     <MESSAGE value="Add prey and restructure update/draw order" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add prey and restructure update/draw order" />
+    <MESSAGE value="Make a meme version of Bending" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make a meme version of Bending" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Leap.py">
@@ -1258,7 +1238,7 @@
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalWAHunter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
           <folding>
             <element signature="e#29#42#0" expanded="true" />
           </folding>
@@ -1285,7 +1265,7 @@
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/OptimalHunter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1434">
-          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -1301,13 +1281,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
+    <entry file="file://$PROJECT_DIR$/Bending/Sannnnnnds.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="186">
+          <caret line="383" column="30" lean-forward="true" selection-start-line="383" selection-start-column="30" selection-end-line="383" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1318,10 +1295,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bending/Sannnnnnds.py">
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="383" column="30" lean-forward="true" selection-start-line="383" selection-start-column="30" selection-end-line="383" selection-end-column="30" />
+        <state relative-caret-position="-142">
+          <caret line="90" column="64" lean-forward="true" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
