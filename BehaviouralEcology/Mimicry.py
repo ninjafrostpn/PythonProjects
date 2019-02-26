@@ -79,13 +79,13 @@ class Predator:
     def update(self, preylist):
         diffvec = np.float32(self.pos - preylist.pos)
         diff = np.linalg.norm(diffvec, axis=1)
-        detectmask = (0 < diff) | (diff < 100)
+        detectmask = (0 < diff) | (diff < 50)
         bias = np.ones(preylist.pos[detectmask].shape[0], "float32") * 2
         for knowncol in list(self.memories.keys()):
             bias += (np.max(np.abs(knowncol - preylist.col[detectmask]), axis=1) < 50) * self.memories[knowncol]
-        self.vel -= np.sum(((diffvec.T / (diff ** 2)) * (np.minimum(np.maximum(bias, -2), 2) / 2)).T, axis=0)
+        self.vel -= np.sum(((diffvec.T / (diff ** 2)) * (np.minimum(np.maximum(bias, -0), 2) / 2)).T, axis=0)
         reachmask = diff < 15
-        eatchance = 0.5 - (np.minimum(np.maximum(bias[reachmask], -4), 4) / 10)
+        eatchance = 0.5 - (np.minimum(np.maximum(bias[reachmask], -4.5), 4.5) / 10)
         eatmask = np.random.random_sample(len(eatchance)) > eatchance
         if np.any(eatmask):
             #print(np.argwhere(reachmask)[np.argwhere(eatmask).flatten(), 0])
@@ -106,10 +106,10 @@ class Predator:
         self.pos += self.vel
         if self.pos[0] < 0 or self.pos[0] >= w:
             self.pos[0] = np.minimum(np.maximum(self.pos[0], 0), w)
-            self.vel[0] *= -1
+            self.vel[0] *= -0.8
         if self.pos[1] < 0 or self.pos[1] >= h:
             self.pos[1] = np.minimum(np.maximum(self.pos[1], 0), h)
-            self.vel[1] *= -1
+            self.vel[1] *= -0.8
         self.vel *= 0.995
         if self.timer > 0:
             self.timer -= 1
@@ -118,7 +118,7 @@ class Predator:
         else:
             self.timer += 1
             if self.timer == 0:
-                self.timer = 7500
+                self.timer = 8000
 
     def show(self):
         if self.timer > 0:
@@ -127,11 +127,53 @@ class Predator:
             pygame.draw.circle(screen, COL_RED, np.int32(self.pos), max(11 + self.timer, 1))
 
 
+def breed(no, col=None, edible=None):
+    # Randomise order whilst preserving individuals
+    indices = np.int32([i for i in range(allprey.edible.shape[0])])
+    np.random.shuffle(indices)
+    allprey.pos = allprey.pos[indices]
+    allprey.vel = allprey.vel[indices]
+    allprey.edible = allprey.edible[indices]
+    allprey.col = allprey.col[indices]
+    # Select prey subpopulation according to colour or edibility
+    if col is not None:
+        colmask = (allprey.col == col)[:, 0].flatten()
+    else:
+        colmask = np.ones(allprey.edible.shape, "bool")
+    if edible is not None:
+        ediblemask = (allprey.edible == edible)
+    else:
+        ediblemask = np.ones(allprey.edible.shape, "bool")
+    breedmask = colmask | ediblemask
+    # Initialise arrays of new prey data
+    addpos = np.float32([[0, 0]])
+    addvel = np.float32([[0, 0]])
+    addedible = np.bool([False])
+    addcol = np.int32([[0, 0, 0]])
+    # Generate new prey to be spawned from old ones, no indicates the average number of babies per existing prey
+    while no >= 1:
+        addpos = np.append(addpos, allprey.pos[breedmask], axis=0)
+        addvel = np.append(addvel, 2 * np.random.random_sample(allprey.vel[breedmask].shape), axis=0)
+        addedible = np.append(addedible, allprey.edible[breedmask])
+        addcol = np.append(addcol, allprey.col[breedmask], axis=0)
+        no -= 1
+    if no > 0:
+        no = int(np.ceil(1 / no))
+        addpos = np.append(addpos, allprey.pos[breedmask][::no], axis=0)
+        addvel = np.append(addvel, 2 * np.random.random_sample(allprey.vel[breedmask][::no].shape), axis=0)
+        addedible = np.append(addedible, allprey.edible[breedmask][::no])
+        addcol = np.append(addcol, allprey.col[breedmask][::no], axis=0)
+    # Put new prey in with old ones
+    allprey.pos = np.append(allprey.pos[1:], addpos, axis=0)
+    allprey.vel = np.append(allprey.vel[1:], addvel, axis=0)
+    allprey.edible = np.append(allprey.edible[1:], addedible)
+    allprey.col = np.append(allprey.col[1:], addcol, axis=0)
+
+
 allprey = AllPrey()
 for i in range(20):
     allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), True, COL_RED)
     allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), False, COL_GREEN)
-for i in range(10):
     allprey.addprey(np.random.random_sample(2) * screensize, (0, 0), True, COL_GREEN)
 predators = [Predator(np.random.randint(0, w, 2), (0, 0))]
 
@@ -154,9 +196,6 @@ while True:
         elif e.type == KEYUP:
             keys.discard(e.key)
     cycles += 1
-    if cycles % 2500 == 0:
+    if cycles % 2000 == 0:
         predators.append(Predator(np.random.randint(0, w, 2), (0, 1)))
-        allprey.pos = np.append(allprey.pos, allprey.pos[::2], axis=0)
-        allprey.vel = np.append(allprey.vel, 2 * np.random.random_sample(allprey.vel[::2].shape), axis=0)
-        allprey.edible = np.append(allprey.edible, allprey.edible[::2])
-        allprey.col = np.append(allprey.col, allprey.col[::2], axis=0)
+        breed(0.5)
