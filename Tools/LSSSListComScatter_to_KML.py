@@ -78,7 +78,8 @@ def fromLCS(rawLCS):
             Epos = rawLCS.index(" E", Npos) + 1
             pts.append((str(int(rawLCS[Epos + 1: Epos + 4]) + (float(rawLCS[Epos + 5: Epos + 9]) / 60)),
                         str(int(rawLCS[Npos + 1: Npos + 3]) + (float(rawLCS[Npos + 4: Npos + 8]) / 60)),
-                        rawLCS[Npos: Epos + 9]))
+                        rawLCS[Npos - 17: Npos - 11],
+                        rawLCS[Npos: Epos + 9] + "\n" + rawLCS[Npos - 24: Npos - 19]))
         except:
             break
     return pts
@@ -92,7 +93,7 @@ def toKML(pts, name="", filename=None, col=(255, 165, 0), width=1, desc=""):
     filename.replace(".", "-")
     hexcol = "ff" + hex((((col[0] << 8) + col[1]) << 8) + col[1])[2:]
     ptstring = " ".join([",".join([str(float(i)) for i in pt[:2]]) for pt in pts])
-    pinstring = "".join([blankpin.format(",".join([str(c) for c in pt[:2]]), i, pt[2]) for i, pt in enumerate(pts)])
+    pinstring = "".join([blankpin.format(",".join([str(c) for c in pt[:2]]), pt[2], pt[3]) for i, pt in enumerate(pts)])
     return blankdocument.format(name, hexcol, width, desc, ptstring, filename, pinstring)
 
 
