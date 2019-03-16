@@ -198,4 +198,5 @@ while True:
     cycles += 1
     if cycles % 2000 == 0:
         predators.append(Predator(np.random.randint(0, w, 2), (0, 1)))
-        breed(0.5)
+        breed(0.75, edible=False)
+        breed(0.5, edible=True)
