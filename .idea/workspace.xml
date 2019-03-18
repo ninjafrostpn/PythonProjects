@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add selective breeding speed function">
-      <change afterPath="$PROJECT_DIR$/BehaviouralEcology/Shoal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Echosound/Echosound.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Echosound/EchosoundCV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ternary.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a shoal simulator">
+      <change afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Mimicry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Comb-Jelly-Time.py" beforeDir="false" afterPath="$PROJECT_DIR$/Comb-Jelly-Time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flock-2.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Flock-2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flock.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Flock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools/LSSSListComScatter_to_KML.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/LSSSListComScatter_to_KML.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,20 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ternary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="29" selection-start-column="29" selection-end-column="29" />
+            <state relative-caret-position="527">
+              <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -78,10 +59,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="43" column="79" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="79" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="89" column="65" lean-forward="true" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="21" column="33" lean-forward="true" selection-end-line="26" />
+            <state relative-caret-position="306">
+              <caret line="21" column="33" selection-end-line="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -111,8 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>red</find>
-      <find>dyn</find>
       <find>speed</find>
       <find>ellipserect</find>
       <find>geo</find>
@@ -133,14 +133,16 @@
       <find>500</find>
       <find>run</find>
       <find>[nan</find>
-      <find>nan</find>
       <find>big</find>
-      <find>print</find>
       <find>-0</find>
       <find>100</find>
       <find>sleep</find>
       <find>what do</find>
       <find>abs</find>
+      <find>warn</find>
+      <find>na</find>
+      <find>nan</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>rand</replace>
@@ -185,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py" />
         <option value="$PROJECT_DIR$/Tracker.py" />
         <option value="$PROJECT_DIR$/FaceDetector.py" />
         <option value="$PROJECT_DIR$/BioSpecSort.py" />
@@ -236,53 +237,21 @@
         <option value="$PROJECT_DIR$/Echosound/EchosoundCV2.py" />
         <option value="$PROJECT_DIR$/Ternary.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/Shoal.py" />
+        <option value="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="BehaviouralEcology" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="D:/message.html" />
@@ -290,15 +259,15 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
@@ -320,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Ternary">
+  <component name="RunManager" selected="Python.CouzinShoal">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -339,6 +308,27 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
+    </configuration>
+    <configuration name="CouzinShoal" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Echosound" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -374,27 +364,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Echosound/EchosoundCV2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LSSSListComScatter_to_KML" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/LSSSListComScatter_to_KML.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -512,18 +481,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Echosound" />
-      <item itemvalue="Python.LSSSListComScatter_to_KML" />
       <item itemvalue="Python.EchosoundCV2" />
       <item itemvalue="Python.Ternary" />
       <item itemvalue="Python.Shoal" />
+      <item itemvalue="Python.CouzinShoal" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CouzinShoal" />
         <item itemvalue="Python.Ternary" />
         <item itemvalue="Python.Shoal" />
         <item itemvalue="Python.EchosoundCV2" />
         <item itemvalue="Python.Echosound" />
-        <item itemvalue="Python.LSSSListComScatter_to_KML" />
       </list>
     </recent_temporary>
   </component>
@@ -540,27 +509,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00090" summary="Make it so it minimises the command prompt... and closes the window after the script is finished">
-      <created>1526919454916</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1526919454916</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Add another attempt at particle collisions">
-      <created>1527006219689</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1527006219690</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Start an attempt at an ascii-art generator">
-      <created>1527006237851</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1527006237851</updated>
     </task>
     <task id="LOCAL-00093" summary="Finish making an ASCII generator and get back to work">
       <created>1527018345341</created>
@@ -884,7 +832,28 @@
       <option name="project" value="LOCAL" />
       <updated>1552050635756</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Change names of pins to log entry start">
+      <created>1552778834640</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1552778834641</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Make a Ternary Plot maths demonstrator">
+      <created>1552778871383</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1552778871383</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Make a shoal simulator">
+      <created>1552778908283</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1552778908283</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -908,15 +877,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="632" y="0" width="654" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.6391097" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.637987" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3243243" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.28596804" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2679856" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.390991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -925,7 +894,7 @@
       <window_info anchor="bottom" id="Application Servers" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.7772512" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3268206" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.45192307" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.45045045" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5127186" side_tool="true" weight="0.29129663" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -942,9 +911,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a flocking simulator... sort of :)" />
-    <MESSAGE value="Make a simple vector field thing" />
-    <MESSAGE value="Make a rocket launcher ish" />
     <MESSAGE value="Make a synchronised jumping game" />
     <MESSAGE value="Make crab game worse but faster" />
     <MESSAGE value="Make Wah and ship track converter" />
@@ -967,23 +933,12 @@
     <MESSAGE value="Add selective breeding speed function" />
     <MESSAGE value="Create script to convert from LSSS' ListComScatter file to KML format" />
     <MESSAGE value="Add pin placer for points on trace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add pin placer for points on trace" />
+    <MESSAGE value="Change names of pins to log entry start" />
+    <MESSAGE value="Make a Ternary Plot maths demonstrator" />
+    <MESSAGE value="Make a shoal simulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make a shoal simulator" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Scraping/Flights.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parasites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Snek/Snek.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1312,6 +1267,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="1729" selection-start-line="1729" selection-end-line="1729" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Echosound/Echosound.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
@@ -1332,6 +1294,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ternary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="43" column="79" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="33" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ShadOwpenCV.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1341,40 +1333,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Basic Pygame File.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/linalg/linalg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="21" column="33" lean-forward="true" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="127">
+          <caret line="2389" selection-start-line="2389" selection-end-line="2389" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/numeric.py">
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="1729" selection-start-line="1729" selection-end-line="1729" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ternary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="107">
+          <caret line="89" column="65" lean-forward="true" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
         </state>
       </provider>
     </entry>
