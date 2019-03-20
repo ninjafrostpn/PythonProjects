@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a better shoal simulator, based on Couzin et al. (2002)">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Properly comment the Couzin-style shoal simulator">
+      <change afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" afterDir="false" />
     </list>
@@ -69,14 +70,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="108">
+              <caret line="77" column="117" lean-forward="true" selection-start-line="77" selection-start-column="117" selection-end-line="77" selection-end-column="117" />
               <folding>
                 <element signature="e#32#45#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -115,12 +125,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>speed</find>
-      <find>ellipserect</find>
-      <find>geo</find>
       <find>+00</find>
       <find>whac</find>
-      <find>2</find>
       <find>show</find>
       <find>circle</find>
       <find>bam</find>
@@ -144,6 +150,10 @@
       <find>warn</find>
       <find>na</find>
       <find>nan</find>
+      <find>2</find>
+      <find>theta</find>
+      <find>debu</find>
+      <find>Tru</find>
       <find>print</find>
     </findStrings>
     <replaceStrings>
@@ -189,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tracker.py" />
         <option value="$PROJECT_DIR$/FaceDetector.py" />
         <option value="$PROJECT_DIR$/BioSpecSort.py" />
         <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
@@ -240,13 +249,14 @@
         <option value="$PROJECT_DIR$/Ternary.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/Shoal.py" />
         <option value="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" />
+        <option value="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="949" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -297,17 +307,17 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Wah" />
     </key>
@@ -324,7 +334,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CouzinShoal">
+  <component name="RunManager" selected="Python.CouzinShoal3D">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -365,7 +375,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Echosound" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="CouzinShoal3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -377,7 +387,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound\Echosound.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -515,19 +525,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Echosound" />
       <item itemvalue="Python.EchosoundCV2" />
       <item itemvalue="Python.Ternary" />
       <item itemvalue="Python.Shoal" />
       <item itemvalue="Python.CouzinShoal" />
+      <item itemvalue="Python.CouzinShoal3D" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CouzinShoal3D" />
         <item itemvalue="Python.CouzinShoal" />
         <item itemvalue="Python.Ternary" />
         <item itemvalue="Python.Shoal" />
         <item itemvalue="Python.EchosoundCV2" />
-        <item itemvalue="Python.Echosound" />
       </list>
     </recent_temporary>
   </component>
@@ -544,13 +554,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00094" summary="Add an attempt at heatwave effects">
-      <created>1527161945143</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1527161945144</updated>
     </task>
     <task id="LOCAL-00095" summary="Start making a camouflage lizard">
       <created>1527172672955</created>
@@ -888,7 +891,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552932830047</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Properly comment the Couzin-style shoal simulator">
+      <created>1552935606316</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1552935606316</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -912,15 +922,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="632" y="0" width="654" height="688" extended-state="0" />
+    <frame x="633" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.636953" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.6363636" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3243243" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.2679856" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.26846847" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.390991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -946,7 +956,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make crab game worse but faster" />
     <MESSAGE value="Make Wah and ship track converter" />
     <MESSAGE value="Make Armlocator for Unity ROV controls" />
     <MESSAGE value="Complete initial version of Competitive Neural Network" />
@@ -971,16 +980,10 @@
     <MESSAGE value="Make a Ternary Plot maths demonstrator" />
     <MESSAGE value="Make a shoal simulator" />
     <MESSAGE value="Make a better shoal simulator, based on Couzin et al. (2002)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a better shoal simulator, based on Couzin et al. (2002)" />
+    <MESSAGE value="Properly comment the Couzin-style shoal simulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Properly comment the Couzin-style shoal simulator" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PunchBall/Punchball.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="421" column="21" selection-start-line="421" selection-start-column="21" selection-end-line="421" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Notes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1377,11 +1380,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+        <state relative-caret-position="108">
+          <caret line="77" column="117" lean-forward="true" selection-start-line="77" selection-start-column="117" selection-end-line="77" selection-end-column="117" />
           <folding>
             <element signature="e#32#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
         </state>
       </provider>
     </entry>
