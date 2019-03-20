@@ -14,7 +14,7 @@ screensize = np.int32((w, h))
 keys = set()  # For keypress detection
 
 # Set simulation parameters
-N = 100      # Number of fish
+N = 200      # Number of fish
 s = 1        # Speed of fish (px per time unit)
 T = 0.1      # Timestep (time units per cycle)
 alpha = 270  # Visual range of fish (degrees, centred on front of fish)
@@ -75,8 +75,9 @@ while True:
     # Generating unit direction vectors for repulsion
     d_r = np.zeros((N, 2))
     d_r[pairs[0][mask_zor]] -= r_ij_norm[mask_zor]
-    d_r[mask_toplft] += 1
-    d_r[mask_btmrgt] -= 1
+    # (These must be redone separately to mask_topleft etc, else the fish move on a certain diagonal away from walls)
+    d_r[c < r_r] += 1
+    d_r[c > w - r_r] -= 1
     d_r[pairs[0][mask_zor]] = (d_r[pairs[0][mask_zor]].T / np.linalg.norm(d_r[pairs[0][mask_zor]], axis=1)).T
     d_i += d_r
     # Generating unit direction vectors for orientation
@@ -93,7 +94,8 @@ while True:
     mask_zeroes = np.all(d_i == 0, axis=1)
     # Setting zero vectors to be the same direction the fish is currently going
     d_i[mask_zeroes] = v[mask_zeroes]
-    # Hey look, more normalisation. Takes care of fish i with fish in both their Zones of Orientation and Attraction
+    # Ensure normalisation of all of the intended direction vectors
+    # (Takes care of fish i with fish in both their Zones of Orientation and Attraction)
     d_i = (d_i.T / np.linalg.norm(d_i, axis=1)).T
 
     # The angle between each fish i's current and intended directions
@@ -108,8 +110,7 @@ while True:
     # Turns these fish
     v[~mask_close & ~mask_zeroes] = np.sin([ang_new + (np.pi/2), ang_new]).T
 
-    # Movement of all fish i in the direction of v at speed s over one timestep, T
-    c += v * s * T
+    c += v * s * T  # Movement of all fish i in the direction of v at speed s over one timestep, T
     c = np.minimum(np.maximum(c, 0), screensize)  # But stop them at the screen edge
 
     # Drawing things
