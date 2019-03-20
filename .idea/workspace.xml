@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Properly comment the Couzin-style shoal simulator">
-      <change afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Correct the wall repulsion in the 2D shoal simulator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+            <state relative-caret-position="247">
+              <caret line="179" column="47" lean-forward="true" selection-start-line="179" selection-start-column="47" selection-end-line="179" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -253,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="949" />
     <option name="width" value="980" />
     <option name="height" value="1031" />
@@ -554,20 +553,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Start making a camouflage lizard">
-      <created>1527172672955</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1527172672955</updated>
-    </task>
-    <task id="LOCAL-00096" summary="Add spoopy eyes to &quot;screensaver&quot;">
-      <created>1527197346741</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1527197346741</updated>
     </task>
     <task id="LOCAL-00097" summary="Start on line-followers by making a rough circle-line intersector">
       <created>1527363440873</created>
@@ -898,7 +883,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552935606316</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="Drag the shoal simulator into the 3rd dimension!">
+      <created>1553095697170</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1553095697170</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Correct the wall repulsion in the 2D shoal simulator">
+      <created>1553095733989</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1553095733990</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -922,7 +921,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="633" y="0" width="653" height="687" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.6363636" />
@@ -930,7 +929,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3243243" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.26846847" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.26465365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.390991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -956,8 +955,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make Wah and ship track converter" />
-    <MESSAGE value="Make Armlocator for Unity ROV controls" />
     <MESSAGE value="Complete initial version of Competitive Neural Network" />
     <MESSAGE value="Bring up to date (much nothing)" />
     <MESSAGE value="Try to make a forearm detector" />
@@ -981,7 +978,9 @@
     <MESSAGE value="Make a shoal simulator" />
     <MESSAGE value="Make a better shoal simulator, based on Couzin et al. (2002)" />
     <MESSAGE value="Properly comment the Couzin-style shoal simulator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Properly comment the Couzin-style shoal simulator" />
+    <MESSAGE value="Drag the shoal simulator into the 3rd dimension!" />
+    <MESSAGE value="Correct the wall repulsion in the 2D shoal simulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct the wall repulsion in the 2D shoal simulator" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Notes.py">
@@ -1390,8 +1389,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/CouzinShoal3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+        <state relative-caret-position="247">
+          <caret line="179" column="47" lean-forward="true" selection-start-line="179" selection-start-column="47" selection-end-line="179" selection-end-column="47" />
         </state>
       </provider>
     </entry>

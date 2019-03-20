@@ -8,13 +8,17 @@ debug = False  # If True, shows zones of detection and allows their alteration w
 
 # Interface initialisation
 pygame.init()
-w = 300
-screen = pygame.display.set_mode((w, w))
+w = 200
+screen = pygame.display.set_mode((w * 2, w * 2))
+panel_xy = pygame.Surface((w, w))
+panel_zy = pygame.Surface((w, w))
+panel_xz = pygame.Surface((w, w))
 keys = set()  # For keypress detection
+font = pygame.font.Font(None, 30)
 
 # Set simulation parameters
 N = 100      # Number of fish
-s = 12        # Speed of fish (px per time unit)
+s = 10        # Speed of fish (px per time unit)
 T = 0.1      # Timestep (time units per cycle)
 alpha = 270  # Visual range of fish (degrees, centred on front of fish)
 theta = 40   # Turning speed of fish (degrees per time unit)
@@ -142,20 +146,41 @@ while True:
 
     # Drawing things
     screen.fill(0)
-    if debug:
-        # Draw the outer limits of the zones for each fish
-        for i in range(N):
-            pygame.draw.circle(screen, (255, 0, 0), np.int32(c[i, :2]), int(r_r), 1)
-            pygame.draw.circle(screen, (255, 255, 0), np.int32(c[i, :2]), int(r_o), 1)
-            pygame.draw.circle(screen, (0, 255, 0), np.int32(c[i, :2]), int(r_a), 1)
-    colours = (255 / w) * c[:, 2]
-    colours = np.int32([colours, np.zeros(N), 255 - colours]).T
+    panel_xy.fill(0)
+    panel_zy.fill(0)
+    panel_xz.fill(0)
+    colours = (255 / w) * c
+    colours = [np.int32([255 - colours[:, i], np.zeros(N), colours[:, i]]).T for i in range(3)]
     for i in range(N):
         # Draw the fish, approximated as pink circles
-        pygame.draw.circle(screen, colours[i], np.int32(c[i, :2]), 2 + int(c[i, 2] / 100))
+        pygame.draw.circle(panel_xy, colours[2][i], np.int32(c[i, :2]), int((w - c[i, 2]) / 100) + 2)
+        pygame.draw.circle(panel_zy, colours[2][i], np.int32(c[i, 2:0:-1]), int(c[i, 0] / 100) + 2)
+        pygame.draw.circle(panel_xz, colours[2][i], np.int32(c[i, ::2]), int(c[i, 1] / 100) + 2)
         # Draw the direction the fish is going (white) and wants to go (turquoise)
-        pygame.draw.line(screen, (255, 255, 255), c[i, :2], c[i, :2] + (v[i, :2] * 10))
-        pygame.draw.line(screen, (0, 255, 255), c[i, :2], c[i, :2] + (d_i[i, :2] * 10))
+        pygame.draw.line(panel_xy, (255, 255, 255), c[i, :2], c[i, :2] + (v[i, :2] * 10))
+        pygame.draw.line(panel_xy, (0, 255, 255), c[i, :2], c[i, :2] + (d_i[i, :2] * 10))
+        pygame.draw.line(panel_zy, (255, 255, 255), c[i, 2:0:-1], c[i, 2:0:-1] + (v[i, 2:0:-1] * 10))
+        pygame.draw.line(panel_zy, (0, 255, 255), c[i, 2:0:-1], c[i, 2:0:-1] + (d_i[i, 2:0:-1] * 10))
+        pygame.draw.line(panel_xz, (255, 255, 255), c[i, ::2], c[i, ::2] + (v[i, ::2] * 10))
+        pygame.draw.line(panel_xz, (0, 255, 255), c[i, ::2], c[i, ::2] + (d_i[i, ::2] * 10))
+    # Display the panels representing each side of the tank
+    screen.blit(panel_xy, (0, 0))
+    screen.blit(panel_zy, (w, 0))
+    screen.blit(panel_xz, (0, w))
+    # Draw lines between panels
+    pygame.draw.line(screen, (255, 255, 255), (0, w), (w * 2, w), 3)
+    pygame.draw.line(screen, (255, 255, 255), (w, 0), (w, w * 2), 3)
+    # Display the parameters used in the model
+    textlines = ["N = {}".format(N),
+                 "α = {}°    θ = {}°".format(alpha, theta),
+                 "T = {}      s = {}".format(T, s),
+                 "----------------",
+                 "Δr_r = {}".format(r_r),
+                 "Δr_o = {}".format(r_o - r_r),
+                 "Δr_a = {}".format(r_a - r_o)]
+    for i, textline in enumerate(textlines):
+        text = font.render(textline, True, (255, 255, 255))
+        screen.blit(text, (w + 10, w + 10 + i * 26))
     if debug:
         # For angle calculation checking
         pygame.draw.line(screen, (255, 0, 0), (0, 0), np.int32(d2[0, :2] * 100), 3)
