@@ -19,14 +19,15 @@ ax.invert_zaxis()
 keys = set()  # For keypress detection
 
 # Set simulation parameters
-N = 100      # Number of fish
-s = 3        # Speed of fish (px per time unit)
-T = 0.1      # Timestep (time units per cycle)
-alpha = 270  # Visual range of fish (degrees, centred on front of fish)
-theta = 40   # Turning speed of fish (degrees per time unit)
-r_r = 1      # Outer radius of Zone of Repulsion
-r_o = 3      # Outer radius of Zone of Orientation
-r_a = 17     # Outer radius of Zone of Attraction
+N = 100       # Number of fish
+s = 3         # Speed of fish (px per time unit)
+T = 0.1       # Timestep (time units per cycle)
+alpha = 270   # Visual range of fish (degrees, centred on front of fish)
+theta = 40    # Turning speed of fish (degrees per time unit)
+sigma = 0.05  # Error
+r_r = 1       # Outer radius of Zone of Repulsion
+r_o = 3       # Outer radius of Zone of Orientation
+r_a = 17      # Outer radius of Zone of Attraction
 
 # The position vectors, c, and unit direction vectors, v, of the fish
 c = (0.5 + np.random.random_sample((N, 3))) * w / 2  # Initialise positions in middle 1/8 of volume
@@ -100,6 +101,19 @@ while True:
     # Ensure normalisation of all of the intended direction vectors
     # (Takes care of fish i with fish in both their Zones of Orientation and Attraction)
     d_i = (d_i.T / np.linalg.norm(d_i, axis=1)).T
+
+    # Introduce random variation, supposed to be a gaussian wrapped around a sphere, centred on d_i
+    rand_turn1 = np.random.random_sample(N) * np.pi * 2  # Direction around the axis
+    rand_turn2 = np.random.vonmises(0, sigma, N)         # Angle away from the axis, wrapped normal
+    # Generate two vectors orthogonal to d_i and each other
+    u1 = np.float32([d_i[:, 1], -d_i[:, 0], np.zeros(d_i.shape[0])]).T
+    mask_fail = np.all(u1 == 0, axis=1)
+    u1[mask_fail] = np.float32([d_i[mask_fail][:, 2], np.zeros(np.sum(mask_fail)), -d_i[mask_fail][:, 0]]).T
+    u2 = np.cross(d_i, u1)
+    # Generate random vector orthogonal to d_i
+    d_perp = ((np.cos(rand_turn1) * u1.T) + (np.sin(rand_turn1) * u2.T)).T
+    d_i_new = ((np.cos(rand_turn2 * (np.pi / 180)) * d_i.T) + (np.sin(rand_turn2 * (np.pi / 180)) * d_perp.T)).T
+    d_i = (d_i_new.T / np.linalg.norm(d_i_new, axis=1)).T
 
     # The angle between each fish i's current and intended directions
     ang_turn = np.arctan2(np.linalg.norm(np.cross(v, d_i), axis=1), np.einsum('ij, ij->i', v, d_i))
