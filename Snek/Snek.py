@@ -38,11 +38,11 @@ msg5_1 = textfont.render("'Scuse me", 0, white)
 msg5_2 = textfont.render("Pardon me", 0, white)
 
 # And place messages in a bank of messages
-msgbank = {"nom":[msg1_1, msg1_2],
-           "close":[msg2_1, msg2_2, msg2_3, msg2_4],
-           "ouch":[msg3_1, msg3_2],
-           "hello":[msg4_1],
-           "excuse":[msg5_1, msg5_2]}
+msgbank = {"nom": [msg1_1, msg1_2],
+           "close": [msg2_1, msg2_2, msg2_3, msg2_4],
+           "ouch": [msg3_1, msg3_2],
+           "hello": [msg4_1],
+           "excuse": [msg5_1, msg5_2]}
 
 # obtain available channels
 chanmax = pygame.mixer.get_num_channels()
@@ -50,7 +50,7 @@ print("Available channels: " + str(chanmax))
 channels = [pygame.mixer.Channel(i) for i in range(chanmax)]
 
 # Type of bgm to play: -1 is nothing, 0 is procedural, 1 is fixed
-musicmode = 1
+musicmode = 0
 
 if musicmode == 0:
     # generates frequencies of sine wave so as to obtain a chromatic scale in either stereo channel
