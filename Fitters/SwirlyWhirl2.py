@@ -61,9 +61,13 @@ for i in range(repeats):
 targett *= frametstep
 print(targett)
 
-targety, targetx = np.float32([np.concatenate([np.random.permutation(np.argwhere(frame)) for i in range(repeats)],
-                                              axis=0)
-                               for frame in targetframe]).T
+targety, targetx = np.float32(np.concatenate([np.concatenate([np.random.permutation(np.argwhere(frame))
+                                                              for frame in targetframe
+                                                              ],
+                                                             axis=0)
+                                              for i in range(repeats)
+                                              ],
+                                             axis=0)).T
 targetx = ((targetx - (23/2)) * 15) + (w/2)
 targety = ((targety - (5/2)) * 15) + (h/2)
 targets = np.float32([targetx, targety])
