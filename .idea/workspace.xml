@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add error to actual 3D version of shoal simulator">
-      <change afterPath="$PROJECT_DIR$/SwirlyWhirl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SwirlyWhirl2.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Build some curve-fitting image manifesters">
+      <change afterPath="$PROJECT_DIR$/Fitters/SwirlyWhirl3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snek/Snek.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snek/Snek.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +22,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SwirlyWhirl2.py">
+        <entry file="file://$PROJECT_DIR$/Fitters/SwirlyWhirl3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="125">
+              <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fitters/SwirlyWhirl2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="64" column="53" lean-forward="true" selection-start-line="64" selection-start-column="53" selection-end-line="64" selection-end-column="53" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -47,10 +53,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>run</find>
-      <find>[nan</find>
-      <find>big</find>
-      <find>-0</find>
       <find>100</find>
       <find>sleep</find>
       <find>what do</find>
@@ -68,15 +70,19 @@
       <find>debug</find>
       <find>wo</find>
       <find>sigma</find>
-      <find>print</find>
       <find>Error in</find>
       <find>cpu</find>
       <find>local</find>
       <find>0</find>
       <find>prin</find>
       <find>vi</find>
-      <find>vic</find>
       <find>50</find>
+      <find>* 3</find>
+      <find>targetarray</find>
+      <find>-</find>
+      <find>----</find>
+      <find>print</find>
+      <find>vic</find>
     </findStrings>
     <replaceStrings>
       <replace>black</replace>
@@ -121,8 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SL4A/GPSReader.py" />
-        <option value="$PROJECT_DIR$/Slo-Time.py" />
         <option value="$PROJECT_DIR$/Vektorfeld.py" />
         <option value="$PROJECT_DIR$/Basic Pygame File.py" />
         <option value="$PROJECT_DIR$/Rawrckets.py" />
@@ -172,11 +176,13 @@
         <option value="$PROJECT_DIR$/PunchBall/Punchball.py" />
         <option value="$PROJECT_DIR$/SwirlyWhirl.py" />
         <option value="$PROJECT_DIR$/SwirlyWhirl2.py" />
+        <option value="$PROJECT_DIR$/Fitters/SwirlyWhirl2.py" />
+        <option value="$PROJECT_DIR$/Fitters/SwirlyWhirl3.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
+    <option name="x" value="948" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
@@ -192,6 +198,11 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Fitters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -209,19 +220,19 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\OptimalForaging" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Tools" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -236,7 +247,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SwirlyWhirl2">
+  <component name="RunManager" selected="Python.SwirlyWhirl3">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -255,48 +266,6 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
-    </configuration>
-    <configuration name="Crabs" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crabs/Crabs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Flock" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/Flock.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="Punchball" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -340,6 +309,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="SwirlyWhirl2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fitters/SwirlyWhirl2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="SwirlyWhirl2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -353,6 +343,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters\SwirlyWhirl2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SwirlyWhirl3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fitters/SwirlyWhirl3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -427,19 +438,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Crabs" />
-      <item itemvalue="Python.Flock" />
       <item itemvalue="Python.Punchball" />
       <item itemvalue="Python.SwirlyWhirl" />
       <item itemvalue="Python.SwirlyWhirl2" />
+      <item itemvalue="Python.SwirlyWhirl3" />
+      <item itemvalue="Python.SwirlyWhirl2 (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SwirlyWhirl3" />
+        <item itemvalue="Python.SwirlyWhirl2 (1)" />
         <item itemvalue="Python.SwirlyWhirl2" />
         <item itemvalue="Python.SwirlyWhirl" />
         <item itemvalue="Python.Punchball" />
-        <item itemvalue="Python.Flock" />
-        <item itemvalue="Python.Crabs" />
       </list>
     </recent_temporary>
   </component>
@@ -456,27 +467,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00101" summary="Add tracks, which have multiple segments, and make Drivers follow them">
-      <created>1527427526317</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1527427526317</updated>
-    </task>
-    <task id="LOCAL-00102" summary="Make an example mechanism">
-      <created>1527429964220</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1527429964220</updated>
-    </task>
-    <task id="LOCAL-00103" summary="Remove error with segment-change upper-bound.">
-      <created>1527439450203</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1527439450203</updated>
     </task>
     <task id="LOCAL-00104" summary="Make it possible to followers to run on complete Tracks">
       <created>1527450360574</created>
@@ -800,7 +790,28 @@
       <option name="project" value="LOCAL" />
       <updated>1553640224585</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Add shoal stats to actual 3D version of shoal simulator">
+      <created>1554132218271</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1554132218273</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Put some whitespace into snek">
+      <created>1554132259575</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1554132259575</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Build some curve-fitting image manifesters">
+      <created>1554132341822</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1554132341823</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -827,12 +838,12 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.63474023" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757765" weight="0.3163752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24986738" />
       <window_info id="Favorites" order="2" sideWeight="0.5124224" side_tool="true" weight="0.33783785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3243243" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4872814" weight="0.27158272" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4872814" visible="true" weight="0.26998225" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.390991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -858,9 +869,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make Wah version of 3blue1brown simulator" />
-    <MESSAGE value="Leave final version of 3blue1brown Wah physics and start one with friction" />
-    <MESSAGE value="Just a small thing. Build a model for optimal foraging." />
     <MESSAGE value="Add Wah to Optimal Foraging" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
@@ -883,16 +891,12 @@
     <MESSAGE value="Move shoal simulators to their own subfolder" />
     <MESSAGE value="Make a more actually 3D shoal visualisation using matplotlib" />
     <MESSAGE value="Add error to actual 3D version of shoal simulator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add error to actual 3D version of shoal simulator" />
+    <MESSAGE value="Add shoal stats to actual 3D version of shoal simulator" />
+    <MESSAGE value="Put some whitespace into snek" />
+    <MESSAGE value="Build some curve-fitting image manifesters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build some curve-fitting image manifesters" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FollowingOn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="117" column="42" lean-forward="true" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FunnyWriterResults">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1287,7 +1291,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SwirlyWhirl.py">
+    <entry file="file://$PROJECT_DIR$/Fitters/SwirlyWhirl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
@@ -1307,13 +1311,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SwirlyWhirl2.py">
+    <entry file="file://$PROJECT_DIR$/Fitters/SwirlyWhirl2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="328">
+          <caret line="64" column="53" lean-forward="true" selection-start-line="64" selection-start-column="53" selection-end-line="64" selection-end-column="53" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fitters/SwirlyWhirl3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
         </state>
       </provider>
     </entry>
