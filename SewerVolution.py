@@ -1,14 +1,21 @@
 import cv2
-import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy.spatial import distance_matrix as spdistmat
 
+# Set up key constants
 K_ESC = 27
 K_RIGHT = 2555904
 K_LEFT = 2424832
 K_UP = 2490368
 K_DOWN = 2621440
 
+# Set up plots
+matplotlib.interactive(True)
+fig, ax = plt.subplots(ncols=1, nrows=1)
+
+# Set up screen
 w = 600
 h = 600
 screensize = np.int32([w, h])
@@ -47,9 +54,16 @@ def blit(src, dest, pos=(0, 0)):
     # dest[:20, :10, :3] = np.array([255, 0, 0])  # DEBUG
 
 
-# Kills a particular critter
-def killcrits(hitlist):
-    pass
+# Do the plotting
+def plotstats():
+    ax.clear()
+    ax.set_xlim(0, 20)
+    ax.set_ylim(0, 20)
+    plt.xlabel("Critter Radius")
+    plt.ylabel("Critter Speed")
+    plt.scatter(critrad, critspd, c=critcol / 255, alpha=0.7)
+    plt.draw()
+    fig.canvas.flush_events()
 
 
 # https://stackoverflow.com/a/46048098
@@ -110,6 +124,7 @@ critmaxnrg = (2/3) * np.pi * (critrad ** 3)  # Approximating the critters as hem
 critnrg = critmaxnrg.copy()
 # Movement cost, approximated using surface area of underside * speed * volume, w/ fudge for density and gravity
 critmovnrg = (2/3) * (critrad ** 5) * critspd * 0.00001
+plotstats()
 
 # Produce array of foods
 foodstock = 100
@@ -133,14 +148,19 @@ while k != 27:
     # Takes energy costs and kills exhausted critters TODO: put this all in a dataframe
     critnrg -= critmovnrg
     hitlist = np.argwhere(critnrg <= 0)
-    critspd = np.delete(critspd, hitlist, axis=0)
-    critpos = np.delete(critpos, hitlist, axis=0)
-    critvel = np.delete(critvel, hitlist, axis=0)
-    critcol = np.delete(critcol, hitlist, axis=0)
-    critrad = np.delete(critrad, hitlist, axis=0)
-    critnrg = np.delete(critnrg, hitlist, axis=0)
-    critmaxnrg = np.delete(critmaxnrg, hitlist, axis=0)
-    critmovnrg = np.delete(critmovnrg, hitlist, axis=0)
+    if hitlist.shape[0] > 0:
+        # Cleanup detail
+        critspd = np.delete(critspd, hitlist, axis=0)
+        critpos = np.delete(critpos, hitlist, axis=0)
+        critvel = np.delete(critvel, hitlist, axis=0)
+        critcol = np.delete(critcol, hitlist, axis=0)
+        critrad = np.delete(critrad, hitlist, axis=0)
+        critnrg = np.delete(critnrg, hitlist, axis=0)
+        critmaxnrg = np.delete(critmaxnrg, hitlist, axis=0)
+        critmovnrg = np.delete(critmovnrg, hitlist, axis=0)
+        plotstats()
+    else:
+        fig.canvas.flush_events()
     # Feeds appropriate critters
     critfooddist = spdistmat(critpos, foodpos)  # Array of distances with first indices [crit id, food id]
     eatpairs = np.argwhere((critfooddist.T < critrad + 3).T)  # Pairs of ids characterising critter-food collisions
