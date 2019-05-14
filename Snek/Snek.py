@@ -1,7 +1,7 @@
 import pygame, time, math, os
+from pygame.locals import *
 import numpy as np
 from random import randint as rand
-from pygame.locals import *
 
 # Initialise the pygame module
 pygame.init()
@@ -90,6 +90,7 @@ elif musicmode == 1:
     # simply imports the given sound file to play during play
     music = pygame.mixer.Sound(filepath + "Wewewewewe.wav")
 
+
 # Constrain function
 def constrain(val, lo, hi):
     # Because these things are useful :)
@@ -99,6 +100,7 @@ def constrain(val, lo, hi):
         return hi
     else:
         return val
+
 
 # class for segments, including the head
 class segment:
@@ -153,29 +155,30 @@ class segment:
                         self.body.tune.append(Lwaves[r])
                 self.next.extend(howmany - 1)  # communicates to newly created segment that more need to be made
 
+
 # The snek itself
 class snek:
     # Takes initial x,y position of head and direction of travel, and the speaker through which its sound is played
     def __init__(self, inix, iniy, inidir=1, side=0):
         self.x = inix
         self.y = iniy
-        self.movdir = inidir # direction 0 is upward, clockwise around to 3 being left
-        self.side = side # works in binary; side 0 is neither, 1 is right, 2 is left, 3 is both
-        self.length = 3 # number of segments of the snek
-        self.coords = [] # coordinates of all the segments
+        self.movdir = inidir   # direction 0 is upward, clockwise around to 3 being left
+        self.side = side  # works in binary; side 0 is neither, 1 is right, 2 is left, 3 is both
+        self.length = 3  # number of segments of the snek
+        self.coords = []  # coordinates of all the segments
         if musicmode == 0:
-            self.tune = [] # the notes that the snek plays when moving
+            self.tune = []  # the notes that the snek plays when moving
         # creates the snek
         self.head = segment(self.x, self.y, self) # create head
-        self.head.extend(2) # creates tail segments
+        self.head.extend(2)  # creates tail segments
         self.tunepos = 0
         # number of noms
         self.points = 0
         # variables used for control of actions
-        self.turning = False # Prevents double-turning which would allow head crashing into previous segment
-        self.nommin = 0 # controls number of nom messages countdown
-        self.msgs = [] # stores currently shown messages
-        self.close = False # recognises near misses
+        self.turning = False  # Prevents double-turning which would allow head crashing into previous segment
+        self.nommin = 0  # controls number of nom messages countdown
+        self.msgs = []  # stores currently shown messages
+        self.close = False  # recognises near misses
 
     # draws the snek
     def show(self):
@@ -241,8 +244,8 @@ class snek:
             self.movdir = newdir
             self.turning = True
 
-    def say(self, type):
-        msgs = msgbank[type]
+    def say(self, msgtype):
+        msgs = msgbank[msgtype]
         msg = msgs[rand(0, len(msgs) - 1)]
         msgx = constrain((10 * self.x) + rand(-20, 20) - (msg.get_width()/2), 0, (w * 10) - msg.get_width())
         msgy = constrain((10 * self.y) + rand(-20, 20) - (msg.get_height()/2), 0, (h * 10) - msg.get_height())
@@ -357,9 +360,10 @@ def ai2(A, targx, targy):
         elif next[1] > start[1]:
             return 2
 
+
 # stores whether the nom, snek S, snek Z or music needs to be started
 startup = [True, True, True, musicmode == 1]
-inMenu = True # stores whether in the menu or not
+inMenu = True  # stores whether in the menu or not
 if musicmode == 0:
     # stores position in the procedural music track of either player
     Rcycle = 0
