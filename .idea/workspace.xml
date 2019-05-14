@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3">
-      <change afterPath="$PROJECT_DIR$/HierarchicalClustering.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/HumPiano.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/SewerVolution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VektorFeld2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snek/Snek.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snek/Snek.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SewerVolution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+            <state relative-caret-position="272">
+              <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -463,27 +460,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00106" summary="Enable MultiTrack Drifting Trains!">
-      <created>1527459629584</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1527459629585</updated>
-    </task>
-    <task id="LOCAL-00107" summary="Add sketchy __add__ and __sub__ methods for Tracks">
-      <created>1527511318586</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1527511318586</updated>
-    </task>
-    <task id="LOCAL-00108" summary="Lay out ideas for how to implement Trackchanger (like traintrack points)">
-      <created>1527638252932</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1527638252932</updated>
-    </task>
     <task id="LOCAL-00109" summary="Make crabs appear scared of being eaten. I am a cruel human.">
       <created>1527701007406</created>
       <option name="number" value="00109" />
@@ -806,7 +782,28 @@
       <option name="project" value="LOCAL" />
       <updated>1554502061662</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Start making a new vector field simulator">
+      <created>1557854701399</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1557854701400</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Attempt to build hierarchical clustererer">
+      <created>1557854756957</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1557854756958</updated>
+    </task>
+    <task id="LOCAL-00157" summary="Correct some details in snek">
+      <created>1557854818622</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1557854818622</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -864,9 +861,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue" />
-    <MESSAGE value="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry" />
-    <MESSAGE value="Add prey and restructure update/draw order" />
     <MESSAGE value="Make a meme version of Bending" />
     <MESSAGE value="Make it so that Predators selectively choose or take Prey" />
     <MESSAGE value="Overhaul structure of prey population data from a bunch of objects in an&#10;array to a bunch of arrays representing their positions, velocities, etc&#10;which can be checked all at the same time by predators&#10;&#10;Also change predator memories to dictionaries connecting a colour to a &#10;positive/negative impression of the edibility of that colour&#10;&#10;Basically, make it way faster." />
@@ -889,7 +883,10 @@
     <MESSAGE value="Build some curve-fitting image manifesters" />
     <MESSAGE value="Build another image manifester, this time with colour added" />
     <MESSAGE value="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3" />
+    <MESSAGE value="Start making a new vector field simulator" />
+    <MESSAGE value="Attempt to build hierarchical clustererer" />
+    <MESSAGE value="Correct some details in snek" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct some details in snek" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/lib/function_base.py">
@@ -1323,8 +1320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SewerVolution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
