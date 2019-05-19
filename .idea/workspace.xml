@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3">
-      <change afterPath="$PROJECT_DIR$/HumPiano.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SewerVolution.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add graphical output for tracking evolution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SewerVolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/SewerVolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/trackGPXtoKML.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/trackGPXtoKML.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SewerVolution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
+            <state relative-caret-position="124">
+              <caret line="220" column="103" lean-forward="true" selection-start-line="220" selection-start-column="103" selection-end-line="220" selection-end-column="103" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -45,9 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>debug</find>
-      <find>wo</find>
-      <find>sigma</find>
       <find>Error in</find>
       <find>cpu</find>
       <find>local</find>
@@ -59,7 +56,6 @@
       <find>targetarray</find>
       <find>-</find>
       <find>----</find>
-      <find>print</find>
       <find>vic</find>
       <find>music</find>
       <find>tune</find>
@@ -75,9 +71,12 @@
       <find>critter</find>
       <find>N</find>
       <find>+=</find>
+      <find>_x</find>
+      <find>&gt; mutra</find>
+      <find>mutra</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
-      <replace>srongth</replace>
       <replace>strongth</replace>
       <replace>fake-robot-api</replace>
       <replace>item</replace>
@@ -107,6 +106,7 @@
       <replace>self.imagesize[0]</replace>
       <replace>)</replace>
       <replace>crit</replace>
+      <replace>&lt; mutra</replace>
     </replaceStrings>
     <dirStrings>
       <dir />
@@ -119,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Leap.py" />
         <option value="$PROJECT_DIR$/Wah.py" />
         <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
         <option value="$PROJECT_DIR$/ChessDetector.py" />
@@ -170,13 +169,14 @@
         <option value="$PROJECT_DIR$/Snek/Snek.py" />
         <option value="$PROJECT_DIR$/VektorFeld2.py" />
         <option value="$PROJECT_DIR$/SewerVolution.py" />
+        <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -195,7 +195,13 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
-              <item name="Fitters" type="462c0819:PsiDirectoryNode" />
+              <item name="BehaviouralEcology" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="BehaviouralEcology" type="462c0819:PsiDirectoryNode" />
+              <item name="Shoal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,7 +245,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SewerVolution">
+  <component name="RunManager" selected="Python.trackGPXtoKML">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -293,27 +299,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Perspectives-3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Perspectives-3D.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -385,6 +370,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="trackGPXtoKML" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -432,17 +438,17 @@
     <list>
       <item itemvalue="Python.CouzinShoalActual3D" />
       <item itemvalue="Python.SewerVolution" />
-      <item itemvalue="Python.Perspectives-3D" />
       <item itemvalue="Python.Snookered" />
       <item itemvalue="Python.CouzinShoal3D" />
+      <item itemvalue="Python.trackGPXtoKML" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trackGPXtoKML" />
         <item itemvalue="Python.SewerVolution" />
         <item itemvalue="Python.CouzinShoal3D" />
         <item itemvalue="Python.CouzinShoalActual3D" />
         <item itemvalue="Python.Snookered" />
-        <item itemvalue="Python.Perspectives-3D" />
       </list>
     </recent_temporary>
   </component>
@@ -459,27 +465,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00109" summary="Make crabs appear scared of being eaten. I am a cruel human.">
-      <created>1527701007406</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1527701007407</updated>
-    </task>
-    <task id="LOCAL-00110" summary="Add attempt at face detection and then add this to creepy eyes in Glitch">
-      <created>1527787892906</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1527787892907</updated>
-    </task>
-    <task id="LOCAL-00111" summary="Fix face detection in Glitch and make GPX to KML converter">
-      <created>1528228486767</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1528228486768</updated>
     </task>
     <task id="LOCAL-00112" summary="Make a so salty meme generator">
       <created>1528550246472</created>
@@ -803,7 +788,28 @@
       <option name="project" value="LOCAL" />
       <updated>1557854818622</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="Attempt fourier transform detection of frequencies in sound bites">
+      <created>1557854849117</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1557854849117</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Start building an evolution simulator">
+      <created>1557854872103</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1557854872103</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Add graphical output for tracking evolution">
+      <created>1557858768404</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1557858768404</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -861,9 +867,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a meme version of Bending" />
-    <MESSAGE value="Make it so that Predators selectively choose or take Prey" />
-    <MESSAGE value="Overhaul structure of prey population data from a bunch of objects in an&#10;array to a bunch of arrays representing their positions, velocities, etc&#10;which can be checked all at the same time by predators&#10;&#10;Also change predator memories to dictionaries connecting a colour to a &#10;positive/negative impression of the edibility of that colour&#10;&#10;Basically, make it way faster." />
     <MESSAGE value="Add selective breeding speed function" />
     <MESSAGE value="Create script to convert from LSSS' ListComScatter file to KML format" />
     <MESSAGE value="Add pin placer for points on trace" />
@@ -886,42 +889,12 @@
     <MESSAGE value="Start making a new vector field simulator" />
     <MESSAGE value="Attempt to build hierarchical clustererer" />
     <MESSAGE value="Correct some details in snek" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct some details in snek" />
+    <MESSAGE value="Attempt fourier transform detection of frequencies in sound bites" />
+    <MESSAGE value="Start building an evolution simulator" />
+    <MESSAGE value="Add graphical output for tracking evolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add graphical output for tracking evolution" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/lib/function_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="4527" selection-start-line="4527" selection-end-line="4527" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/message.html">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="145">
-          <caret column="978096" selection-start-column="978089" selection-end-column="978096" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2672">
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Mimicry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="201" column="31" selection-start-line="201" selection-start-column="31" selection-end-line="201" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Comb-Jelly-Time.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1147,16 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HumPiano.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Snek/Snek.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5831">
@@ -1291,16 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding>
-            <element signature="e#56#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoal3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -1318,10 +1271,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HumPiano.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Course Materials/Year 3/Semester 2/BIO339 Fisheries Modelling/Exercise 5 VPA/draw_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="44" column="22" lean-forward="true" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="4147" column="51" lean-forward="true" selection-start-line="4147" selection-start-column="51" selection-end-line="4147" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#56#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="4527" selection-start-line="4527" selection-end-line="4527" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/trackGPXtoKML.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SewerVolution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
+        <state relative-caret-position="124">
+          <caret line="220" column="103" lean-forward="true" selection-start-line="220" selection-start-column="103" selection-end-line="220" selection-end-column="103" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

@@ -30,7 +30,7 @@ def normalise(vec, factor=1):
     zerovecmask = mag == 0
     retvec = vec.copy()
     retvec[zerovecmask] = (0, 0)
-    retvec[~zerovecmask] = ((retvec[~zerovecmask].T * factor) / mag[~zerovecmask]).T
+    retvec[~zerovecmask] = ((retvec[~zerovecmask].T * factor[~zerovecmask]) / mag[~zerovecmask]).T
     return retvec
 
 
@@ -61,7 +61,7 @@ def plotstats():
     ax.set_ylim(0, 20)
     plt.xlabel("Critter Radius")
     plt.ylabel("Critter Speed")
-    plt.scatter(critrad, critspd, c=critcol / 255, alpha=0.7)
+    plt.scatter(critrad, critspd, c=critcol[:, ::-1] / 255, alpha=0.7)
     plt.draw()
     fig.canvas.flush_events()
 
@@ -114,16 +114,19 @@ M = cv2.getPerspectiveTransform(np.float32([[0, 0],
                                                              [0, 0, 80 + h]]])))
 
 # Produce arrays characterising critters
-N = 200
-critspd = np.random.randint(1, 11, N)
+N = 500
+critspd = np.random.random_sample(N) * 19 + 1
 critpos = np.random.random_sample([N, 2]) * screensize
 critvel = np.zeros([N, 2])
 critcol = np.random.randint(0, 256, (N, 3))
-critrad = np.random.random_sample(N) * 5 + 5
+critrad = np.random.random_sample(N) * 15 + 5
 critmaxnrg = (2/3) * np.pi * (critrad ** 3)  # Approximating the critters as hemispheres
 critnrg = critmaxnrg.copy()
+crityngnrgprop = np.ones(N) * 0.5
+crityngthreshold = np.ones(N) * 0.25
 # Movement cost, approximated using surface area of underside * speed * volume, w/ fudge for density and gravity
-critmovnrg = (2/3) * (critrad ** 5) * critspd * 0.00001
+critmovnrg = (2/3) * (critrad ** 5) * (critspd + 1) * 0.00001
+mutrate = 1
 plotstats()
 
 # Produce array of foods
@@ -157,6 +160,8 @@ while k != 27:
         critrad = np.delete(critrad, hitlist, axis=0)
         critnrg = np.delete(critnrg, hitlist, axis=0)
         critmaxnrg = np.delete(critmaxnrg, hitlist, axis=0)
+        crityngnrgprop = np.delete(crityngnrgprop, hitlist, axis=0)
+        crityngthreshold = np.delete(crityngthreshold, hitlist, axis=0)
         critmovnrg = np.delete(critmovnrg, hitlist, axis=0)
         plotstats()
     else:
@@ -204,6 +209,31 @@ while k != 27:
             phase = 2
             eatenmask = foodpos[:, 0] < 0
             foodpos[eatenmask] = (np.random.random_sample([np.sum(eatenmask), 2]) * 0.6 + 0.2) * screensize
+            reproducemask = (critnrg / critmaxnrg) > crityngthreshold
+            for crit in np.argwhere(reproducemask):
+                critspd = np.append(critspd,
+                                    constrain(critspd[crit] + ((np.random.random() - 0.5) * 2
+                                                               if np.random.random() < mutrate else 0),
+                                              0, 20),
+                                    axis=0)
+                critcol = np.append(critcol,
+                                    constrain(critcol[crit] + ((np.random.random() - 0.5) * 20
+                                                               if np.random.random() < mutrate else 0),
+                                              0, 255),
+                                    axis=0)
+                critrad = np.append(critrad,
+                                    constrain(critrad[crit] + ((np.random.random() - 0.5) * 4
+                                                               if np.random.random() < mutrate else 0),
+                                              1, 20),
+                                    axis=0)
+                crityngnrgprop = np.append(crityngnrgprop, crityngnrgprop[crit].copy(), axis=0)
+                crityngthreshold = np.append(crityngthreshold, crityngthreshold[crit].copy(), axis=0)
+                critpos = np.append(critpos, critpos[crit] + np.random.random(2) - 0.5, axis=0)
+                critvel = np.append(critvel, [[0, 0]], axis=0)
+                critmaxnrg = np.append(critmaxnrg, [(2 / 3) * np.pi * (critrad[-1] ** 3)], axis=0)
+                critmovnrg = np.append(critmovnrg, (2 / 3) * (critrad[crit] ** 5) * critspd[crit] * 0.00001, axis=0)
+                critnrg = np.append(critnrg, critnrg[crit] * crityngnrgprop[crit], axis=0)
+                critnrg[crit] -= critnrg[crit] * crityngnrgprop[crit]
     if phase == 2:
         temp -= tempstep
         if temp <= 0:
