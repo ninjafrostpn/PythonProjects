@@ -113,5 +113,6 @@ convertfile(r"D:\Users\Charles Turvey\Documents\Wight\4 - To the ferry.gpx")
 convertfile(r"D:\Users\Charles Turvey\Documents\Wight\5 - To the beach.gpx")
 convertfile(r"D:\Users\Charles Turvey\Documents\Wight\6 - Back to the ferry.gpx")
 convertfile(r"D:\Users\Charles Turvey\Documents\Wight\7 - Night Ride.gpx")
+convertfile(r"D:\Users\Charles Turvey\Documents\Wight\Around_the_New_Forest_Henry_and_Charlie_s_big_adventure_number_the_next_one_.gpx")
 
 #print(toKML([(0, i, 1000) for i in range(0, 60, 10)], name="TESTPATH2", desc="Yes"))
