@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Convert another file to kml">
-      <change afterPath="$PROJECT_DIR$/Puuleys.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Set up initial framework for pulley experiment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Puuleys.py" beforeDir="false" afterPath="$PROJECT_DIR$/Puuleys.py" afterDir="false" />
     </list>
     <ignored path="Projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/SewerVolution.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-910">
-              <caret line="176" column="37" lean-forward="true" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
+              <caret line="176" column="37" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Puuleys.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+            <state relative-caret-position="22">
+              <caret line="174" column="12" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -56,10 +56,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cpu</find>
-      <find>local</find>
       <find>0</find>
-      <find>prin</find>
       <find>vi</find>
       <find>50</find>
       <find>* 3</find>
@@ -84,12 +81,13 @@
       <find>_x</find>
       <find>&gt; mutra</find>
       <find>mutra</find>
-      <find>bin</find>
       <find>print</find>
+      <find>prin</find>
+      <find>0.5</find>
+      <find>0.2</find>
+      <find>bin</find>
     </findStrings>
     <replaceStrings>
-      <replace>strongth</replace>
-      <replace>fake-robot-api</replace>
       <replace>item</replace>
       <replace>\\</replace>
       <replace>100</replace>
@@ -118,6 +116,8 @@
       <replace>)</replace>
       <replace>crit</replace>
       <replace>&lt; mutra</replace>
+      <replace>0.2</replace>
+      <replace>0.3</replace>
     </replaceStrings>
     <dirStrings>
       <dir />
@@ -130,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Crabs/Crabs.py" />
         <option value="$PROJECT_DIR$/ChessDetector.py" />
         <option value="$PROJECT_DIR$/ChessReplacer.py" />
         <option value="$PROJECT_DIR$/ArmLocator/ArmLocator.py" />
@@ -180,14 +179,15 @@
         <option value="$PROJECT_DIR$/VektorFeld2.py" />
         <option value="$PROJECT_DIR$/SewerVolution.py" />
         <option value="$PROJECT_DIR$/Tools/trackGPXtoKML.py" />
+        <option value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
         <option value="$PROJECT_DIR$/Puuleys.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="-11" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -201,6 +201,11 @@
             <path>
               <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projects" type="462c0819:PsiDirectoryNode" />
+              <item name="Glitcheroony" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -286,7 +291,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="CouzinShoalActual3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Glitcheroony" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -298,7 +303,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Glitcheroony/Glitcheroony.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -436,19 +441,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.CouzinShoalActual3D" />
       <item itemvalue="Python.SewerVolution" />
       <item itemvalue="Python.CouzinShoal3D" />
       <item itemvalue="Python.trackGPXtoKML" />
       <item itemvalue="Python.Puuleys" />
+      <item itemvalue="Python.Glitcheroony" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Puuleys" />
+        <item itemvalue="Python.Glitcheroony" />
         <item itemvalue="Python.SewerVolution" />
         <item itemvalue="Python.trackGPXtoKML" />
         <item itemvalue="Python.CouzinShoal3D" />
-        <item itemvalue="Python.CouzinShoalActual3D" />
       </list>
     </recent_temporary>
   </component>
@@ -465,13 +470,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Make a flocking simulator... sort of :)">
-      <created>1529517210767</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1529517210768</updated>
     </task>
     <task id="LOCAL-00115" summary="Make a simple vector field thing">
       <created>1530226912521</created>
@@ -809,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558277450739</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Set up initial framework for pulley experiment">
+      <created>1558321241554</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1558321241554</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -867,7 +872,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add pin placer for points on trace" />
     <MESSAGE value="Change names of pins to log entry start" />
     <MESSAGE value="Make a Ternary Plot maths demonstrator" />
     <MESSAGE value="Make a shoal simulator" />
@@ -892,32 +896,10 @@
     <MESSAGE value="Add graphical output for tracking evolution" />
     <MESSAGE value="Have evolving creatures reproduce" />
     <MESSAGE value="Convert another file to kml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert another file to kml" />
+    <MESSAGE value="Set up initial framework for pulley experiment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up initial framework for pulley experiment" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tools/LSSSListComScatter_to_KML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Slo-Time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/shiptrack000toKML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/numeric.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -1305,7 +1287,7 @@
     <entry file="file://$PROJECT_DIR$/SewerVolution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-910">
-          <caret line="176" column="37" lean-forward="true" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
+          <caret line="176" column="37" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -1322,10 +1304,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitch.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Glitcheroony/Glitcheroony.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="70" column="19" lean-forward="true" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Puuleys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+        <state relative-caret-position="22">
+          <caret line="174" column="12" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
