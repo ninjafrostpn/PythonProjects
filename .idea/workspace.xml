@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Set up initial framework for pulley experiment">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make some Pulleys!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Puuleys.py" beforeDir="false" afterPath="$PROJECT_DIR$/Puuleys.py" afterDir="false" />
     </list>
@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Puuleys.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="174" column="12" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+            <state relative-caret-position="328">
+              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -471,13 +471,6 @@
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
     </task>
-    <task id="LOCAL-00115" summary="Make a simple vector field thing">
-      <created>1530226912521</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1530226912522</updated>
-    </task>
     <task id="LOCAL-00116" summary="Make a rocket launcher ish">
       <created>1531036573728</created>
       <option name="number" value="00116" />
@@ -814,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558321241554</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="Make some Pulleys!">
+      <created>1558403119064</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1558403119064</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -872,7 +872,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change names of pins to log entry start" />
     <MESSAGE value="Make a Ternary Plot maths demonstrator" />
     <MESSAGE value="Make a shoal simulator" />
     <MESSAGE value="Make a better shoal simulator, based on Couzin et al. (2002)" />
@@ -897,7 +896,8 @@
     <MESSAGE value="Have evolving creatures reproduce" />
     <MESSAGE value="Convert another file to kml" />
     <MESSAGE value="Set up initial framework for pulley experiment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up initial framework for pulley experiment" />
+    <MESSAGE value="Make some Pulleys!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make some Pulleys!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/core/numeric.py">
@@ -1333,8 +1333,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Puuleys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="174" column="12" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+        <state relative-caret-position="328">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((w, h))
 screensize = np.int32((w, h))
 
 gravity = np.float32([0, 1])
-airresist = 0.95
+airresist = 0.9
 ropes = []
 masses = []
 pulleys = []
@@ -39,30 +39,9 @@ class Rope:
         pygame.draw.line(screen, (255, 0, 255), self.end1.pos, self.end2.pos)
 
 
-class Rope:
-    def __init__(self, end1, end2):
-        self.end1 = end1
-        self.end2 = end2
-        self.k = 0.1  # Universal atm
-        self.length = np.linalg.norm(self.end1.pos - self.end2.pos)
-        ropes.append(self)
-
-    def update(self):
-        d = self.end2.pos - self.end1.pos
-        dmag = np.linalg.norm(d)
-        x = dmag - self.length
-        # Springy when pulled, slack when released
-        if x > 0:
-            F = d * self.k * x / dmag
-            self.end1.applyforce(F)
-            self.end2.applyforce(-F)
-
-    def show(self):
-        pygame.draw.line(screen, (255, 0, 255), self.end1.pos, self.end2.pos)
-
-
 class Mass:
-    def __init__(self, mass, pos):
+    def __init__(self, mass, pos, col=(255, 255, 0)):
+        self.col = col
         self.mass = float(mass)
         if self.mass != 0:
             self.invmass = 1 / self.mass
@@ -98,31 +77,18 @@ class Mass:
         self.acc[:] = 0
 
     def show(self):
-        pygame.draw.circle(screen, (255, 255, 0), np.int32(self.pos), 10)
+        pygame.draw.circle(screen, self.col, np.int32(self.pos), 10)
 
 
-class Pulley:
+class Pulley(Mass):
     def __init__(self, mass, pos, end1, end2, ropecol=(0, 0, 255), pulleycol=(0, 255, 0)):
         self.ropecol = ropecol
-        self.pulleycol = pulleycol
-        self.mass = float(mass)
-        if self.mass != 0:
-            self.invmass = 1 / self.mass
-        else:
-            self.invmass = 0
-        self.pos = np.float32(pos)
-        self.vel = np.float32([0, 0])
-        self.acc = np.float32([0, 0])
-        self.force = np.float32([0, 0])
+        super(Pulley, self).__init__(mass, pos, pulleycol)
         self.end1 = end1
         self.end2 = end2
         self.k = 0.1  # Universal atm
         self.length = np.linalg.norm(self.end1.pos - self.pos) + np.linalg.norm(self.end2.pos - self.pos)
         pulleys.append(self)
-
-    def applyforce(self, F):
-        self.force += F
-        # pygame.draw.line(screen, (255, 255, 255), self.pos, self.pos + F * 50)
 
     def update(self):
         d1 = self.end1.pos - self.pos
@@ -155,11 +121,11 @@ class Pulley:
     def show(self):
         pygame.draw.line(screen, self.ropecol, np.int32(self.pos), np.int32(self.end1.pos))
         pygame.draw.line(screen, self.ropecol, np.int32(self.pos), np.int32(self.end2.pos))
-        pygame.draw.circle(screen, self.pulleycol, np.int32(self.pos), 10)
+        super(Pulley, self).show()
 
 
 class Thruster:
-    def __init__(self, thing, thrust, controls=[K_UP, K_DOWN, K_LEFT, K_RIGHT]):
+    def __init__(self, thing, thrust, controls=(K_UP, K_DOWN, K_LEFT, K_RIGHT)):
         self.thing = thing
         self.thrust = float(thrust)
         self.controls = controls
@@ -172,7 +138,7 @@ class Thruster:
 
 keys = set()
 
-scenario = 1
+scenario = 2
 
 if scenario == 0:
     A = Mass(0, [w/2, 0])
@@ -197,6 +163,17 @@ elif scenario == 1:
     H = Thruster(D, 1)
     I = Mass(4, [w/4, h * 6/8])
     J = Rope(G, I)
+elif scenario == 2:
+    N = 10
+    A = Mass(N + 2, [w/2, h/2])
+    Thruster(A, N + 2)
+    for i in np.arange(1, N + 1):
+        B = Mass(1, [(i + 1) * w/(N + 2), h/2])
+        C = Pulley(2, [(i + 0.5) * w/(N + 2), h/4], A, B)
+        D = Mass(0, [(i + 0.5) * w/(N + 2), 0])
+        Rope(C, D)
+        E = Mass(2, [(i + 1) * w/(N + 2), h/1.5])
+        Rope(B, E)
 
 
 while True:
@@ -208,14 +185,9 @@ while True:
         T.update()
     for M in masses:
         M.applyforce(gravity * M.mass)
-    for P in pulleys:
-        P.applyforce(gravity * P.mass)
-        P.update()
     for M in masses:
         M.update()
         M.show()
-    for P in pulleys:
-        P.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
