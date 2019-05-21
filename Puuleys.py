@@ -10,7 +10,8 @@ screen = pygame.display.set_mode((w, h))
 screensize = np.int32((w, h))
 
 gravity = np.float32([0, 1])
-airresist = 0.9
+airresist = 0.95
+allk = 0.05
 ropes = []
 masses = []
 pulleys = []
@@ -18,11 +19,14 @@ thrusters = []
 
 
 class Rope:
-    def __init__(self, end1, end2):
+    def __init__(self, end1, end2, length=None):
         self.end1 = end1
         self.end2 = end2
-        self.k = 0.1  # Universal atm
-        self.length = np.linalg.norm(self.end1.pos - self.end2.pos)
+        self.k = allk  # Universal atm
+        if length is None:
+            self.length = np.linalg.norm(self.end1.pos - self.end2.pos)
+        else:
+            self.length = float(length)
         ropes.append(self)
 
     def update(self):
@@ -81,13 +85,16 @@ class Mass:
 
 
 class Pulley(Mass):
-    def __init__(self, mass, pos, end1, end2, ropecol=(0, 0, 255), pulleycol=(0, 255, 0)):
+    def __init__(self, mass, pos, end1, end2, length=None, ropecol=(0, 0, 255), pulleycol=(0, 255, 0)):
         self.ropecol = ropecol
         super(Pulley, self).__init__(mass, pos, pulleycol)
         self.end1 = end1
         self.end2 = end2
-        self.k = 0.1  # Universal atm
-        self.length = np.linalg.norm(self.end1.pos - self.pos) + np.linalg.norm(self.end2.pos - self.pos)
+        self.k = allk  # Universal atm
+        if length is None:
+            self.length = np.linalg.norm(self.end1.pos - self.pos) + np.linalg.norm(self.end2.pos - self.pos)
+        else:
+            self.length = float(length)
         pulleys.append(self)
 
     def update(self):
@@ -136,9 +143,30 @@ class Thruster:
                                           (self.controls[1] in keys) - (self.controls[0] in keys)]) * self.thrust)
 
 
+class Player:
+    def __init__(self):
+        self.mass = Mass(1, [w/2, h/2], col=(100, 100, 100))
+        self.rope = None
+
+    def update(self):
+        if K_UP in keys and abs(self.mass.force[1]) < 0.1:
+            self.mass.applyforce(-20 * self.mass.mass * gravity)
+        if abs(self.mass.force[0]) < 0.1:
+            self.mass.applyforce([self.mass.mass * ((K_RIGHT in keys) - (K_LEFT in keys)), 0])
+        if self.rope is None:
+            if K_z in keys:
+                closest = sorted(masses, key=lambda i: (np.linalg.norm(i.pos - self.mass.pos) ** 2))[1]
+                if np.linalg.norm(closest.pos - self.mass.pos) < 30:
+                    self.rope = Rope(closest, self.mass, 20)
+        elif K_z not in keys or self.mass.pos[1] < self.rope.end1.pos[1]:
+            ropes.remove(self.rope)
+            del self.rope
+            self.rope = None
+
+
 keys = set()
 
-scenario = 2
+scenario = 0
 
 if scenario == 0:
     A = Mass(0, [w/2, 0])
@@ -160,7 +188,7 @@ elif scenario == 1:
     E = Pulley(0, [w * 3/4, 0], C, D, ropecol=(255, 0, 0), pulleycol=(100, 0, 0))
     F = Pulley(0.3, [w/2, h/2], B, C, ropecol=(0, 255, 0), pulleycol=(0, 100, 0))
     G = Pulley(0.3, [w/4, h * 5/8], A, F, ropecol=(0, 0, 255), pulleycol=(0, 0, 100))
-    H = Thruster(D, 1)
+    H = Thruster(D, 1, (K_w, K_s, K_a, K_d))
     I = Mass(4, [w/4, h * 6/8])
     J = Rope(G, I)
 elif scenario == 2:
@@ -174,6 +202,18 @@ elif scenario == 2:
         Rope(C, D)
         E = Mass(2, [(i + 1) * w/(N + 2), h/1.5])
         Rope(B, E)
+elif scenario == 3:
+    N = 10
+    A = Mass(N + 2, [w/2, h/2])
+    Thruster(A, N + 2, (K_w, K_s, K_a, K_d))
+    for i in np.arange(1, N + 1):
+        B = Mass(1, [(i + 1) * w/(N + 2), h/2])
+        C = Pulley(2, [(i + 0.5) * w/(N + 2), h/4], A, B)
+        D = Mass(0, [(i + 0.5) * w/(N + 2), 0])
+        Rope(C, D)
+        E = Mass(2, [(i + 1) * w/(N + 2), h/1.5])
+        Rope(B, E)
+P = Player()
 
 
 while True:
@@ -185,6 +225,7 @@ while True:
         T.update()
     for M in masses:
         M.applyforce(gravity * M.mass)
+    P.update()
     for M in masses:
         M.update()
         M.show()
