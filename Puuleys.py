@@ -10,8 +10,8 @@ screen = pygame.display.set_mode((w, h))
 screensize = np.int32((w, h))
 
 gravity = np.float32([0, 1])
-airresist = 0.95
-allk = 0.05
+airresist = 0.995
+allk = 0.1
 ropes = []
 masses = []
 pulleys = []
@@ -149,24 +149,30 @@ class Player:
         self.rope = None
 
     def update(self):
-        if K_UP in keys and abs(self.mass.force[1]) < 0.1:
-            self.mass.applyforce(-20 * self.mass.mass * gravity)
-        if abs(self.mass.force[0]) < 0.1:
-            self.mass.applyforce([self.mass.mass * ((K_RIGHT in keys) - (K_LEFT in keys)), 0])
         if self.rope is None:
             if K_z in keys:
                 closest = sorted(masses, key=lambda i: (np.linalg.norm(i.pos - self.mass.pos) ** 2))[1]
                 if np.linalg.norm(closest.pos - self.mass.pos) < 30:
                     self.rope = Rope(closest, self.mass, 20)
-        elif K_z not in keys or self.mass.pos[1] < self.rope.end1.pos[1]:
+        if (self.rope is not None) and (K_z not in keys or self.mass.pos[1] < self.rope.end1.pos[1]):
             ropes.remove(self.rope)
             del self.rope
             self.rope = None
+        jump = np.float32([0, 0])
+        if K_UP in keys and self.mass.force[1] <= 0:
+            jump -= 20 * gravity
+        if K_LEFT in keys and self.mass.force[0] <= 0:
+            jump[0] -= 1
+        if K_RIGHT in keys and self.mass.force[0] >= 0:
+            jump[0] += 1
+        self.mass.applyforce(jump * self.mass.mass)
+        if self.rope is not None:
+            self.rope.end1.applyforce(-jump * self.mass.mass)
 
 
 keys = set()
 
-scenario = 0
+scenario = 2
 
 if scenario == 0:
     A = Mass(0, [w/2, 0])
@@ -192,16 +198,14 @@ elif scenario == 1:
     I = Mass(4, [w/4, h * 6/8])
     J = Rope(G, I)
 elif scenario == 2:
-    N = 10
-    A = Mass(N + 2, [w/2, h/2])
-    Thruster(A, N + 2)
-    for i in np.arange(1, N + 1):
-        B = Mass(1, [(i + 1) * w/(N + 2), h/2])
-        C = Pulley(2, [(i + 0.5) * w/(N + 2), h/4], A, B)
-        D = Mass(0, [(i + 0.5) * w/(N + 2), 0])
-        Rope(C, D)
-        E = Mass(2, [(i + 1) * w/(N + 2), h/1.5])
-        Rope(B, E)
+    Nw = 5
+    Nh = 4
+    for i in range(1, Nw + 1):
+        A = Mass(0, [(i + 1) * w / (Nw + 2), 0])
+        for j in range(0, Nh + 1):
+            B = Mass(2, [(i + 1) * w/(Nw + 2), (j + 1) * h/(Nh + 5)])
+            Rope(A, B)
+            A = B
 elif scenario == 3:
     N = 10
     A = Mass(N + 2, [w/2, h/2])
@@ -220,7 +224,6 @@ while True:
     screen.fill(0)
     for R in ropes:
         R.update()
-        R.show()
     for T in thrusters:
         T.update()
     for M in masses:
@@ -229,6 +232,8 @@ while True:
     for M in masses:
         M.update()
         M.show()
+    for R in ropes:
+        R.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
