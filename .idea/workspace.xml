@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Make a Hawk-Dove Game Simulator">
-      <change afterPath="$PROJECT_DIR$/Development.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invisible.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MontyHallTester.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script 1 [Perceptron (2-in, 1-out)].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script 2 [Parallelised Perceptron].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script 3 [Multiple Perceptrons].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script 4 [Self-tuning Perceptron].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script 5 [Self-tuning Perceptron with Hinge].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Neural-Nets/Brilliant Course/Script x [Practical with Flags].py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PID/PID linefollower.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PID/PID stabiliser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BehaviouralEcology/HawkDove.py" beforeDir="false" afterPath="$PROJECT_DIR$/BehaviouralEcology/HawkDove.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Puuleys.py" beforeDir="false" afterPath="$PROJECT_DIR$/Puuleys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snek/Snek.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snek/Snek.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files">
+      <change afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -300,13 +286,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00120" summary="Make Armlocator for Unity ROV controls">
-      <created>1535700453473</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1535700453474</updated>
     </task>
     <task id="LOCAL-00121" summary="Complete initial version of Competitive Neural Network">
       <created>1536239850208</created>
@@ -644,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560164748159</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files">
+      <created>1576335456081</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1576335456081</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -689,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Drag the shoal simulator into the 3rd dimension!" />
     <MESSAGE value="Correct the wall repulsion in the 2D shoal simulator" />
     <MESSAGE value="Add multiple views and a parameter readout to the 3D shoal simulator" />
     <MESSAGE value="Move shoal simulators to their own subfolder" />
@@ -714,6 +699,7 @@
     <MESSAGE value="Add a small Gibbon or something" />
     <MESSAGE value="&quot;Smooth out playing experience&quot;" />
     <MESSAGE value="Make a Hawk-Dove Game Simulator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make a Hawk-Dove Game Simulator" />
+    <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
   </component>
 </project>
