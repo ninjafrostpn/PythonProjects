@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files">
-      <change afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start work on a new idea for sand-moving">
+      <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -286,13 +286,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Complete initial version of Competitive Neural Network">
-      <created>1536239850208</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1536239850209</updated>
     </task>
     <task id="LOCAL-00122" summary="Bring up to date (much nothing)">
       <created>1547763746145</created>
@@ -630,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576335456081</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Start work on a new idea for sand-moving">
+      <created>1576335629010</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1576335629012</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -675,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correct the wall repulsion in the 2D shoal simulator" />
     <MESSAGE value="Add multiple views and a parameter readout to the 3D shoal simulator" />
     <MESSAGE value="Move shoal simulators to their own subfolder" />
     <MESSAGE value="Make a more actually 3D shoal visualisation using matplotlib" />
@@ -700,6 +699,7 @@
     <MESSAGE value="&quot;Smooth out playing experience&quot;" />
     <MESSAGE value="Make a Hawk-Dove Game Simulator" />
     <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
+    <MESSAGE value="Start work on a new idea for sand-moving" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start work on a new idea for sand-moving" />
   </component>
 </project>
