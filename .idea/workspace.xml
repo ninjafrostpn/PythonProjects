@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start work on a new idea for sand-moving">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add the basic idea">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Snek">
+  <component name="RunManager" selected="Python.Bending 2">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -85,6 +86,27 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
+    </configuration>
+    <configuration name="Bending 2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending 2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Heatwave" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
@@ -120,27 +142,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MiceProblem.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MontyHallTester" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MontyHallTester.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -257,19 +258,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.MontyHallTester" />
       <item itemvalue="Python.PID stabiliser" />
       <item itemvalue="Python.MiceProblem" />
       <item itemvalue="Python.Heatwave" />
       <item itemvalue="Python.Snek" />
+      <item itemvalue="Python.Bending 2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Bending 2" />
         <item itemvalue="Python.Snek" />
         <item itemvalue="Python.Heatwave" />
         <item itemvalue="Python.MiceProblem" />
         <item itemvalue="Python.PID stabiliser" />
-        <item itemvalue="Python.MontyHallTester" />
       </list>
     </recent_temporary>
   </component>
@@ -286,13 +287,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Bring up to date (much nothing)">
-      <created>1547763746145</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1547763746148</updated>
     </task>
     <task id="LOCAL-00123" summary="Try to make a forearm detector">
       <created>1548489079066</created>
@@ -630,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576335629012</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Add the basic idea">
+      <created>1576336117790</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1576336117790</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -675,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add multiple views and a parameter readout to the 3D shoal simulator" />
     <MESSAGE value="Move shoal simulators to their own subfolder" />
     <MESSAGE value="Make a more actually 3D shoal visualisation using matplotlib" />
     <MESSAGE value="Add error to actual 3D version of shoal simulator" />
@@ -700,6 +700,7 @@
     <MESSAGE value="Make a Hawk-Dove Game Simulator" />
     <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
     <MESSAGE value="Start work on a new idea for sand-moving" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start work on a new idea for sand-moving" />
+    <MESSAGE value="Add the basic idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the basic idea" />
   </component>
 </project>
