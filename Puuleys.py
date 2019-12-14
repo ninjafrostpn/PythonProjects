@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((w, h))
 screensize = np.int32((w, h))
 
 gravity = np.float32([0, 1])
-airresist = 0.995
+airresist = 0.91
 allk = 0.1
 ropes = []
 masses = []
@@ -172,7 +172,7 @@ class Player:
 
 keys = set()
 
-scenario = 2
+scenario = 3
 
 if scenario == 0:
     A = Mass(0, [w/2, 0])

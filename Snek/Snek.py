@@ -50,7 +50,7 @@ print("Available channels: " + str(chanmax))
 channels = [pygame.mixer.Channel(i) for i in range(chanmax)]
 
 # Type of bgm to play: -1 is nothing, 0 is procedural, 1 is fixed
-musicmode = 0
+musicmode = -1
 
 if musicmode == 0:
     # generates frequencies of sine wave so as to obtain a chromatic scale in either stereo channel
@@ -410,6 +410,7 @@ while True:
         pygame.display.flip()
         #S.turn(ai2(S, nomx, nomy))
         #Z.turn(ai(Z, nomx, nomy))
+        time.sleep(0.15)  # Makes it feel more responsive to place here
         for e in pygame.event.get():
             if e.type == QUIT:
                 quit()
@@ -420,4 +421,3 @@ while True:
                     Z.turn({K_w:0, K_d:1, K_s:2, K_a:3}[e.key])
                 elif e.key == K_ESCAPE:
                     exit()
-        time.sleep(0.07)

@@ -28,7 +28,7 @@ pointdisplays = [dict(), dict()]
 cols = [(150, 0, 0), (0, 200, 255)]
 
 victory = 1
-wound = 1
+wound = 1.5
 
 oldcollisions = set()
 
@@ -37,7 +37,7 @@ cycles = 0
 ACTION = 0
 TRANSITION1 = 1
 TRANSITION2 = 2
-state = ACTION
+state = -1
 
 proportion = min(max(proportion, 1/N), (N - 1)/N)
 while True:
@@ -181,6 +181,8 @@ while True:
             keys.add(e.key)
             if e.key == K_ESCAPE:
                 quit()
+            elif e.key == K_SPACE and state == -1:
+                state = ACTION
         elif e.type == KEYUP:
             keys.discard(e.key)
     if state != ACTION:
