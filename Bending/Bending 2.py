@@ -23,14 +23,15 @@ adjvecs = np.int32([[i, j]
 
 w, h = 500, 250
 screensize = np.int32((w, h))
-smolscreen = pygame.Surface(screensize)
-screen = pygame.display.set_mode(screensize * 2)
+screen = pygame.Surface(screensize)
+window = pygame.display.set_mode(screensize * 2)
 
 sandgrid = np.zeros(screensize)
-smolgrid = pygame.surfarray.pixels3d(smolscreen)
+screengrid = pygame.surfarray.pixels3d(screen)
+windowgrid = pygame.surfarray.pixels3d(window)
 # print("W", sandgrid[tuple((adjvecs + (10, 10)).T)])
 
-sandgrid[:, -100:] = 10
+sandgrid[:, -100:] = 5
 sandgrid[200, 100] = -3
 print(sandgrid[200, 100])
 
@@ -69,7 +70,7 @@ def drawin(cent, checked=None, depth=0, debug=False):
 keys = set()
 
 while True:
-    smolscreen.fill(0)
+    screen.fill(0)
     for pos in np.argwhere(sandgrid < 0):
         # North: -1, East: -2, South: -3, West: -4
         val = sandgrid[tuple(pos)]
@@ -86,13 +87,17 @@ while True:
             found = check[0]
             if val == -3:
                 tocell = pos + [0, found]
-            fromcell = drawin(tocell)
-            if fromcell is not None:
-                sandgrid[tuple(fromcell)] -= 1
-                sandgrid[tuple(tocell)] += 1
-    smolgrid[sandgrid > 0, 2] = 255 - (10 * sandgrid[sandgrid > 0])
-    smolgrid[sandgrid < 0, :] = 255
-    pygame.transform.scale2x(smolscreen, screen)
+            if np.any(tocell != pos):
+                fromcell = drawin(tocell)
+                if fromcell is not None:
+                    sandgrid[tuple(fromcell)] -= 1
+                    sandgrid[tuple(tocell)] += 1
+    screengrid[sandgrid > 0, 2] = 255 - (20 * sandgrid[sandgrid > 0])
+    screengrid[sandgrid < 0, :] = 255
+    # pygame.transform.scale2x(screen, window)
+    for i in range(2):
+        for j in range(2):
+            windowgrid[i::2, j::2] = screengrid
     pygame.display.flip()
     mousepos = np.int32(pygame.mouse.get_pos())
     for e in pygame.event.get():

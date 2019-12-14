@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add the basic idea">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Get drawing of material working for thin upward peaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
@@ -287,13 +287,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Try to make a forearm detector">
-      <created>1548489079066</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1548489079066</updated>
     </task>
     <task id="LOCAL-00124" summary="Try to simulate optimal hunting strategies (unfinished)">
       <created>1548489117062</created>
@@ -631,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576336117790</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="Get drawing of material working for thin upward peaks">
+      <created>1576365381754</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1576365381758</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -676,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move shoal simulators to their own subfolder" />
     <MESSAGE value="Make a more actually 3D shoal visualisation using matplotlib" />
     <MESSAGE value="Add error to actual 3D version of shoal simulator" />
     <MESSAGE value="Add shoal stats to actual 3D version of shoal simulator" />
@@ -701,6 +700,7 @@
     <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
     <MESSAGE value="Start work on a new idea for sand-moving" />
     <MESSAGE value="Add the basic idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the basic idea" />
+    <MESSAGE value="Get drawing of material working for thin upward peaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get drawing of material working for thin upward peaks" />
   </component>
 </project>
