@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Get drawing of material working for thin upward peaks">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Change method of drawing to window to be more boxy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
@@ -287,13 +287,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Try to simulate optimal hunting strategies (unfinished)">
-      <created>1548489117062</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1548489117062</updated>
     </task>
     <task id="LOCAL-00125" summary="Make Wah version of 3blue1brown simulator">
       <created>1548489138392</created>
@@ -631,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576365381758</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="Change method of drawing to window to be more boxy">
+      <created>1576365957365</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1576365957365</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -676,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Make a more actually 3D shoal visualisation using matplotlib" />
     <MESSAGE value="Add error to actual 3D version of shoal simulator" />
     <MESSAGE value="Add shoal stats to actual 3D version of shoal simulator" />
     <MESSAGE value="Put some whitespace into snek" />
@@ -701,6 +700,7 @@
     <MESSAGE value="Start work on a new idea for sand-moving" />
     <MESSAGE value="Add the basic idea" />
     <MESSAGE value="Get drawing of material working for thin upward peaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get drawing of material working for thin upward peaks" />
+    <MESSAGE value="Change method of drawing to window to be more boxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change method of drawing to window to be more boxy" />
   </component>
 </project>
