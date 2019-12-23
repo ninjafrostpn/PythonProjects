@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Change method of drawing to window to be more boxy">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Implement drawing of matter in all cardinal directions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,18 +53,6 @@
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.Bending 2">
     <configuration default="true" type="tests" factoryName="Attests">
@@ -258,11 +245,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.PID stabiliser" />
-      <item itemvalue="Python.MiceProblem" />
-      <item itemvalue="Python.Heatwave" />
-      <item itemvalue="Python.Snek" />
       <item itemvalue="Python.Bending 2" />
+      <item itemvalue="Python.Heatwave" />
+      <item itemvalue="Python.MiceProblem" />
+      <item itemvalue="Python.PID stabiliser" />
+      <item itemvalue="Python.Snek" />
     </list>
     <recent_temporary>
       <list>
@@ -273,6 +260,18 @@
         <item itemvalue="Python.PID stabiliser" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED,ALPHA_COMPARATOR" />
@@ -287,13 +286,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00125" summary="Make Wah version of 3blue1brown simulator">
-      <created>1548489138392</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1548489138392</updated>
     </task>
     <task id="LOCAL-00126" summary="Leave final version of 3blue1brown Wah physics and start one with friction">
       <created>1548551596940</created>
@@ -631,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576365957365</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="Implement drawing of matter in all cardinal directions">
+      <created>1576371970448</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1576371970448</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -676,7 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add error to actual 3D version of shoal simulator" />
     <MESSAGE value="Add shoal stats to actual 3D version of shoal simulator" />
     <MESSAGE value="Put some whitespace into snek" />
     <MESSAGE value="Build some curve-fitting image manifesters" />
@@ -701,6 +699,7 @@
     <MESSAGE value="Add the basic idea" />
     <MESSAGE value="Get drawing of material working for thin upward peaks" />
     <MESSAGE value="Change method of drawing to window to be more boxy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change method of drawing to window to be more boxy" />
+    <MESSAGE value="Implement drawing of matter in all cardinal directions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement drawing of matter in all cardinal directions" />
   </component>
 </project>

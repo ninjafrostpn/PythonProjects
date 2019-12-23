@@ -38,7 +38,6 @@ print(sandgrid[200, 100])
 
 
 def drawin(cent, checked=None, depth=0, threshold=0, debug=False):
-    # TODO: Order removals by closeness to the epicentre
     if debug:
         print(depth, ": ", cent, sep="")
     if checked is None:
@@ -47,12 +46,13 @@ def drawin(cent, checked=None, depth=0, threshold=0, debug=False):
         checked.append(tuple(cent))
     adj = np.int32(cent) + adjvecs
     np.random.shuffle(adj)
+    adj = sorted(adj, key=lambda x: np.sum(np.abs(np.int32(x) - cent)))
     nextchecks = []
     for a in adj:
         if tuple(a) not in checked:
             checked.append(tuple(a))
             aval = sandgrid[tuple(a)]
-            if aval > threshold:
+            if ((aval > threshold)):  # and (attractorgrid[tuple(a)] == 0)) or (aval > threshold + 1):
                 if debug:
                     print(depth + 0.5, ": ", a, sep="")
                 return a
@@ -60,16 +60,21 @@ def drawin(cent, checked=None, depth=0, threshold=0, debug=False):
                 nextchecks.append(a)
     if len(nextchecks) > 0:
         np.random.shuffle(nextchecks)
+        nextchecks = sorted(nextchecks, key=lambda x: np.sum(np.abs(np.int32(x) - cent)))
         for a in nextchecks:
             b = drawin(a, checked, depth + 1, threshold, debug)
             if b is not None:
                 if debug:
                     print(depth + 0.5, ": ", b, sep="")
                 return b
+    # TODO: Do something more useful here
     return None
 
 
 keys = set()
+movemode = 0
+enough = 100
+threshold = 0
 
 while True:
     screen.fill(0)
@@ -78,12 +83,13 @@ while True:
     np.random.shuffle(attractors)
     nostealpls = [tuple(pos) for pos in attractors]
     for pos in attractors:
+        if sandgrid[tuple(pos)] >= enough:
+            continue
         # North: -1, East: -2, South: -3, West: -4
         val = attractorgrid[tuple(pos)]
         # print(pos, val)
-        availablemask = ((sandgrid > 0) &
-                         ((attractorgrid == 0) |
-                          ((attractorgrid < 0) & (sandgrid > sandgrid[tuple(pos)]))))
+        availablemask = (sandgrid > 0)
+        availablemask &= ((attractorgrid == 0) | ((attractorgrid < 0) & (sandgrid > sandgrid[tuple(pos)])))
         if val == -1:
             check = np.argwhere(availablemask[pos[0], pos[1]-1::-1])
         if val == -2:
@@ -100,14 +106,19 @@ while True:
             else:
                 tocell = pos + [found, 0]
             # print("ZHOOP", tocell)
-            fromcell = drawin(tocell)
+            fromcell = drawin(tocell, threshold=threshold)
             if fromcell is not None:
-                splitdiff = 1  # np.ceil((sandgrid[tuple(fromcell)] - sandgrid[tuple(tocell)]) / 2)
-                sandgrid[tuple(fromcell)] -= splitdiff
-                sandgrid[tuple(tocell)] += splitdiff
+                if movemode == 0:
+                    sandgrid[tuple(fromcell)] -= 1
+                    sandgrid[tuple(tocell)] += 1
+                elif movemode == 1:
+                    splitdiff = np.ceil((sandgrid[tuple(fromcell)] - sandgrid[tuple(tocell)]) / 2)
+                    sandgrid[tuple(fromcell)] -= splitdiff
+                    sandgrid[tuple(tocell)] += splitdiff
             nostealpls.append(tuple(tocell))
-    screengrid[sandgrid > 0, 2] = 255 - (20 * sandgrid[sandgrid > 0])
     screengrid[attractorgrid < 0, 0] = 100
+    screengrid[sandgrid > 0, 1] = 100
+    screengrid[sandgrid > 0, 2] = 255 - (20 * sandgrid[sandgrid > 0])
     # pygame.transform.scale2x(screen, window)
     for i in range(2):
         for j in range(2):
