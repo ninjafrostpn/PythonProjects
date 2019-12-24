@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Try different ways of obtaining matter">
-      <change afterPath="$PROJECT_DIR$/Tools/MK8Stats.py" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start extracting MK8 data from the Mario Wiki">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/MK8Stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/MK8Stats.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Just a small thing. Build a model for optimal foraging.">
-      <created>1550188273061</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1550188273062</updated>
     </task>
     <task id="LOCAL-00128" summary="Add Wah to Optimal Foraging">
       <created>1550190317822</created>
@@ -635,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577142093343</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Start extracting MK8 data from the Mario Wiki">
+      <created>1577188199937</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1577188199937</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Put some whitespace into snek" />
     <MESSAGE value="Build some curve-fitting image manifesters" />
     <MESSAGE value="Build another image manifester, this time with colour added" />
     <MESSAGE value="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3" />
@@ -705,28 +704,29 @@
     <MESSAGE value="Change method of drawing to window to be more boxy" />
     <MESSAGE value="Implement drawing of matter in all cardinal directions" />
     <MESSAGE value="Try different ways of obtaining matter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try different ways of obtaining matter" />
+    <MESSAGE value="Start extracting MK8 data from the Mario Wiki" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start extracting MK8 data from the Mario Wiki" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1577142092286">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1577188199064">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577142092286" />
-    <state width="619" height="148" key="GridCell.Tab.0.bottom" timestamp="1577188121896">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577188199064" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1577203135480">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="619" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
-    <state width="619" height="148" key="GridCell.Tab.0.center" timestamp="1577188121896">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577203135480" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1577203135479">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="619" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
-    <state width="619" height="148" key="GridCell.Tab.0.left" timestamp="1577188121896">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577203135479" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1577203135478">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="619" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
-    <state width="619" height="148" key="GridCell.Tab.0.right" timestamp="1577188121896">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577203135478" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1577203135480">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="619" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577203135480" />
   </component>
 </project>
