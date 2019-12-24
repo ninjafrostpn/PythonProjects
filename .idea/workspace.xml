@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Implement drawing of matter in all cardinal directions">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Try different ways of obtaining matter">
+      <change afterPath="$PROJECT_DIR$/Tools/MK8Stats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bending/Bending 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +29,11 @@
   </component>
   <component name="ProjectId" id="1OqF9oIRnXK8nhJRQkevkLUBQUJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Codingame 2019/UnleashTheGeek/.gitignore" />
@@ -54,7 +59,7 @@
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Bending 2">
+  <component name="RunManager" selected="Python.MK8Stats">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,6 +121,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MK8Stats" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/MK8Stats.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MiceProblem" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,27 +155,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MiceProblem.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PID stabiliser" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\Users\Charles Turvey\Documents\Python\Projects\PID\PID stabiliser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -245,19 +250,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Bending 2" />
-      <item itemvalue="Python.Heatwave" />
       <item itemvalue="Python.MiceProblem" />
-      <item itemvalue="Python.PID stabiliser" />
+      <item itemvalue="Python.Heatwave" />
       <item itemvalue="Python.Snek" />
+      <item itemvalue="Python.Bending 2" />
+      <item itemvalue="Python.MK8Stats" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MK8Stats" />
         <item itemvalue="Python.Bending 2" />
         <item itemvalue="Python.Snek" />
         <item itemvalue="Python.Heatwave" />
         <item itemvalue="Python.MiceProblem" />
-        <item itemvalue="Python.PID stabiliser" />
       </list>
     </recent_temporary>
   </component>
@@ -286,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00126" summary="Leave final version of 3blue1brown Wah physics and start one with friction">
-      <created>1548551596940</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1548551596941</updated>
     </task>
     <task id="LOCAL-00127" summary="Just a small thing. Build a model for optimal foraging.">
       <created>1550188273061</created>
@@ -630,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576371970448</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="Try different ways of obtaining matter">
+      <created>1577142093343</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1577142093343</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -675,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add shoal stats to actual 3D version of shoal simulator" />
     <MESSAGE value="Put some whitespace into snek" />
     <MESSAGE value="Build some curve-fitting image manifesters" />
     <MESSAGE value="Build another image manifester, this time with colour added" />
@@ -700,6 +704,29 @@
     <MESSAGE value="Get drawing of material working for thin upward peaks" />
     <MESSAGE value="Change method of drawing to window to be more boxy" />
     <MESSAGE value="Implement drawing of matter in all cardinal directions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement drawing of matter in all cardinal directions" />
+    <MESSAGE value="Try different ways of obtaining matter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try different ways of obtaining matter" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1577142092286">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577142092286" />
+    <state width="619" height="148" key="GridCell.Tab.0.bottom" timestamp="1577188121896">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="619" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
+    <state width="619" height="148" key="GridCell.Tab.0.center" timestamp="1577188121896">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="619" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
+    <state width="619" height="148" key="GridCell.Tab.0.left" timestamp="1577188121896">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="619" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
+    <state width="619" height="148" key="GridCell.Tab.0.right" timestamp="1577188121896">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="619" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577188121896" />
   </component>
 </project>
