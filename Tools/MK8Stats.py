@@ -43,3 +43,27 @@ choicefinalranks = [rankdata(scores, "dense") for scores in choicescores]
 print("\nExample Bests All-Rounders:", *[datatables[i].index[np.argmin(ranks)]
                                          for i, ranks in enumerate(choicefinalranks)],
       sep="\n")
+
+
+choicespeedscores = [np.sum(ranks[1:2] + ranks[5:9], axis=0) for ranks in choiceranks]
+choicespeedfinalranks = [rankdata(scores, "dense") for scores in choicespeedscores]
+print("\nExample Best Speedsters:", *[datatables[i].index[np.argmin(ranks)]
+                                      for i, ranks in enumerate(choicespeedfinalranks)],
+      sep="\n")
+
+# "Weight", "Acceleration", "On-Road traction",
+# "(Off-Road) Traction", "Mini-Turbo", "Ground Speed",
+# "Water Speed", "Anti-Gravity Speed", "Air Speed",
+# "Ground Handling", "Water Handling", "Anti-Gravity Handling",
+# "Air Handling"
+importance = np.float64([0, 0, 0,
+                         0, 0, 0,
+                         0, 0, 0,
+                         2, 2, 2,
+                         2])
+choiceweightedscores = [np.sum((np.float64(ranks).T * importance).T, axis=0) for ranks in choiceranks]
+print(choiceweightedscores)
+choiceweightedfinalranks = [rankdata(scores, "dense") for scores in choiceweightedscores]
+print("\nExample Best Custom:", *[datatables[i].index[np.argmin(ranks)]
+                                  for i, ranks in enumerate(choiceweightedfinalranks)],
+      sep="\n")
