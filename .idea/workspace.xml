@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Do some really rudimentary collision resolution">
-      <change afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start building non-sandy-looking sandbox">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bending/Bending 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,20 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00137" summary="Create script to convert from LSSS' ListComScatter file to KML format">
-      <created>1552035280425</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1552035280425</updated>
-    </task>
-    <task id="LOCAL-00138" summary="Add pin placer for points on trace">
-      <created>1552050635754</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1552050635756</updated>
     </task>
     <task id="LOCAL-00139" summary="Change names of pins to log entry start">
       <created>1552778834640</created>
@@ -636,7 +621,21 @@
       <option name="project" value="LOCAL" />
       <updated>1578774181129</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Clean up extraneous code">
+      <created>1578779949393</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1578779949397</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Start building non-sandy-looking sandbox">
+      <created>1578779985631</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1578779985631</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -681,8 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Have evolving creatures reproduce" />
-    <MESSAGE value="Convert another file to kml" />
     <MESSAGE value="Set up initial framework for pulley experiment" />
     <MESSAGE value="Make some Pulleys!" />
     <MESSAGE value="Make the Pulleys be Masses and add example scenarios" />
@@ -706,7 +703,9 @@
     <MESSAGE value="Get the objects moving (not colliding) according to the physics scheme" />
     <MESSAGE value="Get collision detection working" />
     <MESSAGE value="Do some really rudimentary collision resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Do some really rudimentary collision resolution" />
+    <MESSAGE value="Clean up extraneous code" />
+    <MESSAGE value="Start building non-sandy-looking sandbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start building non-sandy-looking sandbox" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -717,26 +716,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578779948287">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578779984885">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578779948287" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578779925601">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578779984885" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578781029556">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578779925601">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578781029556" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578781029556">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578779925601">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578781029556" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578781029556">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578779925601">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578781029556" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578781029556">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578781029556" />
     <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578774184432">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

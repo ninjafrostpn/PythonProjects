@@ -9,21 +9,26 @@ w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
+fps = 100
+deltaT = 1 / fps
+
 keys = set()
 
 
 class Polygon:
-    def __init__(self, vertices, centre=None, opensides=None):
+    def __init__(self, vertices, mass=0, centre=None, opensides=None):
         # Define vertices convex and clockwise pls
         # Vertices defined relative to centre, which is here used as centre of mass
         # TODO: implement proper com-finding (see https://www.youtube.com/watch?v=Px_KdmC7HlA)
+        self.mass = 0
         self.vel = np.zeros(2, "float64")
+        self.acc = 0
         self.vertices = np.float64(vertices)
         if centre is None:
             self.centre = np.mean(self.vertices, axis=0)
-            self.vertices -= self.centre
         else:
             self.centre = np.float64(centre)
+        self.vertices -= self.centre
         # This variable will be used later for constructing concave shapes
         if opensides is not None:
             self.opensides = opensides
@@ -35,6 +40,14 @@ class Polygon:
         # Vectors pointing outward from the side clockwise of each vertex
         self.normals = np.cross(tangents, [0, 0, 1], axisa=1)[:, :2]
         self.normals = (self.normals.T / np.linalg.norm(self.normals, axis=1)).T
+        self.lastupdate = time.time()
+
+    def update(self):
+        while self.lastupdate < time.time():
+            self.vel += self.acc * deltaT
+            self.centre += self.vel * deltaT
+            self.acc = 0
+            self.lastupdate += deltaT
 
     def collidepoints(self, points):
         verdict = [np.all(np.sum((pt - self.vertices - self.centre) * self.normals, axis=1) < 0)
@@ -46,8 +59,12 @@ class Polygon:
 
 
 A = Polygon([[10, 10], [100, 10], [100, 54], [60, 100], [10, 15]])
+A.vel += (10, 0)
+
+prevtime = time.time()
 
 while True:
+    A.update()
     mousepos = np.int32(pygame.mouse.get_pos())
     if A.collidepoints([mousepos])[0]:
         print("Poke")
