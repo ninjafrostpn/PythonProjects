@@ -34,12 +34,16 @@ threshold = 0
 
 pos = np.int32([np.tile(np.arange(0, 100, 1, "int32"), 100), np.repeat(np.arange(0, 100, 1, "int32"), 100)]).T
 mass = np.random.randint(1, 4, pos.shape[0])
-vel = np.random.randint(-5, 5, pos.shape, "int32")
+vel = np.random.randint(0, 5, pos.shape, "int32")
 force = np.zeros(pos.shape, "int32")
 
 while True:
     screen.fill(0)
     screengrid[pos[:, 0], pos[:, 1], 0] = 255 - ((mass - 1) * 10)
+    try:
+        screengrid[colls[:, 0], colls[:, 1], 1] = 255
+    except NameError:
+        pass
     for i in range(2):
         for j in range(2):
             windowgrid[i::2, j::2] = screengrid
@@ -54,6 +58,7 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keys.discard(e.key)
+    # time.sleep(1)
 
     # In order to physics in discrete space, subdivide each tick according to lcm of integer speeds of objects
     #   Each object moves only in steps of 1 in x or y
@@ -74,14 +79,18 @@ while True:
     #           Maybe keep track of columns/rows locked against the sides?
     uniquev = np.unique(vel)
     tickdiv = np.max(uniquev)
-    print(uniquev, tickdiv)
+    # print(uniquev, tickdiv)
     # https://stackoverflow.com/a/42472824
     for v in uniquev[(tickdiv % uniquev) != 0]:
-        print(v, tickdiv, np.gcd(tickdiv, v))
+        # print(v, tickdiv, np.gcd(tickdiv, v))
         tickdiv = int(tickdiv * v / np.gcd(tickdiv, v))
-    print("F", tickdiv)
+    # print("F", tickdiv)
     for i in range(1, tickdiv + 1):
         movers = ((tickdiv / i) % np.abs(vel)) == 0
         # print(i, tickdiv, vel[movers])
         pos[movers] += np.sign(vel[movers])
         pos = np.minimum(np.maximum(0, pos), (w - 1, h - 1))
+        # https://stackoverflow.com/q/11528078
+        a = np.lexsort([*pos.T])
+        # print(pos[a[0]], pos[a[-1]])
+        colls = pos[a[:-1][np.all(pos[a[:-1]] == pos[a[1:]], axis=1)]]
