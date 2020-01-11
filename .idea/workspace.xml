@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Get collision detection working">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Do some really rudimentary collision resolution">
+      <change afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
     </list>
@@ -59,7 +60,7 @@
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Bending 3">
+  <component name="RunManager" selected="Python.Bending 4">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,6 +122,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Bending 4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending 4" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="EyeGesture" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,27 +177,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/MK8Stats.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Snek" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Snek/Snek.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,19 +251,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Snek" />
       <item itemvalue="Python.Bending 2" />
       <item itemvalue="Python.MK8Stats" />
       <item itemvalue="Python.EyeGesture" />
       <item itemvalue="Python.Bending 3" />
+      <item itemvalue="Python.Bending 4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Bending 4" />
         <item itemvalue="Python.Bending 3" />
         <item itemvalue="Python.Bending 2" />
         <item itemvalue="Python.EyeGesture" />
         <item itemvalue="Python.MK8Stats" />
-        <item itemvalue="Python.Snek" />
       </list>
     </recent_temporary>
   </component>
@@ -291,13 +292,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00136" summary="Add selective breeding speed function">
-      <created>1551150918706</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1551150918707</updated>
     </task>
     <task id="LOCAL-00137" summary="Create script to convert from LSSS' ListComScatter file to KML format">
       <created>1552035280425</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578713248794</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="Do some really rudimentary collision resolution">
+      <created>1578774181129</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1578774181129</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add graphical output for tracking evolution" />
     <MESSAGE value="Have evolving creatures reproduce" />
     <MESSAGE value="Convert another file to kml" />
     <MESSAGE value="Set up initial framework for pulley experiment" />
@@ -705,37 +705,42 @@
     <MESSAGE value="Capture some idea of how the physics could work" />
     <MESSAGE value="Get the objects moving (not colliding) according to the physics scheme" />
     <MESSAGE value="Get collision detection working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get collision detection working" />
+    <MESSAGE value="Do some really rudimentary collision resolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Do some really rudimentary collision resolution" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1578774202984" />
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577484014517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578713248053">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578774180389">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578713248053" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578773322596">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578774180389" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578779925601">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578773322596">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578779925601">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578773322596">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578779925601">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578773322596">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578779925601">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578713252768">
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578779925601" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578774184432">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578713252768" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578774184432" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

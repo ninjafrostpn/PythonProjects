@@ -14,11 +14,6 @@ pygame.init()
 
 coltonum = lambda r, g, b: (((r << 8) + g) << 8) + b
 
-adjvecs = np.int32([[i, j]
-                    for i in range(-1, 2)
-                    for j in range(-1, 2)
-                    if 0 < abs(i + j) < 2])
-
 w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.Surface(screensize)
@@ -28,9 +23,6 @@ screengrid = pygame.surfarray.pixels3d(screen)
 windowgrid = pygame.surfarray.pixels3d(window)
 
 keys = set()
-movemode = 0
-enough = 100
-threshold = 0
 
 nx = 10
 pos = np.int32([[*np.tile(np.arange(0, nx, 1, "int32"), 50), *np.tile(np.arange(300 - nx, 300, 1, "int32"), 50)],
