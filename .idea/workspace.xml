@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Get the objects moving (not colliding) according to the physics scheme">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Get collision detection working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
     </list>
@@ -291,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Overhaul structure of prey population data from a bunch of objects in an&#10;array to a bunch of arrays representing their positions, velocities, etc&#10;which can be checked all at the same time by predators&#10;&#10;Also change predator memories to dictionaries connecting a colour to a &#10;positive/negative impression of the edibility of that colour&#10;&#10;Basically, make it way faster.">
-      <created>1551063587277</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1551063587278</updated>
     </task>
     <task id="LOCAL-00136" summary="Add selective breeding speed function">
       <created>1551150918706</created>
@@ -635,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578709696463</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="Get collision detection working">
+      <created>1578713248794</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1578713248794</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start building an evolution simulator" />
     <MESSAGE value="Add graphical output for tracking evolution" />
     <MESSAGE value="Have evolving creatures reproduce" />
     <MESSAGE value="Convert another file to kml" />
@@ -705,37 +704,38 @@
     <MESSAGE value="Start working on physicsy bending thing" />
     <MESSAGE value="Capture some idea of how the physics could work" />
     <MESSAGE value="Get the objects moving (not colliding) according to the physics scheme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get the objects moving (not colliding) according to the physics scheme" />
+    <MESSAGE value="Get collision detection working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get collision detection working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577484014517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578709695750">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578713248053">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578709695750" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578713217524">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578713248053" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578773322596">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578713217524" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578713217524">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578773322596">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578713217524" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578713217524">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578773322596">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578713217524" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578713217524">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578773322596">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578713217524" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578706613121">
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578773322596" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578713252768">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578706613121" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578713252768" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
