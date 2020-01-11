@@ -58,6 +58,22 @@ while True:
         elif e.type == KEYUP:
             keys.discard(e.key)
 
+    # In order to physics in discrete space, subdivide each tick according to lcm of integer speeds of objects
+    #   Each object moves only in steps of 1 in x or y
+    #   At the beginning of the appropriate subdivision of a tick, an object will move 1
+    #   If, say, there are objects a and b moving at x speeds 2 and 3 (units per tick), the tick will be cut into 6:
+    #       0: a  b      (this is the initial state)
+    #       1: a  b
+    #       2: a   b
+    #       3:  a  b
+    #       4:  a   b
+    #       5:  a   b
+    #       6:   a   b   (this is the state after the tick has passed)
+    #   At each stage, collisions are checked and speeds altered, etc
+    #       Which will... probably get complicated fast
+    #           Each object will have to keep track of the subtick offset for its movement speed (last collision)
+    #       Packed, resting objects will collide... a lot, which could be slow
+    #           Maybe keep track of columns/rows locked against the sides?
     order = np.arange(0, x.shape[0])
     np.random.shuffle(order)
     order = list(order)

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Output example best speedster and custom combination">
-      <change afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EyeGesture.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start working on physicsy bending thing">
+      <change beforePath="$PROJECT_DIR$/Bending/Bending 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,20 +290,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00131" summary="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry">
-      <created>1550749285911</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1550749285911</updated>
-    </task>
-    <task id="LOCAL-00132" summary="Add prey and restructure update/draw order">
-      <created>1550861018475</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1550861018475</updated>
     </task>
     <task id="LOCAL-00133" summary="Make a meme version of Bending">
       <created>1550867529823</created>
@@ -636,7 +620,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577382924554</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="Start working on eye gesture tracking">
+      <created>1578705829841</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1578705829842</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Start working on physicsy bending thing">
+      <created>1578705848584</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1578705848584</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -681,8 +679,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start making a new vector field simulator" />
-    <MESSAGE value="Attempt to build hierarchical clustererer" />
     <MESSAGE value="Correct some details in snek" />
     <MESSAGE value="Attempt fourier transform detection of frequencies in sound bites" />
     <MESSAGE value="Start building an evolution simulator" />
@@ -706,17 +702,19 @@
     <MESSAGE value="Output some high combinations for each category" />
     <MESSAGE value="Output example best all-rounder combination" />
     <MESSAGE value="Output example best speedster and custom combination" />
-    <option name="LAST_COMMIT_MESSAGE" value="Output example best speedster and custom combination" />
+    <MESSAGE value="Start working on eye gesture tracking" />
+    <MESSAGE value="Start working on physicsy bending thing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start working on physicsy bending thing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577484014517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578705828777">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578705847835">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578705828777" />
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578705847835" />
     <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578705585352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -733,10 +731,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1577382932147">
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578705853384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577382932147" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578705853384" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
