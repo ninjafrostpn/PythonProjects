@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Output example best all-rounder combination">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Output example best speedster and custom combination">
+      <change afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EyeGesture.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools/MK8Stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/MK8Stats.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Codingame 2019/UnleashTheGeek/.gitignore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bending" />
     <property name="options.lastSelected" value="configurable.group.build" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -44,6 +45,13 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Bending" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets\Brilliant Course" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
+      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\PID" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters" />
@@ -51,15 +59,8 @@
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Neural-Nets\Brilliant Course" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Fitters" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology\Shoal" />
-      <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\BehaviouralEcology" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.MK8Stats">
+  <component name="RunManager" selected="Python.Bending 3">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Heatwave" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Bending 3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +113,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Heatwave.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending 3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="EyeGesture" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EyeGesture.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,27 +156,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/MK8Stats.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MiceProblem" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MiceProblem.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,19 +251,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.MiceProblem" />
-      <item itemvalue="Python.Heatwave" />
       <item itemvalue="Python.Snek" />
       <item itemvalue="Python.Bending 2" />
       <item itemvalue="Python.MK8Stats" />
+      <item itemvalue="Python.EyeGesture" />
+      <item itemvalue="Python.Bending 3" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MK8Stats" />
+        <item itemvalue="Python.Bending 3" />
         <item itemvalue="Python.Bending 2" />
+        <item itemvalue="Python.EyeGesture" />
+        <item itemvalue="Python.MK8Stats" />
         <item itemvalue="Python.Snek" />
-        <item itemvalue="Python.Heatwave" />
-        <item itemvalue="Python.MiceProblem" />
       </list>
     </recent_temporary>
   </component>
@@ -291,13 +292,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Attempt to solve the 10985 problem. Instead solve the 10958 non-issue">
-      <created>1550749233233</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1550749233235</updated>
     </task>
     <task id="LOCAL-00131" summary="Move the modelling to one folder and begin on a new model of batesian and mullerian mimicry">
       <created>1550749285911</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577209498481</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="Output example best speedster and custom combination">
+      <created>1577382924553</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1577382924554</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix SwirlyWhirl2 repeat generation using knowledge from SwirlyWhirl3" />
     <MESSAGE value="Start making a new vector field simulator" />
     <MESSAGE value="Attempt to build hierarchical clustererer" />
     <MESSAGE value="Correct some details in snek" />
@@ -705,28 +705,41 @@
     <MESSAGE value="Start extracting MK8 data from the Mario Wiki" />
     <MESSAGE value="Output some high combinations for each category" />
     <MESSAGE value="Output example best all-rounder combination" />
-    <option name="LAST_COMMIT_MESSAGE" value="Output example best all-rounder combination" />
+    <MESSAGE value="Output example best speedster and custom combination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Output example best speedster and custom combination" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1577209497631">
+    <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577484014517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577209497631" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1577362667533">
+    <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578705828777">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577362667533" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1577362667533">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578705828777" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578705585352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577362667533" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1577362667532">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578705585352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577362667532" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1577362667533">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578705585351">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577362667533" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578705585351" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578705585352">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1577382932147">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577382932147" />
+    <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1577496178020" />
   </component>
 </project>
