@@ -32,17 +32,14 @@ movemode = 0
 enough = 100
 threshold = 0
 
-x = np.tile(np.arange(0, 100, 1, "int32"), 100)
-y = np.repeat(np.arange(0, 100, 1, "int32"), 100)
-m = np.random.randint(1, 3, x.shape)
-vx = np.zeros(x.shape, "int32")
-vy = np.ones(x.shape, "int32")
-fx = np.zeros(x.shape, "int32")
-fy = np.zeros(x.shape, "int32")
+pos = np.int32([np.tile(np.arange(0, 100, 1, "int32"), 100), np.repeat(np.arange(0, 100, 1, "int32"), 100)]).T
+mass = np.random.randint(1, 4, pos.shape[0])
+vel = np.random.randint(-5, 5, pos.shape, "int32")
+force = np.zeros(pos.shape, "int32")
 
 while True:
     screen.fill(0)
-    screengrid[x, y, 0] = 255 - ((m - 1) * 10)
+    screengrid[pos[:, 0], pos[:, 1], 0] = 255 - ((mass - 1) * 10)
     for i in range(2):
         for j in range(2):
             windowgrid[i::2, j::2] = screengrid
@@ -72,23 +69,19 @@ while True:
     #   At each stage, collisions are checked and speeds altered, etc
     #       Which will... probably get complicated fast
     #           Each object will have to keep track of the subtick offset for its movement speed (last collision)
+    #           The velocity composition (and hence lcm) may change with collisions
     #       Packed, resting objects will collide... a lot, which could be slow
     #           Maybe keep track of columns/rows locked against the sides?
-    order = np.arange(0, x.shape[0])
-    np.random.shuffle(order)
-    order = list(order)
-    while len(order) > 0:
-        i = order[0]
-        # print(i)
-        collided = False
-        for dy in range(1, vy[i] + 1):
-            coll = (x[i] == x) & ((y[i] + dy) == y)
-            if np.any(coll):
-                # print("BUMPS", *np.argwhere(coll)[0])
-                order.remove(*np.argwhere(coll)[0])
-                order.insert(0, *np.argwhere(coll)[0])
-                collided = True
-                break
-        if not collided:
-            y[i] += vy[i]
-            order.remove(i)
+    uniquev = np.unique(vel)
+    tickdiv = np.max(uniquev)
+    print(uniquev, tickdiv)
+    # https://stackoverflow.com/a/42472824
+    for v in uniquev[(tickdiv % uniquev) != 0]:
+        print(v, tickdiv, np.gcd(tickdiv, v))
+        tickdiv = int(tickdiv * v / np.gcd(tickdiv, v))
+    print("F", tickdiv)
+    for i in range(1, tickdiv + 1):
+        movers = ((tickdiv / i) % np.abs(vel)) == 0
+        # print(i, tickdiv, vel[movers])
+        pos[movers] += np.sign(vel[movers])
+        pos = np.minimum(np.maximum(0, pos), (w - 1, h - 1))

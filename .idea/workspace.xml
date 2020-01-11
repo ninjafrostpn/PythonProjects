@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Start working on physicsy bending thing">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Capture some idea of how the physics could work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -290,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Make a meme version of Bending">
-      <created>1550867529823</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1550867529823</updated>
     </task>
     <task id="LOCAL-00134" summary="Make it so that Predators selectively choose or take Prey">
       <created>1551053150568</created>
@@ -634,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578705848584</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="Capture some idea of how the physics could work">
+      <created>1578706601758</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1578706601758</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -679,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correct some details in snek" />
     <MESSAGE value="Attempt fourier transform detection of frequencies in sound bites" />
     <MESSAGE value="Start building an evolution simulator" />
     <MESSAGE value="Add graphical output for tracking evolution" />
@@ -704,37 +704,38 @@
     <MESSAGE value="Output example best speedster and custom combination" />
     <MESSAGE value="Start working on eye gesture tracking" />
     <MESSAGE value="Start working on physicsy bending thing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start working on physicsy bending thing" />
+    <MESSAGE value="Capture some idea of how the physics could work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Capture some idea of how the physics could work" />
   </component>
   <component name="WindowStateProjectService">
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577484014517">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578705847835">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578706600932">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578705847835" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578705585352">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578706600932" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578709645074">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578705585352">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578709645074" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578709645074">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578705585351">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578709645074" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578709645074">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578705585351" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578705585352">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578709645074" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578709645074">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578705585352" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578705853384">
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578709645074" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578706613121">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578705853384" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578706613121" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
