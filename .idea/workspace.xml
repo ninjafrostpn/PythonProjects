@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add better collision resolution">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Generalise collision resolution and add test shape sets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -291,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00142" summary="Make a better shoal simulator, based on Couzin et al. (2002)">
-      <created>1552932830047</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1552932830047</updated>
     </task>
     <task id="LOCAL-00143" summary="Properly comment the Couzin-style shoal simulator">
       <created>1552935606316</created>
@@ -635,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578806802216</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Generalise collision resolution and add test shape sets">
+      <created>1578812108090</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1578812108090</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add a small Gibbon or something" />
     <MESSAGE value="&quot;Smooth out playing experience&quot;" />
     <MESSAGE value="Make a Hawk-Dove Game Simulator" />
     <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
@@ -705,7 +704,8 @@
     <MESSAGE value="Add collision detection in convex polygons" />
     <MESSAGE value="Attempt apparently naive approach to collision resolution" />
     <MESSAGE value="Add better collision resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add better collision resolution" />
+    <MESSAGE value="Generalise collision resolution and add test shape sets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generalise collision resolution and add test shape sets" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -716,30 +716,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578806801474">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578812107337">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578806801474" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578812038725">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578812107337" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578851286584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578812038725" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578812038725">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578851286584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578812038725" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578812038725">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578851286584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578812038725" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578812038725">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578851286584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578812038725" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578774184432">
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578812113548">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578774184432" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578812113548" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
