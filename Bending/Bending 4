@@ -9,7 +9,7 @@ w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
-fps = 100
+fps = 200
 deltaT = 1 / fps
 
 keys = set()
@@ -26,7 +26,7 @@ class Polygon:
         else:
             self.mass = mass
         self.vel = np.zeros(2, "float64")
-        self.acc = 0
+        self.acc = np.zeros(2, "float64")
         # Define vertices convex and clockwise pls
         # Vertices defined relative to centre, which is here used as centre of mass
         # TODO: implement proper com-finding (see https://www.youtube.com/watch?v=Px_KdmC7HlA)
@@ -48,14 +48,13 @@ class Polygon:
         # Vectors pointing outward from the side clockwise of each vertex
         self.normals = np.cross(tangents, [0, 0, 1], axisa=1)[:, :2]
         self.normals = (self.normals.T / np.linalg.norm(self.normals, axis=1)).T
-        self.lastupdate = time.time()
 
     def update(self):
-        while self.lastupdate < time.time():
-            self.vel += self.acc * deltaT
-            self.centre += self.vel * deltaT
-            self.acc = 0
-            self.lastupdate += deltaT
+        if self.mass != 0:
+            self.acc[1] += 100
+        self.vel += self.acc * deltaT
+        self.centre += self.vel * deltaT
+        self.acc[:] = 0
 
     def checkpoints(self, points, getpen=False):
         # Use dot product to check if point is inside
@@ -80,51 +79,36 @@ class Polygon:
     def collidepolygon(self, other):
         check1 = self.checkpoints(other, True)
         check2 = other.checkpoints(self, True)
-        print(check1[0], check2[0])
+        # print(check1[0], check2[0])
         if np.any(check1[0]) or np.any(check2[0]):
-            print("WURP")
             maxpenno = np.nanargmin([*check1[2], *check2[2]])
             if maxpenno < len(check1):
-                maxpendepth = check1[2][maxpenno]  # ds
                 maxpenside = check1[1][maxpenno]
-                relspd = np.dot(other.vel - self.vel, self.normals[maxpenside])  # u1 (u2 is set to 0 now)
-                if relspd >= 0:
+                u1 = np.dot(other.vel - self.vel, self.normals[maxpenside])  # u1 (u2 is set to 0 now)
+                if u1 >= 0:
                     return False
-                if self.mass == 0 or other.mass == 0:
-                    mratio = np.inf
+                if other.mass == 0:
+                    # Invert the reference frame, so u2 <= -u1, u1 <= 0
+                    # Rebound velocity, so v2 = -u2
+                    # Get f1 by calculating -f2 (= f1)
+                    f1 = -((self.mass * 2 * u1) / deltaT) * self.normals[maxpenside]
+                elif self.mass == 0:
+                    # Rebound velocity, so v1 = -u1
+                    f1 = -((other.mass * 2 * u1) / deltaT) * self.normals[maxpenside]
                 else:
-                    mratio = other.mass / self.mass  # m1/m2
-                print("mratio", mratio)
-                # Vertex Inside    Outer Edge
-                #     [m1]            [m2]
-                #       o<-----ds----->|    - BEFORE (colliding, vertex past edge, inside shape)
-                #  u1 <--           u2 = 0   |
-                #      >F1>          <F2<   - CHANGE (force changes direction)
-                #       --> v1    v2 <--     |
-                #              |o           - AFTER  (separating, vertex is on edge)
-                # ds = v1.dt - v2.dt, where ds is the distance to separate the point from inside the
-                # m1.u1 + m2.u2 = m1.v1 + m2.v2, if momentum is to be conserved
-                # therefore, after rearranging and combining:
-                #     v1 = ((ds/dt) + u2 + (u1 . (m1/m2))) / (1 + (m1/m2))
-                # which helps to get v1, which goes into:
-                #     F1 = m1(v1 - u1) / dt
-                #        = -F2
-                if mratio == 1:
-                    targspd = maxpendepth / (2 * deltaT)
-                else:
-                    targspd = ((maxpendepth / deltaT) + (mratio * relspd)) / (1 - mratio)  # v1
-                sepforce = ((other.mass * (targspd - relspd)) / deltaT) * self.normals[maxpenside]  # F1
-                print("Blech", relspd, targspd, sepforce)
-                other.applyforce(sepforce)
+                    v1 = u1 * (other.mass - self.mass) / (other.mass + self.mass)
+                    f1 = ((other.mass * (v1 - u1)) / deltaT) * self.normals[maxpenside]
+                other.applyforce(f1 * 0.9)
                 # TODO: Find collision location on side at which to apply force
-                self.applyforce(-sepforce)
+                self.applyforce(-f1 * 0.9)
+                return True
 
     def applyforce(self, what, where=None):
         if self.mass > 0:
             # TODO: Implement off-centre force application with speeeeeeen
             if where is None:
                 where = self.centre
-            print(what)
+            # print(what)
             self.acc += what / self.mass
 
     def __iter__(self):
@@ -140,23 +124,24 @@ A.vel += (100, 0)
 B = Polygon([[450, 30], [470, 75], [430, 65], [420, 50]])
 B.vel -= (100, 0)
 
-Boundary = [Polygon([[0, 0], [0, h], [-100, h], [-100, 0]], 0),
-            Polygon([[w, 0], [w + 100, 0], [w + 100, h], [w, h]], 0),
-            Polygon([[0, 0], [0, -100], [w, -100], [w, 0]], 0),
-            Polygon([[0, h], [w, h], [w, h + 100], [0, h + 100]], 0)]
+Boundary = [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
+            Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
+            Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
+            Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
 
-prevtime = time.time()
+lastupdate = time.time()
 
 while True:
-    # B.centre[:] = pygame.mouse.get_pos()
-    for P in Boundary:
-        P.collidepolygon(A)
-        P.collidepolygon(B)
-    A.collidepolygon(B)
-    A.update()
-    B.update()
-    for P in Boundary:
-        P.update()
+    while lastupdate < time.time():
+        for P in Boundary:
+            P.collidepolygon(A)
+            P.collidepolygon(B)
+        A.collidepolygon(B)
+        A.update()
+        B.update()
+        for P in Boundary:
+            P.update()
+        lastupdate += deltaT
     screen.fill(0)
     A.show()
     B.show()
@@ -172,3 +157,21 @@ while True:
                 quit()
         elif e.type == KEYUP:
             keys.discard(e.key)
+
+
+# Interesting but wrong thoughts
+
+# Vertex Inside    Outer Edge
+#     [m1]            [m2]
+#       o<-----ds----->|    - BEFORE (colliding, vertex past edge, inside shape)
+#  u1 <--           u2 = 0   |
+#      >F1>          <F2<   - CHANGE (force changes direction)
+#       --> v1    v2 <--     |
+#              |o           - AFTER  (separating, vertex is on edge)
+# ds = v1.dt - v2.dt, where ds is the distance to separate the point from inside the
+# m1.u1 + m2.u2 = m1.v1 + m2.v2, if momentum is to be conserved
+# therefore, after rearranging and combining:
+#     v1 = ((ds/dt) + u2 + (u1 . (m1/m2))) / (1 + (m1/m2))
+# which helps to get v1, which goes into:
+#     F1 = m1(v1 - u1) / dt
+#        = -F2
