@@ -14,17 +14,25 @@ deltaT = 1 / fps
 
 keys = set()
 
+polygons = []
+
 
 class Polygon:
-    def __init__(self, vertices, mass=0, centre=None, opensides=None):
+    # TODO: Add crushing and other functions for coolness
+    def __init__(self, vertices, mass=None, centre=None, opensides=None):
+        if mass is None:
+            # TODO: Work out mass according to some density (probably combine this with the com-finder)
+            self.mass = 1
+        else:
+            self.mass = mass
+        self.vel = np.zeros(2, "float64")
+        self.acc = 0
         # Define vertices convex and clockwise pls
         # Vertices defined relative to centre, which is here used as centre of mass
         # TODO: implement proper com-finding (see https://www.youtube.com/watch?v=Px_KdmC7HlA)
-        self.mass = 0
-        self.vel = np.zeros(2, "float64")
-        self.acc = 0
         self.vertices = np.float64(vertices)
         if centre is None:
+            # You can define the com if you want to
             self.centre = np.mean(self.vertices, axis=0)
         else:
             self.centre = np.float64(centre)
@@ -49,27 +57,111 @@ class Polygon:
             self.acc = 0
             self.lastupdate += deltaT
 
-    def collidepoints(self, points):
-        verdict = [np.all(np.sum((pt - self.vertices - self.centre) * self.normals, axis=1) < 0)
-                   for pt in points]
+    def checkpoints(self, points, getpen=False):
+        # Use dot product to check if point is inside
+        pendepth = [np.sum((pt - self.vertices - self.centre) * self.normals, axis=1)
+                    for pt in points]
+        verdict = np.bool_([np.all(p < 0)
+                            for p in pendepth])
+        # print(pendepth, verdict)
+        if getpen:
+            # Find the side of smallest penetration depth
+            penside = np.int32([-1 if not v else np.argmax(np.minimum(p, 0))
+                                for v, p in zip(verdict, pendepth)])
+            # And expose the smallest penetration depth (note that this is negative), or 0 if none, of each point
+            minpendepth = np.float64([0 if ps == -1 else pd[ps]
+                                      for ps, pd in zip(penside, pendepth)])
+            # Direction and magnitude of penetrations as vectors
+            penvec = np.float64([[np.nan, np.nan] if ps == -1 else self.normals[ps] * pd
+                                 for ps, pd in zip(penside, minpendepth)])
+            return verdict, penside, minpendepth, penvec
         return verdict
+
+    def collidepolygon(self, other):
+        check1 = self.checkpoints(other, True)
+        check2 = other.checkpoints(self, True)
+        print(check1[0], check2[0])
+        if np.any(check1[0]) or np.any(check2[0]):
+            print("WURP")
+            maxpenno = np.nanargmin([*check1[2], *check2[2]])
+            if maxpenno < len(check1):
+                maxpendepth = check1[2][maxpenno]  # ds
+                maxpenside = check1[1][maxpenno]
+                relspd = np.dot(other.vel - self.vel, self.normals[maxpenside])  # u1 (u2 is set to 0 now)
+                if relspd >= 0:
+                    return False
+                if self.mass == 0 or other.mass == 0:
+                    mratio = np.inf
+                else:
+                    mratio = other.mass / self.mass  # m1/m2
+                print("mratio", mratio)
+                # Vertex Inside    Outer Edge
+                #     [m1]            [m2]
+                #       o<-----ds----->|    - BEFORE (colliding, vertex past edge, inside shape)
+                #  u1 <--           u2 = 0   |
+                #      >F1>          <F2<   - CHANGE (force changes direction)
+                #       --> v1    v2 <--     |
+                #              |o           - AFTER  (separating, vertex is on edge)
+                # ds = v1.dt - v2.dt, where ds is the distance to separate the point from inside the
+                # m1.u1 + m2.u2 = m1.v1 + m2.v2, if momentum is to be conserved
+                # therefore, after rearranging and combining:
+                #     v1 = ((ds/dt) + u2 + (u1 . (m1/m2))) / (1 + (m1/m2))
+                # which helps to get v1, which goes into:
+                #     F1 = m1(v1 - u1) / dt
+                #        = -F2
+                if mratio == 1:
+                    targspd = maxpendepth / (2 * deltaT)
+                else:
+                    targspd = ((maxpendepth / deltaT) + (mratio * relspd)) / (1 - mratio)  # v1
+                sepforce = ((other.mass * (targspd - relspd)) / deltaT) * self.normals[maxpenside]  # F1
+                print("Blech", relspd, targspd, sepforce)
+                other.applyforce(sepforce)
+                # TODO: Find collision location on side at which to apply force
+                self.applyforce(-sepforce)
+
+    def applyforce(self, what, where=None):
+        if self.mass > 0:
+            # TODO: Implement off-centre force application with speeeeeeen
+            if where is None:
+                where = self.centre
+            print(what)
+            self.acc += what / self.mass
+
+    def __iter__(self):
+        return iter(self.vertices + self.centre)
 
     def show(self):
         pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
+        pygame.draw.circle(screen, 255, np.int32(self.centre), 3)
 
 
 A = Polygon([[10, 10], [100, 10], [100, 54], [60, 100], [10, 15]])
-A.vel += (10, 0)
+A.vel += (100, 0)
+B = Polygon([[450, 30], [470, 75], [430, 65], [420, 50]])
+B.vel -= (100, 0)
+
+Boundary = [Polygon([[0, 0], [0, h], [-100, h], [-100, 0]], 0),
+            Polygon([[w, 0], [w + 100, 0], [w + 100, h], [w, h]], 0),
+            Polygon([[0, 0], [0, -100], [w, -100], [w, 0]], 0),
+            Polygon([[0, h], [w, h], [w, h + 100], [0, h + 100]], 0)]
 
 prevtime = time.time()
 
 while True:
+    # B.centre[:] = pygame.mouse.get_pos()
+    for P in Boundary:
+        P.collidepolygon(A)
+        P.collidepolygon(B)
+    A.collidepolygon(B)
     A.update()
-    mousepos = np.int32(pygame.mouse.get_pos())
-    if A.collidepoints([mousepos])[0]:
-        print("Poke")
+    B.update()
+    for P in Boundary:
+        P.update()
     screen.fill(0)
     A.show()
+    B.show()
+    for P in Boundary:
+        P.show()
     pygame.display.flip()
     for e in pygame.event.get():
         if e.type == QUIT:
