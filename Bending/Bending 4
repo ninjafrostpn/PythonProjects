@@ -9,7 +9,7 @@ w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
-fps = 200
+fps = 100
 deltaT = 1 / fps
 
 keys = set()
@@ -31,6 +31,7 @@ class Polygon:
         # Vertices defined relative to centre, which is here used as centre of mass
         # TODO: implement proper com-finding (see https://www.youtube.com/watch?v=Px_KdmC7HlA)
         self.vertices = np.float64(vertices)
+        print(self.vertices)
         if centre is None:
             # You can define the com if you want to
             self.centre = np.mean(self.vertices, axis=0)
@@ -82,26 +83,33 @@ class Polygon:
         # print(check1[0], check2[0])
         if np.any(check1[0]) or np.any(check2[0]):
             maxpenno = np.nanargmin([*check1[2], *check2[2]])
-            if maxpenno < len(check1):
+            if maxpenno < len(check1[1]):
                 maxpenside = check1[1][maxpenno]
-                u1 = np.dot(other.vel - self.vel, self.normals[maxpenside])  # u1 (u2 is set to 0 now)
-                if u1 >= 0:
-                    return False
-                if other.mass == 0:
-                    # Invert the reference frame, so u2 <= -u1, u1 <= 0
-                    # Rebound velocity, so v2 = -u2
-                    # Get f1 by calculating -f2 (= f1)
-                    f1 = -((self.mass * 2 * u1) / deltaT) * self.normals[maxpenside]
-                elif self.mass == 0:
-                    # Rebound velocity, so v1 = -u1
-                    f1 = -((other.mass * 2 * u1) / deltaT) * self.normals[maxpenside]
-                else:
-                    v1 = u1 * (other.mass - self.mass) / (other.mass + self.mass)
-                    f1 = ((other.mass * (v1 - u1)) / deltaT) * self.normals[maxpenside]
-                other.applyforce(f1 * 0.9)
-                # TODO: Find collision location on side at which to apply force
-                self.applyforce(-f1 * 0.9)
-                return True
+                P1 = other  # The polygon with the furthest incurring vertex
+                P2 = self   # The polygon being poked by said vertex
+            else:
+                maxpenside = check2[1][maxpenno - len(check1[1])]
+                P1 = self   # The polygon with the furthest incurring vertex
+                P2 = other  # The polygon being poked by said vertex
+            u1 = np.dot(P1.vel - P2.vel, P2.normals[maxpenside])  # u1 (u2 is set to 0 now)
+            if u1 >= 0:
+                return False
+            if P1.mass == 0:
+                # Invert the reference frame, so u2 <= -u1, u1 <= 0
+                # Rebound velocity, so v2 = -u2
+                # Get f1 by calculating -f2 (= f1)
+                f1 = -((P2.mass * 2 * u1) / deltaT) * P2.normals[maxpenside]
+            elif P2.mass == 0:
+                # Rebound velocity, so v1 = -u1
+                f1 = -((P1.mass * 2 * u1) / deltaT) * P2.normals[maxpenside]
+            else:
+                v1 = u1 * (P1.mass - P2.mass) / (P1.mass + P2.mass)
+                f1 = ((P1.mass * (v1 - u1)) / deltaT) * P2.normals[maxpenside]
+            P1.applyforce(f1 * 0.9)
+            # TODO: Find collision location on side at which to apply force
+            # TODO: Fix the usual sinking feeling
+            P2.applyforce(-f1 * 0.9)
+            return True
 
     def applyforce(self, what, where=None):
         if self.mass > 0:
@@ -119,33 +127,40 @@ class Polygon:
         pygame.draw.circle(screen, 255, np.int32(self.centre), 3)
 
 
-A = Polygon([[10, 10], [100, 10], [100, 54], [60, 100], [10, 15]])
-A.vel += (100, 0)
-B = Polygon([[450, 30], [470, 75], [430, 65], [420, 50]])
-B.vel -= (100, 0)
+# shapes = [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
+#                   np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
+#                               for t in range(i)]))
+#           for i, r in zip(np.random.randint(3, 10, 5), np.random.randint(1, 6, 5))]
 
-Boundary = [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
-            Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
-            Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
-            Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
+# shapes = [Polygon([w/2, i * 50] + np.float64([[(i - 4) * 20, -25], [(4 - i) * 20, -25],
+#                                               [(4 - i) * 20, 25], [(i - 4) * 20, 25]]))
+#           for i in range(1, 4)]
+
+shapes = [Polygon([w/4, i * 20] + np.float64([[i * 20, -10], [i * 50, -10],
+                                              [i * 50, 10], [i * 20, 10]]))
+          for i in range(1, 5)]
+
+boundaries = [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
+              Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
+              Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
+              Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
 
 lastupdate = time.time()
 
 while True:
     while lastupdate < time.time():
-        for P in Boundary:
-            P.collidepolygon(A)
-            P.collidepolygon(B)
-        A.collidepolygon(B)
-        A.update()
-        B.update()
-        for P in Boundary:
+        for i in range(len(shapes)):
+            for P in boundaries:
+                P.collidepolygon(shapes[i])
+            for j in range(i + 1, len(shapes)):
+                shapes[i].collidepolygon(shapes[j])
+        for P in shapes:
+            P.update()
+        for P in boundaries:
             P.update()
         lastupdate += deltaT
     screen.fill(0)
-    A.show()
-    B.show()
-    for P in Boundary:
+    for P in shapes:
         P.show()
     pygame.display.flip()
     for e in pygame.event.get():
