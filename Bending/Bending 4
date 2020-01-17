@@ -9,8 +9,8 @@ w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
-# TODO: Optimise this darned thing so that this number can be higher than 100.
-fps = 100
+# TODO: Optimise this darned thing so that this number can be higher than 100
+fps = 300
 deltaT = 1 / fps
 
 airresist = 0.999
@@ -27,6 +27,11 @@ class Polygon:
     def __init__(self, vertices, mass=None, centre=None, opensides=None):
         if mass is None:
             # TODO: Work out mass according to some density (probably combine this with the com-finder)
+            #       This could probably also be combined with the inertia calculation
+            # For convex shape, look at pairs of adjacent vertices with average of all vertices to form triangles
+            # Find areas and centres of these triangles -> sum of areas * density for mass
+            #                                              weighted average by [area * density] for com
+            #                                              masses and areas also used to calculate inertia
             self.mass = 1
         else:
             self.mass = mass
@@ -36,13 +41,15 @@ class Polygon:
         # Vertices defined relative to centre, which is here used as centre of mass
         # TODO: implement proper com-finding (see https://www.youtube.com/watch?v=Px_KdmC7HlA)
         self.vertices = np.float64(vertices)
-        print(self.vertices)
+        # print(self.vertices)
         if centre is None:
             # You can define the com if you want to
             self.centre = np.mean(self.vertices, axis=0)
         else:
             self.centre = np.float64(centre)
+        self.currvertices = self.vertices.copy()
         self.vertices -= self.centre
+        self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
         # This variable will be used later for constructing concave shapes
         if opensides is not None:
             self.opensides = opensides
@@ -62,32 +69,42 @@ class Polygon:
         self.centre += self.vel * deltaT
         self.acc[:] = 0
         self.vel *= airresist
+        self.currvertices = self.centre + self.vertices
 
-    def checkpoints(self, points, getpen=False):
-        # TODO: Optimise this. Maybe add a pre-collision check step where Polygons check if others are within radius
-        # Use dot product to check if point is inside
-        pendepth = [np.sum((pt - self.vertices - self.centre) * self.normals, axis=1)
-                    for pt in points]
-        verdict = np.bool_([np.all(p <= 0)
-                            for p in pendepth])
+    def checkpoints(self, points, getpen=False, getbadvals=False):
+        # Use dot product to check if each point is inside the polygon
+        # Lines up points a, b, c with sides x, y, z like
+        # [a, a, a, b, b, b, c, c, c] and
+        # [x, y, z, x, y, z, x, y, z] for calculations
+        # Dot product for point-side pair = sum((point - vertex) * normal)
+        pendepth = np.sum((np.repeat(points, len(self.vertices), axis=0)
+                           - np.tile((self.vertices + self.centre).T, len(points)).T)
+                          * np.tile(self.normals.T, len(points)).T, axis=1).reshape(len(points), -1)
+        # print(points.shape, self.vertices.shape, pendepth.shape)
+        # print(points, self.vertices, sep="\n")
+        verdict = np.all(pendepth <=0, axis=1)
         # print(pendepth, verdict)
         if getpen:
-            # Find the side of smallest penetration depth
-            penside = np.int32([-1 if not v else np.argmax(np.minimum(p, 0))
-                                for v, p in zip(verdict, pendepth)])
+            # Find the side of smallest penetration depth for each point (i.e. the side they're closest to)
+            # (Should this incorporate some idea of entry direction?)
+            penside = np.argmax(np.minimum(pendepth, 0), axis=1)
             # And expose the smallest penetration depth (note that this is negative), or nan if none, of each point
-            minpendepth = np.float64([np.nan if ps == -1 else pd[ps]
-                                      for ps, pd in zip(penside, pendepth)])
+            minpendepth = pendepth[np.arange(0, len(points)), penside]
+            # print(penside, minpendepth)
             # Direction and magnitude of penetrations as vectors
-            penvec = np.float64([[np.nan, np.nan] if ps == -1 else self.normals[ps] * pd
-                                 for ps, pd in zip(penside, minpendepth)])
-            return verdict, penside, minpendepth, penvec
+            penvec = (self.normals[penside].T * minpendepth).T
+            if not getbadvals:
+                penside[~verdict] = -1
+                minpendepth[~verdict] = np.nan
+                penvec[~verdict] = np.nan
+            ret = [verdict, penside, minpendepth, penvec]
+            return ret
         return verdict
 
     def collidepolygon(self, other):
         # TODO: Add Friction
-        check1 = self.checkpoints(other, True)
-        check2 = other.checkpoints(self, True)
+        check1 = self.checkpoints(other.currvertices, True)
+        check2 = other.checkpoints(self.currvertices, True)
         # print(check1[0], check2[0])
         if np.any(check1[0]) or np.any(check2[0]):
             maxpenno = np.nanargmin([*check1[2], *check2[2]])
@@ -113,7 +130,7 @@ class Polygon:
                 P2.centre += maxpenvec / 2
             u1 = np.dot(P1.vel - P2.vel, P2.normals[maxpenside])  # u1 (u2 is set to 0 now)
             # Don't bother with weak collisions, just cancel them
-            if u1 >= -0.1:
+            if u1 >= -0.01:
                 if P1.mass != 0:
                     P1.vel = (P1.vel - (u1 * P2.normals[maxpenside])) + (np.maximum(0, u1) * P2.normals[maxpenside])
                 if P2.mass != 0:
@@ -140,10 +157,7 @@ class Polygon:
             # TODO: Implement off-centre force application with speeeeeeen
             if where is None:
                 where = self.centre
-            self.acc += what / self.mass
-
-    def __iter__(self):
-        return iter(self.vertices + self.centre)
+            self.acc += np.float64(what) / self.mass
 
     def show(self):
         pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
@@ -154,42 +168,46 @@ class Polygon:
 # TODO: Implement this in Polygon code or find a better solution (doesn't stop half-sized blocks)
 #       Maybe have polygons generate temporary midpoints for sake of collision
 
+n = 7
 # shapes = [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
 #                   np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
 #                               for t in range(i)]))
-#           for i, r in zip(np.random.randint(3, 10, 5), np.random.randint(1, 6, 5))]
+#           for i, r in zip(np.random.randint(3, 10, n), np.random.randint(1, 6, n))]
 
-# shapes = [Polygon([w/2, i * 50] + np.float64([[(i - 4) * 20, -25], [(4 - i) * 20, -25],
-#                                               [(4 - i) * 20, 25], [(i - 4) * 20, 25]]))
-#           for i in range(1, 4)]
+shapes = [Polygon([w/2, i * 10] + np.float64([[-i * 20, -5], [i * 20, -5], [i * 20, 0],
+                                              [i * 20, 5], [-i * 20, 5], [-i * 20, 0]]))
+          for i in range(1, n + 1)]
 
-shapes = [Polygon([w/4, i * 20] + np.float64([[i * 20, -10], [i * 50, -10], [i * 50, 0],
-                                              [i * 50, 10], [i * 20, 10], [i * 20, 0]]))
-          for i in range(1, 5)]
+# shapes = [Polygon([w/4, i * 20] + np.float64([[i * 20, -10], [i * 50, -10], [i * 50, 0],
+#                                               [i * 50, 10], [i * 20, 10], [i * 20, 0]]))
+#           for i in range(1, n + 1)]
 
-boundaries = [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
-              Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
-              Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
-              Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
+shapes += [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
+           Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
+           Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
+           Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
 
 lastupdate = time.time()
 
 while True:
-    shapes[0].acc += (((K_RIGHT in keys) - (K_LEFT in keys)) * 100,
-                       ((K_DOWN in keys) - (K_UP in keys)) * 100,)
     while lastupdate < time.time():
-        for i in range(len(shapes)):
-            for P in boundaries:
-                P.collidepolygon(shapes[i])
-            for j in range(i + 1, len(shapes)):
-                shapes[i].collidepolygon(shapes[j])
+        shapes[0].applyforce((((K_RIGHT in keys) - (K_LEFT in keys)) * 2000,
+                              ((K_DOWN in keys) - (K_UP in keys)) * 2000))
+        # Leftmost, Upmost, Rightmost, Downmost reach of each Polygon (with the last one first as well)
+        lurd = np.float64([[*np.min(shapes[i].currvertices, axis=0), *np.max(shapes[i].currvertices, axis=0)]
+                           for i in range(len(shapes))])
+        a, b = np.int32([(i, j) for i in range(len(lurd)) for j in range(len(lurd)) if j > i]).T
+        # Check if any bounding boxes intersect in both x and y
+        possibles = (~((lurd[a, 0] > lurd[b, 2]) | (lurd[a, 2] < lurd[b, 0])) &
+                     ~((lurd[a, 1] > lurd[b, 3]) | (lurd[a, 3] < lurd[b, 1])))
+        possibles = np.nonzero(possibles)[0]
+        for i in possibles:
+            shapes[a[i]].collidepolygon(shapes[b[i]])
         for P in shapes:
-            P.update()
-        for P in boundaries:
             P.update()
         lastupdate += deltaT
     screen.fill(0)
-    for P in shapes:
+    for P in shapes[:-4]:
         P.show()
     pygame.display.flip()
     for e in pygame.event.get():

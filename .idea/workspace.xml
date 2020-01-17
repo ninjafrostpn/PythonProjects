@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Generalise collision resolution and add test shape sets">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add exclusion of polygons from one another, parameterise some things, add many TODOs">
+      <change afterPath="$PROJECT_DIR$/Boing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -79,48 +80,6 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="Bending 2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending 2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Bending 3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/Bending 3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Bending 4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="EyeGesture" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Boing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,7 +113,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EyeGesture.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Boing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MK8Stats" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Crawler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -175,7 +134,49 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/MK8Stats.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Disintegratinator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Disintegratinator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Puuleys" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Puuleys.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,19 +251,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Bending 2" />
-      <item itemvalue="Python.MK8Stats" />
-      <item itemvalue="Python.EyeGesture" />
-      <item itemvalue="Python.Bending 3" />
       <item itemvalue="Python.Bending 4" />
+      <item itemvalue="Python.Disintegratinator" />
+      <item itemvalue="Python.Crawler" />
+      <item itemvalue="Python.Puuleys" />
+      <item itemvalue="Python.Boing" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Bending 4" />
-        <item itemvalue="Python.Bending 3" />
-        <item itemvalue="Python.Bending 2" />
-        <item itemvalue="Python.EyeGesture" />
-        <item itemvalue="Python.MK8Stats" />
+        <item itemvalue="Python.Boing" />
+        <item itemvalue="Python.Puuleys" />
+        <item itemvalue="Python.Crawler" />
+        <item itemvalue="Python.Disintegratinator" />
       </list>
     </recent_temporary>
   </component>
@@ -291,13 +292,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Properly comment the Couzin-style shoal simulator">
-      <created>1552935606316</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1552935606316</updated>
     </task>
     <task id="LOCAL-00144" summary="Drag the shoal simulator into the 3rd dimension!">
       <created>1553095697170</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578812108090</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="Add exclusion of polygons from one another, parameterise some things, add many TODOs">
+      <created>1578851370500</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1578851370500</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -680,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;Smooth out playing experience&quot;" />
     <MESSAGE value="Make a Hawk-Dove Game Simulator" />
     <MESSAGE value="Bring git repo up to date&#10;- Messing with neural networks&#10;- Testing the Monty Hall problem&#10;- Playing with PID&#10;- Make some blank files" />
     <MESSAGE value="Start work on a new idea for sand-moving" />
@@ -705,7 +705,8 @@
     <MESSAGE value="Attempt apparently naive approach to collision resolution" />
     <MESSAGE value="Add better collision resolution" />
     <MESSAGE value="Generalise collision resolution and add test shape sets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generalise collision resolution and add test shape sets" />
+    <MESSAGE value="Add exclusion of polygons from one another, parameterise some things, add many TODOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add exclusion of polygons from one another, parameterise some things, add many TODOs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -716,33 +717,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1578812107337">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1579252500372">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578812107337" />
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1578851286584">
+    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579252500372" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom" timestamp="1579252500384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
-    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1578851286584">
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
+    <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579252500384" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center" timestamp="1579252500384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
-    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1578851286584">
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
+    <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579252500384" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left" timestamp="1579252500384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
-    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1578851286584">
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254239" />
+    <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579252500384" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right" timestamp="1579252500384">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578851286584" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578812113548">
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
+    <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579252500384" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578851373266">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578812113548" />
-    <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577496178020">
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578851373266" />
+    <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1579146435670">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579146435670" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1577496178020" />
   </component>
 </project>
