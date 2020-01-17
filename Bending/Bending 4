@@ -33,35 +33,49 @@ class Polygon:
         self.centre = np.mean(self.vertices, axis=0)
         self.currvertices = self.vertices.copy()
         self.vertices -= self.centre
-        # For convex shape, look at pairs of adjacent vertices with average of all vertices to form triangles
-        # Find areas and centres of these triangles -> sum of areas * density for mass
-        #                                              weighted average by [area * density] for com
-        #                                              masses and areas also used to calculate inertia
-        areas = []
-        centroids = []
-        for i in range(len(self.vertices)):
-            pts = np.int32([[0, 0], self.vertices[i - 1], self.vertices[i]])
-            centroids.append(np.mean(pts, axis=0))
-            # Triangular area from https://www.mathopenref.com/coordtrianglearea.html
-            # |ax(by - cy) + bx(cy - ay) + cx(ay - by)| / 2
-            areas.append(np.abs(np.sum(pts[[0, 1, 2], 0] * (pts[[1, 2, 0], 1] - pts[[2, 0, 1], 1]))) / 2)
-        self.area = np.sum(areas)
-        self.density = density
-        self.mass = density * self.area
-        # Calculating centre of mass: https://www.youtube.com/watch?v=Px_KdmC7HlA
-        self.centreofmass = np.sum(np.float64(centroids).T * np.float64(areas), axis=1).T / self.area
-        self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
-        # This variable will be used later for constructing concave shapes
-        if opensides is not None:
-            self.opensides = opensides
-        else:
-            self.opensides = []
         # Vectors pointing clockwise from each vertex (with a z dimension of 0
         tangents = np.float64([[*(self.vertices[(i + 1) % len(self.vertices)] - self.vertices[i]), 0]
                                for i in range(len(vertices))])
         # Vectors pointing outward from the side clockwise of each vertex
         self.normals = np.cross(tangents, [0, 0, 1], axisa=1)[:, :2]
         self.normals = (self.normals.T / np.linalg.norm(self.normals, axis=1)).T
+        # For convex shape, look at pairs of adjacent vertices with average of all vertices to form triangles
+        # Find areas and centres of these triangles -> sum of areas * density for mass
+        #                                              weighted average by [area * density] for com
+        #                                              masses and areas also used to calculate inertia
+        self.density = density
+        areas = []
+        centroids = []
+        inertias = []
+        for i in range(len(self.vertices)):
+            pts = np.int32([[0, 0], self.vertices[i - 1], self.vertices[i]])
+            centroids.append(np.mean(pts, axis=0))
+            # Triangular area from https://www.mathopenref.com/coordtrianglearea.html
+            # |ax(by - cy) + bx(cy - ay) + cx(ay - by)| / 2
+            areas.append(np.abs(np.sum(pts[[0, 1, 2], 0] * (pts[[1, 2, 0], 1] - pts[[2, 0, 1], 1]))) / 2)
+            # https://en.wikipedia.org/wiki/List_of_second_moments_of_area
+            # https://en.wikipedia.org/wiki/Perpendicular_axis_theorem
+            # https://www.khanacademy.org/science/physics/torque-angular-momentum/torque-tutorial/a/rotational-inertia
+            bt = np.linalg.norm(self.vertices[i] - self.vertices[i - 1])
+            ht = np.sum(self.vertices[i - 1] * self.normals[i - 1])
+            at = np.linalg.norm(self.vertices[i - 1] - (self.normals[i - 1] * ht))
+            # Ix = b.h^3 / 12, Iy = b.h.(a^2 + a.b + b^2) / 12, so Iz = b.h.(h^2 + a^2 + b^2 + a.b) / 12
+            # Translates to inertia at the centre of mass: Io = Iz + m.d^2
+            inertias.append(self.density *
+                            (((bt * ht * ((ht**2) + (at**2) + (bt**2) + (at * bt))) / 12) +
+                             (areas[-1] * (ht**2))))
+        self.area = np.sum(areas)
+        self.inertia = np.sum(inertias)
+        self.mass = density * self.area
+        print(self.mass, self.inertia)
+        # Calculating centre of mass: https://www.youtube.com/watch?v=Px_KdmC7HlA
+        self.centreofmass = np.sum(np.float64(centroids).T * np.float64(areas), axis=1).T / self.area
+        self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
+        # This variable will be used later for constructing concave shapes
+        # if opensides is not None:
+        #     self.opensides = opensides
+        # else:
+        #     self.opensides = []
 
     def update(self):
         if self.mass != 0:
@@ -158,7 +172,7 @@ class Polygon:
 
     def show(self):
         pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
-        pygame.draw.circle(screen, 255, np.int32(self.centre), 3)
+        pygame.draw.circle(screen, 255, np.int32(self.centre + self.centreofmass), 3)
 
 
 # Note to self, adding points in the middle of sides helps (stops equal-sized blocks sliding through each other)

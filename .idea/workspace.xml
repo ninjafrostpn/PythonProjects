@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Optimise collisions somewhat by use of numpy">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Have Polygons calculate mass and centre of mass from its subtriangle areas and centroids">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -291,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Add multiple views and a parameter readout to the 3D shoal simulator">
-      <created>1553107323346</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1553107323346</updated>
     </task>
     <task id="LOCAL-00147" summary="Move shoal simulators to their own subfolder">
       <created>1553626598174</created>
@@ -635,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579252516752</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Have Polygons calculate mass and centre of mass from its subtriangle areas and centroids">
+      <created>1579256265207</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1579256265207</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -660,7 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start work on a new idea for sand-moving" />
     <MESSAGE value="Add the basic idea" />
     <MESSAGE value="Get drawing of material working for thin upward peaks" />
     <MESSAGE value="Change method of drawing to window to be more boxy" />
@@ -685,7 +684,8 @@
     <MESSAGE value="Add exclusion of polygons from one another, parameterise some things, add many TODOs" />
     <MESSAGE value="Add mouse cursor bouncy thing" />
     <MESSAGE value="Optimise collisions somewhat by use of numpy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimise collisions somewhat by use of numpy" />
+    <MESSAGE value="Have Polygons calculate mass and centre of mass from its subtriangle areas and centroids" />
+    <option name="LAST_COMMIT_MESSAGE" value="Have Polygons calculate mass and centre of mass from its subtriangle areas and centroids" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -696,30 +696,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2" timestamp="1579252515856">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579256264369">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="123" y="48" width="939" height="538" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579252515856" />
-    <state width="619" height="148" key="GridCell.Tab.0.bottom" timestamp="1579255943417">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579256264369" />
+    <state width="619" height="148" key="GridCell.Tab.0.bottom" timestamp="1579263691077">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="619" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579255943417" />
-    <state width="619" height="148" key="GridCell.Tab.0.center" timestamp="1579255943416">
+    <state width="619" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579263691077" />
+    <state width="619" height="148" key="GridCell.Tab.0.center" timestamp="1579263691077">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="619" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579255943416" />
-    <state width="619" height="148" key="GridCell.Tab.0.left" timestamp="1579255943416">
+    <state width="619" height="148" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579263691077" />
+    <state width="619" height="148" key="GridCell.Tab.0.left" timestamp="1579263691075">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254239" />
-    <state width="619" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579255943416" />
-    <state width="619" height="148" key="GridCell.Tab.0.right" timestamp="1579255943416">
+    <state width="619" height="148" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579263691075" />
+    <state width="619" height="148" key="GridCell.Tab.0.right" timestamp="1579263691077">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="619" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579255943416" />
+    <state width="619" height="148" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579263691077" />
     <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579252521135">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
