@@ -106,6 +106,10 @@ class Polygon:
         #     self.opensides = []
 
     def checkpoints(self, points, getpen=False, getbadvals=False):
+        if len(points) == 0:
+            if getpen:
+                return [[], [], [], []]
+            return []
         # Use dot product to check if each point is inside the polygon
         # Lines up points a, b, c with sides x, y, z like
         # [a, a, a, b, b, b, c, c, c] and
@@ -133,8 +137,12 @@ class Polygon:
 
     def collidepolygon(self, other):
         # TODO: Add Friction
-        check1 = self.checkpoints(other.currvertices, True)
-        check2 = other.checkpoints(self.currvertices, True)
+        inmask1 = np.all((other.currvertices > np.min(self.currvertices, axis=0)) &
+                         (other.currvertices < np.max(self.currvertices, axis=0)), axis=1)
+        check1 = self.checkpoints(other.currvertices[inmask1], True)
+        inmask2 = np.all((self.currvertices > np.min(other.currvertices, axis=0)) &
+                         (self.currvertices < np.max(other.currvertices, axis=0)), axis=1)
+        check2 = other.checkpoints(self.currvertices[inmask2], True)
         # print(check1[0], check2[0])
         if np.any(check1[0]) or np.any(check2[0]):
             maxpenno = np.nanargmin([*check1[2], *check2[2]])
@@ -142,16 +150,16 @@ class Polygon:
                 maxpenside = check1[1][maxpenno]
                 maxpendepth = check1[2][maxpenno]
                 maxpenvec = check1[3][maxpenno]
+                collpos = other.currvertices[inmask1][maxpenno] - maxpenvec
                 P1 = other  # The polygon with the furthest incurring vertex
                 P2 = self   # The polygon being poked by said vertex
-                collpos = P1.currvertices[maxpenno] - maxpenvec
             else:
                 maxpenside = check2[1][maxpenno - len(check1[1])]
                 maxpendepth = check2[2][maxpenno - len(check1[1])]
                 maxpenvec = check2[3][maxpenno - len(check1[1])]
+                collpos = self.currvertices[inmask2][maxpenno - len(check1[1])] - maxpenvec
                 P1 = self   # The polygon with the furthest incurring vertex
                 P2 = other  # The polygon being poked by said vertex
-                collpos = P1.currvertices[maxpenno - len(check1[1])] - maxpenvec
             # pygame.draw.line(screen, 255 << 16, collpos, collpos + (P2.currnormals[maxpenside] * 10))
             # Move the object to the outside
             if P1.mass == 0:
@@ -261,18 +269,20 @@ shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
 #                                                [i * 50, 10], [i * 20, 10], [i * 20, 0]]))
 #            for i in range(1, n + 1)]
 
+# shapes += [Polygon(np.random.random_sample(2) * (w - 10, h - 10) +
+#                    [[0, 0], [35, 0], [35, 35], [0, 35]]) for i in range(n)]
 
 lastupdate = time.time()
 
 while True:
     screen.fill(0)
+    a, b = np.int32([(i, j) for i in range(len(shapes)) for j in range(len(shapes)) if j > max(i, 3)]).T
+    arrowforce = (((K_RIGHT in keys) - (K_LEFT in keys)) * 2000, ((K_DOWN in keys) - (K_UP in keys)) * 2000)
     while lastupdate < time.time():
-        shapes[-1].applyforce((((K_RIGHT in keys) - (K_LEFT in keys)) * 2000,
-                              ((K_DOWN in keys) - (K_UP in keys)) * 2000))
+        shapes[-1].applyforce(arrowforce)
         # Leftmost, Upmost, Rightmost, Downmost reach of each Polygon (with the last one first as well)
         lurd = np.float64([[*np.min(shapes[i].currvertices, axis=0), *np.max(shapes[i].currvertices, axis=0)]
                            for i in range(len(shapes))])
-        a, b = np.int32([(i, j) for i in range(len(lurd)) for j in range(len(lurd)) if j > max(i, 3)]).T
         # Check if any bounding boxes intersect in both x and y
         possibles = (~((lurd[a, 0] > lurd[b, 2]) | (lurd[a, 2] < lurd[b, 0])) &
                      ~((lurd[a, 1] > lurd[b, 3]) | (lurd[a, 3] < lurd[b, 1])))
@@ -296,7 +306,8 @@ while True:
         elif e.type == KEYUP:
             keys.discard(e.key)
             if e.key == K_SPACE:
-                shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
+                for i in range(len(shapes) - 4):
+                    shapes[4].snap(0, len(shapes[4].vertices) // 2)
 
 
 # Interesting but wrong thoughts
