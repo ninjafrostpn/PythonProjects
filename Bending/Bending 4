@@ -14,11 +14,11 @@ screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
 # TODO: Optimise this darned thing so that this number can be higher than 100
-fps = 200
+fps = 100
 deltaT = 1 / fps
 
 airresist = 0.999
-bounciness = 0.8
+bounciness = 0.5
 gravity = 500
 
 keys = set()
@@ -28,7 +28,7 @@ polygons = []
 
 class Polygon:
     # TODO: Add crushing and other functions for coolness
-    def __init__(self, vertices, density=0.001, opensides=None):
+    def __init__(self, vertices, density=0.0001, opensides=None):
         self.vel = np.zeros(2, "float64")
         self.acc = np.zeros(2, "float64")
         self.ang = 0
@@ -85,19 +85,6 @@ class Polygon:
         # else:
         #     self.opensides = []
 
-    def update(self):
-        if self.mass != 0:
-            self.acc[1] += gravity
-            self.ang += 0.001
-        self.vel += self.acc * deltaT
-        self.centre += self.vel * deltaT
-        self.acc[:] = 0
-        self.vel *= airresist
-        self.ang %= 2 * np.pi
-        rotmat = R(self.ang)
-        self.currvertices = self.centre + np.dot(rotmat, self.vertices.T).T
-        self.currnormals = np.dot(rotmat, self.normals.T).T
-
     def checkpoints(self, points, getpen=False, getbadvals=False):
         # Use dot product to check if each point is inside the polygon
         # Lines up points a, b, c with sides x, y, z like
@@ -133,16 +120,19 @@ class Polygon:
             maxpenno = np.nanargmin([*check1[2], *check2[2]])
             if maxpenno < len(check1[1]):
                 maxpenside = check1[1][maxpenno]
-                # maxpendepth = check1[2][maxpenno]
+                maxpendepth = check1[2][maxpenno]
                 maxpenvec = check1[3][maxpenno]
                 P1 = other  # The polygon with the furthest incurring vertex
                 P2 = self   # The polygon being poked by said vertex
+                collpos = P1.currvertices[maxpenno] - maxpenvec
             else:
                 maxpenside = check2[1][maxpenno - len(check1[1])]
-                # maxpendepth = check2[2][maxpenno - len(check1[1])]
+                maxpendepth = check2[2][maxpenno - len(check1[1])]
                 maxpenvec = check2[3][maxpenno - len(check1[1])]
                 P1 = self   # The polygon with the furthest incurring vertex
                 P2 = other  # The polygon being poked by said vertex
+                collpos = P1.currvertices[maxpenno - len(check1[1])] - maxpenvec
+            # pygame.draw.line(screen, 255 << 16, collpos, collpos + (P2.currnormals[maxpenside] * 10))
             # Move the object to the outside
             if P1.mass == 0:
                 P2.centre += maxpenvec
@@ -151,52 +141,82 @@ class Polygon:
             else:
                 P1.centre -= maxpenvec / 2
                 P2.centre += maxpenvec / 2
-            u1 = np.dot(P1.vel - P2.vel, P2.currnormals[maxpenside])  # u1 (u2 is set to 0 now)
+            P1collpos = (collpos - (P1.centreofmass + P1.centre))
+            P2collpos = (collpos - (P2.centreofmass + P2.centre))
+            P1rotvel = np.cross([0, 0, P1.avel], [*P1collpos, 0])[:2]
+            P2rotvel = np.cross([0, 0, P2.avel], [*P2collpos, 0])[:2]
+            relvel = P1.vel + P1rotvel - P2.vel - P2rotvel
+            contactvel = np.dot(relvel, P2.currnormals[maxpenside])  # u1 (u2 is set to 0 now)
             # Don't bother with weak collisions, just cancel them
-            if u1 >= -0.01:
-                if P1.mass != 0:
-                    P1.vel = (P1.vel - (u1 * P2.currnormals[maxpenside])) +\
-                             (np.maximum(0, u1) * P2.currnormals[maxpenside])
-                if P2.mass != 0:
-                    P2.vel = (P2.vel + (u1 * P2.currnormals[maxpenside])) -\
-                             (np.maximum(0, u1) * P2.currnormals[maxpenside])
+            if contactvel >= 0:
                 return False
+            if maxpendepth > -0.01:
+                if P1.mass != 0:
+                    # P1.vel = (P1.vel - (contactvel * P2.currnormals[maxpenside])) + \
+                    #          (np.maximum(0, contactvel) * P2.currnormals[maxpenside])
+                    P1.centre += maxpenvec
+                if P2.mass != 0:
+                    # P2.vel = (P2.vel + (contactvel * P2.currnormals[maxpenside])) - \
+                    #          (np.maximum(0, contactvel) * P2.currnormals[maxpenside])
+                    P2.centre -= maxpenvec
             if P1.mass == 0:
                 # Invert the reference frame, so u2 <= -u1, u1 <= 0
                 # Rebound velocity, so v2 = -u2
                 # Get f1 by calculating -f2 (= f1)
-                f1 = -((P2.mass * 2 * u1) / deltaT) * P2.currnormals[maxpenside]
+                f1 = -((P2.mass * 2 * contactvel) / deltaT) * P2.currnormals[maxpenside]
             elif P2.mass == 0:
                 # Rebound velocity, so v1 = -u1
-                f1 = -((P1.mass * 2 * u1) / deltaT) * P2.currnormals[maxpenside]
+                f1 = -((P1.mass * 2 * contactvel) / deltaT) * P2.currnormals[maxpenside]
             else:
-                v1 = u1 * (P1.mass - P2.mass) / (P1.mass + P2.mass)
-                f1 = ((P1.mass * (v1 - u1)) / deltaT) * P2.currnormals[maxpenside]
-            P1.applyforce(f1 * bounciness)
-            # TODO: Find collision location on side at which to apply force
-            P2.applyforce(-f1 * bounciness)
+                v1 = contactvel * (P1.mass - P2.mass) / (P1.mass + P2.mass)
+                f1 = ((P1.mass * (v1 - contactvel)) / deltaT) * P2.currnormals[maxpenside]
+            P1.applyforce(f1 * bounciness, collpos)
+            P2.applyforce(-f1 * bounciness, collpos)
             return True
 
     def applyforce(self, what, where=None):
         if self.mass > 0:
-            # TODO: Implement off-centre force application with speeeeeeen
+            what = np.float64(what)
             if where is None:
-                where = self.centre
-            self.acc += np.float64(what) / self.mass
+                self.acc += what / self.mass
+            else:
+                r = (where - (self.centreofmass + self.centre))
+                # F = r * np.sum((r / np.linalg.norm(r)) * what) / np.linalg.norm(r)
+                T = np.cross(r, what)
+                self.acc += what / self.mass
+                self.aacc += T / self.inertia
+
+    def update(self):
+        # Positional stuff
+        if self.mass != 0:
+            self.acc[1] += gravity
+        self.vel += self.acc * deltaT
+        self.centre += self.vel * deltaT
+        self.acc[:] = 0
+        self.vel *= airresist
+        # Angular stuff
+        self.avel += self.aacc * deltaT
+        self.ang += self.avel * deltaT
+        self.ang %= 2 * np.pi
+        self.aacc = 0
+        self.avel *= airresist ** 2
+        rotmat = R(self.ang)
+        self.currvertices = self.centre + np.dot(rotmat, self.vertices.T).T
+        self.currnormals = np.dot(rotmat, self.normals.T).T
 
     def show(self):
         # pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
         pygame.draw.polygon(screen, 255, self.currvertices, 1)
-        pygame.draw.circle(screen, 255 << 16, np.int32(self.centre + self.centreofmass), 3)
-        for i in range(len(self.normals)):
-            pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * -10))
+        # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre + self.centreofmass), 3)
+        # for i in range(len(self.normals)):
+        #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * -10))
 
 
 # Note to self, adding points in the middle of sides helps (stops equal-sized blocks sliding through each other)
 # TODO: Implement this in Polygon code or find a better solution (doesn't stop half-sized blocks)
 #       Maybe have polygons generate temporary midpoints for sake of collision
 
-n = 5
+n = 10
 shapes = [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
                   np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
                               for t in range(i)]))
@@ -210,14 +230,15 @@ shapes = [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
 #                                               [i * 50, 10], [i * 20, 10], [i * 20, 0]]))
 #           for i in range(1, n + 1)]
 
-shapes += [Polygon([[0, -100], [0, h], [-100, h], [-100, -100]], 0),
-           Polygon([[w, 0], [w + 100, 0], [w + 100, h + 100], [w, h + 100]], 0),
-           Polygon([[0, 0], [0, -100], [w + 100, -100], [w + 100, 0]], 0),
-           Polygon([[-100, h], [w, h], [w, h + 100], [-100, h + 100]], 0)]
+shapes += [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
+           Polygon([[w, -100], [w + 100, -100], [w + 100, h + 100], [w, h + 100]], 0),
+           Polygon([[-100, 0], [-100, -100], [w + 100, -100], [w + 100, 0]], 0),
+           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 
 lastupdate = time.time()
 
 while True:
+    screen.fill(0)
     while lastupdate < time.time():
         shapes[0].applyforce((((K_RIGHT in keys) - (K_LEFT in keys)) * 2000,
                               ((K_DOWN in keys) - (K_UP in keys)) * 2000))
@@ -235,7 +256,6 @@ while True:
         for P in shapes:
             P.update()
         lastupdate += deltaT
-    screen.fill(0)
     for P in shapes[:-4]:
         P.show()
     pygame.display.flip()
