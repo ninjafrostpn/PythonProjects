@@ -33,8 +33,11 @@ w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
 
+# If True, it tries to keep the physics up with real time, freezing when it can't catch up
+# If False, it runs without regard for time, lagging behind or passing ahead of real time according to calculation speed
+realtime = False
 # TODO: Optimise this darned thing so that this number can be higher than 100
-fps = 100
+fps = 300
 deltaT = 1 / fps
 
 airresist = 0.999
@@ -43,12 +46,21 @@ gravity = 500
 
 keys = set()
 
-polygons = []
+# Reference all the shapes' vertices into this array
+refarray = np.zeros((100, 1000, 2), "float64")
+# And this one keeps track of how many shapes there are, and have ever been
+totshapes = np.int32([0, 0])
 
 
 class Polygon:
     # TODO: Add crushing and other functions for coolness
-    def __init__(self, vertices, density=0.001, opensides=None, vel=(0, 0), avel=0):
+    def __init__(self, vertices, density=0.001, opensides=None, vel=(0, 0), avel=0, no=None):
+        if no is None:
+            self.no = totshapes[0]
+            totshapes[:] += 1
+        else:
+            self.no = no
+            totshapes[1] += 1
         self.vel = np.float64(vel)
         self.acc = np.zeros(2, "float64")
         self.ang = 0
@@ -58,7 +70,9 @@ class Polygon:
         # Vertices defined relative to centre
         self.vertices = subdivide(np.float64(vertices), 10)
         self.centre = np.mean(self.vertices, axis=0)
-        self.currvertices = self.vertices.copy()
+        self.currvertices = refarray[self.no, :len(self.vertices)]
+        self.currvertices[:] = self.vertices.copy()
+        refarray[self.no, len(self.vertices):] = np.nan
         self.vertices -= self.centre
         # Vectors pointing clockwise from each vertex (with a z dimension of 0
         tangents = np.float64([[*(self.vertices[(i + 1) % len(self.vertices)] - self.vertices[i]), 0]
@@ -83,21 +97,26 @@ class Polygon:
             areas.append(np.abs(np.sum(pts[[0, 1, 2], 0] * (pts[[1, 2, 0], 1] - pts[[2, 0, 1], 1]))) / 2)
             # https://en.wikipedia.org/wiki/List_of_second_moments_of_area
             # https://en.wikipedia.org/wiki/Perpendicular_axis_theorem
-            # https://www.khanacademy.org/science/physics/torque-angular-momentum/torque-tutorial/a/rotational-inertia
-            bt = np.linalg.norm(self.vertices[i] - self.vertices[i - 1])
-            ht = np.sum(self.vertices[i - 1] * self.normals[i - 1])
-            at = np.linalg.norm(self.vertices[i - 1] - (self.normals[i - 1] * ht))
             # Ix = b.h^3 / 12, Iy = b.h.(a^2 + a.b + b^2) / 12, so Iz = b.h.(h^2 + a^2 + b^2 + a.b) / 12
+            # https://www.khanacademy.org/science/physics/torque-angular-momentum/torque-tutorial/a/rotational-inertia
             # Translates to inertia at the centre of mass: Io = Iz + m.d^2
+            bt = np.linalg.norm(self.vertices[i] - self.vertices[i - 1])
+            ht = np.dot(self.vertices[i - 1], self.normals[i - 1])
+            at = np.linalg.norm(self.vertices[i - 1] - (self.normals[i - 1] * ht))
             inertias.append(self.density *
                             (((bt * ht * ((ht**2) + (at**2) + (bt**2) + (at * bt))) / 12) +
-                             (areas[-1] * (ht**2))))
+                             (areas[-1] * (np.linalg.norm(self.vertices[i - 1])**2))))
         self.area = np.sum(areas)
-        self.inertia = np.sum(inertias)
+        if self.area == 0:
+            print("Oh No")
         self.mass = density * self.area
-        print(self.mass, self.inertia)
         # Calculating centre of mass: https://www.youtube.com/watch?v=Px_KdmC7HlA
         self.centreofmass = np.sum(np.float64(centroids).T * np.float64(areas), axis=1).T / self.area
+        # Translate the inertia from the separate ones at the centre to combined at the centre of mass
+        self.inertia = np.sum(inertias) + (self.mass * (np.linalg.norm(self.centreofmass)**2))
+        if self.inertia == 0:
+            print("Oh No x 2")
+        print(self.mass, self.inertia)
         self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
         # This variable will be used later for constructing concave shapes
         # if opensides is not None:
@@ -137,6 +156,9 @@ class Polygon:
 
     def collidepolygon(self, other):
         # TODO: Add Friction
+        # TODO: Find out why big flat surfaces bounce so much and triangles speen so much
+        # TODO: Find out how to stop shapes sneaking into each other at the corners
+        # TODO: Perhaps try to do this part before even marking the two polygons for collision
         inmask1 = np.all((other.currvertices > np.min(self.currvertices, axis=0)) &
                          (other.currvertices < np.max(self.currvertices, axis=0)), axis=1)
         check1 = self.checkpoints(other.currvertices[inmask1], True)
@@ -210,7 +232,8 @@ class Polygon:
             else:
                 r = (where - (self.centreofmass + self.centre))
                 # F = r * np.sum((r / np.linalg.norm(r)) * what) / np.linalg.norm(r)
-                T = np.cross(r, what)
+                # Bounciness here is a fudge that seems to work. TODO: Find out why
+                T = np.cross(r, what * bounciness)
                 self.acc += what / self.mass
                 self.aacc += T / self.inertia
 
@@ -227,24 +250,30 @@ class Polygon:
         self.ang += self.avel * deltaT
         self.ang %= 2 * np.pi
         self.aacc = 0
-        self.avel *= airresist ** 2
+        self.avel *= airresist
         rotmat = R(self.ang)
-        self.currvertices = self.centre + np.dot(rotmat, self.vertices.T).T
+        self.currvertices[:] = self.centre + np.dot(rotmat, self.vertices.T).T
         self.currnormals = np.dot(rotmat, self.normals.T).T
 
     def show(self):
         # pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
-        pygame.draw.polygon(screen, 255, self.currvertices, 1)
+        # print(self.currvertices.shape, self.currvertices.dtype, type(self.currvertices),
+        #       np.any(np.isnan(self.currvertices)), np.nanmax(self.currvertices), self.no)
+        try:
+            pygame.draw.polygon(screen, 255, self.currvertices, 1)
+        except TypeError:
+            print("BROKE")
         # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre + self.centreofmass), 3)
         # for i in range(len(self.currnormals)):
         #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * -10))
 
     def snap(self, vertex1, vertex2):
+        cv = np.copy(self.currvertices)
         shapes.remove(self)
         vertex1, vertex2 = min(vertex1, vertex2), max(vertex1, vertex2)
-        shapes.append(Polygon([*self.currvertices[:vertex1 + 1].copy(), *self.currvertices[vertex2:].copy()],
-                              vel=self.vel.copy(), avel=self.avel))
-        shapes.append(Polygon(self.currvertices[vertex1:vertex2 + 1].copy(), vel=self.vel.copy(), avel=self.avel))
+        shapes.insert(self.no, Polygon(cv[vertex1:vertex2 + 1],
+                                       vel=self.vel.copy(), avel=self.avel, no=self.no))
+        shapes.append(Polygon([*cv[:vertex1 + 1], *cv[vertex2:]], vel=self.vel.copy(), avel=self.avel))
 
 
 # Note to self, adding points in the middle of sides helps (stops equal-sized blocks sliding through each other)
@@ -256,32 +285,39 @@ shapes = [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
           Polygon([[-100, 0], [-100, -100], [w + 100, -100], [w + 100, 0]], 0),
           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 n = 5
-shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
-                   np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
-                               for t in range(i)]))
-           for i, r in zip(np.random.randint(3, 10, n), np.random.randint(1, 6, n))]
+# shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
+#                    np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
+#                                for t in range(i)]))
+#            for i, r in zip(np.random.randint(3, 10, n), np.random.randint(1, 6, n))]
 
-# shapes += [Polygon([w/2, i * 10] + np.float64([[-i * 20, -5], [i * 20, -5], [i * 20, 0],
-#                                                [i * 20, 5], [-i * 20, 5], [-i * 20, 0]]))
-#            for i in range(1, n + 1)]
+shapes += [Polygon([w/2, i * 10] + np.float64([[-i * 20, -5], [i * 20, -5], [i * 20, 0],
+                                               [i * 20, 5], [-i * 20, 5], [-i * 20, 0]]))
+           for i in range(1, n + 1)]
 
 # shapes += [Polygon([w/4, i * 20] + np.float64([[i * 20, -10], [i * 50, -10], [i * 50, 0],
 #                                                [i * 50, 10], [i * 20, 10], [i * 20, 0]]))
 #            for i in range(1, n + 1)]
 
-# shapes += [Polygon(np.random.random_sample(2) * (w - 10, h - 10) +
-#                    [[0, 0], [35, 0], [35, 35], [0, 35]]) for i in range(n)]
+# shapes += [Polygon(np.random.random_sample(2) * (w - 10, h - 10) + [[0, 0], [35, 0], [35, 35], [0, 35]])
+#            for i in range(n)]
 
-lastupdate = time.time()
+if realtime:
+    lastupdate = time.time()
+else:
+    lastupdate = -1
 
 while True:
+    if np.any(np.isnan(refarray[:, 0])):
+        print("WURP")
     screen.fill(0)
     a, b = np.int32([(i, j) for i in range(len(shapes)) for j in range(len(shapes)) if j > max(i, 3)]).T
     arrowforce = (((K_RIGHT in keys) - (K_LEFT in keys)) * 2000, ((K_DOWN in keys) - (K_UP in keys)) * 2000)
     while lastupdate < time.time():
         shapes[-1].applyforce(arrowforce)
         # Leftmost, Upmost, Rightmost, Downmost reach of each Polygon (with the last one first as well)
-        lurd = np.float64([[*np.min(shapes[i].currvertices, axis=0), *np.max(shapes[i].currvertices, axis=0)]
+        # TODO: Find out where the nans in currvertices are coming from
+        #       (it looks like cut shapes spin off into the void)
+        lurd = np.float64([[*np.nanmin(shapes[i].currvertices, axis=0), *np.nanmax(shapes[i].currvertices, axis=0)]
                            for i in range(len(shapes))])
         # Check if any bounding boxes intersect in both x and y
         possibles = (~((lurd[a, 0] > lurd[b, 2]) | (lurd[a, 2] < lurd[b, 0])) &
@@ -292,7 +328,10 @@ while True:
             shapes[a[i]].collidepolygon(shapes[b[i]])
         for P in shapes:
             P.update()
-        lastupdate += deltaT
+        if realtime:
+            lastupdate += deltaT
+        else:
+            break
     for P in shapes[4:]:
         P.show()
     pygame.display.flip()
@@ -306,23 +345,4 @@ while True:
         elif e.type == KEYUP:
             keys.discard(e.key)
             if e.key == K_SPACE:
-                for i in range(len(shapes) - 4):
-                    shapes[4].snap(0, len(shapes[4].vertices) // 2)
-
-
-# Interesting but wrong thoughts
-
-# Vertex Inside    Outer Edge
-#     [m1]            [m2]
-#       o<-----ds----->|    - BEFORE (colliding, vertex past edge, inside shape)
-#  u1 <--           u2 = 0   |
-#      >F1>          <F2<   - CHANGE (force changes direction)
-#       --> v1    v2 <--     |
-#              |o           - AFTER  (separating, vertex is on edge)
-# ds = v1.dt - v2.dt, where ds is the distance to separate the point from inside the
-# m1.u1 + m2.u2 = m1.v1 + m2.v2, if momentum is to be conserved
-# therefore, after rearranging and combining:
-#     v1 = ((ds/dt) + u2 + (u1 . (m1/m2))) / (1 + (m1/m2))
-# which helps to get v1, which goes into:
-#     F1 = m1(v1 - u1) / dt
-#        = -F2
+                shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
