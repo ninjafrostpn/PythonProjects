@@ -296,8 +296,8 @@ class Polygon:
         # pygame.draw.line(screen, 255 << 16, self.centre, self.centre + [0, self.avel * 5])
         # pygame.draw.line(screen, 255 << 8, self.centre, self.centre + self.vel)
         # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), 3)
-        # for i in range(len(self.currnormals)):
-        #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i]))
+        for i in range(len(self.currnormals)):
+            pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i]))
 
     def snap(self, vertex1, vertex2):
         cv = np.copy(self.currvertices)
@@ -307,6 +307,13 @@ class Polygon:
                                        vel=self.vel.copy(), avel=self.avel, no=self.no))
         shapes.append(Polygon([*cv[:vertex1 + 1], *cv[vertex2:]], density=self.density,
                               vel=self.vel.copy(), avel=self.avel))
+
+    def cut(self, vec):
+        dp = np.sum((self.currvertices - self.centre) * vec, axis=1)
+        side1 = np.nonzero(dp >= 0)[0]
+        side2 = np.nonzero(dp < 0)[0]
+        cp = np.cross(self.currvertices - self.centre, vec)
+        self.snap(side1[np.argmin(np.abs(cp[side1]))], side2[np.argmin(np.abs(cp[side2]))])
 
     def changescale(self, factor):
         if factor != 1:
@@ -389,5 +396,6 @@ while True:
         elif e.type == KEYUP:
             keys.discard(e.key)
             if e.key == K_SPACE:
-                shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
+                shapes[-1].cut([0, 1])
+                # shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
     # time.sleep(pygame.mouse.get_pos()[0] / w)

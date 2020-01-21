@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add option to initially calculate Polygon variables essentially by method of squares">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Apparently fix the energy-from-nowhere bouncing for now by reducing bounciness a lot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -291,13 +291,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Start making a new vector field simulator">
-      <created>1557854701399</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1557854701400</updated>
     </task>
     <task id="LOCAL-00156" summary="Attempt to build hierarchical clustererer">
       <created>1557854756957</created>
@@ -635,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579611457678</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="Apparently fix the energy-from-nowhere bouncing for now by reducing bounciness a lot">
+      <created>1579621189042</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1579621189042</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -660,7 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Output example best speedster and custom combination" />
     <MESSAGE value="Start working on eye gesture tracking" />
     <MESSAGE value="Start working on physicsy bending thing" />
     <MESSAGE value="Capture some idea of how the physics could work" />
@@ -685,7 +684,8 @@
     <MESSAGE value="Reference all vertex positions into an array, correct inertia formula, add non-real-time mode" />
     <MESSAGE value="Add shape scaling facility and finally move shapes' centres to their centres of mass" />
     <MESSAGE value="Add option to initially calculate Polygon variables essentially by method of squares" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add option to initially calculate Polygon variables essentially by method of squares" />
+    <MESSAGE value="Apparently fix the energy-from-nowhere bouncing for now by reducing bounciness a lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apparently fix the energy-from-nowhere bouncing for now by reducing bounciness a lot" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -696,30 +696,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579611456756">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579621188114">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579611456756" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom" timestamp="1579621013047">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579621188114" />
+    <state width="619" height="145" key="GridCell.Tab.0.bottom" timestamp="1579623875948">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579621013047" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center" timestamp="1579621013046">
+    <state width="619" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579623875948" />
+    <state width="619" height="145" key="GridCell.Tab.0.center" timestamp="1579623875948">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579621013046" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left" timestamp="1579621013046">
+    <state width="619" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579623875948" />
+    <state width="619" height="145" key="GridCell.Tab.0.left" timestamp="1579623875948">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254239" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579621013046" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right" timestamp="1579621013047">
+    <state width="619" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579623875948" />
+    <state width="619" height="145" key="GridCell.Tab.0.right" timestamp="1579623875948">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579621013047" />
+    <state width="619" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579623875948" />
     <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579611460438">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
