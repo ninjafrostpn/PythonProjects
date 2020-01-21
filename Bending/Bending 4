@@ -42,7 +42,7 @@ fps = 300
 deltaT = 1 / fps
 
 airresist = 0.999
-bounciness = 0.5
+bounciness = 0.25
 gravity = 500
 
 keys = set()
@@ -263,7 +263,7 @@ class Polygon:
                 r = where - self.centre
                 # F = np.dot(r / np.linalg.norm(r), what) * (r / np.linalg.norm(r))
                 # Bounciness here is a fudge that seems to work. TODO: Find out why
-                T = np.cross(r, what)
+                T = np.cross(r, what * bounciness)
                 self.acc += what / self.mass
                 self.aacc += T / self.inertia
 
@@ -293,10 +293,11 @@ class Polygon:
             pygame.draw.polygon(screen, 255, self.currvertices, 1)
         except TypeError:
             print("BROKE")
-        pygame.draw.line(screen, 255 << 16, self.centre, self.centre + [0, self.avel * 10])
-        pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), 3)
-        for i in range(len(self.currnormals)):
-            pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i]))
+        # pygame.draw.line(screen, 255 << 16, self.centre, self.centre + [0, self.avel * 5])
+        # pygame.draw.line(screen, 255 << 8, self.centre, self.centre + self.vel)
+        # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), 3)
+        # for i in range(len(self.currnormals)):
+        #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i]))
 
     def snap(self, vertex1, vertex2):
         cv = np.copy(self.currvertices)
@@ -325,7 +326,7 @@ shapes = [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 
 n = 5
-shapemode = 2
+shapemode = 0
 if shapemode == 0:
     shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
                        np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
@@ -389,3 +390,4 @@ while True:
             keys.discard(e.key)
             if e.key == K_SPACE:
                 shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
+    # time.sleep(pygame.mouse.get_pos()[0] / w)
