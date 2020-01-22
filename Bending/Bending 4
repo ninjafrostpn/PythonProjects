@@ -1,4 +1,4 @@
-from cv2 import fillConvexPoly
+from cv2 import fillPoly
 import pygame
 from pygame.locals import *
 import numpy as np
@@ -57,7 +57,7 @@ squaresmethod = True
 
 class Polygon:
     # TODO: Add crushing and other functions for coolness
-    def __init__(self, vertices, density=0.001, opensides=None, vel=(0, 0), avel=0, no=None):
+    def __init__(self, vertices, density=1, opensides=None, vel=(0, 0), avel=0, no=None):
         if no is None:
             self.no = totshapes[0]
             totshapes[:] += 1
@@ -97,7 +97,7 @@ class Polygon:
             q = np.zeros(minmax[1] - minmax[0] + 1)
             # Use a well-optimised cv2 method to draw it (note that x and y coordinates are reversed for drawing,
             # but that the coordinates in the array are still [x, y] for our purposes later)
-            q = fillConvexPoly(q, (np.int32(self.vertices) - minmax[0])[:, ::-1], 1)
+            q = fillPoly(q, [(np.int32(self.vertices) - minmax[0])[:, ::-1]], 1)
             # Sum the coloured pixels for an estimate of area, multiply by density for mass
             self.area = np.sum(q)
             self.mass = self.area * self.density
@@ -254,18 +254,85 @@ class Polygon:
             P2.applyforce(-f1 * bounciness, collpos)
             return True
 
+    def collidepolygon2(self, other):
+        # TODO: Add Friction
+        # TODO: Find out why big flat surfaces bounce so much and triangles speen so much
+        # TODO: Find out how to stop shapes sneaking into each other at the corners
+        # TODO: Perhaps try to do this part before even marking the two polygons for collision
+        polys = [other, self]
+        inmask = [np.all((polys[k].currvertices > np.min(polys[k - 1].currvertices, axis=0)) &
+                         (polys[k].currvertices < np.max(polys[k - 1].currvertices, axis=0)), axis=1)
+                  for k in range(2)]
+        check = [polys[k - 1].checkpoints(polys[k].currvertices[inmask[k]], True) for k in range(2)]
+        f = np.zeros([0, 2], "float64")
+        fpos = np.zeros([0, 2], "float64")
+        for k in range(2):
+            if np.any(check[k][0]):
+                penside = check[k][1][check[k][0]]
+                pendepth = check[k][2][check[k][0]]
+                penvec = check[k][3][check[k][0]]
+                maxpenvec = penvec[np.argmin(pendepth)]
+                collpos = polys[k].currvertices[inmask[k]][check[k][0]] - penvec
+                P1 = polys[k]  # The polygon with the furthest incurring vertex
+                P2 = polys[k - 1]   # The polygon being poked by said vertex
+                # Move the object to the outside
+                if P1.mass == 0:
+                    P2.centre += maxpenvec
+                elif P2.mass == 0:
+                    P1.centre -= maxpenvec
+                else:
+                    P1.centre -= maxpenvec / 2
+                    P2.centre += maxpenvec / 2
+                # https://en.wikipedia.org/wiki/Angular_velocity#Particle_in_three_dimensions
+                P1collpos = collpos - P1.centre
+                P2collpos = collpos - P2.centre
+                P1rotvel = np.cross([0, 0, P1.avel], np.append(P1collpos, np.zeros([len(penvec), 1]), axis=1))[:, :2]
+                P2rotvel = np.cross([0, 0, P2.avel], np.append(P2collpos, np.zeros([len(penvec), 1]), axis=1))[:, :2]
+                relvel = P1.vel + P1rotvel - P2.vel - P2rotvel
+                contactspd = np.sum(relvel * P2.currnormals[penside], axis=1)  # u1 (u2 is set to 0 now)
+                # Weed out non-collisions
+                hitmask = (contactspd < 0)
+                if np.any(hitmask):
+                    if P1.mass == 0:
+                        # Invert the reference frame, so u2 = -u1_original, u1_new = 0
+                        # Rebound velocity, so v2 = -u2 = u1_original
+                        # v2 - u2 = 2 * u1_original
+                        # Get f1 by calculating -f2 (= f1)
+                        f1 = -(((P2.mass * 2 * contactspd[hitmask]) / deltaT) * P2.currnormals[penside][hitmask].T).T
+                    elif P2.mass == 0:
+                        # Rebound velocity, so v1 = -u1
+                        # v1 - u1 = -2 * u1
+                        f1 = -(((P1.mass * 2 * contactspd[hitmask]) / deltaT) * P2.currnormals[penside][hitmask].T).T
+                    else:
+                        finalspd = contactspd[hitmask] * (P1.mass - P2.mass) / (P1.mass + P2.mass)  # v1
+                        f1 = (((P1.mass * (finalspd - contactspd[hitmask])) / deltaT)
+                              * P2.currnormals[penside][hitmask].T).T
+                    f = np.append(f, f1 * (-1 if k == 0 else 1), axis=0)
+                    fpos = np.append(fpos, collpos[hitmask], axis=0)
+        if len(f) > 0:
+            self.applyforce(f * bounciness, fpos)
+            other.applyforce(-f * bounciness, fpos)
+            return True
+        return False
+
     def applyforce(self, what, where=None):
         if self.mass > 0:
             what = np.float64(what)
+            if len(what.shape) != 2:
+                what = np.reshape(what, [-1, 2])
             if where is None:
-                self.acc += what / self.mass
+                self.acc += np.sum(what, axis=0) / (self.mass * len(what))
             else:
+                where = np.float64(where)
+                if len(where.shape) != 2:
+                    where = np.reshape(where, [-1, 2])
                 r = where - self.centre
-                # F = np.dot(r / np.linalg.norm(r), what) * (r / np.linalg.norm(r))
+                # rhat = (r.T / np.linalg.norm(r, axis=1)).T
+                # F = (np.sum(rhat * what, axis=1) * rhat.T).T
                 # Bounciness here is a fudge that seems to work. TODO: Find out why
                 T = np.cross(r, what * bounciness)
-                self.acc += what / self.mass
-                self.aacc += T / self.inertia
+                self.acc += np.sum(what, axis=0) / (self.mass * len(what))
+                self.aacc += np.sum(T) / (self.inertia * len(what))
 
     def update(self):
         # Positional stuff
@@ -295,9 +362,9 @@ class Polygon:
             print("BROKE")
         # pygame.draw.line(screen, 255 << 16, self.centre, self.centre + [0, self.avel * 5])
         # pygame.draw.line(screen, 255 << 8, self.centre, self.centre + self.vel)
-        # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), 3)
-        for i in range(len(self.currnormals)):
-            pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i]))
+        # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), max(int(self.mass / 500), 1), 1)
+        # for i in range(len(self.currnormals)):
+        #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * 2))
 
     def snap(self, vertex1, vertex2):
         cv = np.copy(self.currvertices)
@@ -332,7 +399,7 @@ shapes = [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
           Polygon([[-100, 0], [-100, -100], [w + 100, -100], [w + 100, 0]], 0),
           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 
-n = 5
+n = 10
 shapemode = 0
 if shapemode == 0:
     shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
@@ -361,7 +428,7 @@ while True:
         print("WURP")
     screen.fill(0)
     a, b = np.int32([(i, j) for i in range(len(shapes)) for j in range(len(shapes)) if j > max(i, 3)]).T
-    arrowforce = (((K_RIGHT in keys) - (K_LEFT in keys)) * 2000, ((K_DOWN in keys) - (K_UP in keys)) * 2000)
+    arrowforce = (((K_RIGHT in keys) - (K_LEFT in keys)) * 2000000, ((K_DOWN in keys) - (K_UP in keys)) * 2000000)
     scalefactor = 1 + (((K_q in keys) - (K_a in keys)) / 100)
     while lastupdate < time.time():
         shapes[-1].applyforce(arrowforce)
@@ -376,7 +443,7 @@ while True:
         possibles = np.nonzero(possibles)[0]
         # print(a[possibles], b[possibles])
         for i in possibles:
-            shapes[a[i]].collidepolygon(shapes[b[i]])
+            shapes[a[i]].collidepolygon2(shapes[b[i]])
         for P in shapes:
             P.update()
         if realtime:
