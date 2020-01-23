@@ -182,6 +182,7 @@ class Polygon:
         return verdict
 
     def collidepolygon(self, other):
+        # Method which collides the deepest-incurring point
         # TODO: Add Friction
         # TODO: Find out why big flat surfaces bounce so much and triangles speen so much
         # TODO: Find out how to stop shapes sneaking into each other at the corners
@@ -255,6 +256,7 @@ class Polygon:
             return True
 
     def collidepolygon2(self, other):
+        # Method which collides every incurring point of each polygon
         # TODO: Add Friction
         # TODO: Find out why big flat surfaces bounce so much and triangles speen so much
         # TODO: Find out how to stop shapes sneaking into each other at the corners

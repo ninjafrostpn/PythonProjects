@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add method for cutting along a vector based at the com">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Implement alternative collision method which utilises every colliding point in each polygon involved in a collision">
+      <change afterPath="$PROJECT_DIR$/Bending/PolygonPartitioning.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -59,7 +60,7 @@
       <recent name="D:\Users\Charles Turvey\Documents\Python\Projects\Echosound" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Bending 4">
+  <component name="RunManager" selected="Python.PolygonPartitioning">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -78,27 +79,6 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
-    </configuration>
-    <configuration name="BasicThreader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Projects" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BasicThreader.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="Bending 4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
@@ -155,6 +135,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BehaviouralEcology/Shoal/CouzinShoalActual3D.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PolygonPartitioning" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\Program Files\Python343\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bending/PolygonPartitioning.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -251,18 +252,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Bending 4" />
-      <item itemvalue="Python.BasicThreader" />
       <item itemvalue="Python.TEMP" />
       <item itemvalue="Python.CouzinShoalActual3D" />
       <item itemvalue="Python.CouzinShoal3D" />
+      <item itemvalue="Python.PolygonPartitioning" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.PolygonPartitioning" />
         <item itemvalue="Python.Bending 4" />
         <item itemvalue="Python.CouzinShoal3D" />
         <item itemvalue="Python.CouzinShoalActual3D" />
         <item itemvalue="Python.TEMP" />
-        <item itemvalue="Python.BasicThreader" />
       </list>
     </recent_temporary>
   </component>
@@ -291,13 +292,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Correct some details in snek">
-      <created>1557854818622</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1557854818622</updated>
     </task>
     <task id="LOCAL-00158" summary="Attempt fourier transform detection of frequencies in sound bites">
       <created>1557854849117</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579624044186</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Implement alternative collision method which utilises every colliding point in each polygon involved in a collision">
+      <created>1579703743863</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1579703743863</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -660,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start working on physicsy bending thing" />
     <MESSAGE value="Capture some idea of how the physics could work" />
     <MESSAGE value="Get the objects moving (not colliding) according to the physics scheme" />
     <MESSAGE value="Get collision detection working" />
@@ -685,7 +685,8 @@
     <MESSAGE value="Add option to initially calculate Polygon variables essentially by method of squares" />
     <MESSAGE value="Apparently fix the energy-from-nowhere bouncing for now by reducing bounciness a lot" />
     <MESSAGE value="Add method for cutting along a vector based at the com" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add method for cutting along a vector based at the com" />
+    <MESSAGE value="Implement alternative collision method which utilises every colliding point in each polygon involved in a collision" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement alternative collision method which utilises every colliding point in each polygon involved in a collision" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -696,30 +697,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1577484014517" />
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579624043480">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579776052982">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579624043480" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom" timestamp="1579703334467">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579776052982" />
+    <state width="1259" height="145" key="GridCell.Tab.0.bottom" timestamp="1579809432085">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579703334467" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center" timestamp="1579703334467">
+    <state width="1259" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579809432085" />
+    <state width="1259" height="145" key="GridCell.Tab.0.center" timestamp="1579809432084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579703334467" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left" timestamp="1579703334467">
+    <state width="1259" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579809432084" />
+    <state width="1259" height="145" key="GridCell.Tab.0.left" timestamp="1579809432084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254239" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579703334467" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right" timestamp="1579703334467">
+    <state width="1259" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579809432084" />
+    <state width="1259" height="145" key="GridCell.Tab.0.right" timestamp="1579809432084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579703334467" />
+    <state width="1259" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579809432084" />
     <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579624048612">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
