@@ -30,6 +30,60 @@ def subdivide(vertices, maxlength):
     return vertices
 
 
+# This function cleaves polygons by their concave vertices into several convex polygons
+def convexify(vertices, polyno=0):
+    # Returns all significantly left-turning vertices in an otherwise right-turning clockwise-defined polygon
+    lefts = np.roll(np.cross(np.roll(vertices, -1, axis=0) - vertices,
+                             np.roll(vertices, -2, axis=0) - vertices) < -0.0001, 1)
+    if np.any(lefts):
+        left = np.nonzero(lefts)[0][0]
+        # https://stackoverflow.com/a/3252222
+        # The vertices anticlockwise and clockwise of the concave one
+        prevvec = vertices[left - 1] - vertices[left]
+        nextvec = vertices[left - (len(vertices) - 1)] - vertices[left]
+        # A vector representing a ray bisecting the interior angle of the concave vertex
+        da = -((np.linalg.norm(prevvec) * nextvec) + (np.linalg.norm(nextvec) * prevvec))
+        # Array of vectors pointing along each side
+        db = np.roll(vertices, -1, axis=0) - vertices
+        # Array of vectors pointing from each vertex of the polygon to the concave vertex
+        dp = vertices[left] - vertices
+        # Vector perpendicular to da
+        dap = (da * [1, -1])[::-1]
+        # Numerator and denominator of the fraction representing distance of bisector's intersection along the side
+        num = np.sum(dap * dp, axis=1)
+        denom = np.sum(dap * db, axis=1)
+        # Fraction is 0 at one bounding vertex, 1 at the other (therefore true intersection where 0 <= frac <= 1)
+        frac = num / denom
+        # Points of intersection between concave angle bisector and the sides/cuts
+        pts = (frac * db.T).T + vertices
+        # Distance of these points from the concave angle
+        r = np.sum(da * (pts - vertices[left]), axis=1)
+        # Intersections which are between the two bounding points and directed into the shape
+        goodptmask = (r > 0) & (frac <= 1) & (frac >= 0)
+        # print("OKAY", polyno)
+        if np.any(goodptmask):
+            # Index of the intersection closest to the concave vertex
+            closest = np.nonzero(goodptmask)[0][np.argmin(r[goodptmask])]
+            # print("Q", vertices, polyno)
+            # Split the process into two by splitting the polygon into two about the new cut at the concave vertex
+            if left < closest:
+                averts, apoly = convexify(np.append(vertices[left:closest + 1], [pts[closest]], axis=0), polyno)
+                bverts, bpoly = convexify(np.concatenate([[pts[closest]], vertices[closest:], vertices[:left + 1]],
+                                                         axis=0),
+                                          max(apoly) + 1)
+            else:
+                averts, apoly = convexify(np.append([pts[closest]], vertices[closest:left + 1], axis=0), polyno)
+                bverts, bpoly = convexify(np.concatenate([vertices[left:], vertices[:closest + 1], [pts[closest]]],
+                                                         axis=0),
+                                          max(apoly) + 1)
+            # print("A", averts)
+            # print("B", bverts)
+            # print("D", np.float64([*averts, *bverts]), polyno)
+            return np.float64([*averts, *bverts]), np.int32([*apoly, *bpoly])
+    # print("C", vertices, polyno)
+    return vertices, np.ones(len(vertices), "int32") * polyno
+
+
 w, h = 500, 250
 screensize = np.int32((w, h))
 screen = pygame.display.set_mode(screensize)
@@ -139,6 +193,8 @@ class Polygon:
         # Move the centre to the centre of mass
         self.vertices -= centreofmass
         self.centre += centreofmass
+        self.temp = convexify(self.vertices)
+        print(self.temp[1])
         # Make the array of current vertex positions
         self.currvertices = refarray[self.no, :len(self.vertices)]
         self.currvertices[:] = self.vertices + self.centre
@@ -367,6 +423,10 @@ class Polygon:
         # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), max(int(self.mass / 500), 1), 1)
         # for i in range(len(self.currnormals)):
         #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * 2))
+        for i in range(max(self.temp[1]) + 1):
+            # print(self.temp2 == i)
+            pygame.draw.lines(screen, 255 << 16, True,
+                              self.centre + np.dot(R(self.ang), self.temp[0][self.temp[1] == i].T).T)
 
     def snap(self, vertex1, vertex2):
         cv = np.copy(self.currvertices)
