@@ -6,6 +6,11 @@ import time
 
 pygame.init()
 
+w, h = 500, 250
+screensize = np.int32((w, h))
+screen = pygame.display.set_mode(screensize)
+textfont = pygame.font.Font(None, 20)
+
 # https://en.wikipedia.org/wiki/Rotation_matrix
 # Matrix for rotating a 2D vector widdershins by angle theta
 R = lambda theta: np.sin((np.float64([[0.5, 1], [0, 0.5]]) * np.pi) + theta)
@@ -31,62 +36,71 @@ def subdivide(vertices, maxlength):
 
 
 # This function cleaves polygons by their concave vertices into several convex polygons
-def convexify(vertices, polyno=0):
+def convexify(vertices, polyno=0, analysis=False):
     # Returns all significantly left-turning vertices in an otherwise right-turning clockwise-defined polygon
     lefts = np.roll(np.cross(np.roll(vertices, -1, axis=0) - vertices,
-                             np.roll(vertices, -2, axis=0) - vertices) < -0.0001, 1)
+                             np.roll(vertices, -2, axis=0) - vertices) < -0.000001, 1)
+    if analysis:
+        screen.fill(0)
+        pygame.draw.lines(screen, 255 << 16, True, (screensize / 2) + vertices)
+        for i in range(0, len(vertices), 10):
+            pygame.draw.circle(screen, 255 << 8, np.int32((screensize / 2) + vertices[i]), 2, 1)
+            screen.blit(textfont.render(str(i), True, (255, 255, 255)), vertices[i] + (screensize / 2) - [20, 0])
+        pygame.display.flip()
+        time.sleep(1)
     if np.any(lefts):
-        left = np.nonzero(lefts)[0][0]
-        # https://stackoverflow.com/a/3252222
-        # The vertices anticlockwise and clockwise of the concave one
-        prevvec = vertices[left - 1] - vertices[left]
-        nextvec = vertices[left - (len(vertices) - 1)] - vertices[left]
-        # A vector representing a ray bisecting the interior angle of the concave vertex
-        da = -((np.linalg.norm(prevvec) * nextvec) + (np.linalg.norm(nextvec) * prevvec))
-        # Array of vectors pointing along each side
-        db = np.roll(vertices, -1, axis=0) - vertices
-        # Array of vectors pointing from each vertex of the polygon to the concave vertex
-        dp = vertices[left] - vertices
-        # Vector perpendicular to da
-        dap = (da * [1, -1])[::-1]
-        # Numerator and denominator of the fraction representing distance of bisector's intersection along the side
-        num = np.sum(dap * dp, axis=1)
-        denom = np.sum(dap * db, axis=1)
-        # Fraction is 0 at one bounding vertex, 1 at the other (therefore true intersection where 0 <= frac <= 1)
-        frac = num / denom
-        # Points of intersection between concave angle bisector and the sides/cuts
-        pts = (frac * db.T).T + vertices
-        # Distance of these points from the concave angle
-        r = np.sum(da * (pts - vertices[left]), axis=1)
-        # Intersections which are between the two bounding points and directed into the shape
-        goodptmask = (r > 0) & (frac <= 1) & (frac >= 0)
-        # print("OKAY", polyno)
-        if np.any(goodptmask):
-            # Index of the intersection closest to the concave vertex
-            closest = np.nonzero(goodptmask)[0][np.argmin(r[goodptmask])]
-            # print("Q", vertices, polyno)
-            # Split the process into two by splitting the polygon into two about the new cut at the concave vertex
-            if left < closest:
-                averts, apoly = convexify(np.append(vertices[left:closest + 1], [pts[closest]], axis=0), polyno)
-                bverts, bpoly = convexify(np.concatenate([[pts[closest]], vertices[closest:], vertices[:left + 1]],
-                                                         axis=0),
-                                          max(apoly) + 1)
-            else:
-                averts, apoly = convexify(np.append([pts[closest]], vertices[closest:left + 1], axis=0), polyno)
-                bverts, bpoly = convexify(np.concatenate([vertices[left:], vertices[:closest + 1], [pts[closest]]],
-                                                         axis=0),
-                                          max(apoly) + 1)
-            # print("A", averts)
-            # print("B", bverts)
-            # print("D", np.float64([*averts, *bverts]), polyno)
-            return np.float64([*averts, *bverts]), np.int32([*apoly, *bpoly])
+        for left in np.nonzero(lefts)[0]:
+            if analysis:
+                pygame.draw.circle(screen, 255 << 16, np.int32((screensize / 2) + vertices[left]), 5, 1)
+                pygame.display.flip()
+                time.sleep(1)
+            # https://stackoverflow.com/a/3252222
+            # The vertices anticlockwise and clockwise of the concave one
+            prevvec = vertices[left - 1] - vertices[left]
+            nextvec = vertices[left - (len(vertices) - 1)] - vertices[left]
+            # A vector representing a ray bisecting the interior angle of the concave vertex
+            da = -((np.linalg.norm(prevvec) * nextvec) + (np.linalg.norm(nextvec) * prevvec))
+            # Array of vectors pointing along each side
+            db = np.roll(vertices, -1, axis=0) - vertices
+            # Array of vectors pointing from each vertex of the polygon to the concave vertex
+            dp = vertices[left] - vertices
+            # Vector perpendicular to da
+            dap = (da * [1, -1])[::-1]
+            # Numerator and denominator of the fraction representing distance of bisector's intersection along the side
+            num = np.sum(dap * dp, axis=1)
+            denom = np.sum(dap * db, axis=1)
+            # Fraction is 0 at one bounding vertex, 1 at the other (therefore true intersection where 0 <= frac <= 1)
+            frac = num / denom
+            # Points of intersection between concave angle bisector and the sides/cuts
+            pts = (frac * db.T).T + vertices
+            # Distance of these points from the concave angle
+            r = np.sum(da * (pts - vertices[left]), axis=1)
+            # Intersections which are between the two bounding points and directed into the shape
+            goodptmask = (r > 0) & (frac <= 1) & (frac >= 0)
+            # print("OKAY", polyno)
+            # print(left, frac, r, goodptmask, sep="\n")
+            if np.any(goodptmask):
+                # Index of the intersection closest to the concave vertex
+                closest = np.nonzero(goodptmask)[0][np.argmin(r[goodptmask])]
+                # print("Q", vertices, polyno)
+                # Split the process into two by splitting the polygon into two about the new cut at the concave vertex
+                if left < closest:
+                    averts, apoly = convexify(np.append(vertices[left:closest + 1], [pts[closest]], axis=0), polyno)
+                    bverts, bpoly = convexify(np.concatenate([[pts[closest]], vertices[closest:], vertices[:left + 1]],
+                                                             axis=0),
+                                              max(apoly) + 1)
+                else:
+                    averts, apoly = convexify(np.append([pts[closest]], vertices[closest:left + 1], axis=0), polyno)
+                    bverts, bpoly = convexify(np.concatenate([vertices[left:], vertices[:closest + 1], [pts[closest]]],
+                                                             axis=0),
+                                              max(apoly) + 1)
+                # print("A", averts)
+                # print("B", bverts)
+                # print("D", np.float64([*averts, *bverts]), polyno)
+                return np.float64([*averts, *bverts]), np.int32([*apoly, *bpoly])
     # print("C", vertices, polyno)
     return vertices, np.ones(len(vertices), "int32") * polyno
 
-
-w, h = 500, 250
-screensize = np.int32((w, h))
-screen = pygame.display.set_mode(screensize)
 
 # If True, it tries to keep the physics up with real time, freezing when it can't catch up
 # If False, it runs without regard for time, lagging behind or passing ahead of real time according to calculation speed
@@ -194,13 +208,13 @@ class Polygon:
         self.vertices -= centreofmass
         self.centre += centreofmass
         self.temp = convexify(self.vertices)
-        print(self.temp[1])
+        # print(self.temp[1])
         # Make the array of current vertex positions
         self.currvertices = refarray[self.no, :len(self.vertices)]
         self.currvertices[:] = self.vertices + self.centre
         refarray[self.no, len(self.vertices):] = np.nan
         self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
-        print(self.mass, self.inertia, len(self.vertices), self.radius)
+        # print(self.mass, self.inertia, len(self.vertices), self.radius)
         # This variable will be used later for constructing concave shapes
         # if opensides is not None:
         #     self.opensides = opensides
@@ -438,6 +452,7 @@ class Polygon:
                               vel=self.vel.copy(), avel=self.avel))
 
     def cut(self, vec):
+        # TODO: Fix this to work with non-convex polygons and always produce simple polygons as a result
         dp = np.sum((self.currvertices - self.centre) * vec, axis=1)
         side1 = np.nonzero(dp >= 0)[0]
         side2 = np.nonzero(dp < 0)[0]
@@ -461,8 +476,8 @@ shapes = [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
           Polygon([[-100, 0], [-100, -100], [w + 100, -100], [w + 100, 0]], 0),
           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 
-n = 10
-shapemode = 0
+n = 5
+shapemode = 5
 if shapemode == 0:
     shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
                        np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
@@ -479,6 +494,16 @@ elif shapemode == 2:
 elif shapemode == 3:
     shapes += [Polygon(np.random.random_sample(2) * (w - 10, h - 10) + [[0, 0], [35, 0], [35, 35], [0, 35]])
                for i in range(n)]
+elif shapemode == 4:
+    shapes += [Polygon([w * ((i + 1) / (n + 1)), h / 2] + np.float64([[-50, -50], [10, -50], [10, 40], [50, 40],
+                                                                      [50, 50], [-10, 50], [-10, -40], [-50, -40]]))
+               for i in range(n)]
+elif shapemode == 5:
+    shapes += [Polygon(([[50 * np.cos((np.pi / 180) * t * 2),
+                          50 * np.sin((np.pi / 180) * t * 2)] for t in range(45, 0, -1)] +
+                        [[50 * np.cos((np.pi / 180) * t * 2),
+                          50 * np.sin((np.pi / 180) * t * 2) + 30] for t in range(45)]) +
+                       + screensize / 2)]
 
 if realtime:
     lastupdate = time.time()
