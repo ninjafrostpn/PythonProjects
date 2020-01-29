@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Add function which splits simple shapes into convex components">
+    <list default="true" id="c82e4147-4549-4859-a33f-827810c1dc5f" name="Default" comment="Fix convexification function so that it deals with every concave vertex, instead of failing after one failed cut&#10;Also add some non-convex shapemodes for testing, and a breakdown mode for the convexification process">
+      <change afterPath="$PROJECT_DIR$/Tools/SotonBuildingShower.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bending/Bending 4" beforeDir="false" afterPath="$PROJECT_DIR$/Bending/Bending 4" afterDir="false" />
     </list>
@@ -163,7 +164,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TEMP" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SotonBuildingShower" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -175,7 +176,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEMP.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tools/SotonBuildingShower.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -254,15 +255,15 @@
       <item itemvalue="Python.CouzinShoal3D" />
       <item itemvalue="Python.CouzinShoalActual3D" />
       <item itemvalue="Python.PolygonPartitioning" />
-      <item itemvalue="Python.TEMP" />
+      <item itemvalue="Python.SotonBuildingShower" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Bending 4" />
+        <item itemvalue="Python.SotonBuildingShower" />
         <item itemvalue="Python.PolygonPartitioning" />
         <item itemvalue="Python.CouzinShoal3D" />
         <item itemvalue="Python.CouzinShoalActual3D" />
-        <item itemvalue="Python.TEMP" />
       </list>
     </recent_temporary>
   </component>
@@ -291,13 +292,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1427556227392</updated>
-    </task>
-    <task id="LOCAL-00160" summary="Add graphical output for tracking evolution">
-      <created>1557858768404</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1557858768404</updated>
     </task>
     <task id="LOCAL-00161" summary="Have evolving creatures reproduce">
       <created>1558277432003</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579830429849</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="Fix convexification function so that it deals with every concave vertex, instead of failing after one failed cut&#10;Also add some non-convex shapemodes for testing, and a breakdown mode for the convexification process">
+      <created>1579874258971</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1579874258971</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -660,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Get collision detection working" />
     <MESSAGE value="Do some really rudimentary collision resolution" />
     <MESSAGE value="Clean up extraneous code" />
     <MESSAGE value="Start building non-sandy-looking sandbox" />
@@ -685,7 +685,8 @@
     <MESSAGE value="Implement alternative collision method which utilises every colliding point in each polygon involved in a collision" />
     <MESSAGE value="Add demonstration of an algorithm which splits simple polygons into convex polygonal components" />
     <MESSAGE value="Add function which splits simple shapes into convex components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add function which splits simple shapes into convex components" />
+    <MESSAGE value="Fix convexification function so that it deals with every concave vertex, instead of failing after one failed cut&#10;Also add some non-convex shapemodes for testing, and a breakdown mode for the convexification process" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix convexification function so that it deals with every concave vertex, instead of failing after one failed cut&#10;Also add some non-convex shapemodes for testing, and a breakdown mode for the convexification process" />
   </component>
   <component name="WindowStateProjectService">
     <state x="400" y="145" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578774202984">
@@ -696,34 +697,34 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="70" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1579833172441" />
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579830429062">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2" timestamp="1579878890778">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579830429062" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom" timestamp="1579874024564">
+    <state x="0" y="0" width="1280" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579878890778" />
+    <state width="1259" height="145" key="GridCell.Tab.0.bottom" timestamp="1580299060284">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.bottom/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579874024564" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center" timestamp="1579874024562">
+    <state width="1259" height="145" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580299060284" />
+    <state width="1259" height="145" key="GridCell.Tab.0.center" timestamp="1580299060284">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.center/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579874024562" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left" timestamp="1579874024562">
+    <state width="1259" height="145" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580299060284" />
+    <state width="1259" height="145" key="GridCell.Tab.0.left" timestamp="1580299060284">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.left/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254239" />
-    <state width="1259" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579874024562" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right" timestamp="1579874024562">
+    <state width="1259" height="145" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580299060284" />
+    <state width="1259" height="145" key="GridCell.Tab.0.right" timestamp="1580299060284">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="148" key="GridCell.Tab.0.right/0.0.1280.680/-1440.0.1440.860@0.0.1280.680" timestamp="1579147254240" />
-    <state width="1259" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579874024562" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579830433831">
+    <state width="1259" height="145" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580299060284" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579874261854">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1579830433831" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1579874261854" />
     <state x="-16" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1579363485812">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

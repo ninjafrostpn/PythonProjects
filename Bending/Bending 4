@@ -13,7 +13,13 @@ textfont = pygame.font.Font(None, 20)
 
 # https://en.wikipedia.org/wiki/Rotation_matrix
 # Matrix for rotating a 2D vector widdershins by angle theta
-R = lambda theta: np.sin((np.float64([[0.5, 1], [0, 0.5]]) * np.pi) + theta)
+rotate = lambda theta: np.sin((np.float64([[0.5, 1], [0, 0.5]]) * np.pi) + theta)
+# Matrix for shearing
+shear = lambda x=0, y=0: [[1, x], [y, 1]]
+# Matrix for squeezing
+squeeze = lambda k: [[k, 0], [0, 1/k]]
+# Matrix for scaling
+scale = lambda x=1, y=1: [[x, 0], [0, y]]
 
 
 # This function chops up sides until they're smaller than a certain size
@@ -36,7 +42,11 @@ def subdivide(vertices, maxlength):
 
 
 # This function cleaves polygons by their concave vertices into several convex polygons
-def convexify(vertices, polyno=0, analysis=False):
+def convexify(vertices, polyno=0, intverts=None, analysis=False):
+    # This keeps track of all the vertices which are POINTING INTO the shape
+    # (i.e. introspect points; widdershins boundaries of internal sides)
+    if intverts is None:
+        intverts = [False] * len(vertices)
     # Returns all significantly left-turning vertices in an otherwise right-turning clockwise-defined polygon
     lefts = np.roll(np.cross(np.roll(vertices, -1, axis=0) - vertices,
                              np.roll(vertices, -2, axis=0) - vertices) < -0.000001, 1)
@@ -85,21 +95,45 @@ def convexify(vertices, polyno=0, analysis=False):
                 # print("Q", vertices, polyno)
                 # Split the process into two by splitting the polygon into two about the new cut at the concave vertex
                 if left < closest:
-                    averts, apoly = convexify(np.append(vertices[left:closest + 1], [pts[closest]], axis=0), polyno)
-                    bverts, bpoly = convexify(np.concatenate([[pts[closest]], vertices[closest:], vertices[:left + 1]],
-                                                             axis=0),
-                                              max(apoly) + 1)
+                    averts, anorms, apolynos, aintverts = convexify(np.concatenate([vertices[left:closest + 1],
+                                                                                    [pts[closest]]],
+                                                                                   axis=0),
+                                                                    polyno,
+                                                                    intverts[left:closest + 1] + [True])
+                    bverts, bnorms, bpolynos, bintverts = convexify(np.concatenate([[pts[closest]],
+                                                                                    vertices[closest + 1:],
+                                                                                    vertices[:left + 1]],
+                                                                                   axis=0),
+                                                                    max(apolynos) + 1,
+                                                                    [intverts[closest]] +
+                                                                    intverts[closest + 1:] +
+                                                                    intverts[:left] +
+                                                                    [True])
                 else:
-                    averts, apoly = convexify(np.append([pts[closest]], vertices[closest:left + 1], axis=0), polyno)
-                    bverts, bpoly = convexify(np.concatenate([vertices[left:], vertices[:closest + 1], [pts[closest]]],
-                                                             axis=0),
-                                              max(apoly) + 1)
-                # print("A", averts)
-                # print("B", bverts)
-                # print("D", np.float64([*averts, *bverts]), polyno)
-                return np.float64([*averts, *bverts]), np.int32([*apoly, *bpoly])
-    # print("C", vertices, polyno)
-    return vertices, np.ones(len(vertices), "int32") * polyno
+                    averts, anorms, apolynos, aintverts = convexify(np.concatenate([vertices[left:],
+                                                                                    vertices[:closest + 1],
+                                                                                    [pts[closest]]],
+                                                                                   axis=0),
+                                                                    polyno,
+                                                                    intverts[left:] +
+                                                                    intverts[:closest + 1] +
+                                                                    [True])
+                    bverts, bnorms, bpolynos, bintverts = convexify(np.concatenate([[pts[closest]],
+                                                                                    vertices[closest + 1:left + 1]],
+                                                                                   axis=0),
+                                                                    max(apolynos) + 1,
+                                                                    [intverts[closest]] +
+                                                                    intverts[closest + 1:left] +
+                                                                    [True])
+                return (np.float64([*averts, *bverts]), np.float64([*anorms, *bnorms]),
+                        np.int32([*apolynos, *bpolynos]), [*aintverts, *bintverts])
+    # Vectors pointing clockwise from each vertex (with a z dimension of 0
+    tangents = np.append(np.roll(vertices, -1, axis=0) - vertices,
+                         np.zeros([len(vertices), 1]), axis=1)
+    # Vectors pointing outward from the side clockwise of each vertex
+    normals = np.cross(tangents, [0, 0, 1], axisa=1)[:, :2]
+    normals = (normals.T / np.linalg.norm(normals, axis=1)).T
+    return vertices, normals, np.ones(len(vertices), "int32") * polyno, intverts
 
 
 # If True, it tries to keep the physics up with real time, freezing when it can't catch up
@@ -142,13 +176,6 @@ class Polygon:
         self.vertices = subdivide(np.float64(vertices), 5)
         self.centre = np.mean(self.vertices, axis=0)
         self.vertices -= self.centre
-        # Vectors pointing clockwise from each vertex (with a z dimension of 0
-        tangents = np.float64([[*(self.vertices[(i + 1) % len(self.vertices)] - self.vertices[i]), 0]
-                               for i in range(len(self.vertices))])
-        # Vectors pointing outward from the side clockwise of each vertex
-        self.normals = np.cross(tangents, [0, 0, 1], axisa=1)[:, :2]
-        self.normals = (self.normals.T / np.linalg.norm(self.normals, axis=1)).T
-        self.currnormals = self.normals.copy()
         # For convex shape, look at pairs of adjacent vertices with average of all vertices to form triangles
         # Find areas and centres of these triangles -> sum of areas * density for mass
         #                                              weighted average by [area * density] for com
@@ -207,19 +234,23 @@ class Polygon:
         # Move the centre to the centre of mass
         self.vertices -= centreofmass
         self.centre += centreofmass
-        self.temp = convexify(self.vertices)
-        # print(self.temp[1])
+        # Breaks the polygon up into convex subpolygons, giving:
+        #   - a new set of vertices relative to the centre
+        #   - the normals for these vertices, set perpendicular to (and outward of) the subpolygon side they sit ccw of
+        #   - the ids of the subpolygons that the vertex-normal pair belong to
+        #     (some vertices are duplicated but have different normals, since they belong to a different subpolygon)
+        #   - an array identifying the introspect vertices (those which define the ccw boundary of internal sides)
+        self.vertices, self.normals, self.subpolynos, self.intverts = convexify(self.vertices)
+        self.intverts = np.bool_(self.intverts)
+        self.subpolysidenos = np.bincount(self.subpolynos)
+        print(max(self.subpolynos) + 1)
+        self.currnormals = self.normals.copy()
         # Make the array of current vertex positions
         self.currvertices = refarray[self.no, :len(self.vertices)]
         self.currvertices[:] = self.vertices + self.centre
         refarray[self.no, len(self.vertices):] = np.nan
         self.radius = np.max(np.linalg.norm(self.vertices, axis=1))
         # print(self.mass, self.inertia, len(self.vertices), self.radius)
-        # This variable will be used later for constructing concave shapes
-        # if opensides is not None:
-        #     self.opensides = opensides
-        # else:
-        #     self.opensides = []
 
     def checkpoints(self, points, getpen=False, getbadvals=False):
         if len(points) == 0:
@@ -234,25 +265,41 @@ class Polygon:
         pendepth = np.sum((np.repeat(points, len(self.currvertices), axis=0)
                            - np.tile(self.currvertices.T, len(points)).T)
                           * np.tile(self.currnormals.T, len(points)).T, axis=1).reshape(len(points), -1)
-        verdict = np.all(pendepth <=0, axis=1)
+        # Identifies, for each point, which polygon(s) it is inside, if any
+        subpolyverdict = [self.subpolysidenos == np.bincount(self.subpolynos, pendepth[i] <=0)
+                          for i in range(len(points))]
+        # If the point in question is inside any subpolygon, it is inside the polygon
+        verdict = np.any(subpolyverdict, axis=1)
         if getpen:
+            # Eliminates the penetration depths for subpolygons the points are not actually inside...
+            for i in range(len(points)):
+                pendepth[i][np.isin(self.subpolynos, np.nonzero(subpolyverdict[i])[0], invert=True)] = np.nan
+            # ...and for internal sides...
+            pendepth[:, self.intverts] = np.nan
+            # ...and for side-vertex pairs where the vertex is not on the in-side of the side
+            pendepth[pendepth > 0] = np.nan
+            # Initialise
+            penside = np.zeros(len(points), "int32")
+            minpendepth = np.zeros(len(points), "float64")
+            penvec = np.zeros((len(points), 2), "float64")
+            notnanmask = ~np.all(np.isnan(pendepth), axis=1)
             # Find the side of smallest penetration depth for each point (i.e. the side they're closest to)
-            # (Should this incorporate some idea of entry direction?)
-            penside = np.argmax(np.minimum(pendepth, 0), axis=1)
+            penside[notnanmask] = np.nanargmax(pendepth[notnanmask], axis=1)
             # And expose the smallest penetration depth (note that this is negative), or nan if none, of each point
-            minpendepth = pendepth[np.arange(0, len(points)), penside]
+            minpendepth[notnanmask] = pendepth[notnanmask][np.arange(0, np.sum(notnanmask)), penside[notnanmask]]
+            # print(minpendepth, verdict, self.no)
             # Direction and magnitude of penetrations as vectors
-            penvec = (self.currnormals[penside].T * minpendepth).T
+            penvec[notnanmask] = (self.currnormals[penside[notnanmask]].T * minpendepth[notnanmask]).T
             if not getbadvals:
-                penside[~verdict] = -1
-                minpendepth[~verdict] = np.nan
-                penvec[~verdict] = np.nan
+                penside[~notnanmask | ~verdict] = -1
+                minpendepth[~notnanmask | ~verdict] = np.nan
+                penvec[~notnanmask | ~verdict] = np.nan
             ret = [verdict, penside, minpendepth, penvec]
             return ret
         return verdict
 
     def collidepolygon(self, other):
-        # Method which collides the deepest-incurring point
+        # Method which collides the deepest-incurring point (currently disused)
         # TODO: Add Friction
         # TODO: Find out why big flat surfaces bounce so much and triangles speen so much
         # TODO: Find out how to stop shapes sneaking into each other at the corners
@@ -340,14 +387,17 @@ class Polygon:
         fpos = np.zeros([0, 2], "float64")
         for k in range(2):
             if np.any(check[k][0]):
+                # print(check)
                 penside = check[k][1][check[k][0]]
                 pendepth = check[k][2][check[k][0]]
                 penvec = check[k][3][check[k][0]]
                 maxpenvec = penvec[np.argmin(pendepth)]
-                collpos = polys[k].currvertices[inmask[k]][check[k][0]] - penvec
                 P1 = polys[k]  # The polygon with the furthest incurring vertex
                 P2 = polys[k - 1]   # The polygon being poked by said vertex
+                collpos = P1.currvertices[inmask[k]][check[k][0]] - penvec
                 # Move the object to the outside
+                # for ai, bi in zip(collpos, penvec):
+                #     pygame.draw.line(screen, (255, 255, 0), ai, ai - (bi * 1000))
                 if P1.mass == 0:
                     P2.centre += maxpenvec
                 elif P2.mass == 0:
@@ -389,15 +439,13 @@ class Polygon:
 
     def applyforce(self, what, where=None):
         if self.mass > 0:
-            what = np.float64(what)
-            if len(what.shape) != 2:
-                what = np.reshape(what, [-1, 2])
+            what = np.reshape(np.float64(what), [-1, 2])
+            # pygame.draw.line(screen, (255, 255, 255), screensize / 2,
+            #                  (screensize / 2) + np.sum(what, axis=0) / (10000 * len(what)))
             if where is None:
                 self.acc += np.sum(what, axis=0) / (self.mass * len(what))
             else:
-                where = np.float64(where)
-                if len(where.shape) != 2:
-                    where = np.reshape(where, [-1, 2])
+                where = np.reshape(np.float64(where), [-1, 2])
                 r = where - self.centre
                 # rhat = (r.T / np.linalg.norm(r, axis=1)).T
                 # F = (np.sum(rhat * what, axis=1) * rhat.T).T
@@ -411,6 +459,7 @@ class Polygon:
         if self.mass != 0:
             self.acc[1] += gravity
         self.vel += self.acc * deltaT
+        # pygame.draw.line(screen, (255, 0, 255), screensize / 2, (screensize / 2) + self.vel)
         self.centre += self.vel * deltaT
         self.acc[:] = 0
         self.vel *= airresist
@@ -420,27 +469,41 @@ class Polygon:
         self.ang %= 2 * np.pi
         self.aacc = 0
         self.avel *= airresist
-        rotmat = R(self.ang)
+        rotmat = rotate(self.ang)
         self.currvertices[:] = self.centre + np.dot(rotmat, self.vertices.T).T
         self.currnormals = np.dot(rotmat, self.normals.T).T
+        # self.currsubpolyvertices[:] = self.centre + np.dot(rotmat, self.subpolyvertices.T).T
+        # self.currsubpolynormals = np.dot(rotmat, self.subpolynormals.T).T
 
     def show(self):
+        # Polygon in original orientation overlaid on current version with coms aligned
         # pygame.draw.polygon(screen, 255, self.centre + self.vertices, 1)
-        # print(self.currvertices.shape, self.currvertices.dtype, type(self.currvertices),
-        #       np.any(np.isnan(self.currvertices)), np.nanmax(self.currvertices), self.no)
+        # Polygon, in current orientation. Kinda the point of this whole program.
         try:
-            pygame.draw.polygon(screen, 255, self.currvertices, 1)
+            pygame.draw.polygon(screen, 255, self.currvertices[~self.intverts], 1)
         except TypeError:
+            # If something goes wrong with one of the shapes, the whole thing doesn't necessarily crash
             print("BROKE")
+            pygame.draw.circle(screen, (255, 255, 255), np.int32(self.centre), 10)
+        # Line indicator of angular velocity, based at com of polygon
         # pygame.draw.line(screen, 255 << 16, self.centre, self.centre + [0, self.avel * 5])
+        # Line indicator of (x, y) velocity, based at com of polygon
         # pygame.draw.line(screen, 255 << 8, self.centre, self.centre + self.vel)
+        # Circle at com with size relative to mass of polygon
         # pygame.draw.circle(screen, 255 << 16, np.int32(self.centre), max(int(self.mass / 500), 1), 1)
-        # for i in range(len(self.currnormals)):
-        #     pygame.draw.line(screen, 255 << 8, self.currvertices[i], self.currvertices[i] + (self.currnormals[i] * 2))
-        for i in range(max(self.temp[1]) + 1):
-            # print(self.temp2 == i)
-            pygame.draw.lines(screen, 255 << 16, True,
-                              self.centre + np.dot(R(self.ang), self.temp[0][self.temp[1] == i].T).T)
+        # Lines showing directions of polygon's exterior normals
+        # for i in range(np.sum(~self.intverts)):
+        #     pygame.draw.line(screen, 255 << 8,
+        #                      self.currvertices[~self.intverts][i],
+        #                      self.currvertices[~self.intverts][i] + (self.currnormals[~self.intverts][i] * 2))
+        # Outlines of the various convex subpolygons that make up the polygon...
+        # for i in range(max(self.subpolynos) + 1):
+        #     mask = self.subpolynos == i
+        #     pygame.draw.lines(screen, 255 << 16, True, self.currvertices[mask])
+        #     # ...and their associated normals
+        #     for j in range(np.sum(mask)):
+        #         pygame.draw.line(screen, 255 << 8, self.currsubpolyvertices[mask][j],
+        #                          self.currsubpolyvertices[mask][j] + (self.currsubpolynormals[mask][j] * 10))
 
     def snap(self, vertex1, vertex2):
         cv = np.copy(self.currvertices)
@@ -459,12 +522,12 @@ class Polygon:
         cp = np.cross(self.currvertices - self.centre, vec)
         self.snap(side1[np.argmin(np.abs(cp[side1]))], side2[np.argmin(np.abs(cp[side2]))])
 
-    def changescale(self, factor):
-        if factor != 1:
-            cv = ((self.currvertices - self.centre) * factor) + self.centre
-            shapes.remove(self)
-            shapes.insert(self.no, Polygon(cv, density=self.density / (factor ** 2),
-                                           vel=self.vel.copy(), avel=self.avel, no=self.no))
+    def applymatrix(self, mat):
+        cv = np.dot(mat, (self.currvertices - self.centre).T).T + self.centre
+        factor = np.linalg.det(mat)
+        shapes.remove(self)
+        shapes.insert(self.no, Polygon(cv, density=self.density / (factor ** 2),
+                                       vel=self.vel.copy(), avel=self.avel, no=self.no))
 
 
 # Note to self, adding points in the middle of sides helps (stops equal-sized blocks sliding through each other)
@@ -476,8 +539,8 @@ shapes = [Polygon([[0, -100], [0, h + 100], [-100, h + 100], [-100, -100]], 0),
           Polygon([[-100, 0], [-100, -100], [w + 100, -100], [w + 100, 0]], 0),
           Polygon([[-100, h], [w + 100, h], [w + 100, h + 100], [-100, h + 100]], 0)]
 
-n = 5
-shapemode = 5
+n = 4
+shapemode = 4
 if shapemode == 0:
     shapes += [Polygon(np.random.random_sample(2) * (w - 100, h - 100) + 50 +
                        np.float64([np.sin([((t / i) + 0.25) * 2 * np.pi, (t / i) * 2 * np.pi]) * r * 10
@@ -510,17 +573,16 @@ if realtime:
 else:
     lastupdate = -1
 
+# time.sleep(30)
+
 while True:
     if np.any(np.isnan(refarray[:, 0])):
         print("WURP")
     screen.fill(0)
     a, b = np.int32([(i, j) for i in range(len(shapes)) for j in range(len(shapes)) if j > max(i, 3)]).T
     arrowforce = (((K_RIGHT in keys) - (K_LEFT in keys)) * 2000000, ((K_DOWN in keys) - (K_UP in keys)) * 2000000)
-    scalefactor = 1 + (((K_q in keys) - (K_a in keys)) / 100)
     while lastupdate < time.time():
         shapes[-1].applyforce(arrowforce)
-        if scalefactor != 1:
-            shapes[-1].changescale(scalefactor)
         # Leftmost, Upmost, Rightmost, Downmost reach of each Polygon (with the last one first as well)
         lurd = np.float64([[*np.nanmin(shapes[i].currvertices, axis=0), *np.nanmax(shapes[i].currvertices, axis=0)]
                            for i in range(len(shapes))])
@@ -537,6 +599,8 @@ while True:
             lastupdate += deltaT
         else:
             break
+    # burp = shapes[-1].checkpoints([pygame.mouse.get_pos()])
+    # print(burp)
     for P in shapes[4:]:
         P.show()
     pygame.display.flip()
@@ -552,4 +616,12 @@ while True:
             if e.key == K_SPACE:
                 shapes[-1].cut([0, 1])
                 # shapes[-1].snap(0, len(shapes[-1].vertices) // 2)
+            if e.key == K_f:
+                shapes[-1].applymatrix(shear(0.1))
+            if e.key == K_g:
+                shapes[-1].applymatrix(squeeze(1.1))
+            if e.key == K_q:
+                shapes[-1].applymatrix(scale(1.05, 1.05))
+            if e.key == K_a:
+                shapes[-1].applymatrix(scale(0.95, 0.95))
     # time.sleep(pygame.mouse.get_pos()[0] / w)
