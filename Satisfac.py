@@ -274,6 +274,8 @@ miscParts = {"ailimiter", "alcladaluminiumsheet", "aluminiumcasing", "aluminiumi
              "rubber", "screw", "silica", "smokelesspowder", "stator", "steelbeam", "steelingot", "steelpipe",
              "supercomputer", "turbomotor", "wire"}
 allParts = basicResourceParts | spaceElevatorParts | fluidParts | equipmentParts | radioactiveParts | miscParts
+allPartsList = sorted(allParts)
+print(len(allParts), "parts available")
 
 makeableParts = spaceElevatorParts | equipmentParts | fluidParts | (radioactiveParts ^ {"uranium"}) | miscParts
 unsinkableParts = fluidParts | (radioactiveParts ^ {"plutoniumfuelrod", "uranium"})
@@ -292,7 +294,7 @@ recipeFormatRegex = (r"[a-zA-Z\d\s()-]+\s?:\s?"
 
 
 class Recipe:
-    def __init__(self, recipeString):
+    def __init__(self, recipeString, recipeHeritage=None):
         self.recipeString = recipeString
         # Pretty loosely defined recipe input; just has to be:
         # "[RecipeName]:[N1][ingredient1][N2][ingredient2]...:[N3][Output3][N4][Output4]...:[OutputRate]:[BuildingType]"
@@ -308,23 +310,31 @@ class Recipe:
         recipeSections = self.recipeStringSanitised.split(":")[1:]
 
         # Parse Input Parts
-        self.inputParts = {i[1]: float(i[0]) for i in re.findall(r"(\d+)([a-z-]+)", recipeSections[0])}
-        if not set(self.inputParts.keys()).issubset(allParts):
+        self.inputPartsDict = {i[1]: float(i[0]) for i in re.findall(r"([\d.]+)([a-z-]+)", recipeSections[0])}
+        if not set(self.inputPartsDict).issubset(allParts):
             raise BadRecipeException("Stated input parts - \"%s\" - not in accepted list of parts"
-                                     % set(self.inputParts.keys()).difference(allParts))
+                                     % set(self.inputPartsDict).difference(allParts))
+        self.inputPartsArray = np.zeros(len(allParts), "float64")
+        for part in self.inputPartsDict:
+            self.inputPartsArray[allPartsList.index(part)] = self.inputPartsDict[part]
+
         # Parse Output Parts
-        self.outputParts = {i[1]: float(i[0]) for i in re.findall(r"(\d+)([a-z-]+)", recipeSections[1])}
-        if not set(self.outputParts.keys()).issubset(makeableParts | {"dummy"}):
-            if not set(self.outputParts.keys()).issubset(allParts):
+        self.outputPartsDict = {i[1]: float(i[0]) for i in re.findall(r"([\d.]+)([a-z-]+)", recipeSections[1])}
+        if not set(self.outputPartsDict).issubset(makeableParts | {"dummy"}):
+            if not set(self.outputPartsDict).issubset(allParts):
                 raise BadRecipeException("Stated output parts - \"%s\" - not in accepted list of parts"
-                                         % set(self.outputParts.keys()).difference(allParts))
+                                         % set(self.outputPartsDict).difference(allParts))
             raise BadRecipeException("Stated output parts - \"%s\" - not in accepted list of makeable parts"
-                                     % set(self.outputParts.keys()).difference(makeableParts))
-        for part in self.outputParts.keys():
+                                     % set(self.outputPartsDict).difference(makeableParts))
+        for part in self.outputPartsDict:
             try:
-                recipeOutputDict[part].add(self)
+                recipeOutputDict[part].append(self)
             except KeyError:
-                recipeOutputDict[part] = {self}
+                recipeOutputDict[part] = [self]
+        self.outputPartsArray = np.zeros(len(allParts), "float64")
+        for part in self.outputPartsDict:
+            if part != "dummy":
+                self.outputPartsArray[allPartsList.index(part)] = self.outputPartsDict[part]
 
         # print(self.recipeInputs, self.recipeOutputs)
         self.outputRate = float(recipeSections[2])
@@ -334,12 +344,15 @@ class Recipe:
                                      % self.recipeString.split(":")[4])
         self.inputRecipes = None
         self.inputResources = None
+        self.recipeHeritage = recipeHeritage
         recipeBook.add(self)
+
+    def __lt__(self, other):
+        return self.name < other.name
 
     def findDependencies(self, recipesFound=None, resourcesFound=None, decisionPointsFound=None, deadEndsFound=None,
                          availableResources=None, availableBuildings=None, level=0):
-        # TODO: Should probably only keep accessible recipes in recipesFound and only declare decision points where multiple recipes accessible with given resources/buildings
-        print(("| " * level) + self.name, len(recipesFound) if recipesFound is not None else 0)
+        print(("| " * level) + self.name)
         if availableBuildings is None:
             availableBuildings = buildingTypes
         if availableResources is None:
@@ -354,8 +367,7 @@ class Recipe:
             decisionPointsFound = set()
         if deadEndsFound is None:
             deadEndsFound = set()
-        recipesFound.add(self)
-        for part in self.inputParts.keys():
+        for part in sorted(self.inputPartsDict):
             print(("| " * (level + 1)) + "needs " + part)
             if part in deadEndsFound:
                 print(("| " * (level + 2)) + "part known to be unobtainable")
@@ -369,35 +381,38 @@ class Recipe:
                     print(("| " * (level + 1)) + "cannot make recipe due to unavailability of", part)
                     return "UNMAKEABLE", None, None, None
             else:
-                if (len(recipeOutputDict[part]) > 1) and (part not in decisionPointsFound):
-                    decisionPointsFound.add(part)
-                    print(("| " * (level + 2)) + "DECISION POINT %s: %s recipes for %s"
-                          % (len(decisionPointsFound), len(recipeOutputDict[part]), part))
-                partIsMakeable = False
+                waysToMakePart = 0
                 for recipe in recipeOutputDict[part]:
                     if recipe.building in (availableBuildings | {"dummy"}):
-                        self.inputRecipes.add(recipe)
                         if recipe in recipesFound:
-                            partIsMakeable = True
+                            waysToMakePart += 1
                             print(("| " * (level + 2)) + "already got recipe:", recipe.name)
                         else:
                             newRecipesFound, newResourcesFound, newDecisionPointsFound, newDeadendsFound \
-                                = recipe.findDependencies(recipesFound, resourcesFound,
+                                = recipe.findDependencies(recipesFound | {self}, resourcesFound,
                                                           decisionPointsFound, deadEndsFound,
                                                           availableResources, availableBuildings, level + 2)
                             if newRecipesFound != "UNMAKEABLE":
-                                partIsMakeable = True
-                                recipesFound |= newRecipesFound
+                                self.inputRecipes.add(recipe)
+                                waysToMakePart += 1
+                                recipesFound |= newRecipesFound.difference({self})
                                 resourcesFound |= newResourcesFound
                                 decisionPointsFound |= newDecisionPointsFound
                                 deadEndsFound |= newDeadendsFound
                     else:
                         print(("| " * (level + 2)) + recipe.name, "not makeable as", recipe.building,
                               "unavailable")
-                if not partIsMakeable:
+                if waysToMakePart > 1:
+                    if part not in decisionPointsFound:
+                        decisionPointsFound.add(part)
+                        print(("| " * (level + 2)) + "DECISION POINT %s: %s recipes for %s"
+                              % (len(decisionPointsFound), len(recipeOutputDict[part]), part))
+                elif waysToMakePart == 0:
                     print(("| " * (level + 1)) + "recipe not makeable as no recipes for", part, "are makeable")
                     deadEndsFound.add(part)
                     return "UNMAKEABLE", None, None, None
+        # Add recipe to found list if it's definitely useful
+        recipesFound.add(self)
         return recipesFound, resourcesFound, decisionPointsFound, deadEndsFound
 
 
@@ -406,19 +421,78 @@ for line in recipeSheet.split("\n")[1:-1]:
 print(len(recipeBook), "recipes available")
 
 
-def optimise(outputParts, availableResources=None, availableBuildings=None):
+basicResourceMask = np.zeros(len(allParts), "bool")
+for part in basicResourceParts:
+    basicResourceMask[allPartsList.index(part)] = 1
+
+
+def optimise(outputParts, availableResources=None, availableBuildings=None, silence=False):
     if type(outputParts) == str:
         outputParts = [outputParts]
     outputParts = [part.lower().replace(" ", "") for part in outputParts]
     dummyRecipe = Recipe("RECIPE TO OPTIMISE:"
                          + "".join(["1"+part for part in outputParts]) + ":"
                          + "1dummy:1:dummy")
-    recipesFound, resourcesFound, decisionPointsFound, deadEndsFound\
+    recipesFound, resourcesFound, decisionPointsFound, deadEndsFound \
         = dummyRecipe.findDependencies(availableResources=availableResources, availableBuildings=availableBuildings)
-    print(len(recipesFound), "recipes discovered for use")
+    recipesFound.remove(dummyRecipe)
+    print(len(recipesFound), "recipes discovered for use:", sorted([recipe.name for recipe in recipesFound]))
     print(len(resourcesFound), "resource requirements discovered:", ", ".join(resourcesFound))
     print(len(decisionPointsFound), "decision points discovered:", ", ".join(decisionPointsFound))
+    # Dict of recipes used in this tree, listed by outputs
+    currentRecipeOutputDict = {}
+    for recipe in recipesFound:
+        for part in recipe.outputPartsDict:
+            try:
+                currentRecipeOutputDict[part].append(recipe)
+            except KeyError:
+                currentRecipeOutputDict[part] = [recipe]
+    # Ordered list of said recipes, for use with...
+    recipesFoundList = sorted(recipesFound)
+    # ... The usage rates of said recipes (effectively number of buildings running that recipe at 100%)
+    recipeUsageArray = np.zeros(len(recipesFoundList), "float64")
+    # Dict of relative production rates used by competing recipes (1:1:1 means each recipe contributes 1/3) by part
+    decisionPointLevels = {part: np.ones(len(currentRecipeOutputDict[part]), "float64") for part in decisionPointsFound}
+    # Working array of values representing part input numbers needed by recipes added to the chain thus far
+    requirements = np.zeros(len(allPartsList), "float64")
+    for part in outputParts:
+        requirements[allPartsList.index(part)] += 1
+    lowestMaxResourceRequirement = 1e100
+    while np.any((requirements > 0) * ~basicResourceMask):
+        partIndex = np.argmax(requirements * (requirements > 0) * ~basicResourceMask)
+        part = allPartsList[partIndex]
+        amountNeeded = requirements[partIndex]
+        print(amountNeeded, part, "needed >>")
+        # Gotta stop somewhere...
+        if amountNeeded < 1e-100:
+            print("Actually, close enough.")
+            break
+        if part in decisionPointsFound:
+            for i, recipe in enumerate(currentRecipeOutputDict[part]):
+                moreRecipeUsage = (amountNeeded
+                                   * (decisionPointLevels[part][i] / sum(decisionPointLevels[part]))
+                                   / recipe.outputPartsArray[partIndex])
+                recipeUsageArray[recipesFoundList.index(recipe)] += moreRecipeUsage
+                requirements += (recipe.inputPartsArray - recipe.outputPartsArray) * moreRecipeUsage
+        else:
+            recipe = currentRecipeOutputDict[part][0]
+            moreRecipeUsage = amountNeeded / recipe.outputPartsArray[partIndex]
+            recipeUsageArray[recipesFoundList.index(recipe)] += moreRecipeUsage
+            requirements += (recipe.inputPartsArray - recipe.outputPartsArray) * moreRecipeUsage
+        print(requirements[partIndex], part)
+    print("\nFinal Buildings List:")
+    for usage, recipe in zip(recipeUsageArray, recipesFoundList):
+        print(usage, recipe.building, "buildings for", recipe.name)
+    print("\nRequires (per unit production per minute):")
+    for i in np.nonzero((requirements > 0) * basicResourceMask)[0]:
+        print(requirements[i], allPartsList[i])
+    if np.any(requirements < 0):
+        print("\nByproducts:")
+        for i in np.nonzero(requirements < 0)[0]:
+            print(-requirements[i], allPartsList[i])
 
 
-optimise("iron plate",
-         availableBuildings={"smelter", "foundry", "constructor", "assembler", "manufacturer"})
+optimise({"supercomputer"},
+         #availableResources={"copperore", "ironore", "coal", "sulphur"},
+         availableBuildings={"smelter", "foundry", "constructor", "assembler", "manufacturer", "refinery", "packager"}
+         )
