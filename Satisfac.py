@@ -46,6 +46,8 @@ class BadRecipeException(Exception):
     pass
 
 
+rng = np.random.default_rng()
+
 # Recipes found downwards from Supercomputer, working through all recipes producing first part input to last recipe of
 # previous part, working upwards through recipe list to find new parts for which recipes not listed
 recipeSheet = """
@@ -426,7 +428,9 @@ for part in basicResourceParts:
     basicResourceMask[allPartsList.index(part)] = 1
 
 
-def optimise(outputParts, availableResources=None, availableBuildings=None, silence=False):
+# TODO: make resource extractin rate allow for varying maximums among resources
+def optimise(outputParts, availableResources=None, availableBuildings=None, nonLimitingResources={"water"},
+             resourceExtractionRate=1, resolution=1e-20):
     if type(outputParts) == str:
         outputParts = [outputParts]
     outputParts = [part.lower().replace(" ", "") for part in outputParts]
@@ -443,56 +447,129 @@ def optimise(outputParts, availableResources=None, availableBuildings=None, sile
     currentRecipeOutputDict = {}
     for recipe in recipesFound:
         for part in recipe.outputPartsDict:
+            # Don't include the recipe as the producer of a part if it's actually a net sink!
+            if part in recipe.inputPartsDict:
+                if recipe.inputPartsDict[part] - recipe.outputPartsDict[part] > 0:
+                    continue
             try:
                 currentRecipeOutputDict[part].append(recipe)
             except KeyError:
                 currentRecipeOutputDict[part] = [recipe]
-    # Ordered list of said recipes, for use with...
+    # Ordered list of said recipes, for use with recipeUsageArray
     recipesFoundList = sorted(recipesFound)
-    # ... The usage rates of said recipes (effectively number of buildings running that recipe at 100%)
-    recipeUsageArray = np.zeros(len(recipesFoundList), "float64")
-    # Dict of relative production rates used by competing recipes (1:1:1 means each recipe contributes 1/3) by part
-    decisionPointLevels = {part: np.ones(len(currentRecipeOutputDict[part]), "float64") for part in decisionPointsFound}
-    # Working array of values representing part input numbers needed by recipes added to the chain thus far
-    requirements = np.zeros(len(allPartsList), "float64")
+    # The starting point for requirements (see below)
+    startingRequirements = np.zeros(len(allPartsList), "float64")
     for part in outputParts:
-        requirements[allPartsList.index(part)] += 1
-    lowestMaxResourceRequirement = 1e100
-    while np.any((requirements > 0) * ~basicResourceMask):
-        partIndex = np.argmax(requirements * (requirements > 0) * ~basicResourceMask)
-        part = allPartsList[partIndex]
-        amountNeeded = requirements[partIndex]
-        print(amountNeeded, part, "needed >>")
-        # Gotta stop somewhere...
-        if amountNeeded < 1e-100:
-            print("Actually, close enough.")
-            break
-        if part in decisionPointsFound:
-            for i, recipe in enumerate(currentRecipeOutputDict[part]):
-                moreRecipeUsage = (amountNeeded
-                                   * (decisionPointLevels[part][i] / sum(decisionPointLevels[part]))
-                                   / recipe.outputPartsArray[partIndex])
+        startingRequirements[allPartsList.index(part)] += 1
+
+    # Ordered list of found decision points (to make below code deterministic)
+    decisionPointsFoundList = sorted(decisionPointsFound)
+    # Flattened array of below dict
+    decisionPointLevelsFlattened = rng.random(sum([len(currentRecipeOutputDict[part])
+                                                   for part in decisionPointsFoundList]), "float64")
+    decisionPointLevelsFlattenedRecipes = []
+    # Dict of relative production rates used by competing recipes (1:1:1 means each recipe contributes 1/3) by part
+    # It's made in this weird way to retain the references between the array and dict
+    decisionPointLevels = {}
+    i = 0
+    for part in decisionPointsFoundList:
+        decisionPointLevelsFlattenedRecipes += currentRecipeOutputDict[part]
+        decisionPointLevels[part] = decisionPointLevelsFlattened[i: i + len(currentRecipeOutputDict[part])]
+        i += len(currentRecipeOutputDict[part])
+    # The most efficient recipe will use as little of the maximum used thing (usually discluding water) as possible
+    lowestMaxResourceRequirement = (1e100, None, None)
+    limitingResourceMask = np.zeros(len(allParts), "bool")
+    for part in (basicResourceParts.difference(nonLimitingResources)):
+        limitingResourceMask[allPartsList.index(part)] = 1
+    # Variables for seeking best
+    varying = 0
+    startDelta = 0.1
+    delta = startDelta
+    attempts = 1
+    while True:
+        # The usage rates of recipes (effectively number of buildings running that recipe at 100%)
+        recipeUsageArray = np.zeros(len(recipesFoundList), "float64")
+        # Working array of values representing part input numbers needed by recipes added to the chain thus far
+        requirements = startingRequirements.copy()
+        # Todo: convert this to test many starting values at once
+        while np.any((requirements > 0) * ~basicResourceMask):
+            partIndex = np.argmax(requirements * (requirements > 0) * ~basicResourceMask)
+            part = allPartsList[partIndex]
+            amountNeeded = requirements[partIndex]
+            # print(amountNeeded, part, "needed >>")
+            # Gotta stop somewhere...
+            if amountNeeded < resolution:
+                # print("Actually, close enough.")
+                break
+            if part in decisionPointsFound:
+                for i, recipe in enumerate(currentRecipeOutputDict[part]):
+                    moreRecipeUsage = (amountNeeded
+                                       * (decisionPointLevels[part][i] / sum(decisionPointLevels[part]))
+                                       / recipe.outputPartsArray[partIndex])
+                    recipeUsageArray[recipesFoundList.index(recipe)] += moreRecipeUsage
+                    requirements += (recipe.inputPartsArray - recipe.outputPartsArray) * moreRecipeUsage
+            else:
+                recipe = currentRecipeOutputDict[part][0]
+                moreRecipeUsage = amountNeeded / recipe.outputPartsArray[partIndex]
                 recipeUsageArray[recipesFoundList.index(recipe)] += moreRecipeUsage
                 requirements += (recipe.inputPartsArray - recipe.outputPartsArray) * moreRecipeUsage
+            # print(requirements[partIndex], part)
+        thisScore = np.max(requirements * limitingResourceMask)
+        if thisScore < lowestMaxResourceRequirement[0] or attempts == 1:
+            lowestMaxResourceRequirement = (thisScore,
+                                            allPartsList[np.argmax(requirements * limitingResourceMask)],
+                                            decisionPointLevelsFlattened.copy(),
+                                            attempts)
+            if attempts > 1:
+                print("-" if delta < 0 else "+", abs(delta), decisionPointLevelsFlattenedRecipes[varying].name, ">>",
+                      lowestMaxResourceRequirement[:2], list(decisionPointLevelsFlattened))
+            if decisionPointLevelsFlattened[varying] % 1 == 0:
+                delta = startDelta
+                varying += 1
         else:
-            recipe = currentRecipeOutputDict[part][0]
-            moreRecipeUsage = amountNeeded / recipe.outputPartsArray[partIndex]
-            recipeUsageArray[recipesFoundList.index(recipe)] += moreRecipeUsage
-            requirements += (recipe.inputPartsArray - recipe.outputPartsArray) * moreRecipeUsage
-        print(requirements[partIndex], part)
+            decisionPointLevelsFlattened[:] = lowestMaxResourceRequirement[2][:]
+            if delta == startDelta:
+                delta = -startDelta
+            elif abs(delta) < resolution:
+                delta = startDelta
+                varying += 1
+            else:
+                delta *= -0.1
+        varying %= len(decisionPointLevelsFlattened)
+
+        # Some sanitisation steps
+        decisionPointLevelsFlattened[decisionPointLevelsFlattened < resolution] = 0
+        decisionPointLevelsFlattened[(1 - decisionPointLevelsFlattened) < resolution] = 1
+        for part in decisionPointsFoundList:
+            decisionPointLevels[part] /= np.max(decisionPointLevels[part][:])
+        decisionPointLevelsFlattened[varying] = np.minimum(np.maximum(decisionPointLevelsFlattened[varying] + delta,
+                                                                      0), 1)
+        decisionPointLevelsFlattened /= np.max(decisionPointLevelsFlattened)
+        # print(delta, varying, decisionPointLevelsFlattened[varying])
+        attempts += 1
+        if attempts % 1e4 == 0:
+            print(attempts)
+        if (attempts - lowestMaxResourceRequirement[3]) > (len(decisionPointLevelsFlattened) + 1) * 1e3:
+            break
+    print("\nFinal Production Rate:")
+    productionRate = resourceExtractionRate / lowestMaxResourceRequirement[0]
+    print(productionRate)
     print("\nFinal Buildings List:")
-    for usage, recipe in zip(recipeUsageArray, recipesFoundList):
+    for usage, recipe in zip(recipeUsageArray * productionRate, recipesFoundList):
         print(usage, recipe.building, "buildings for", recipe.name)
     print("\nRequires (per unit production per minute):")
     for i in np.nonzero((requirements > 0) * basicResourceMask)[0]:
-        print(requirements[i], allPartsList[i])
+        print(requirements[i] * productionRate, allPartsList[i])
     if np.any(requirements < 0):
         print("\nByproducts:")
         for i in np.nonzero(requirements < 0)[0]:
-            print(-requirements[i], allPartsList[i])
+            print(-requirements[i] * productionRate, allPartsList[i])
 
 
 optimise({"supercomputer"},
-         #availableResources={"copperore", "ironore", "coal", "sulphur"},
-         availableBuildings={"smelter", "foundry", "constructor", "assembler", "manufacturer", "refinery", "packager"}
+         availableResources={"copperore", "ironore", "coal", "sulphur", "cateriumore", "water", "crudeoil",
+                             "rawquartz", "limestone"},
+         availableBuildings={"smelter", "foundry", "constructor", "assembler", "manufacturer", "refinery", "packager"},
+         resourceExtractionRate=270,
+         resolution=1e-20,
          )
